@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """
 /***************************************************************************
  Networks
@@ -19,21 +20,42 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
- This script initializes the plugin, making it known to QGIS.
 """
 
 __author__ = 'Patrick Palmier'
 __date__ = '2018-02-26'
 __copyright__ = '(C) 2018 by Patrick Palmier'
 
+# This will get replaced with a git SHA1 when you do a git archive
 
-# noinspection PyPep8Naming
-def classFactory(iface):  # pylint: disable=invalid-name
-    """Load Networks class from file Networks.
+__revision__ = '$Format:%H$'
 
-    :param iface: A QGIS interface instance.
-    :type iface: QgsInterface
-    """
-    #
-    from .networks import NetworksPlugin
-    return NetworksPlugin(iface)
+import os
+import sys
+import inspect
+
+from qgis.core import QgsProcessingAlgorithm, QgsApplication
+from qgis.PyQt.QtWidgets import QApplication,QMenu,QAction
+from qgis.PyQt.QtGui import QIcon
+
+from .networks_provider import NetworksProvider
+
+cmd_folder = os.path.split(inspect.getfile(inspect.currentframe()))[0]
+
+if cmd_folder not in sys.path:
+    sys.path.insert(0, cmd_folder)
+
+
+class NetworksPlugin():
+
+    def __init__(self,iface):
+        self.provider = NetworksProvider(iface)
+        self.iface=iface
+
+    def initGui(self):
+        QgsApplication.processingRegistry().addProvider(self.provider)
+ 
+		
+
+    def unload(self):
+        QgsApplication.processingRegistry().removeProvider(self.provider)

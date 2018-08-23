@@ -1,405 +1,1003 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="en">
+<!DOCTYPE TS><TS version="2.0">
 <context>
-    <name>&amp;Networks</name>
+    <name>AjoutChamp</name>
     <message>
-        <location filename="reseaux.py" line="136"/>
-        <source>&amp;Networks</source>
-        <translation>&amp;Networks</translation>
+        <location filename="ajout_champ.py" line="95"/>
+        <source>Field</source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Build graph</name>
     <message>
-        <location filename="reseaux.py" line="77"/>
-        <source>Build graph</source>
-        <translation>Build graph</translation>
+        <location filename="ajout_champ.py" line="105"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="113"/>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="124"/>
+        <source>Precision</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="136"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="150"/>
+        <source>Formula</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="208"/>
+        <source>updating field...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="210"/>
+        <source>updating field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="269"/>
+        <source>
+        Add or update a field in a Qgis layer from an expression formula on a set of rows
+        
+        Parameters:
+            layer&#xa0;: a vector layer
+            field&#xa0;: name of the field to update or name of the new field
+            type&#xa0;: field data type (if new field)
+            size&#xa0;: field size (if new field)
+            precision&#xa0;: field precision (if new field and real type)
+            filter: expression determining which rows will be updated
+            formula&#xa0;: expression that will be written in the field( for filtered rows only)
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="86"/>
+        <source>Layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="238"/>
+        <source>Update field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="245"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="reseaux.py" line="238"/>
+        <location filename="creer_graphe.py" line="213"/>
         <source>Building graph</source>
-        <translation>Building graph</translation>
-    </message>
-</context>
-<context>
-    <name>Connect</name>
-    <message>
-        <location filename="reseaux.py" line="1080"/>
-        <source>Connect</source>
-        <translation>Connect</translation>
-    </message>
-    <message>
-        <location filename="ui_connect.py" line="54"/>
-        <source>Connect points</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="ui_connect.py" line="55"/>
-        <source>500</source>
-        <translation>500</translation>
-    </message>
-    <message>
-        <location filename="ui_connect.py" line="56"/>
-        <source>Point layer:</source>
-        <translation>Point layer:</translation>
-    </message>
-    <message>
-        <location filename="ui_connect.py" line="57"/>
-        <source>Search radius:</source>
-        <translation>Search radius:</translation>
-    </message>
-</context>
-<context>
-    <name>Empty selection</name>
-    <message>
-        <location filename="reseaux.py" line="306"/>
-        <source>Empty selection</source>
-        <translation>Empty selection</translation>
-    </message>
-</context>
-<context>
-    <name>Help</name>
-    <message>
-        <location filename="reseaux.py" line="95"/>
-        <source>Help</source>
-        <translation>Help</translation>
-    </message>
-</context>
-<context>
-    <name>Interpolating...</name>
-    <message>
-        <location filename="reseaux.py" line="385"/>
-        <source>Interpolating...</source>
-        <translation type="obsolete">Interpolating...</translation>
-    </message>
-</context>
-<context>
-    <name>Isobands</name>
-    <message>
-        <location filename="reseaux.py" line="993"/>
-        <source>Isobands</source>
-        <translation>Isobands</translation>
-    </message>
-</context>
-<context>
-    <name>Isopoly</name>
-    <message>
-        <location filename="ui_isopoly.py" line="84"/>
-        <source>Isolines generation</source>
-        <translation>Isolines generation</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="85"/>
-        <source>Min:</source>
-        <translation>Min:</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="86"/>
-        <source>Max:</source>
-        <translation>Max:</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="87"/>
-        <source>Step:</source>
-        <translation>Step:</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="88"/>
-        <source>Object type</source>
-        <translation>Object type</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="89"/>
-        <source>Polyline</source>
-        <translation>Polyline</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="90"/>
-        <source>Polygon</source>
-        <translation>Polygon</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="91"/>
-        <source>Band:</source>
-        <translation>Band:</translation>
-    </message>
-    <message>
-        <location filename="ui_isopoly.py" line="92"/>
-        <source>Save as...</source>
-        <translation>Save as...</translation>
-    </message>
-</context>
-<context>
-    <name>Linear interpolation</name>
-    <message>
-        <location filename="reseaux.py" line="991"/>
-        <source>Linear interpolation</source>
-        <translation>Linear interpolation</translation>
-    </message>
-</context>
-<context>
-    <name>LinearInterpolationDialogBase</name>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="173"/>
-        <source>Linear Interpolation</source>
-        <translation>Linear interpolation</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="175"/>
-        <source>200</source>
-        <translation>200</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="176"/>
-        <source>Taking into account impassibility?</source>
-        <translation>Taking into account impassibility?</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="177"/>
-        <source>Start node cost:</source>
-        <translation>Start node cost:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="178"/>
-        <source>End node cost:</source>
-        <translation>End node cost:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="179"/>
-        <source>Flow direction:</source>
-        <translation>Flow direction:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="180"/>
-        <source>Side of diffusion:</source>
-        <translation>Side of spread:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="181"/>
-        <source>Impassability:</source>
-        <translation>Impassability:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="182"/>
-        <source>Pixel nb (X):</source>
-        <translation>Pixel nb (X):</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="183"/>
-        <source>500</source>
-        <translation>500</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="184"/>
-        <source>Pixel nb (Y):</source>
-        <translation>Pixel nb (Y):</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="185"/>
-        <source>Pixel size (X):</source>
-        <translation>Pixel size (X):</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="186"/>
-        <source>Pixel size(Y):</source>
-        <translation>Pixel size (Y):</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="187"/>
-        <source>Search radius:</source>
-        <translation>Search radius:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="188"/>
-        <source>Add raster to current map?</source>
-        <translation>Add raster to current map?</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="189"/>
-        <source>Diffusion speed:</source>
-        <translation>Spread speed:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="190"/>
-        <source>4</source>
-        <translation>4</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="191"/>
-        <source>Variable diffusion speed:</source>
-        <translation>Variable spread speed:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="192"/>
-        <source>From start to end</source>
-        <translation>From start to end:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="193"/>
-        <source>From end to start</source>
-        <translation>From end to start:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="194"/>
-        <source>Decimals:</source>
-        <translation>Decimals:</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="195"/>
-        <source>5</source>
-        <translation>5</translation>
-    </message>
-    <message>
-        <location filename="ui_linear_interpolation.py" line="196"/>
-        <source>Save raster as...</source>
-        <translation>Save raster as...</translation>
-    </message>
-</context>
-<context>
-    <name>No active layer</name>
-    <message>
-        <location filename="reseaux.py" line="1080"/>
-        <source>No active layer</source>
-        <translation>No active layer</translation>
-    </message>
-    <message>
-        <location filename="reseaux.py" line="993"/>
-        <source>No Active layer</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Reverse</name>
+    <name>ConcatReseaux</name>
     <message>
-        <location filename="reseaux.py" line="281"/>
-        <source>Reverse</source>
-        <translation>Reverse</translation>
+        <location filename="concat_reseaux.py" line="81"/>
+        <source>Network files elements</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="87"/>
+        <source>Global network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="162"/>
+        <source>
+        Concatenate Musliw networks elements,
+<byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
+        
+        Parameters:
+            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>musliw_file: name of the global network file (txt)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="139"/>
+        <source>Concatenate networks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="146"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Reverse polyline directions</name>
+    <name>ConnecteursGeo</name>
     <message>
-        <location filename="reseaux.py" line="265"/>
-        <source>Reverse polyline directions</source>
-        <translation>Reverse polyline directions</translation>
+        <location filename="connecteurs_geo.py" line="93"/>
+        <source>Stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="100"/>
+        <source>Stop_id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="108"/>
+        <source>i-text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="115"/>
+        <source>i-mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="122"/>
+        <source>Nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="129"/>
+        <source>node_id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="137"/>
+        <source>j-text</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="144"/>
+        <source>j-mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="151"/>
+        <source>Radius(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="161"/>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="171"/>
+        <source>Maximum number</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="181"/>
+        <source>Connectors file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="226"/>
+        <source>length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="227"/>
+        <source>time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="228"/>
+        <source>mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="275"/>
+        <source> connected nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="315"/>
+        <source>
+        Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
+        
+        Parameters:
+            stops&#xa0;: stops layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>stop_id: stop id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes: nodes layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>node_id: node id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>radius: search radius(m)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>i-text: text at node i (start node)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>i-mode: mode at node i (start node)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>j-text: text at node j (end node)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>j-mode: mode at node j (end node)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>speed: travel speed on connectors (0= infinite speed)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>connectors file: name of the resulting connectors layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>NB: the tool generates in the same time a txt file in Musliw format (same name as connectors file with txt extension)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="295"/>
+        <source>Build connectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="302"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Save isolines layer as</name>
+    <name>Contours</name>
     <message>
-        <location filename="reseaux.py" line="152"/>
-        <source>Save isolines layer as</source>
-        <translation>Save isolines layer as</translation>
+        <location filename="contours.py" line="94"/>
+        <source>Raster</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="100"/>
+        <source>Band</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="108"/>
+        <source>Min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="116"/>
+        <source>Max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="124"/>
+        <source>Interval</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="132"/>
+        <source>No Value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="140"/>
+        <source>Polygons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="316"/>
+        <source>Isovalue polygons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="216"/>
+        <source>Grid interpolation...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="257"/>
+        <source>Generating isovalue polygons...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="697"/>
+        <source>
+        Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            raster: input raster layer name
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>band: band to compute
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>min: minimum isovalue area to genarate
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>max: maximum isovalue area to generate
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>interval: step between each isovalue
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>no_value: value corresponding to the raster no_value
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>polygons: True= genarates polygons: False generates Polylines
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>result: name of the resulted isovalue polygons layer
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="323"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>Save node layer as</name>
+    <name>CreerGraphe</name>
     <message>
-        <location filename="reseaux.py" line="207"/>
-        <source>Save nodes layer as</source>
-        <translation>Save node layer as</translation>
+        <location filename="creer_graphe.py" line="276"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Save raster layer as</name>
     <message>
-        <location filename="reseaux.py" line="149"/>
-        <source>Save raster layer as</source>
-        <translation>Save raster layer as</translation>
+        <location filename="creer_graphe.py" line="92"/>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Split</name>
     <message>
-        <location filename="reseaux.py" line="308"/>
-        <source>Split</source>
-        <translation>Split</translation>
+        <location filename="creer_graphe.py" line="101"/>
+        <source>Prefix</source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Split polylines at connection</name>
     <message>
-        <location filename="reseaux.py" line="1031"/>
-        <source>Split polylines at connection</source>
-        <translation>Split polylines at connection</translation>
+        <location filename="creer_graphe.py" line="111"/>
+        <source>Nodes layer</source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>Split polylines into lines</name>
     <message>
-        <location filename="reseaux.py" line="289"/>
-        <source>Split polylines into lines</source>
-        <translation>Split polylines into lines</translation>
+        <location filename="creer_graphe.py" line="292"/>
+        <source>
+        Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
+        
+        Parameters:
+            network&#xa0;: Network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>prefix: prefix for node ids (ex: &apos;MAP&apos; and n&#xb0; 12563 =&gt; MAP12563)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes_file: nodes layer (arcs ends)
+        </source>
+        <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>The active layer isn&apos;t a raster layer</name>
     <message>
-        <location filename="reseaux.py" line="991"/>
-        <source>The active layer isn&apos;t a raster layer</source>
-        <translation>The active layer isn&apos;t a raster layer</translation>
-    </message>
-</context>
-<context>
-    <name>The active layer isn&apos;t a vector layer</name>
-    <message>
-        <location filename="reseaux.py" line="525"/>
-        <source>The active layer isn&apos;t a vector layer</source>
-        <translation>The active layer isn&apos;t a vector layer</translation>
-    </message>
-</context>
-<context>
-    <name>The active layer isn&apos;t composed of linear objects</name>
-    <message>
-        <location filename="reseaux.py" line="1078"/>
-        <source>The active layer isn&apos;t composed of linear objects</source>
-        <translation>The active layer isn&apos;t composed of linear objects</translation>
-    </message>
-</context>
-<context>
-    <name>The active layer isn&apos;t composed of lineear objects</name>
-    <message>
-        <location filename="reseaux.py" line="301"/>
-        <source>The active layer isn&apos;t composed of linear objects</source>
-        <translation type="obsolete">The active layer isn&apos;t composed of linear objects</translation>
-    </message>
-</context>
-<context>
-    <name>The layer isn&apos;t composed of linear objects</name>
-    <message>
-        <location filename="reseaux.py" line="304"/>
-        <source>The layer isn&apos;t composed of linear objects</source>
-        <translation>The layer isn&apos;t composed of linear objects</translation>
-    </message>
-</context>
-<context>
-    <name>The selected layer isn&apos;t composed of points</name>
-    <message>
-        <location filename="reseaux.py" line="1076"/>
-        <source>The selected layer isn&apos;t composed of points</source>
-        <translation>The selected layer isn&apos;t composed of points</translation>
-    </message>
-</context>
-<context>
-    <name>networks</name>
-    <message>
-        <location filename="ui_reseaux.py" line="51"/>
+        <location filename="creer_graphe.py" line="269"/>
         <source>Build graph</source>
-        <translation>Build graph</translation>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportGTFS</name>
+    <message>
+        <location filename="import_gtfs.py" line="91"/>
+        <source>GTFS Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui_reseaux.py" line="52"/>
-        <source>Prefix:</source>
-        <translation>Prefix:</translation>
+        <location filename="import_gtfs.py" line="98"/>
+        <source>Calendar start</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ui_reseaux.py" line="53"/>
-        <source>Load node layer in active map</source>
-        <translation>Load node layer in active map</translation>
+        <location filename="import_gtfs.py" line="105"/>
+        <source>Calendar end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="112"/>
+        <source>Start time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="119"/>
+        <source>End time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="126"/>
+        <source>Table names</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="133"/>
+        <source>CRS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="140"/>
+        <source>Ouput folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="146"/>
+        <source>Encoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="194"/>
+        <source>ident</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="195"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="196"/>
+        <source>arrivals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="197"/>
+        <source>departures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="201"/>
+        <source>ligne_name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="204"/>
+        <source>lines_count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="205"/>
+        <source>services_count</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="242"/>
+        <source>Reading calendars...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="269"/>
+        <source>reading calendar dates...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="291"/>
+        <source>Reading routes...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="316"/>
+        <source>Reading trips...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="340"/>
+        <source>Reading stop times...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="401"/>
+        <source>Generating arcs and lines...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="489"/>
+        <source>
+        Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
+<byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
+        
+        Parameters:
+            GTFS_folder&#xa0;: GTFS folder path
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>calendar start: calendar date of the first day of the period (dd/mm/YYYY)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>start_time: start time of the period (hh:mm:ss)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>end_time: end time of the period (hh:mm:ss)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>table names: root for generated tables (ex: IC =&gt; IC_nodes.shp, IC_arcs.shp and IC_lines.shp)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>CRS: generated tables CRS
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>encoding: encoding
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="469"/>
+        <source>GTFS import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="476"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Interpole</name>
+    <message>
+        <location filename="interpole.py" line="100"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="107"/>
+        <source>Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="114"/>
+        <source>i-cost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="122"/>
+        <source>j-cost</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="131"/>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="140"/>
+        <source>Spread</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="149"/>
+        <source>Impassibility</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="157"/>
+        <source>Pixels nb x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="165"/>
+        <source>Pixels nb y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="173"/>
+        <source>Pixel size x</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="181"/>
+        <source>Pixel size y</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="189"/>
+        <source>Decimals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="197"/>
+        <source>Radius(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="205"/>
+        <source>Spread speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="213"/>
+        <source>Impassable?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="220"/>
+        <source>Raster file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="465"/>
+        <source>
+        Implements a linear based interpolation in order to build a raster
+        representing iso-values from a linear objects file
+        and travel times at i-node and j-node
+        
+        Paramameters:
+            network : network layer
+            window : working area
+            i-node cost : cost at node i
+            j-node : cost at node j
+            direction : flow direction (&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;): &apos;0&apos; prohibited, &apos;1&apos; flow in the object direction,
+            &apos;2&apos; flow in the reverse object direction, &apos;3&apos; flow in both directions
+            spread : side of spread inside blocks (&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) (&apos;0&apos; spread prohibited, &apos;1&apos; right-side spread only,
+            &apos;2&apos; lef-side spread only, &apos;3&apos; both sides spread
+            Impassability : Impassability (&apos;0&apos;,&apos;3&apos;) (&apos;0&apos; impassable road, &apos;3&apos; traversable road)
+            number of pixel x : number of pixels in x of the output raster
+            number of pixel y : number of pixels in y of the output raster
+            pixel size in x : pixel size in x(m)  (optional)
+            pixel size inyx : pixel size in y (m)  (optional)
+            decimals : number of decimals for approximation (e.g 6 correspond to 1e-6)
+            radius : search radius m inside blocks
+            spread speed : speeed of spread inside blocks in km/h (60 for iso-distance maps)
+            impassable : when selected impassable elements ara taken into account  for iso-values computations
+            result : output raster layer
+            </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="442"/>
+        <source>Linear interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="449"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Inverser</name>
+    <message>
+        <location filename="inverser.py" line="175"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser.py" line="89"/>
+        <source>Reverted network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser.py" line="97"/>
+        <source>Add to network?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser.py" line="129"/>
+        <source>Add direction &apos;2&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser.py" line="191"/>
+        <source>
+        Reverse arc directions and update i, j and ij fields to preserve the graph consistency
+        
+        
+        Parameters:
+            network&#xa0;: network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>reverted network: name of the reverted network layer
+            add_to_network: if True adds the reverted network to the initial one
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser.py" line="168"/>
+        <source>Reverse arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Majtitj</name>
+    <message>
+        <location filename="maj_titj.py" line="276"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="96"/>
+        <source>Travel times file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="102"/>
+        <source>Musliw time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="109"/>
+        <source>Arc time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="118"/>
+        <source>Departure/arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="118"/>
+        <source>Departure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="118"/>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="127"/>
+        <source>i-node time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="136"/>
+        <source>j-node time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="145"/>
+        <source>Initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="189"/>
+        <source>updating ti tj</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="229"/>
+        <source>updating ti and tj...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="292"/>
+        <source>
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            layer&#xa0;: network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
+            musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
+            arc time: arc travel time
+            departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
+            i_node time: travel time at i-node field
+            j-node time; travel time at j-node field
+            initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="269"/>
+        <source>Update ti tj</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NetworksProvider</name>
+    <message>
+        <location filename="networks_provider.py" line="116"/>
+        <source>Networks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PrepareGTFS</name>
+    <message>
+        <location filename="prepare_gtfs.py" line="87"/>
+        <source>GTFS source folder </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="94"/>
+        <source>GTFS output folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="101"/>
+        <source>Network Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="108"/>
+        <source>Extract stop_id?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="115"/>
+        <source>Extract formula</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="473"/>
+        <source>
+        Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
+        
+        Parameters:
+        GTFS source folder: the folder of the GTFS source files
+        GTFS destination folder: folder of the Musliw well formated GTFS
+        Network id: id in order to differenciate networks (line ID, stop ID,...) (ex: LI and 15696 -&gt; stop_id LI15696
+        Extract stop_id: if true the user must write a formula to extract the stop_id from the initial node_id string
+        Extract formula: the formula to extract stop_id: (ex: &quot;OCE:StopArea:87256315&quot;) with [-8:] formula -&gt; &quot;OCE:StopArea:87256315&quot;[-8:]=&quot;87256315&quot;
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="450"/>
+        <source>Prepare GTFS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="457"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ReseauTC</name>
+    <message>
+        <location filename="reseau_tc.py" line="155"/>
+        <source>GTFS folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="162"/>
+        <source>Calendar start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="169"/>
+        <source>Calendar end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="580"/>
+        <source>Musliw timetable network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="545"/>
+        <source>Reading stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="547"/>
+        <source>Reading routes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="549"/>
+        <source>Reading trips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="551"/>
+        <source>Reading calendars_dates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="553"/>
+        <source>Reading calendars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="555"/>
+        <source>Reading stop_times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="557"/>
+        <source>Generating lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="559"/>
+        <source>Generation Musliw file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="604"/>
+        <source>
+        Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            GTFs folder&#xa0;: GTFS folder 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>calendar start: date of the first day of the period
+            caldendar_end: dat of the last day of the periode
+            musliw_timetable_network: name of the generated Musliw network file
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="587"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ReseauTi</name>
+    <message>
+        <location filename="reseau_ti.py" line="90"/>
+        <source>Road network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="98"/>
+        <source>Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="104"/>
+        <source>Direction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="113"/>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="121"/>
+        <source>Length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="129"/>
+        <source>i-node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="137"/>
+        <source>j-node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="145"/>
+        <source>Time category id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="152"/>
+        <source>Time period id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="159"/>
+        <source>Start time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="166"/>
+        <source>End time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="173"/>
+        <source>Calendar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="180"/>
+        <source>Arc label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="188"/>
+        <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="200"/>
+        <source>Musliw network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="239"/>
+        <source>Writing Musliw network file...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="305"/>
+        <source>
+        Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            road network: road network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>window: area of the generated network (could be a sub area from the whole network layer)
+            direction: flow direction (&apos;0&apos; proxhibited, &apos;1&apos; one way same direction as object, &apos;2&apos; one way reverse direction of object, &apos;3&apos; both directions
+            time: arc travel time field
+            length: arc length field
+            i-node: i-node id
+            j-node: j-node id
+            time category id: time category id
+            time period id: time period id into the time category 
+            start time: start time of the period
+            end time: end time of the period 
+            calendar: calendar of the period (ex: &apos;OOOOONN&apos; evary day except saturday and sunday
+            arc label: arc label
+            mode: mode id for multimodal routing
+            musliw network: name of the genarated Musliw network (txt file)
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="282"/>
+        <source>Musliw individual network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="289"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

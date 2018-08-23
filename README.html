@@ -1,32 +1,39 @@
 <html>
-<body style='background-color:##D7ECF8;'>
+<body>
 <h3>Plugin Builder Results</h3>
+
+Congratulations! You just built a plugin for QGIS!<br/><br />
+
 <div id='help' style='font-size:.9em;'>
-Your plugin <b>reseaux</b> was created in:<br>
-&nbsp;&nbsp;<b>C:\Users\palmierp\.qgis2\python\plugins\reseaux</b>
+Your plugin <b>Networks</b> was created in:<br>
+&nbsp;&nbsp;<b>C:/Users/palmierp/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins\networks</b>
 <p>
 Your QGIS plugin directory is located at:<br>
-&nbsp;&nbsp;<b>C:/Users/palmierp/.qgis2/python/plugins</b>
+&nbsp;&nbsp;<b>C:/Users/palmierp/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins</b>
 <p>
-<b>What's Next</b>
+<h3>What's Next</h3>
 <ol>
-    <li>Copy the entire directory containing your new plugin to the QGIS plugin directory
-    <li>Compile the ui file using pyuic4
-    <li>Compile the resources file using pyrcc4
-    <li>Test the plugin by enabling it in the QGIS plugin manager
-    <li>Customize it by editing the implementation file <b>reseaux.py</b>
-    <li>Create your own custom icon, replacing the default <b>icon.png</b>
-    <li>Modify your user interface by opening <b>reseaux.ui</b> in Qt Designer (don't forget to compile it with pyuic4 after changing it)
-    <li>You can use the <b>Makefile</b> to compile your Ui and resource files when you make changes. This requires GNU make (gmake)
+    <li>Test the generated sources using <b>make test</b> (or run tests from your IDE)
+    <li>Copy the entire directory containing your new plugin to the QGIS plugin directory (see Notes below)
+    <li>Test the plugin by enabling it in the QGIS plugin manager and enabling the provider in the Processing Options
+    <li>Customize it by editing the implementation file <b>networks_algorithm.py</b>
+</ol>
+Notes:
+<ul>
+    <li>You can use the <b>Makefile</b> to compile and deploy when you
+        make changes. This requires GNU make (gmake). The Makefile is ready to use, however you 
+        will have to edit it to add addional Python source files, dialogs, and translations.
+    <li>You can also use <b>pb_tool</b> to compile and deploy your plugin. Tweak the <i>pb_tool.cfg</i> file included with your plugin as you add files. Install <b>pb_tool</b> using 
+        <i>pip</i> or <i>easy_install</i>. See <b>http://loc8.cc/pb_tool</b> for more information.
 </ul>
 </div>
 <div style='font-size:.9em;'>
 <p>
-For more information, see the PyQGIS Developer Cookbook at:
-<a href="http://www.qgis.org/pyqgis-cookbook/index.html">http://www.qgis.org/pyqgis-cookbook/index.html</a>.
+For information on writing PyQGIS code, see <b>http://loc8.cc/pyqgis_resources</b> for a list of resources.
 </p>
 </div>
-<img src="http://geoapt.com/geoapt_logo_p.png" alt='GeoApt LLC' title='GeoApt LLC' align='absmiddle'>
-&copy;2011-2014 GeoApt LLC - geoapt.com
+<p>
+&copy;2011-2018 GeoApt LLC - geoapt.com 
+</p>
 </body>
 </html>

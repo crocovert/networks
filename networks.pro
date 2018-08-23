@@ -1,14 +1,3 @@
-SOURCES = reseaux.py\
-			reseauxdialog.py\
-			reseauxdialog_connect.py\
-			ui_connect.py\
-			ui_reseaux.py\
-			ui_linear_interpolation.py\
-			ui_isopoly.py
-
-TRANSLATIONS= networks_fr.ts\
-			networks_en.ts\
-
-CODECFORTR= UTF-8
-
-CODECFORSRC = UTF-8
+SOURCES=ajout_champ.py concat_reseaux.py connecteurs_geo.py contours.py creer_graphe.py import_gtfs.py interpole.py maj_titj.py reseau_ti.py networks_provider.py prepare_gtfs.py reseau_tc.py inverser.py
+TRANSLATIONS=networks_en.ts networks_fr.ts
+CODECFORSRC     = UTF-8
