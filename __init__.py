@@ -36,4 +36,4 @@ def classFactory(iface):  # pylint: disable=invalid-name
     """
     #
     from .networks import NetworksPlugin
-    return NetworksPlugin(iface)
+    return NetworksPlugin()

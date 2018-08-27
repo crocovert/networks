@@ -35,8 +35,10 @@ import sys
 import inspect
 
 from qgis.core import QgsProcessingAlgorithm, QgsApplication
+from qgis.PyQt.QtCore import QCoreApplication
 from qgis.PyQt.QtWidgets import QApplication,QMenu,QAction
 from qgis.PyQt.QtGui import QIcon
+from processing.core.ProcessingConfig import ProcessingConfig, Setting
 
 from .networks_provider import NetworksProvider
 
@@ -48,12 +50,19 @@ if cmd_folder not in sys.path:
 
 class NetworksPlugin():
 
-    def __init__(self,iface):
-        self.provider = NetworksProvider(iface)
-        self.iface=iface
+    def __init__(self):
+        self.provider = NetworksProvider()
 
     def initGui(self):
         QgsApplication.processingRegistry().addProvider(self.provider)
+        pluginMenu=QApplication.translate('MainWindow', '&Plugins')
+        for provider in QgsApplication.processingRegistry().providers():
+            if provider.name()=='Networks':
+                for alg in provider.algorithms():
+                    #setting=Setting('Menus',"MENU_"+alg.id(),"Menu path","E&xtension/Networks")
+                    ProcessingConfig.setSettingValue("MENU_"+alg.id(),"E&xtension/Networks")
+        QCoreApplication.processEvents()
+
  
 		
 

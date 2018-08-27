@@ -33,6 +33,7 @@ from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtWidgets import QApplication,QMenu,QAction
 from qgis.core import QgsProcessingProvider,QgsApplication
 from processing.core.Processing import Processing
+from processing.core.ProcessingConfig import ProcessingConfig, Setting
 from .reseau_ti import ReseauTi
 from .ajout_champ import AjoutChamp
 from .concat_reseaux import ConcatReseaux
@@ -45,6 +46,7 @@ from .import_gtfs import ImportGTFS
 from .inverser import Inverser
 from .reseau_tc import ReseauTC
 from .prepare_gtfs import PrepareGTFS
+from .connect_nodes2lines import ConnectNodes2Lines
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -53,7 +55,7 @@ pluginPath = os.path.dirname(__file__)
 
 class NetworksProvider(QgsProcessingProvider):
 
-    def __init__(self,iface):
+    def __init__(self):
         QgsProcessingProvider.__init__(self)
 
         # Load algorithms
@@ -68,7 +70,8 @@ class NetworksProvider(QgsProcessingProvider):
                         ImportGTFS(),
                         Inverser(),
                         ReseauTC(),
-                        PrepareGTFS()]
+                        PrepareGTFS(),
+                        ConnectNodes2Lines()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -85,6 +88,8 @@ class NetworksProvider(QgsProcessingProvider):
             self.translator = QTranslator()
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
+                
+
 
     def unload(self):
         """
@@ -99,6 +104,8 @@ class NetworksProvider(QgsProcessingProvider):
         """
         for alg in self.alglist:
             self.addAlgorithm( alg )
+
+                
 
     def id(self):
         """

@@ -119,6 +119,53 @@
     </message>
 </context>
 <context>
+    <name>ConnectNodes2Lines</name>
+    <message>
+        <location filename="connect_nodes2lines.py" line="208"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="89"/>
+        <source>Nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="96"/>
+        <source>Radius(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="133"/>
+        <source>Split polylines at connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="136"/>
+        <source>Connecting points to lines...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="201"/>
+        <source>Connect nodes to lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="221"/>
+        <source>
+        Connect points to a a linear objetcs layers within a search radius. Points are conencted to the closest line. 
+        The closest line is splitted at the shorstest distance point in two lines, and a line is generated between the point and the closest point
+        The lines layer is in editable mode in order to be alble to cancel the connections.
+        
+        Parameters:
+            lines&#xa0;: lines layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes: points layer
+            radius: search radius (m)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ConnecteursGeo</name>
     <message>
         <location filename="connecteurs_geo.py" line="93"/>
@@ -286,6 +333,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="contours.py" line="323"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="contours.py" line="697"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
@@ -300,11 +352,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>polygons: True= genarates polygons: False generates Polylines
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>result: name of the resulted isovalue polygons layer
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="contours.py" line="323"/>
-        <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -331,6 +378,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="creer_graphe.py" line="269"/>
+        <source>Build graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="creer_graphe.py" line="292"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
@@ -341,11 +393,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes_file: nodes layer (arcs ends)
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="creer_graphe.py" line="269"/>
-        <source>Build graph</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -462,6 +509,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="import_gtfs.py" line="469"/>
+        <source>GTFS import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="476"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="import_gtfs.py" line="489"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
@@ -479,16 +536,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="469"/>
-        <source>GTFS import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="476"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -575,6 +622,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="interpole.py" line="442"/>
+        <source>Linear interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="449"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="interpole.py" line="465"/>
         <source>
         Implements a linear based interpolation in order to build a raster
@@ -603,16 +660,6 @@
             </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="interpole.py" line="442"/>
-        <source>Linear interpolation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="interpole.py" line="449"/>
-        <source>Analysis</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Inverser</name>
@@ -637,6 +684,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="inverser.py" line="168"/>
+        <source>Reverse arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="inverser.py" line="191"/>
         <source>
         Reverse arc directions and update i, j and ij fields to preserve the graph consistency
@@ -647,11 +699,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="inverser.py" line="168"/>
-        <source>Reverse arcs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -718,6 +765,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="maj_titj.py" line="269"/>
+        <source>Update ti tj</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="maj_titj.py" line="292"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
@@ -734,16 +786,11 @@
         </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="maj_titj.py" line="269"/>
-        <source>Update ti tj</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="116"/>
+        <location filename="networks_provider.py" line="128"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,6 +823,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="prepare_gtfs.py" line="450"/>
+        <source>Prepare GTFS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="457"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="prepare_gtfs.py" line="473"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
@@ -787,16 +844,6 @@
         Extract stop_id: if true the user must write a formula to extract the stop_id from the initial node_id string
         Extract formula: the formula to extract stop_id: (ex: &quot;OCE:StopArea:87256315&quot;) with [-8:] formula -&gt; &quot;OCE:StopArea:87256315&quot;[-8:]=&quot;87256315&quot;
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="prepare_gtfs.py" line="450"/>
-        <source>Prepare GTFS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="prepare_gtfs.py" line="457"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -863,6 +910,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="reseau_tc.py" line="587"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="reseau_tc.py" line="604"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
@@ -873,11 +925,6 @@
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_tc.py" line="587"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -964,6 +1011,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="reseau_ti.py" line="282"/>
+        <source>Musliw individual network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="289"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="reseau_ti.py" line="305"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
@@ -987,16 +1044,6 @@
             
             
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_ti.py" line="282"/>
-        <source>Musliw individual network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_ti.py" line="289"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
