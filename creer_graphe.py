@@ -72,6 +72,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
     # calling from the QGIS console.
 
     RESEAU = 'RESEAU'
+    IDENT='IDENT'
     SENS = 'SENS'
     NOEUDS = 'NOEUDS'
     PREFIXE='PREFIXE'
@@ -96,6 +97,16 @@ class CreerGraphe(QgsProcessingAlgorithm):
                 parentLayerParameterName=self.RESEAU,
                 type=QgsProcessingParameterField.String,
                 optional=True
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterEnum(
+                self.IDENT,
+                self.tr('Node Id'),
+                [self.tr('Number series'),self.tr('Geographic string(unique)')],
+                defaultValue=0,
+                                
+                
             )
         )
         self.addParameter(
@@ -132,6 +143,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
         sens=self.parameterAsFields(parameters,self.SENS,context)
+        ident=self.parameterAsFields(parameters,self.IDENT,context)
         prefixe = self.parameterAsString(parameters, self.PREFIXE, context)
         if len(sens)>0:
             sens=sens[0]
@@ -203,6 +215,10 @@ class CreerGraphe(QgsProcessingAlgorithm):
             node=QgsFeature()
             node.setGeometry(QgsGeometry.fromPointXY(QgsPointXY(n[0],n[1])))
             #node.setAttributes([noeuds[n]])
+            #feedback.setProgressText(unicode(i)+" "+unicode(ident[0])+" "+unicode(ident[0]=='0'))
+            if ident[0]=='0':
+                noeuds[n]=(prefixe+unicode(i),noeuds[n][1])
+                #feedback.setProgressText(unicode(noeuds[n][0]))
             node.setAttributes([noeuds[n][0],noeuds[n][1]])
             table_noeuds.addFeature(node)
         #outs.write(str(n)+";"+str(noeuds[n])+"\n")
@@ -240,9 +256,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
 
 
                 id=ligne.id()
-                print(ligne)
                 #valid={ida : noeuds[na], idb: noeuds[nb]}
-                print(id,ida,noeuds[na])
                 layer.changeAttributeValue(id,ida, unicode(noeuds[na][0]))
                 layer.changeAttributeValue(id,idb, unicode(noeuds[nb][0]))
                 layer.changeAttributeValue(id,idij, unicode(noeuds[na][0]+"-"+noeuds[nb][0]))
@@ -295,6 +309,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         Parameters:
             network : Network layer (linear objects)
 			prefix: prefix for node ids (ex: 'MAP' and n° 12563 => MAP12563)
+            node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 			direction: flow direction ('0' prohibited, '1' one way objet direction, '2', one way inverse object direction, '3' both directions
 			nodes_file: nodes layer (arcs ends)
         """)

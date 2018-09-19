@@ -90,9 +90,95 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="213"/>
+        <location filename="creer_graphe.py" line="229"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
+    </message>
+</context>
+<context>
+    <name>CalculMusliw</name>
+    <message>
+        <location filename="calcul_musliw.py" line="85"/>
+        <source>Musliw network</source>
+        <translation variants="yes">
+            <lengthvariant></lengthvariant>
+            <lengthvariant>Réseau Musliw</lengthvariant>
+        </translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="91"/>
+        <source>Musliw matrix</source>
+        <translation>Matrice Musliw</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="97"/>
+        <source>Musliw parameters</source>
+        <translation>Paramètres Musliw</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="103"/>
+        <source>Musliw penalties</source>
+        <translation>Pénalités Musliw</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="110"/>
+        <source>Output</source>
+        <translation>Sortie</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="141"/>
+        <source>Multimodal calculations... That could take some time</source>
+        <translation>Calcul d&apos;accessibilité multimodale...Cela peutprendre un certains temps</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="164"/>
+        <source>Musliw computation</source>
+        <translation>Calcul Musliw</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="171"/>
+        <source>Computations</source>
+        <translation>Calculs</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="187"/>
+        <source>
+        Perform a calculation of multimodal accessibility and routing
+		Produce output files (semi-column separated files (if selected in parameters):
+        . Origin destination results file &quot;_od.txt&quot;
+        . Cumulative times on arcs &quot;_temps.txt&quot; (usefull for isochron maps)
+        . Detailed paths &quot;_chemins.txt&quot; 
+        . Assignment results file on links &quot;_aff.txt&quot;
+        . Log file &quot;_log.txt&quot;
+        . Parameters files &quot;_param.txt&quot;
+        . results on services &quot;_services.txt&quot;
+        . cumulative times on nodes &quot;_noeuds.txt&quot;
+        
+        Parameters:
+            network : Musliw network
+            matrix: Musliw matrix
+            parameters: Musliw parameters
+            penalties: Musliw penalties and transfers file
+			output : Mulsiw results file (without extension)
+        </source>
+        <translation>        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
+		Génère des fichiers résultat (format texte séparateur &quot;;&quot;  (si sélectionné dans les paramtères):
+        .Fichier origine destination  &quot;_od.txt&quot; (résultats par origine destination
+        .Temps d&apos;accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
+        .Chemins détaillés &quot;_chemins.txt&quot; 
+        . Résultats d&apos;affectation sur les arcs &quot;_aff.txt&quot;
+        . fichier Log &quot;_log.txt&quot;
+        . Fichier pramètres &quot;_param.txt&quot;
+        .Résultats par services &quot;_services.txt&quot;
+        . Temps d&apos;accès par noeuds &quot;_noeuds.txt&quot;
+        
+        Paramètres:
+           Réseau Musliw 
+            Matrice Musliw
+            Paramètres Musliw
+            Pénalités Musliw
+			sortie : Fichier de resultats Musliw (sans extension)
+        </translation>
     </message>
 </context>
 <context>
@@ -410,49 +496,65 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="276"/>
+        <location filename="creer_graphe.py" line="290"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="92"/>
+        <location filename="creer_graphe.py" line="93"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="101"/>
+        <location filename="creer_graphe.py" line="112"/>
         <source>Prefix</source>
         <translation>Préfixe</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="111"/>
+        <location filename="creer_graphe.py" line="122"/>
         <source>Nodes layer</source>
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="292"/>
+        <location filename="creer_graphe.py" line="283"/>
+        <source>Build graph</source>
+        <translation>Créer graphe</translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Node Id</source>
+        <translation>Node id</translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="306"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
             network : Network layer (linear objects)
 			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
+            node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
 			nodes_file: nodes layer (arcs ends)
         </source>
-        <translation>        Crée un graphe à partir d&apos;un couche d&apos;objets linéaires (crée une couche de noeuds, crée et met à jour les champs i, j et ij avec les identifiants de noeuds) en tenant compte du sens de circulation
+        <translation>        Crée un graphe à partir d&apos;une couche d&apos;objets linéaires (crée une couche de noeuds, crée et met à jour les champs i, j et ij avec les identifiants de noeuds) en tenant compte du sens de circulation.Génération des identifiants de noeuds soit par un compteur ou une chaîne géographique (unique) qui permet de fusionner des réseaux contigüs
         
         Paramètres:
             réseau : Couche réseau (objets linéaires)
-			préfixe: préfixepour les identifiants de noeuds (ex: &apos;MAP&apos; et n° 12563 =&gt; MAP12563)
-			sens: sens de circulation (&apos;0&apos;interdit, &apos;1&apos; sens unique sens de a géométrie, &apos;2&apos;, sens unique sens inverse de la géométrie , &apos;3&apos; double sens
-			fichier noeuds: couche des noeuds (extrémités des arcs)
-        </translation>
+			préfixe: préfixepour les identifiants de noeuds (ex: &apos;MAP&apos;; et n° 12563 =&gt; MAP12563)
+			node_id: format des identifiants de noeuds: competeur ou chaine géographique (unique)
+			sens: sens de circulation (&apos;0&apos;:interdit,&apos;1&apos;: sens unique sens de a géométrie, &apos;2&apos;: sens unique sens inverse de la géométrie , &apos;3&apos;: double sens
+			fichier noeuds: couche des noeuds (extrémités des arcs)</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="269"/>
-        <source>Build graph</source>
-        <translation>Créer graphe</translation>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Number series</source>
+        <translation>Compteur</translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Geographic string(unique)</source>
+        <translation>Chaîne géographique (unique)</translation>
     </message>
 </context>
 <context>
@@ -810,7 +912,7 @@
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="276"/>
+        <location filename="maj_titj.py" line="277"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -865,12 +967,12 @@
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="229"/>
+        <location filename="maj_titj.py" line="230"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jout ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="292"/>
+        <location filename="maj_titj.py" line="293"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -899,15 +1001,217 @@
         </translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="269"/>
+        <location filename="maj_titj.py" line="270"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
     </message>
 </context>
 <context>
+    <name>MusliwParam</name>
+    <message>
+        <location filename="param_musliw.py" line="104"/>
+        <source>In vehicle weight</source>
+        <translation variants="yes">
+            <lengthvariant>Pondération tempsà horaires</lengthvariant>
+            <lengthvariant></lengthvariant>
+        </translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="112"/>
+        <source>Waiting weight</source>
+        <translation>Pondération temps attente</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="119"/>
+        <source>Individual modes weight</source>
+        <translation>Pondération temps mode individuel</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="127"/>
+        <source>Boarding weight</source>
+        <translation>Pondération correspondance</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="134"/>
+        <source>Individual mode speed factor</source>
+        <translation>Facteurd&apos;échelle temps individuel</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="141"/>
+        <source>Minimum transfer delay</source>
+        <translation>Temps de correspondance mini</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="148"/>
+        <source>Maximum transfer delay</source>
+        <translation>Temps de correspondance maxi</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="155"/>
+        <source>Extra day duration</source>
+        <translation>Nombre de jours supplémentaires</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="164"/>
+        <source>Max. individual time budget</source>
+        <translation>Temps individuel maximum</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="173"/>
+        <source>Maximum generalized time</source>
+        <translation>Temps généralisé maximum</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="182"/>
+        <source>Toll weight</source>
+        <translation>Pondération péage</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="189"/>
+        <source>Output filter</source>
+        <translation>Filtre sortie</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>Output links times?</source>
+        <translation>Temps détaillés?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>No output</source>
+        <translation>Aucun</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>Without timetable links</source>
+        <translation>Sans les arcs à horaires</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>With timetable links</source>
+        <translation>Avec les arcs à horaires</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="204"/>
+        <source>Prohibited U-turns?</source>
+        <translation>Demi-tours interdits?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="211"/>
+        <source>Output paths?</source>
+        <translation>Sortie chemins?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="219"/>
+        <source>Output services?</source>
+        <translation>Sortie services?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="226"/>
+        <source>Output transfers?</source>
+        <translation>Sortie correspondances?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="233"/>
+        <source>Output node times?</source>
+        <translation>Sortie noeud?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="241"/>
+        <source>Algorithm scale?</source>
+        <translation>Echelle de l&apos;algorithme</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="250"/>
+        <source>Algorithm exponent?</source>
+        <translation>Exposent de l&apos;algorithme</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="259"/>
+        <source>nb classes?</source>
+        <translation>Nombrede classes</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="268"/>
+        <source>Parameters file</source>
+        <translation>Fichier paramètres Musliw</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="364"/>
+        <source>Musliw parameters</source>
+        <translation>Paramètres Musliw</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="371"/>
+        <source>Computations</source>
+        <translation>Calculs</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="387"/>
+        <source>
+        Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
+		Produce a parameter file (to be selected in musliw computation):
+        
+        Parameters:
+            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            Waiting weight: weight factor for waiting time
+            Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
+            Boarding weight: weight factor for boarding time
+            Individual mode speed factor: homothetic factor that apply to the individual travel times
+			Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
+            Maximum transfer delay: maximum waiting time for transfer (ex: 60 means that you will not be able to take atrain that leaves more that 60 minutes after you arrive)
+            Extra day duration: By default Musliw takes only into account timetable of the day selected in the matrix. If you can extend with the timetable of the day after (if departure) or the day before (arrival) your must enter 1
+            Max. indiviudal time budegt: The algorithm path will not explore shortest paths that have a individual time budget greater than this value
+            Maximum generalized time: The algorithm path will not explore shortest paths that have a total generalised cost greater than this value
+            Toll weight: weight factor for toll attribute
+            Output filter: specify the type of links you want in the reports (empty will output all links ex: metro|bus|tram will export only metro , bus and tram lines
+            Output links times: select what you want detailed output at link level (No, without ou with timetable based links)
+            Prohibited U-turns: choose if if you want to allow u-turns in shortest paths computation
+            Output paths: Check if you want to output detailed paths
+            Output services: Check if you want to have detailed outputs for each service
+            Output transfers: Check if you want to have detailed outputs on turns and transfers
+            Outpout nodes times: Check if you want to have detailed outputs at node level
+            Algorithm scale: Parameter of the shortest path algorithm
+            Algorithm exponent: The algorithm parameter exponent
+            Nb classes: The number of buckets of the shortest path algorithm
+            Parameter file: The output parameter file to be used in musliw computation
+            
+        </source>
+        <translation>
+        Créer un jeu de paramètres utile pour le calcul d&apos;itinéraires et d&apos;accessibilité avec Musliw
+		Génère un fichier de paramètres (qui doit être sélectionné pour le calcul Musliw):
+        
+        Paramètres:
+            Pondération temps à horaires : Fcateur de pondération pour les temps à bord des modes définis par des  horaires (ex:  bus, tram, train, métro, avion, ferry,...)
+            Pondération temps d&apos;attente: Facteur de pondération des temps d&apos;attente
+           Pondération temps individuel :Facteur de pondération pour les modes individuels (ex voiture, marche, vélo, ...)
+            Pondération correspondance: Facteur de pondération des temps de correspondance
+            Facteur d&apos;échelle mode individuel: facteur homothéitque qui s&apos;applique aux temps de parcours des arcs des modes individuels
+			Temps de correspondance mini : Temps minimum de sécurité pour la correspondance (ex: 5 signifie que l&apos;on doit être présent t 5 minutes à l&apos;arrêt avant que le bus parte
+            Temps de correspondance maxi:Temps d&apos;attente maximum pour une correspondance (ex: 60 signifie  que l&apos;on ne peut pas prendre un train qui part plus de 60 minutes après que l&apos;on soit arrivé)
+            Nombre de jours supplémentairesn: Par defaut Musliw ne prend en compte que les horaires du jour indiqué dans la matrice. Si l&apos;on souhaite étendre la recherche avec les horaires des jours suivants (si départ) ou des jours précédents (si arrivée)il faut saisir le nombre de jours supplémentaires à prendre en compte (ex  1 pour le lendemain ou la veille)
+            Temps individuel maximum : L&apos;algorithme n&apos;explorera pas les chemins qui auront un budget temps individuel supérieur à cette valeur
+            Temps généralisé maximum: L&apos;algorithme n&apos;explorera pas les chemins qui auront auront un temps généralisé totalsupérieur à cette valeur
+            Pondération péage: Pondération de l&apos;attribut péage des arcs
+            Filtre sortier: Indiquer les types d&apos;arcs que l&apos;on souhaite exporter dans les fichiers résultats (vide si l&apos;on souhaite tous les liens ex: metro|bus|tram exportera seulement les arcs  metro , bus et tram 
+            Sortie temps détaillés: Sélectionnerles arcs que l&apos;on souhaite obtenir (Aucun, avec ou sans les arcs définis par des horaires)
+            Demi-tours interdits: Activer si l&apos;on souhaite que l&apos;algorithm ne puisse pas prendre en compte les demi-tours
+            Sortie chemins: Activer si l&apos;on souhaite le détail des chemins 
+            Sortie services: Activer si l&apos;on souhaite les détail des calculs par service
+            Sortie correspondance: Activer si l&apos;on souhaite de détail des sortie de mouvements tournants et correspondance
+            Sortie noeuds: Activer si l&apos;on souhaite les temps détaillés par noeud
+            Echelle de l&apos;agrithme: Paramètre d&apos;échelle de l&apos;agorithme de recherche de plus court chemin
+            Exposent de l&apos;algorithme: Paramètre exposent de l&apos;algorithme
+            Nb classes: Nombre d&apos;intervalle pour l&apos;algorithme de plus courts chemins
+            Fichier paramètres: Nom du fichier de paramètre qui pourra être utilisé pour les calculs avec Musliw
+            
+        </translation>
+    </message>
+</context>
+<context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="128"/>
+        <location filename="networks_provider.py" line="134"/>
         <source>Networks</source>
         <translation></translation>
     </message>

@@ -9,12 +9,15 @@
 [general]
 name=Networks
 qgisMinimumVersion=3.0
-description=Manage linear networks. Several functionalities as generating a graph from a linear layer, invert and split polylines, and connect point to a linear objects, and perform a linear-based deterministic interpolation for accessibility maps and build isochrones polygons
-version=2.0.2
+description=Manage linear networks and compute multimodal routing and accessibility. Several functionalities as generating a graph from a linear layer, invert and split polylines, and connect point to a linear objects, and perform a linear-based deterministic interpolation for accessibility maps and build isochrones polygons.
+Computes multimodal routing and accessibility 
+
+version=2.1.0
 author=Patrick Palmier
 email=patrick.palmier@cerema.fr
 
 about=Manage linear networks. Several functionalities as generating a graph from a linear layer, reverting and splitting polylines, connecting points to a linear objects, performing a linear-based deterministic interpolation for accessibility maps and generating isochrons polygons. The purpose of the plguin is also to deal with the multimodal calculator tool Musliw (manage input ou output files)
+Compute multimodal routing and accessibility with extern Musliw tootl provided, which can be called by the Musliw computation algorithm in QGis
 
 tracker=https://github.com/crocovert/networks/
 repository=https://github.com/crocovert/networks/
@@ -23,8 +26,9 @@ repository=https://github.com/crocovert/networks/
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
- changelog=1.3.1 add algorithme to connect a point layer to a line layer
-		1.3.0 upgrade to Qgis 3.+ as a processing provider
+ changelog=2.0.3  build graph allow number series or geographic string for node ids
+		2.0.2 add algorithm to connect a point layer to a line layer
+		2.0.0 upgrade to Qgis 3.+ as a processing provider
 
 # Tags are comma separated with spaces allowed
 tags=python, transport, accessibility, multimodal, network, isovalue, routing, GTFS, interpolation

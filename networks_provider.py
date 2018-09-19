@@ -47,6 +47,8 @@ from .inverser import Inverser
 from .reseau_tc import ReseauTC
 from .prepare_gtfs import PrepareGTFS
 from .connect_nodes2lines import ConnectNodes2Lines
+from .calcul_musliw import CalculMusliw
+from .param_musliw import MusliwParam
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -71,7 +73,9 @@ class NetworksProvider(QgsProcessingProvider):
                         Inverser(),
                         ReseauTC(),
                         PrepareGTFS(),
-                        ConnectNodes2Lines()]
+                        ConnectNodes2Lines(),
+                        CalculMusliw(),
+                        MusliwParam()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -89,7 +93,9 @@ class NetworksProvider(QgsProcessingProvider):
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
                 
-
+    def load(self):
+        self.refreshAlgorithms()
+        return True
 
     def unload(self):
         """

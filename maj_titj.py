@@ -168,15 +168,15 @@ class Majtitj(QgsProcessingAlgorithm):
         temps_musliw=self.parameterAsString(parameters,self.TEMPS_MUSLIW,context)
         temps_troncon=self.parameterAsFields(parameters,self.TEMPS_TRONCON,context)[0]
         depart=self.parameterAsEnum(parameters,self.DEPART,context)
-        champ_ti=self.parameterAsExpression(parameters,self.TI,context).strip("'")
-        champ_tj=self.parameterAsExpression(parameters,self.TJ,context).strip("'")
+        champ_ti=self.parameterAsExpression(parameters,self.TI,context).strip("'").strip("\"")
+        champ_tj=self.parameterAsExpression(parameters,self.TJ,context).strip("'").strip("\"")
         temps_terminal = self.parameterAsBool(parameters, self.TEMPS_TERMINAL, context)
         if depart==0:
-            start=False
-        else:
             start=True
+        else:
+            start=False
 
-        fichier=open(fichier_temps,"r")
+        fichier=codecs.open(fichier_temps,"r","utf-8")
         champs=reseau.fields()
         start=depart
         noms_champs=[]
@@ -188,14 +188,14 @@ class Majtitj(QgsProcessingAlgorithm):
         reseau.startEditing()
         reseau.beginEditCommand(self.tr("updating ti tj"))
         if  champ_ti not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_ti,QVariant.Double)])
+            reseau.addAttribute(QgsField(champ_ti,QVariant.Double))
           
         if  champ_tj not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_tj,QVariant.Double)])
+            reseau.addAttribute(QgsField(champ_tj,QVariant.Double))
 
         if  u"ij" not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
             reseau.addAttribute(QgsField("ij",QVariant.String))
+            #reseau.addAttribute(QgsField("ij",QVariant.String))
             for f in reseau.getFeatures():
                 num=f.id()
                 lab_ij=f['i']+'-'+f['j']
@@ -203,6 +203,7 @@ class Majtitj(QgsProcessingAlgorithm):
 
 
         reseau.updateFields()
+
 
 
 
@@ -228,7 +229,7 @@ class Majtitj(QgsProcessingAlgorithm):
         n=reseau.featureCount()
         feedback.setProgressText(self.tr("updating ti and tj..."))
         for k,f in enumerate(reseau.getFeatures()):
-            feedback.setProgress(k*100/n)
+            feedback.setProgress((k+1)*100/n)
             num=f.id()
             temps=float(f[temps_troncon])
             ij=f["ij"]
@@ -242,11 +243,11 @@ class Majtitj(QgsProcessingAlgorithm):
                     reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
-                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
-                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
 
-                    
-        reseau.commitChanges()
+        feedback.setProgress((k+1)*100/n)            
+        #reseau.commitChanges()
         reseau.endEditCommand()
         return {self.RESEAU: self.RESEAU}
 

@@ -78,8 +78,74 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="213"/>
+        <location filename="creer_graphe.py" line="229"/>
         <source>Building graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CalculMusliw</name>
+    <message>
+        <location filename="calcul_musliw.py" line="85"/>
+        <source>Musliw network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="91"/>
+        <source>Musliw matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="97"/>
+        <source>Musliw parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="103"/>
+        <source>Musliw penalties</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="110"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="141"/>
+        <source>Multimodal calculations... That could take some time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="164"/>
+        <source>Musliw computation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="171"/>
+        <source>Computations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="187"/>
+        <source>
+        Perform a calculation of multimodal accessibility and routing
+<byte value="x9"/><byte value="x9"/>Produce output files (semi-column separated files (if selected in parameters):
+        . Origin destination results file &quot;_od.txt&quot;
+        . Cumulative times on arcs &quot;_temps.txt&quot; (usefull for isochron maps)
+        . Detailed paths &quot;_chemins.txt&quot; 
+        . Assignment results file on links &quot;_aff.txt&quot;
+        . Log file &quot;_log.txt&quot;
+        . Parameters files &quot;_param.txt&quot;
+        . results on services &quot;_services.txt&quot;
+        . cumulative times on nodes &quot;_noeuds.txt&quot;
+        
+        Parameters:
+            network&#xa0;: Musliw network
+            matrix: Musliw matrix
+            parameters: Musliw parameters
+            penalties: Musliw penalties and transfers file
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>output : Mulsiw results file (without extension)
+        </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -115,6 +181,53 @@
     <message>
         <location filename="concat_reseaux.py" line="146"/>
         <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConnectNodes2Lines</name>
+    <message>
+        <location filename="connect_nodes2lines.py" line="208"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="89"/>
+        <source>Nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="96"/>
+        <source>Radius(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="133"/>
+        <source>Split polylines at connections</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="136"/>
+        <source>Connecting points to lines...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="201"/>
+        <source>Connect nodes to lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="221"/>
+        <source>
+        Connect points to a a linear objetcs layers within a search radius. Points are conencted to the closest line. 
+        The closest line is splitted at the shorstest distance point in two lines, and a line is generated between the point and the closest point
+        The lines layer is in editable mode in order to be alble to cancel the connections.
+        
+        Parameters:
+            lines&#xa0;: lines layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes: points layer
+            radius: search radius (m)
+        </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -286,6 +399,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="contours.py" line="323"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="contours.py" line="697"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
@@ -302,50 +420,61 @@
         </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="contours.py" line="323"/>
-        <source>Analysis</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="276"/>
+        <location filename="creer_graphe.py" line="290"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="92"/>
+        <location filename="creer_graphe.py" line="93"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="101"/>
+        <location filename="creer_graphe.py" line="112"/>
         <source>Prefix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="111"/>
+        <location filename="creer_graphe.py" line="122"/>
         <source>Nodes layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="292"/>
+        <location filename="creer_graphe.py" line="283"/>
+        <source>Build graph</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Node Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="306"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
             network&#xa0;: Network layer (linear objects)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>prefix: prefix for node ids (ex: &apos;MAP&apos; and n&#xb0; 12563 =&gt; MAP12563)
+            node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>nodes_file: nodes layer (arcs ends)
         </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="269"/>
-        <source>Build graph</source>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Number series</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="102"/>
+        <source>Geographic string(unique)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -462,6 +591,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="import_gtfs.py" line="469"/>
+        <source>GTFS import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="476"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="import_gtfs.py" line="489"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
@@ -479,16 +618,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="469"/>
-        <source>GTFS import</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="476"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -575,6 +704,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="interpole.py" line="442"/>
+        <source>Linear interpolation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="449"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="interpole.py" line="465"/>
         <source>
         Implements a linear based interpolation in order to build a raster
@@ -603,16 +742,6 @@
             </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="interpole.py" line="442"/>
-        <source>Linear interpolation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="interpole.py" line="449"/>
-        <source>Analysis</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Inverser</name>
@@ -637,6 +766,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="inverser.py" line="168"/>
+        <source>Reverse arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="inverser.py" line="191"/>
         <source>
         Reverse arc directions and update i, j and ij fields to preserve the graph consistency
@@ -649,16 +783,11 @@
         </source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="inverser.py" line="168"/>
-        <source>Reverse arcs</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="276"/>
+        <location filename="maj_titj.py" line="277"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -713,12 +842,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="229"/>
+        <location filename="maj_titj.py" line="230"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="292"/>
+        <location filename="maj_titj.py" line="270"/>
+        <source>Update ti tj</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="293"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -734,16 +868,182 @@
         </source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>MusliwParam</name>
     <message>
-        <location filename="maj_titj.py" line="269"/>
-        <source>Update ti tj</source>
+        <location filename="param_musliw.py" line="104"/>
+        <source>In vehicle weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="112"/>
+        <source>Waiting weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="119"/>
+        <source>Individual modes weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="127"/>
+        <source>Boarding weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="134"/>
+        <source>Individual mode speed factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="141"/>
+        <source>Minimum transfer delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="148"/>
+        <source>Maximum transfer delay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="155"/>
+        <source>Extra day duration</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="164"/>
+        <source>Max. individual time budget</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="173"/>
+        <source>Maximum generalized time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="182"/>
+        <source>Toll weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="189"/>
+        <source>Output filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>Output links times?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>No output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>Without timetable links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="196"/>
+        <source>With timetable links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="204"/>
+        <source>Prohibited U-turns?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="211"/>
+        <source>Output paths?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="219"/>
+        <source>Output services?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="226"/>
+        <source>Output transfers?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="233"/>
+        <source>Output node times?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="241"/>
+        <source>Algorithm scale?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="250"/>
+        <source>Algorithm exponent?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="259"/>
+        <source>nb classes?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="268"/>
+        <source>Parameters file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="364"/>
+        <source>Musliw parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="371"/>
+        <source>Computations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="387"/>
+        <source>
+        Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
+<byte value="x9"/><byte value="x9"/>Produce a parameter file (to be selected in musliw computation):
+        
+        Parameters:
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            Waiting weight: weight factor for waiting time
+            Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
+            Boarding weight: weight factor for boarding time
+            Individual mode speed factor: homothetic factor that apply to the individual travel times
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
+            Maximum transfer delay: maximum waiting time for transfer (ex: 60 means that you will not be able to take atrain that leaves more that 60 minutes after you arrive)
+            Extra day duration: By default Musliw takes only into account timetable of the day selected in the matrix. If you can extend with the timetable of the day after (if departure) or the day before (arrival) your must enter 1
+            Max. indiviudal time budegt: The algorithm path will not explore shortest paths that have a individual time budget greater than this value
+            Maximum generalized time: The algorithm path will not explore shortest paths that have a total generalised cost greater than this value
+            Toll weight: weight factor for toll attribute
+            Output filter: specify the type of links you want in the reports (empty will output all links ex: metro|bus|tram will export only metro , bus and tram lines
+            Output links times: select what you want detailed output at link level (No, without ou with timetable based links)
+            Prohibited U-turns: choose if if you want to allow u-turns in shortest paths computation
+            Output paths: Check if you want to output detailed paths
+            Output services: Check if you want to have detailed outputs for each service
+            Output transfers: Check if you want to have detailed outputs on turns and transfers
+            Outpout nodes times: Check if you want to have detailed outputs at node level
+            Algorithm scale: Parameter of the shortest path algorithm
+            Algorithm exponent: The algorithm parameter exponent
+            Nb classes: The number of buckets of the shortest path algorithm
+            Parameter file: The output parameter file to be used in musliw computation
+            
+        </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="116"/>
+        <location filename="networks_provider.py" line="134"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -776,6 +1076,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="prepare_gtfs.py" line="450"/>
+        <source>Prepare GTFS</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="457"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="prepare_gtfs.py" line="473"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
@@ -787,16 +1097,6 @@
         Extract stop_id: if true the user must write a formula to extract the stop_id from the initial node_id string
         Extract formula: the formula to extract stop_id: (ex: &quot;OCE:StopArea:87256315&quot;) with [-8:] formula -&gt; &quot;OCE:StopArea:87256315&quot;[-8:]=&quot;87256315&quot;
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="prepare_gtfs.py" line="450"/>
-        <source>Prepare GTFS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="prepare_gtfs.py" line="457"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -863,6 +1163,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="reseau_tc.py" line="587"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="reseau_tc.py" line="604"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
@@ -873,11 +1178,6 @@
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_tc.py" line="587"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -964,6 +1264,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="reseau_ti.py" line="282"/>
+        <source>Musliw individual network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="289"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="reseau_ti.py" line="305"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
@@ -987,16 +1297,6 @@
             
             
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_ti.py" line="282"/>
-        <source>Musliw individual network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="reseau_ti.py" line="289"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
