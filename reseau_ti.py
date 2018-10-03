@@ -201,7 +201,7 @@ class ReseauTi(QgsProcessingAlgorithm):
             QgsProcessingParameterFileDestination(
                 self.OUTPUT,
                 self.tr('Musliw network'),
-                'txt'
+                '*.txt'
             )
         )
         
@@ -244,22 +244,22 @@ class ReseauTi(QgsProcessingAlgorithm):
         for p,f in enumerate(features):
             
             feedback.setProgress(p*100/n)
-        
-            if len(sens)==0:
-                s='1'
-            else:
-                s=f[sens[0]]
-            l=f[longueur[0]]
-            t=f[temps[0]]
             i=f[noeud_i[0]]
             j=f[noeud_j[0]]
-            te=f[texte_arc[0]]
-            modeContexte.setFeature(f)
-            modex=mode.evaluate(modeContexte)
-            if s in ('1','3'):
-               sortie.write(str(i)+';'+str(j)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
-            if s in ('2','3'):
-               sortie.write(str(j)+';'+str(i)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
+            if not i==j:
+                if len(sens)==0:
+                    s='1'
+                else:
+                    s=f[sens[0]]
+                l=f[longueur[0]]
+                t=f[temps[0]]
+                te=f[texte_arc[0]]
+                modeContexte.setFeature(f)
+                modex=mode.evaluate(modeContexte)
+                if s in ('1','3'):
+                   sortie.write(str(i)+';'+str(j)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
+                if s in ('2','3'):
+                   sortie.write(str(j)+';'+str(i)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
         sortie.close()
         return {self.INPUT:self.INPUT}
 

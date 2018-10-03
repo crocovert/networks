@@ -147,7 +147,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
             QgsProcessingParameterString(
                 self.ENCODAGE,
                 self.tr('Encoding'),
-                defaultValue='utf-8'
+                defaultValue='utf_8_sig'
                 
             )
         )            
@@ -197,7 +197,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
             t_noeuds.append(QgsField(self.tr("departures"),QVariant.Double))
             
             t_links=QgsFields()
-            t_links.append(QgsField(self_tr("line_num"),QVariant.String,len=15))
+            t_links.append(QgsField(self.tr("line_num"),QVariant.String,len=15))
             t_links.append(QgsField(self.tr("ligne_name"),QVariant.String,len=50))
             t_links.append(QgsField("i",QVariant.String,len=15))
             t_links.append(QgsField("j",QVariant.String,len=15))
@@ -350,6 +350,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 else:
                     #progress.setPercentage(float(fich_stop_times.tell())*100/nb)
                     elements=stop_time.strip().split(',')
+                    
+                    #print((istop,iid,elements[istop],elements[iid]))
                     if elements[istop] in arrets and trips[elements[iid]][1] in routes:
                         id_stop2=elements[istop]
                         id_trip2=elements[iid]

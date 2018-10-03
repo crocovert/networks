@@ -168,7 +168,7 @@ class ReseauTC(QgsProcessingAlgorithm):
             QgsProcessingParameterFileDestination(
                 self.OUTPUT,
                 self.tr('Musliw timetable network'),
-                'txt'
+                '*.txt'
             )
         )
         

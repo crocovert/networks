@@ -49,6 +49,10 @@ from .prepare_gtfs import PrepareGTFS
 from .connect_nodes2lines import ConnectNodes2Lines
 from .calcul_musliw import CalculMusliw
 from .param_musliw import MusliwParam
+from .simple_matrix import SimpleMatrix
+from .matrix_simple_liste import MatrixSimpleList
+from .matrix_double_liste import MatrixDoubleList
+from .noeuds_isoles import IsolatedNodes
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -75,13 +79,14 @@ class NetworksProvider(QgsProcessingProvider):
                         PrepareGTFS(),
                         ConnectNodes2Lines(),
                         CalculMusliw(),
-                        MusliwParam()]
+                        MusliwParam(),
+                        SimpleMatrix(),
+                        MatrixSimpleList(),
+                        MatrixDoubleList(),
+                        IsolatedNodes()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
-   
-						   
-						   
         locale = QSettings().value('locale/userLocale')[0:2]
         locale_path = os.path.join(
             self.plugin_dir,
@@ -92,9 +97,10 @@ class NetworksProvider(QgsProcessingProvider):
             self.translator = QTranslator()
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
-                
+
     def load(self):
         self.refreshAlgorithms()
+    
         return True
 
     def unload(self):
@@ -110,8 +116,8 @@ class NetworksProvider(QgsProcessingProvider):
         """
         for alg in self.alglist:
             self.addAlgorithm( alg )
+        
 
-                
 
     def id(self):
         """

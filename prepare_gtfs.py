@@ -376,7 +376,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         routes2.write(hroute)
         #trips2=open(sortie+'/trips.txt','w')
         trips2=codecs.open(sortie+"/"+prefixe+"/trips.txt","w",encoding='utf_8_sig')
-        trips2.write(htrip)
+        trips2.write(htrip+"\n")
         #stops2=open(sortie+'/stops.txt','w')
         stops2=codecs.open(sortie+"/"+prefixe+"/stops.txt","w",encoding='utf_8_sig')
         stops2.write(hstops+"\n")
