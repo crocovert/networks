@@ -89,12 +89,14 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 self.REP_SOURCE,
                 self.tr('GTFS source folder '),
                 QgsProcessingParameterFile.Folder
+                
             )
         )
         self.addParameter(
             QgsProcessingParameterFolderDestination(
                 self.REP_RESULTAT,
                 self.tr('GTFS output folder')
+                
                 
             )
         )
@@ -139,7 +141,9 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         uic=self.parameterAsBool(parameters,self.UIC,context)
         split_formula=self.parameterAsString(parameters,self.SPLIT_FORMULA,context)
         
-        
+        print(rep_resultat,self.REP_RESULTAT)
+        if os.path.split(rep_resultat)[1]==self.REP_RESULTAT:
+            rep_resultat=os.path.split(rep_resultat)[0]
         self.importGTFS(rep_source,rep_resultat,prefixe_reseau,uic,split_formula)
 
 
@@ -300,9 +304,12 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         formes={}
         if (os.path.isfile(rep+'/shapes.txt')==True):
             shapes=codecs.open(rep+'/shapes.txt','r',encoding='utf_8_sig')
-            shapes2=codecs.open(sortie+'/shapes.txt','w',encoding='utf_8_sig')
+            if not os.path.isdir(sortie+"/"+prefixe):
+                os.mkdir(sortie+"/"+prefixe)
+
+            shapes2=codecs.open(sortie+"/"+prefixe+'/shapes.txt','w',encoding='utf_8_sig')
             for i,ligne in enumerate(shapes):
-                ligne=ligne.decode('utf-8')
+                #ligne=ligne.decode('utf-8')
                 elements=ligne.strip().split(',')
                 if len(elements)>1:
                     if i>0:

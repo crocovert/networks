@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import subprocess
+import os,sys
 
 """
 /***************************************************************************
@@ -135,14 +136,17 @@ class CalculMusliw(QgsProcessingAlgorithm):
         parametres = self.parameterAsFile(parameters, self.PARAMETRES, context)
         penalites = self.parameterAsFile(parameters, self.PENALITES, context)
         sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
-        prog=os.path.dirname(__file__)+"/muslic.exe"
+        if sys.platform.startswith('win'):
+            prog=os.path.dirname(__file__)+"/Muslic.exe"
+        elif sys.platform.startswith('linux'):
+            prog="mono "+os.path.dirname(__file__)+"/Muslic.exe"
         
         CREATE_NO_WINDOW = 0x08000000
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
         if len(penalites)==0:
-            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres],creationflags=CREATE_NO_WINDOW)
+            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres])
         else:
-            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres,penalites],creationflags=CREATE_NO_WINDOW)
+            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres,penalites])
         return {'musliw': 'OK'}
 
 
