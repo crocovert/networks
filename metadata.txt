@@ -17,7 +17,7 @@ email=patrick.palmier@cerema.fr
 
 about=Manage linear networks. Several functionalities as generating a graph from a linear layer, reverting and splitting polylines, connecting points to a linear objects, performing a linear-based deterministic interpolation for accessibility maps and generating isochrons polygons. The purpose of the plguin is also to deal with the multimodal calculator tool Musliw (manage input ou output files). Compute multimodal routing and accessibility with extern Musliw tootl provided, which can be called by the Musliw computation algorithm in QGis
 
-tracker=https://github.com/crocovert/networks/
+tracker=https://github.com/crocovert/networks/issues
 repository=https://github.com/crocovert/networks/
 # End of mandatory metadata
 
