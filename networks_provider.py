@@ -53,6 +53,8 @@ from .simple_matrix import SimpleMatrix
 from .matrix_simple_liste import MatrixSimpleList
 from .matrix_double_liste import MatrixDoubleList
 from .noeuds_isoles import IsolatedNodes
+from .fichier_aff import FichierAff
+from .decaler_lignes import ShiftLines
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -83,7 +85,9 @@ class NetworksProvider(QgsProcessingProvider):
                         SimpleMatrix(),
                         MatrixSimpleList(),
                         MatrixDoubleList(),
-                        IsolatedNodes()]
+                        IsolatedNodes(),
+                        FichierAff(),
+						ShiftLines()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

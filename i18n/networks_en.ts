@@ -86,50 +86,66 @@
 <context>
     <name>CalculMusliw</name>
     <message>
-        <location filename="calcul_musliw.py" line="85"/>
+        <location filename="calcul_musliw.py" line="89"/>
         <source>Musliw network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="91"/>
+        <location filename="calcul_musliw.py" line="95"/>
         <source>Musliw matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="97"/>
+        <location filename="calcul_musliw.py" line="101"/>
         <source>Musliw parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="103"/>
+        <location filename="calcul_musliw.py" line="107"/>
         <source>Musliw penalties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="110"/>
+        <location filename="calcul_musliw.py" line="114"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="141"/>
+        <location filename="calcul_musliw.py" line="164"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="164"/>
+        <location filename="calcul_musliw.py" line="187"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="171"/>
+        <location filename="calcul_musliw.py" line="194"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="187"/>
+        <location filename="calcul_musliw.py" line="123"/>
+        <source>Accept to download Musliw binary from Github</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="153"/>
+        <source>Downloading Muslic binary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="155"/>
+        <source>Muslic downloaded succesfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="210"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
-<byte value="x9"/><byte value="x9"/>Produce output files (semi-column separated files (if selected in parameters):
+<byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
+        Produce output files (semi-column separated files (if selected in parameters):
         . Origin destination results file &quot;_od.txt&quot;
         . Cumulative times on arcs &quot;_temps.txt&quot; (usefull for isochron maps)
         . Detailed paths &quot;_chemins.txt&quot; 
@@ -145,6 +161,7 @@
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>output : Mulsiw results file (without extension)
+            Accept to download Muslic binary: If checked, the algorithm will download Muslic.exe on the github repository
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -479,6 +496,78 @@
     </message>
 </context>
 <context>
+    <name>FichierAff</name>
+    <message>
+        <location filename="fichier_aff.py" line="86"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="95"/>
+        <source>ij</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="106"/>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="116"/>
+        <source>Flows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="123"/>
+        <source>Link type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="133"/>
+        <source>aff output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="143"/>
+        <source>Encoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="150"/>
+        <source>Flows layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="273"/>
+        <source>Get link flows data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="280"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_aff.py" line="296"/>
+        <source>
+        Generate a linear objects layer with the links used in assignment (with a volume of passengers&gt;0) in particular to produce flows maps.
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            network: the network links layer 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: an expression do describe the link id (&quot;id&quot; attribute or expression)
+            line (optonal): the line id. If line id is filled the layer will have as many superposed links as they have identical links but with a different transit line id (You should used &quot;shift lines&apos; alg to view flows maps in this case
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>link type: the type of link
+            aff ouput file: Choose a network corresponding &lt;FILENAME&gt;_aff.txt output file
+            enconding: text encoding
+            flows layer: name of the flows layer generated
+            
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImportGTFS</name>
     <message>
         <location filename="import_gtfs.py" line="91"/>
@@ -586,22 +675,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="401"/>
+        <location filename="import_gtfs.py" line="403"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="469"/>
+        <location filename="import_gtfs.py" line="471"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="476"/>
+        <location filename="import_gtfs.py" line="478"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="489"/>
+        <location filename="import_gtfs.py" line="491"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -618,6 +707,11 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="200"/>
+        <source>line_num</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1130,145 +1224,145 @@
 <context>
     <name>MusliwParam</name>
     <message>
-        <location filename="param_musliw.py" line="104"/>
+        <location filename="param_musliw.py" line="106"/>
         <source>In vehicle weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="112"/>
+        <location filename="param_musliw.py" line="114"/>
         <source>Waiting weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="119"/>
+        <location filename="param_musliw.py" line="121"/>
         <source>Individual modes weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="127"/>
+        <location filename="param_musliw.py" line="129"/>
         <source>Boarding weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="134"/>
+        <location filename="param_musliw.py" line="136"/>
         <source>Individual mode speed factor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="141"/>
+        <location filename="param_musliw.py" line="143"/>
         <source>Minimum transfer delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="148"/>
+        <location filename="param_musliw.py" line="150"/>
         <source>Maximum transfer delay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="155"/>
+        <location filename="param_musliw.py" line="157"/>
         <source>Extra day duration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="164"/>
+        <location filename="param_musliw.py" line="166"/>
         <source>Max. individual time budget</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="173"/>
+        <location filename="param_musliw.py" line="175"/>
         <source>Maximum generalized time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="182"/>
+        <location filename="param_musliw.py" line="184"/>
         <source>Toll weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="189"/>
+        <location filename="param_musliw.py" line="191"/>
         <source>Output filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="196"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output links times?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="196"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>No output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="196"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Without timetable links</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="196"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>With timetable links</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="204"/>
+        <location filename="param_musliw.py" line="206"/>
         <source>Prohibited U-turns?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="211"/>
+        <location filename="param_musliw.py" line="213"/>
         <source>Output paths?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="219"/>
+        <location filename="param_musliw.py" line="221"/>
         <source>Output services?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="226"/>
+        <location filename="param_musliw.py" line="228"/>
         <source>Output transfers?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="233"/>
+        <location filename="param_musliw.py" line="235"/>
         <source>Output node times?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="241"/>
+        <location filename="param_musliw.py" line="243"/>
         <source>Algorithm scale?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="250"/>
+        <location filename="param_musliw.py" line="252"/>
         <source>Algorithm exponent?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="259"/>
+        <location filename="param_musliw.py" line="261"/>
         <source>nb classes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="268"/>
+        <location filename="param_musliw.py" line="270"/>
         <source>Parameters file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="364"/>
+        <location filename="param_musliw.py" line="368"/>
         <source>Musliw parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="371"/>
+        <location filename="param_musliw.py" line="375"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="387"/>
+        <location filename="param_musliw.py" line="391"/>
         <source>
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
-<byte value="x9"/><byte value="x9"/>Produce a parameter file (to be selected in musliw computation):
+        Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
             In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
@@ -1294,6 +1388,7 @@
             Nb classes: The number of buckets of the shortest path algorithm
             Parameter file: The output parameter file to be used in musliw computation
             
+            
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -1301,7 +1396,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="140"/>
+        <location filename="networks_provider.py" line="144"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1314,37 +1409,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="94"/>
+        <location filename="prepare_gtfs.py" line="95"/>
         <source>GTFS output folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="101"/>
+        <location filename="prepare_gtfs.py" line="103"/>
         <source>Network Id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="108"/>
+        <location filename="prepare_gtfs.py" line="110"/>
         <source>Extract stop_id?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="115"/>
+        <location filename="prepare_gtfs.py" line="117"/>
         <source>Extract formula</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="450"/>
+        <location filename="prepare_gtfs.py" line="457"/>
         <source>Prepare GTFS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="457"/>
+        <location filename="prepare_gtfs.py" line="464"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="473"/>
+        <location filename="prepare_gtfs.py" line="480"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -1555,6 +1650,68 @@
             
             
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShiftLines</name>
+    <message>
+        <location filename="decaler_lignes.py" line="84"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="93"/>
+        <source>ij</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="104"/>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="113"/>
+        <source>Quantitative variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="121"/>
+        <source>Shift variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="225"/>
+        <source>Shift lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="232"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="248"/>
+        <source>
+        Update a field from a line layer (with superposed geographic links but with different line ids) to produce map layer with shifted links. 
+        The algorithm will update an numeric attribute with a number that allows to produce flows maps with shifted lines. For example, if there is two superposed links from A to B with line 1 (100 passangers)
+        and line 2 (200passengers) and you want to produce the flow maps of the total number of passengers, 
+        the algorithm will update an attribute &quot;shift&quot; that will have 0 for line 1 (no shift) and 100 for line 2.
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            network: lines network 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: link id (ij attribute or expression)
+            line: line id
+            quantitative value: the exprerssion you want to visualize in the flows map (flow variable)
+            shift variable: field to be update with the shift value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="decaler_lignes.py" line="156"/>
+        <source>add field </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2,6 +2,7 @@
 import subprocess
 import io
 
+
 """
 /***************************************************************************
  Networks
@@ -94,6 +95,7 @@ class MusliwParam(QgsProcessingAlgorithm):
     PU='PU'
     MAX_CLASSES='MAX_CLASSES'
     SORTIE='SORTIE'
+
 
     def initAlgorithm(self, config):
         """
@@ -273,6 +275,8 @@ class MusliwParam(QgsProcessingAlgorithm):
                 
             )
         )
+        
+
 
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
@@ -310,6 +314,7 @@ class MusliwParam(QgsProcessingAlgorithm):
         cout_max=self.parameterAsDouble(parameters, self.COUT_MAX, context)
         nb_classes=self.parameterAsInt(parameters, self.MAX_CLASSES, context)
         sortie=self.parameterAsFileOutput(parameters, self.SORTIE, context)
+
         
         fich_param=io.open(sortie,"w",encoding="utf-8")
         fich_param.write('0\n')
@@ -340,7 +345,6 @@ class MusliwParam(QgsProcessingAlgorithm):
         fich_param.write(unicode(sortie_noeuds).title()+"\n")
         fich_param.write("False"+"\n")
         fich_param.close()
-        
         
 
         return {'parameters': 'ok'}
@@ -386,7 +390,7 @@ class MusliwParam(QgsProcessingAlgorithm):
     def shortHelpString(self):
         return self.tr("""
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
-		Produce a parameter file (to be selected in musliw computation):
+        Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
             In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
@@ -411,6 +415,7 @@ class MusliwParam(QgsProcessingAlgorithm):
             Algorithm exponent: The algorithm parameter exponent
             Nb classes: The number of buckets of the shortest path algorithm
             Parameter file: The output parameter file to be used in musliw computation
+            
             
         """)
 

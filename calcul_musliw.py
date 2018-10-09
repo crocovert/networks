@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import subprocess
 import os,sys
+import processing
 
 """
 /***************************************************************************
@@ -76,7 +77,9 @@ class CalculMusliw(QgsProcessingAlgorithm):
     PARAMETRES='PARAMETRES'
     PENALITES='PENALTIES'
     SORTIE='SORTIE'
-
+    DOWNLOAD='DOWNLOAD'
+    
+    
     def initAlgorithm(self, config):
         """
         Here we define the inputs and output of the algorithm, along
@@ -116,6 +119,14 @@ class CalculMusliw(QgsProcessingAlgorithm):
                 
             )
         )
+        
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.DOWNLOAD,
+                self.tr('Accept to download Musliw binary from Github'),
+                False
+            )
+        )
 
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
@@ -136,6 +147,14 @@ class CalculMusliw(QgsProcessingAlgorithm):
         parametres = self.parameterAsFile(parameters, self.PARAMETRES, context)
         penalites = self.parameterAsFile(parameters, self.PENALITES, context)
         sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
+        download=self.parameterAsBool(parameters,self.DOWNLOAD,context)
+        
+        if download==True:
+            feedback.setProgressText(self.tr("Downloading Muslic binary"))
+            processing.run("native:filedownloader", {'URL':'https://github.com/crocovert/muslic/raw/master/Muslic/bin/x64/Release/Muslic.exe','OUTPUT':os.path.dirname(__file__)+"/Muslic.exe"})
+            feedback.setProgressText(self.tr("Muslic downloaded succesfully"))
+        
+        
         if sys.platform.startswith('win'):
             prog=os.path.dirname(__file__)+"/Muslic.exe"
         elif sys.platform.startswith('linux'):
@@ -190,7 +209,8 @@ class CalculMusliw(QgsProcessingAlgorithm):
     def shortHelpString(self):
         return self.tr("""
         Perform a calculation of multimodal accessibility and routing
-		Produce output files (semi-column separated files (if selected in parameters):
+		Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
+        Produce output files (semi-column separated files (if selected in parameters):
         . Origin destination results file "_od.txt"
         . Cumulative times on arcs "_temps.txt" (usefull for isochron maps)
         . Detailed paths "_chemins.txt" 
@@ -206,6 +226,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
 			output : Mulsiw results file (without extension)
+            Accept to download Muslic binary: If checked, the algorithm will download Muslic.exe on the github repository
         """)
 
     def createInstance(self):

@@ -11,7 +11,7 @@ name=Networks
 qgisMinimumVersion=3.0
 description=Manage linear networks and compute multimodal routing and accessibility. Several functionalities as generating a graph from a linear layer, invert and split polylines, and connect point to a linear objects, and perform a linear-based deterministic interpolation for accessibility maps and build isochrones polygons.Computes multimodal routing and accessibility. Include a dataset for testing,a Musliw documentation and an algorithm for detecting non connected nodes
 
-version=2.1.2
+version=2.2.0
 author=Patrick Palmier
 email=patrick.palmier@cerema.fr
 
@@ -24,7 +24,8 @@ repository=https://github.com/crocovert/networks/
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
- changelog=2.1.2 Fix a bug in prepare_gtfs.py 
+ changelog=2.2.0 Add scripts for the generation of flow maps (results of assignment). Allow to download Muslic binary to compute multimodal routing
+		2.1.2 Fix a bug in prepare_gtfs.py 
 		2.1.1 Add matrix wirting algorithms, non connected nodes algorithm and dataset for testing
 		2.1.0 Multimodal routing and accessibility 
 		2.0.3  build graph allow number series or geographic string for node ids
