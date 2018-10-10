@@ -188,13 +188,13 @@ class Majtitj(QgsProcessingAlgorithm):
         reseau.startEditing()
         reseau.beginEditCommand(self.tr("updating ti tj"))
         if  champ_ti not in noms_champs:
-            reseau.addAttribute(QgsField(champ_ti,QVariant.Double))
+            reseau.dataProvider().addAttributes([QgsField(champ_ti,QVariant.Double)])
           
         if  champ_tj not in noms_champs:
-            reseau.addAttribute(QgsField(champ_tj,QVariant.Double))
+            reseau.dataProvider().addAttributes([QgsField(champ_tj,QVariant.Double)])
 
         if  u"ij" not in noms_champs:
-            reseau.addAttribute(QgsField("ij",QVariant.String))
+            reseau.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
             #reseau.addAttribute(QgsField("ij",QVariant.String))
             for f in reseau.getFeatures():
                 num=f.id()
