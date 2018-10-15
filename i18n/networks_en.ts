@@ -179,7 +179,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="162"/>
+        <location filename="concat_reseaux.py" line="163"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -191,12 +191,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="139"/>
+        <location filename="concat_reseaux.py" line="140"/>
         <source>Concatenate networks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="146"/>
+        <location filename="concat_reseaux.py" line="147"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -561,6 +561,143 @@
             enconding: text encoding
             flows layer: name of the flows layer generated
             
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FichierOD</name>
+    <message>
+        <location filename="fichier_od.py" line="83"/>
+        <source>OD output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="95"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="119"/>
+        <source>OD indicator file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="217"/>
+        <source>indicators by OD</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="224"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="240"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            id: OD id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FichierTemps</name>
+    <message>
+        <location filename="fichier_temps.py" line="83"/>
+        <source>Link times output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="95"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="119"/>
+        <source>Link indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="190"/>
+        <source>ignored element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="211"/>
+        <source>indicators by link</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="218"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="234"/>
+        <source>
+        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_od.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
             
             
         </source>
@@ -1396,7 +1533,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="144"/>
+        <location filename="networks_provider.py" line="148"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>

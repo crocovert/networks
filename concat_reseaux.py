@@ -88,7 +88,8 @@ class ConcatReseaux(QgsProcessingAlgorithm):
             QgsProcessingParameterFileDestination(
                 self.DESTINATION,
                 self.tr('Global network'),
-                'txt'
+                'txt',
+                '*.txt'
             )
         )
 

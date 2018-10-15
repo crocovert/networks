@@ -55,6 +55,8 @@ from .matrix_double_liste import MatrixDoubleList
 from .noeuds_isoles import IsolatedNodes
 from .fichier_aff import FichierAff
 from .decaler_lignes import ShiftLines
+from .fichier_od import FichierOD
+from .fichier_temps import FichierTemps
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -87,7 +89,9 @@ class NetworksProvider(QgsProcessingProvider):
                         MatrixDoubleList(),
                         IsolatedNodes(),
                         FichierAff(),
-						ShiftLines()]
+						ShiftLines(),
+                        FichierOD(),
+                        FichierTemps()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

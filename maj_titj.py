@@ -235,7 +235,7 @@ class Majtitj(QgsProcessingAlgorithm):
             ij=f["ij"]
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
-                if start==True:
+                if start==0:
                     reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
                     reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
                 else:
@@ -243,8 +243,8 @@ class Majtitj(QgsProcessingAlgorithm):
                     reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
-                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
-                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
+                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
+                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
 
         feedback.setProgress((k+1)*100/n)            
         #reseau.commitChanges()

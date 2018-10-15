@@ -250,7 +250,7 @@
         <translation>Réseau multimodal</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="162"/>
+        <location filename="concat_reseaux.py" line="163"/>
         <source>
         Concatenate Musliw networks elements,
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -267,12 +267,12 @@
         </translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="139"/>
+        <location filename="concat_reseaux.py" line="140"/>
         <source>Concatenate networks</source>
         <translation>Concatener réseaux</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="146"/>
+        <location filename="concat_reseaux.py" line="147"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -696,6 +696,185 @@
             
             
             </translation>
+    </message>
+</context>
+<context>
+    <name>FichierOD</name>
+    <message>
+        <location filename="fichier_od.py" line="83"/>
+        <source>OD output file</source>
+        <translation>Fichier OD</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="95"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation>Retrancher temps d&apos;attente initial/final?</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation>Tronçons à horaires uniquement?</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="119"/>
+        <source>OD indicator file</source>
+        <translation>Fichier indicateurs des liens</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="217"/>
+        <source>indicators by OD</source>
+        <translation>indicateurs par OD</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="224"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="240"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            id: OD id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            
+            
+        </source>
+        <translation>        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
+			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+            id: OD id
+            avg: valeur moyenne
+            nb: nombre de lignes pour cette OD traitées
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
+            
+            
+        </translation>
+    </message>
+</context>
+<context>
+    <name>FichierTemps</name>
+    <message>
+        <location filename="fichier_temps.py" line="83"/>
+        <source>Link times output file</source>
+        <translation>Fichier temps Musliw</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="95"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation>Tronçons horaires uniquement?</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="119"/>
+        <source>Link indicators file</source>
+        <translation>Fichier résultat des indicateurs par tronçons</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="190"/>
+        <source>ignored element</source>
+        <translation>élément ignoré</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="211"/>
+        <source>indicators by link</source>
+        <translation>indicateurs par tronçon</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="218"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="234"/>
+        <source>
+        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_od.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation>
+        Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            ij:  id tronçon
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum
+            
+            
+        </translation>
     </message>
 </context>
 <context>
@@ -1752,7 +1931,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="144"/>
+        <location filename="networks_provider.py" line="148"/>
         <source>Networks</source>
         <translation></translation>
     </message>
