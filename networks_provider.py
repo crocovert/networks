@@ -106,10 +106,7 @@ class NetworksProvider(QgsProcessingProvider):
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
 
-    def load(self):
-        self.refreshAlgorithms()
-    
-        return True
+
 
     def unload(self):
         """

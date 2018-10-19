@@ -27,13 +27,15 @@ __date__ = '2018-02-26'
 __copyright__ = '(C) 2018 by Patrick Palmier'
 
 
+
+
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name
-    """Load Networks class from file Networks.
-
-    :param iface: A QGIS interface instance.
-    :type iface: QgsInterface
-    """
-    #
-    from .networks import NetworksPlugin
-    return NetworksPlugin()
+	"""Load Networks class from file Networks.	
+	:param iface: A QGIS interface instance.
+	:type iface: QgsInterface
+	"""
+	#
+	from .networks import NetworksPlugin
+	return NetworksPlugin()
+	
