@@ -134,7 +134,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
             QgsProcessingParameterCrs(
                 self.PROJ,
                 self.tr('CRS'),
-                2154
+                QgsCoordinateReferenceSystem('EPSG:2154')
             )
         )
         self.addParameter(
@@ -264,6 +264,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     
 
         calendar_dates={}
+        calendar_dates2={}
         if ("calendar_dates.txt" in  os.listdir(nom_rep)):
             fich_calendar_dates=io.open(nom_rep+"/calendar_dates.txt","r",encoding=encodage)
             feedback.setProgressText(self.tr("reading calendar dates..."))
@@ -282,6 +283,10 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     vdate=elements[idate].strip('"')
                     vdate=datetime.date(int(vdate[0:4]),int(vdate[4:6]),int(vdate[6:8]))
                     calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex]]
+                    if elements[iex]=="1":
+                        if elements[iid] not in calendar_dates2:
+                            calendar_dates2[elements[iid]]=[]
+                        calendar_dates2[elements[iid]].append([elements[iid],vdate])
 
 
         routes={}
@@ -378,10 +383,11 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                             if (trips[id_trip][2],date_offre,'1') in calendar_dates:
                                                     nbservices+=1
                                             if (trips[id_trip][2],date_offre,'2') in calendar_dates:
-                                                    nbservices+=0
+                                                    nbservices+=-1
                                     
-                            elif (trips[id_trip][2],date_offre,'1') in calendar_dates:
-                                nbservices+=1
+                            elif trips[elements[iid]][2] in calendar_dates2:
+                                for k in calendar_dates2[trips[elements[iid]][2]]:
+                                    nbservices+=1
                             segment_id=(num_ligne, id_stop,id_stop2)
                             if (t1<=hi2<=t2):
                                 nbs1=nbservices

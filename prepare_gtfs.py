@@ -210,13 +210,13 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             if len(elements)>1:
                 if i>0:
                     if not test_agency=='ZZ':
-                        elements=elements+[prefixe_reseau]
+                        elements=elements+[prefixe]
                     l=[elements[iroute],elements[iagency]]
                     l.extend(elements[2:])
                     lignes[elements[iroute]]=l
                 else:
                     if ("agency_id") not in elements:
-                        test_agency=prefixe_reseau
+                        test_agency=prefixe
                         elements=elements+["agency_id"]
                     iroute=elements.index("route_id")
                     iagency=elements.index("agency_id")
@@ -421,7 +421,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         
         for stop in arrets:
             arrets[stop][iname]='"'+arrets[stop][iname]+'"'
-            if "stop_desc" in hstops:
+            if "stop_desc" in hstops.split(','):
                  arrets[stop][idesc]='"'+arrets[stop][idesc]+'"'
             stops2.write((",".join(arrets[stop])+"\n"))
         stops2.close()

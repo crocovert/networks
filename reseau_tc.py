@@ -275,39 +275,36 @@ class ReseauTC(QgsProcessingAlgorithm):
 
     def  lit_google_calendar_dates(self,nom_calendar_dates):
         google_calendar_dates= {}
-        fichier_calendar_dates = io.open(nom_calendar_dates,encoding="utf_8_sig")
-
-        for i,ligne in enumerate(fichier_calendar_dates):
-            if i==0:
-                header =ligne.strip('\n').strip('\r').split(',')
-                headers = {}
-                for j,ii  in enumerate(header):
-                    headers[ii.strip('"')] = j
-
-            else:
-                h = []
-                delim = "\"" 
-                head = ligne.strip('\n').strip('\r').split(delim)
-                for ch in head:
-                    h.append(ch.replace(", ", "_ "))
-                chaine = "".join(h)
-
-
-                elements = chaine.split(',')
-                google_calendar_date = Google_Calendar_Date()
-                google_calendar_date.date = QDate(int(elements[headers["date"]][0:4]), int(elements[headers["date"]][4:6]),  int(elements[headers["date"]][6:8])).toPyDate()
-                google_calendar_date.type = int(elements[headers["exception_type"]])
-                service_id = elements[headers["service_id"]]
-                
-                if service_id in google_calendar_dates:
-                    google_calendar_dates[service_id].append(google_calendar_date)
-                    
+        if os.path.isfile(nom_calendar_dates):
+            fichier_calendar_dates = io.open(nom_calendar_dates,encoding="utf_8_sig")
+            for i,ligne in enumerate(fichier_calendar_dates):
+                if i==0:
+                    header =ligne.strip('\n').strip('\r').split(',')
+                    headers = {}
+                    for j,ii  in enumerate(header):
+                        headers[ii.strip('"')] = j
                 else:
-                    
-                    google_calendar_dates[service_id]=[]
-                    google_calendar_dates[service_id].append(google_calendar_date)
-        fichier_calendar_dates.close()
+                    h = []
+                    delim = "\"" 
+                    head = ligne.strip('\n').strip('\r').split(delim)
+                    for ch in head:
+                        h.append(ch.replace(", ", "_ "))
+                    chaine = "".join(h)
+                    elements = chaine.split(',')
+                    google_calendar_date = Google_Calendar_Date()
+                    google_calendar_date.date = QDate(int(elements[headers["date"]][0:4]), int(elements[headers["date"]][4:6]),  int(elements[headers["date"]][6:8])).toPyDate()
+                    google_calendar_date.type = int(elements[headers["exception_type"]])
+                    service_id = elements[headers["service_id"]]
+                    if service_id in google_calendar_dates:
+                        google_calendar_dates[service_id].append(google_calendar_date)
+                        
+                    else:
+                        
+                        google_calendar_dates[service_id]=[]
+                        google_calendar_dates[service_id].append(google_calendar_date)
+            fichier_calendar_dates.close()
         return google_calendar_dates
+
 
 
 

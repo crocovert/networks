@@ -189,19 +189,21 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     test_sens='0'
             gligne=ligne.geometry()
             if test_sens=='1':
-                if gligne.wkbType()==QgsWkbTypes.MultiLineString:
+                if gligne.wkbType() in [QgsWkbTypes.MultiLineString,QgsWkbTypes.MultiLineStringZ]:
                     g=gligne.asMultiPolyline()
                     na=g[0][0]
                     liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
                     nb=g[-1][-1]
                     libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
                     
-                elif gligne.wkbType()==QgsWkbTypes.LineString:
-                    g=gligne.AsPolyline()
+                elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
+                    g=gligne.asPolyline()
                     na=g[0]
                     liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
                     nb=g[-1]
                     libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
+                else:
+                    continue
                 if (na not in noeuds):
                     noeuds[na]=(prefixe+liba,1)
                 else:
@@ -237,7 +239,8 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     test_sens='0'
             if test_sens=='1':
                 gligne=ligne.geometry()
-                if gligne.wkbType()==QgsWkbTypes.MultiLineString:
+                print(gligne.wkbType())
+                if gligne.wkbType() in [QgsWkbTypes.MultiLineString,QgsWkbTypes.MultiLineStringZ]:
                     
                     g=gligne.asMultiPolyline()
 
@@ -245,7 +248,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     nb=g[-1][-1]
                     liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
                     libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
-                elif gligne.wkbType()==QgsWkbTypes.LineString:
+                elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
 
                     g=gligne.asPolyline()
                     na=g[0]
@@ -253,7 +256,8 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
 
                     libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
-
+                else:
+                    continue
 
                 id=ligne.id()
                 #valid={ida : noeuds[na], idb: noeuds[nb]}
