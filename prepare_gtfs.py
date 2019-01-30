@@ -141,7 +141,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         uic=self.parameterAsBool(parameters,self.UIC,context)
         split_formula=self.parameterAsString(parameters,self.SPLIT_FORMULA,context)
         
-        print(rep_resultat,self.REP_RESULTAT)
+        #print(rep_resultat,self.REP_RESULTAT)
         if os.path.split(rep_resultat)[1]==self.REP_RESULTAT:
             rep_resultat=os.path.split(rep_resultat)[0]
         self.importGTFS(rep_source,rep_resultat,prefixe_reseau,uic,split_formula)
@@ -236,7 +236,8 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 pass
             elements=ligne.strip().split(',')
             for i1,i2 in enumerate(elements):
-                elements[i1]=i2.strip('"')
+                elements[i1]=i2.strip('"').strip()
+                
             if len(elements)>1:
                 if i>0:
                     if elements[iroute] in lignes:
@@ -248,7 +249,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                         services[elements[itrip]]=t
                 else:
                     for z,e in enumerate(elements):
-                        elements[z]=e.strip('"')
+                        elements[z]=e.strip('"').strip()
                     iroute=elements.index("route_id")
                     itrip=elements.index("trip_id")
                     iservice=elements.index("service_id")

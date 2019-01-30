@@ -180,7 +180,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                 header =  ligne.split(',') 
                 headers = {}
                 for j,ii in enumerate(header):
-                    headers[ii.strip()] = j;
+                    headers[ii.strip('"').strip()] = j;
             else:
                     delim="\""
                     elements =re.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)",ligne[:-1])
@@ -195,8 +195,8 @@ class ReseauTC(QgsProcessingAlgorithm):
                         google_stop.y = float(elements[headers["stop_lat"]].replace(".", ","))
                         
                     else:
-                        google_stop.x = float(elements[headers["stop_lon"]])
-                        google_stop.y = float(elements[headers["stop_lat"]])
+                        google_stop.x = float(elements[headers["stop_lon"]].replace(",", "."))
+                        google_stop.y = float(elements[headers["stop_lat"]].replace(",", "."))
                     google_stops[google_stop.numero] = google_stop
         fichier_stops.close()
         return google_stops
