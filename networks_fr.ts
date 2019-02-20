@@ -90,7 +90,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="229"/>
+        <location filename="creer_graphe.py" line="231"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -552,7 +552,7 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="290"/>
+        <location filename="creer_graphe.py" line="294"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -572,7 +572,7 @@
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="283"/>
+        <location filename="creer_graphe.py" line="287"/>
         <source>Build graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -582,7 +582,7 @@
         <translation>Node id</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="306"/>
+        <location filename="creer_graphe.py" line="310"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -965,32 +965,32 @@
         <translation>Lecture des calendars...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="269"/>
+        <location filename="import_gtfs.py" line="270"/>
         <source>reading calendar dates...</source>
         <translation>Lectures des calendar_dates...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="291"/>
+        <location filename="import_gtfs.py" line="296"/>
         <source>Reading routes...</source>
         <translation>Lectures des routes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="316"/>
+        <location filename="import_gtfs.py" line="321"/>
         <source>Reading trips...</source>
         <translation>Lecture des trips...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="340"/>
+        <location filename="import_gtfs.py" line="345"/>
         <source>Reading stop times...</source>
         <translation>Lecture des stop_times...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="403"/>
+        <location filename="import_gtfs.py" line="409"/>
         <source>Generating arcs and lines...</source>
         <translation>Génération des arcs et lignes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="491"/>
+        <location filename="import_gtfs.py" line="497"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1024,12 +1024,12 @@
 			</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="471"/>
+        <location filename="import_gtfs.py" line="477"/>
         <source>GTFS import</source>
         <translation>Import GTFS</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="478"/>
+        <location filename="import_gtfs.py" line="484"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1931,7 +1931,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="148"/>
+        <location filename="networks_provider.py" line="147"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -1964,7 +1964,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="480"/>
+        <location filename="prepare_gtfs.py" line="481"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -1987,12 +1987,12 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="457"/>
+        <location filename="prepare_gtfs.py" line="458"/>
         <source>Prepare GTFS</source>
         <translation>Préparer GTFS</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="464"/>
+        <location filename="prepare_gtfs.py" line="465"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2015,52 +2015,52 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="580"/>
+        <location filename="reseau_tc.py" line="577"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="545"/>
+        <location filename="reseau_tc.py" line="542"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="547"/>
+        <location filename="reseau_tc.py" line="544"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="549"/>
+        <location filename="reseau_tc.py" line="546"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="551"/>
+        <location filename="reseau_tc.py" line="548"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="553"/>
+        <location filename="reseau_tc.py" line="550"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="555"/>
+        <location filename="reseau_tc.py" line="552"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="557"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="559"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="604"/>
+        <location filename="reseau_tc.py" line="601"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -2080,7 +2080,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="587"/>
+        <location filename="reseau_tc.py" line="584"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2408,6 +2408,75 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Mode d&apos;écriture: Ecriture efface le fichier s&apos;il existe/ Ajout ajoute une ligne au fichier s&apos;il existe
             Matrice Musliw: nom de la matrice Musliw (fichier texte avec séparateur &quot;;&quot;)
             </translation>
+    </message>
+</context>
+<context>
+    <name>Trafic</name>
+    <message>
+        <location filename="trafic.py" line="95"/>
+        <source>Network</source>
+        <translation type="unfinished">Réseau</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="101"/>
+        <source>Width</source>
+        <translation type="unfinished">Largeur</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="108"/>
+        <source>Scale</source>
+        <translation type="unfinished">Echelle</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="116"/>
+        <source>Max angle(degrees)</source>
+        <translation type="unfinished">Angle max (degrés)</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="124"/>
+        <source>Min distance(m)</source>
+        <translation type="unfinished">Min distance(m)</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="132"/>
+        <source>Both directions?</source>
+        <translation type="unfinished">Double sens?</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="677"/>
+        <source>Variable buffer polygons</source>
+        <translation type="unfinished">Polygones à largeur variables</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="684"/>
+        <source>Analysis</source>
+        <translation type="unfinished">Analyses</translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="700"/>
+        <source>
+        Generates variable buffer polygons from a linear layer and a field containing a width variable
+		        
+        Parameters:
+            network: input layer name (linear objects)
+			width: width field
+			scale: scale factor for width in (m)
+			max_angle: maximum angle for nice cuts
+			min_distance: smi distance from arcs ends for angle estimation
+			Both directions?: check if two ways arc
+			Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
+        </source>
+        <translation type="unfinished">
+        Génère des polygones à largeur varible à partir d&apos;une couche d&apos;objets linéaires et d&apos;un champ épaisseur
+		        
+        Paramètres:
+            réseau: couche réseau &apos;objets linéaires)
+			largeur: champ largeur
+			échelle: facteur d&apos;échelle (m)
+			angle max: angle maximum pour les belles découpes
+			min_distance: min distance
+			deux sens?:Un seul polygone pour les deux sens (non rienté)
+			polygones à largeur variable:Couche résultat (polygones à largeur proportionnelle à un champ l&apos;épaisseur)</translation>
     </message>
 </context>
 </TS>

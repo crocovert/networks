@@ -57,6 +57,7 @@ from .fichier_aff import FichierAff
 from .decaler_lignes import ShiftLines
 from .fichier_od import FichierOD
 from .fichier_temps import FichierTemps
+from .trafic import Trafic
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -91,7 +92,8 @@ class NetworksProvider(QgsProcessingProvider):
                         FichierAff(),
 						ShiftLines(),
                         FichierOD(),
-                        FichierTemps()]
+                        FichierTemps(),
+                        Trafic()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

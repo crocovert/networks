@@ -78,7 +78,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="229"/>
+        <location filename="creer_graphe.py" line="231"/>
         <source>Building graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -441,7 +441,7 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="290"/>
+        <location filename="creer_graphe.py" line="294"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,7 +461,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="283"/>
+        <location filename="creer_graphe.py" line="287"/>
         <source>Build graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -471,7 +471,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="306"/>
+        <location filename="creer_graphe.py" line="310"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -792,42 +792,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="269"/>
+        <location filename="import_gtfs.py" line="270"/>
         <source>reading calendar dates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="291"/>
+        <location filename="import_gtfs.py" line="296"/>
         <source>Reading routes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="316"/>
+        <location filename="import_gtfs.py" line="321"/>
         <source>Reading trips...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="340"/>
+        <location filename="import_gtfs.py" line="345"/>
         <source>Reading stop times...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="403"/>
+        <location filename="import_gtfs.py" line="409"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="471"/>
+        <location filename="import_gtfs.py" line="477"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="478"/>
+        <location filename="import_gtfs.py" line="484"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="491"/>
+        <location filename="import_gtfs.py" line="497"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1533,7 +1533,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="148"/>
+        <location filename="networks_provider.py" line="147"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1566,17 +1566,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="457"/>
+        <location filename="prepare_gtfs.py" line="458"/>
         <source>Prepare GTFS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="464"/>
+        <location filename="prepare_gtfs.py" line="465"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="480"/>
+        <location filename="prepare_gtfs.py" line="481"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -1608,57 +1608,57 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="580"/>
+        <location filename="reseau_tc.py" line="577"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="545"/>
+        <location filename="reseau_tc.py" line="542"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="547"/>
+        <location filename="reseau_tc.py" line="544"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="549"/>
+        <location filename="reseau_tc.py" line="546"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="551"/>
+        <location filename="reseau_tc.py" line="548"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="553"/>
+        <location filename="reseau_tc.py" line="550"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="555"/>
+        <location filename="reseau_tc.py" line="552"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="557"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="559"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="587"/>
+        <location filename="reseau_tc.py" line="584"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="604"/>
+        <location filename="reseau_tc.py" line="601"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -1952,6 +1952,65 @@
             Musliw matrix: Musliw matrix name (text file with &quot;;&quot; separator
             
             
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Trafic</name>
+    <message>
+        <location filename="trafic.py" line="95"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="101"/>
+        <source>Width</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="108"/>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="116"/>
+        <source>Max angle(degrees)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="124"/>
+        <source>Min distance(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="132"/>
+        <source>Both directions?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="677"/>
+        <source>Variable buffer polygons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="684"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="trafic.py" line="700"/>
+        <source>
+        Generates variable buffer polygons from a linear layer and a field containing a width variable
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            network: input layer name (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>width: width field
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>scale: scale factor for width in (m)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>max_angle: maximum angle for nice cuts
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>min_distance: smi distance from arcs ends for angle estimation
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Both directions?: check if two ways arc
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
         </source>
         <translation type="unfinished"></translation>
     </message>
