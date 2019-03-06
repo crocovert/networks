@@ -66,8 +66,8 @@ class AjoutChamp(QgsProcessingAlgorithm):
     # Constants used to refer to parameters and outputs. They will be
     # used when calling the algorithm from another algorithm, or when
     # calling from the QGIS console.
-    types_data=['String','Numeric','DateTime']
-    
+    types_data=['String','Double','DateTime']
+
     INPUT = 'INPUT'
     NOUVEAU='NOUVEAU'
     EXISTANT='EXISTANT'
@@ -212,7 +212,8 @@ class AjoutChamp(QgsProcessingAlgorithm):
                 num=f.id()
                 formuleContexte.setFeature(f)
                 valeur=formule.evaluate(formuleContexte)
-                tableau.changeAttributeValue(num,id_champ,valeur)
+                valid={id_champ: valeur}
+                tableau.changeAttributeValues(num, valid)
                 feedback.setProgress(p*100/n)
 
             tableau.commitChanges()

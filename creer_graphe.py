@@ -165,7 +165,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         if ("ij" not in nom_champs):
             layer.dataProvider().addAttributes([QgsField("ij",QVariant.String,len=31)])
         layer.updateFields()
-        layer.commitChanges()
+        #layer.commitChanges()
         ida=layer.fields().indexFromName("i")
         idb=layer.fields().indexFromName("j")
         idij=layer.fields().indexFromName("ij")
@@ -213,9 +213,13 @@ class CreerGraphe(QgsProcessingAlgorithm):
                 else:
                     noeuds[nb]=(prefixe+libb,noeuds[nb][1]+1)
         #outs=open("c:/temp/noeuds.txt","w")
+        nbl=layer.featureCount()
+        nbn=len(noeuds)
+        feedback.setProgressText(QCoreApplication.translate("Generating nodes","Generating nodes"))
         for i,n in enumerate(noeuds):
             node=QgsFeature()
             node.setGeometry(QgsGeometry.fromPointXY(QgsPointXY(n[0],n[1])))
+            feedback.setProgress(i*100/nbn)
             #node.setAttributes([noeuds[n]])
             #feedback.setProgressText(unicode(i)+" "+unicode(ident[0])+" "+unicode(ident[0]=='0'))
             if ident[0]=='0':
@@ -229,7 +233,8 @@ class CreerGraphe(QgsProcessingAlgorithm):
         lines=layer.getFeatures()
         layer.startEditing()
         layer.beginEditCommand(QCoreApplication.translate("Building graph","Building graph"))
-        for ligne in lines:
+        feedback.setProgressText(QCoreApplication.translate("Updating arcs","Updating arcs"))            
+        for i,ligne in enumerate(lines):
             if len(sens)==0:
                 test_sens='1'
             else:
@@ -237,6 +242,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     test_sens='1'
                 else:
                     test_sens='0'
+            feedback.setProgress(i*100/nbl)
             if test_sens=='1':
                 gligne=ligne.geometry()
                 print(gligne.wkbType())
@@ -260,10 +266,11 @@ class CreerGraphe(QgsProcessingAlgorithm):
                     continue
 
                 id=ligne.id()
-                #valid={ida : noeuds[na], idb: noeuds[nb]}
-                layer.changeAttributeValue(id,ida, unicode(noeuds[na][0]))
-                layer.changeAttributeValue(id,idb, unicode(noeuds[nb][0]))
-                layer.changeAttributeValue(id,idij, unicode(noeuds[na][0]+"-"+noeuds[nb][0]))
+                valid={ida : unicode(noeuds[na][0]), idb: unicode(noeuds[nb][0]), idij: unicode(noeuds[na][0]+"-"+noeuds[nb][0])}
+                layer.changeAttributeValues(id,  valid)
+                #layer.changeAttributeValue(id,ida, unicode(noeuds[na][0]))
+                #layer.changeAttributeValue(id,idb, unicode(noeuds[nb][0]))
+                #layer.changeAttributeValue(id,idij, unicode(noeuds[na][0]+"-"+noeuds[nb][0]))
         layer.commitChanges()
         layer.endEditCommand()
         return {self.NOEUDS: dest_id}

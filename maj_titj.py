@@ -228,6 +228,9 @@ class Majtitj(QgsProcessingAlgorithm):
 
         n=reseau.featureCount()
         feedback.setProgressText(self.tr("updating ti and tj..."))
+        ida=reseau.fields().indexFromName(champ_ti)
+        idb=reseau.fields().indexFromName(champ_tj)
+        valid={}
         for k,f in enumerate(reseau.getFeatures()):
             feedback.setProgress((k+1)*100/n)
             num=f.id()
@@ -236,18 +239,25 @@ class Majtitj(QgsProcessingAlgorithm):
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
                 if start==0:
-                    reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
-                    reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
+                    valid={ida : ti-temps, idb: ti}
+                    reseau.changeAttributeValues(num,valid)
+                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
+                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
                 else:
-                    reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
-                    reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
+                    valid={ida : ti, idb : ti-temps}
+                    reseau.changeAttributeValues(num,valid)
+                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
+                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
-                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
-                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
+                valid={ida : ti, idb : ti}
+                reseau.changeAttributeValues(num,valid)
+                
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
 
         feedback.setProgress((k+1)*100/n)            
-        #reseau.commitChanges()
+        reseau.commitChanges()
         reseau.endEditCommand()
         return {self.RESEAU: self.RESEAU}
 

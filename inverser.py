@@ -146,7 +146,7 @@ class Inverser(QgsProcessingAlgorithm):
                 layer.addFeature(f)
         if ajouter_au_reseau:
             layer.endEditCommand()
-        return {table_inverse:resultat}
+        return {self.RESULTAT:resultat}
 
 
 
