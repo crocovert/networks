@@ -44,18 +44,18 @@
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="269"/>
+        <location filename="ajout_champ.py" line="270"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
         Parameters:
-            layer : a vector layer
-            field : name of the field to update or name of the new field
-            type : field data type (if new field)
-            size : field size (if new field)
-            precision : field precision (if new field and real type)
+            layer&#xa0;: a vector layer
+            field&#xa0;: name of the field to update or name of the new field
+            type&#xa0;: field data type (if new field)
+            size&#xa0;: field size (if new field)
+            precision&#xa0;: field precision (if new field and real type)
             filter: expression determining which rows will be updated
-            formula : expression that will be written in the field( for filtered rows only)
+            formula&#xa0;: expression that will be written in the field( for filtered rows only)
             
         </source>
         <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
@@ -77,12 +77,12 @@
         <translation>Couche</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="238"/>
+        <location filename="ajout_champ.py" line="239"/>
         <source>Update field</source>
         <translation>Mise à jour champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="245"/>
+        <location filename="ajout_champ.py" line="246"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -90,7 +90,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="231"/>
+        <location filename="creer_graphe.py" line="235"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -152,7 +152,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -208,7 +208,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -242,10 +242,10 @@
     <message>
         <location filename="concat_reseaux.py" line="81"/>
         <source>Network files elements</source>
-        <translation>Réseaux à concaténer</translation>
+        <translation type="obsolete">Réseaux à concaténer</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="87"/>
+        <location filename="concat_reseaux.py" line="89"/>
         <source>Global network</source>
         <translation>Réseau multimodal</translation>
     </message>
@@ -256,10 +256,10 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources : Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
+            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
 			musliw_file: name of the global network file (txt)
         </source>
-        <translation>        Concatene différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
+        <translation type="obsolete">        Concatene différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
         
         Paramètres:
             Réseaux à concaténer : Réseaux Musliw à concaténer (utiliser &lt;shift&gt; et &lt;ctrl&gt; pour sélectionner plusieurs fichiers)
@@ -267,20 +267,42 @@
         </translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="140"/>
+        <location filename="concat_reseaux.py" line="143"/>
         <source>Concatenate networks</source>
-        <translation>Concatener réseaux</translation>
+        <translation>Concaténer réseaux</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="147"/>
+        <location filename="concat_reseaux.py" line="150"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="82"/>
+        <source>Network elements folder</source>
+        <translation>Répertoire source</translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="166"/>
+        <source>
+        Concatenate Musliw networks elements,
+		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
+        
+        Parameters:
+            network elements folder&#xa0;: Musliw networks elements folder
+			global network: name of the global network file (txt)
+        </source>
+        <translation>        Concatène différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
+        
+        Paramètres:
+            Répertoire source :Répertoire où sont localisés les éléments de érseaux à concaténer (concatène tous les réseaux présents)
+            Réseau multimodal: Nom du réseau global multimodal (txt)
+        </translation>
     </message>
 </context>
 <context>
     <name>ConnectNodes2Lines</name>
     <message>
-        <location filename="connect_nodes2lines.py" line="208"/>
+        <location filename="connect_nodes2lines.py" line="209"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -305,19 +327,19 @@
         <translation>Connexion des points aux lignes...</translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="201"/>
+        <location filename="connect_nodes2lines.py" line="202"/>
         <source>Connect nodes to lines</source>
         <translation>Connecter des points à des lignes</translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="221"/>
+        <location filename="connect_nodes2lines.py" line="222"/>
         <source>
         Connect points to a a linear objetcs layers within a search radius. Points are conencted to the closest line. 
         The closest line is splitted at the shorstest distance point in two lines, and a line is generated between the point and the closest point
         The lines layer is in editable mode in order to be alble to cancel the connections.
         
         Parameters:
-            lines : lines layer (linear objects)
+            lines&#xa0;: lines layer (linear objects)
 			nodes: points layer
             radius: search radius (m)
         </source>
@@ -420,7 +442,7 @@
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
         Parameters:
-            stops : stops layer
+            stops&#xa0;: stops layer
 			stop_id: stop id
 			nodes: nodes layer
 			node_id: node id
@@ -552,7 +574,7 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="294"/>
+        <location filename="creer_graphe.py" line="301"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -572,7 +594,7 @@
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="287"/>
+        <location filename="creer_graphe.py" line="294"/>
         <source>Build graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -582,12 +604,12 @@
         <translation>Node id</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="310"/>
+        <location filename="creer_graphe.py" line="317"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
-            network : Network layer (linear objects)
+            network&#xa0;: Network layer (linear objects)
 			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
             node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
@@ -878,6 +900,14 @@
     </message>
 </context>
 <context>
+    <name>Generating nodes</name>
+    <message>
+        <location filename="creer_graphe.py" line="218"/>
+        <source>Generating nodes</source>
+        <translation>Génération des noeuds</translation>
+    </message>
+</context>
+<context>
     <name>ImportGTFS</name>
     <message>
         <location filename="import_gtfs.py" line="91"/>
@@ -996,7 +1026,7 @@
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder : GTFS folder path
+            GTFS_folder&#xa0;: GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -1044,8 +1074,7 @@
     <message>
         <location filename="interpole.py" line="100"/>
         <source>Network</source>
-        <translation>
-        </translation>
+        <translation>Réseau</translation>
     </message>
     <message>
         <location filename="interpole.py" line="107"/>
@@ -1215,7 +1244,7 @@
         
         
         Parameters:
-            network : network layer (linear objects)
+            network&#xa0;: network layer (linear objects)
 			reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
@@ -1328,7 +1357,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="277"/>
+        <location filename="maj_titj.py" line="287"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1388,12 +1417,12 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Mise à jout ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="293"/>
+        <location filename="maj_titj.py" line="303"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
             arc time: arc travel time
@@ -1417,7 +1446,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="270"/>
+        <location filename="maj_titj.py" line="280"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
     </message>
@@ -1798,7 +1827,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 		Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -1874,7 +1903,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -1931,7 +1960,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="147"/>
+        <location filename="networks_provider.py" line="149"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2065,7 +2094,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder : GTFS folder 
+            GTFs folder&#xa0;: GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
@@ -2411,46 +2440,238 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     </message>
 </context>
 <context>
+    <name>SpatialAggregation</name>
+    <message>
+        <location filename="spatial_aggregation.py" line="91"/>
+        <source>Polygons</source>
+        <translation>Polygones</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="98"/>
+        <source>Id</source>
+        <translation>Id</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="105"/>
+        <source>Source</source>
+        <translation>Source</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="112"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>Aggregator</source>
+        <translation>Agrégateur</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>mean</source>
+        <translation>moyenne</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>sum</source>
+        <translation>somme</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>min</source>
+        <translation>min</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>max</source>
+        <translation>max</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="127"/>
+        <source>Output</source>
+        <translation>Sortie</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="218"/>
+        <source>Spatial aggregation</source>
+        <translation>Agrégation spatiale</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Network</source>
+        <translation type="obsolete">Réseau</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="240"/>
+        <source>
+        Perform a spatial aggregation between 2 layers in order to estimate 
+        for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
+		        
+        Parameters:
+            polygons: the polygon layer (ex: iso-value layer)
+			id: field containing the polygon id (ex: 30min iso-value)
+			source: a polygon layer with a variable to compute (ex: municipalities layer)
+			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+			aggregator: aggregator (min,max, mean, sum) 
+			output: the result of aggration layer (containing the same objects as the polygons layer)
+        </source>
+        <translation>        Effectue une aggrégation spatiale entre 2 couches de polygones
+pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
+		        
+        Parametères:
+            polygones: nom de la couche de polygones (ex: isochrones)
+			id: champ contenant l&apos;identifiant du polygones (ex isochrone de 30 minutes)
+			source: couche de polygones qui contient la variable à estimer ( ex: communes contenant la population)
+			variable: la variable à calculer de la table source (ex: la population des communes)
+			aggregateur:aggreagateur (min, max, moyenne, somme)
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
+			sortie: table résultat contenant les polygones avec la variable estimée
+
+        </translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+</context>
+<context>
+    <name>Spatial_aggregation</name>
+    <message>
+        <location filename="spatial_aggregation.py" line="91"/>
+        <source>Polygons</source>
+        <translation type="obsolete">Polygones</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="98"/>
+        <source>Id</source>
+        <translation type="obsolete">Id</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="105"/>
+        <source>Source</source>
+        <translation type="obsolete">Source</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="112"/>
+        <source>Variable</source>
+        <translation type="obsolete">Variable</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>Aggregator</source>
+        <translation type="obsolete">Aggregateur</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>mean</source>
+        <translation type="obsolete">moyenne</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>sum</source>
+        <translation type="obsolete">somme</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>min</source>
+        <translation type="obsolete">min</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>max</source>
+        <translation type="obsolete">max</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="218"/>
+        <source>Spatial aggregation</source>
+        <translation type="obsolete">Agrégation spatiale</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Analysis</source>
+        <translation type="obsolete">Analyses</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="240"/>
+        <source>
+        Perform a spatial aggregation between 2 layers in order to estimate 
+        for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
+		        
+        Parameters:
+            polygons: the polygon layer (ex: iso-value layer)
+			id: field containing the polygon id (ex: 30min iso-value)
+			source: a polygon layer with a variable to compute (ex: municipalities layer)
+			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+			aggregator: aggregator (min,max, mean, sum) 
+			output: the result of aggration layer (containing the same objects as the polygons layer)
+        </source>
+        <translation type="obsolete">        Effectue une aggrégation spatiale entre 2 couches de polygones
+pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
+		        
+        Parametères:
+            polygones: nom de la couche de polygones (ex: isochrones)
+			id: champ contenant l&apos;identifiant du polygones (ex isochrone de 30 minutes)
+			source: couche de polygones qui contient la variable à estimer ( ex: communes contenant la population)
+			variable: la variable à calculer de la table source (ex: la population des communes)
+			aggregateur:aggreagateur (min, max, moyenne, somme)
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
+			sortie: table résultat contenant les polygones avec la variable estimée
+
+        </translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="127"/>
+        <source>Output</source>
+        <translation type="obsolete">Sortie</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Network</source>
+        <translation type="obsolete">Réseau</translation>
+    </message>
+</context>
+<context>
     <name>Trafic</name>
     <message>
         <location filename="trafic.py" line="95"/>
         <source>Network</source>
-        <translation type="unfinished">Réseau</translation>
+        <translation>Réseau</translation>
     </message>
     <message>
         <location filename="trafic.py" line="101"/>
         <source>Width</source>
-        <translation type="unfinished">Largeur</translation>
+        <translation>Largeur</translation>
     </message>
     <message>
         <location filename="trafic.py" line="108"/>
         <source>Scale</source>
-        <translation type="unfinished">Echelle</translation>
+        <translation>Echelle</translation>
     </message>
     <message>
         <location filename="trafic.py" line="116"/>
         <source>Max angle(degrees)</source>
-        <translation type="unfinished">Angle max (degrés)</translation>
+        <translation>Angle max (degrés)</translation>
     </message>
     <message>
         <location filename="trafic.py" line="124"/>
         <source>Min distance(m)</source>
-        <translation type="unfinished">Min distance(m)</translation>
+        <translation>Min distance(m)</translation>
     </message>
     <message>
         <location filename="trafic.py" line="132"/>
         <source>Both directions?</source>
-        <translation type="unfinished">Double sens?</translation>
+        <translation>Double sens?</translation>
     </message>
     <message>
         <location filename="trafic.py" line="677"/>
         <source>Variable buffer polygons</source>
-        <translation type="unfinished">Polygones à largeur variables</translation>
+        <translation>Polygones à largeur variables</translation>
     </message>
     <message>
         <location filename="trafic.py" line="684"/>
         <source>Analysis</source>
-        <translation type="unfinished">Analyses</translation>
+        <translation>Analyses</translation>
     </message>
     <message>
         <location filename="trafic.py" line="700"/>
@@ -2466,7 +2687,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 			Both directions?: check if two ways arc
 			Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
         </source>
-        <translation type="unfinished">
+        <translation>
         Génère des polygones à largeur varible à partir d&apos;une couche d&apos;objets linéaires et d&apos;un champ épaisseur
 		        
         Paramètres:
@@ -2477,6 +2698,14 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 			min_distance: min distance
 			deux sens?:Un seul polygone pour les deux sens (non rienté)
 			polygones à largeur variable:Couche résultatr (polygones à largeur proportionnelle à un champ l&apos;épaisseur)</translation>
+    </message>
+</context>
+<context>
+    <name>Updating arcs</name>
+    <message>
+        <location filename="creer_graphe.py" line="236"/>
+        <source>Updating arcs</source>
+        <translation>Mise à jour des arcs...</translation>
     </message>
 </context>
 </TS>

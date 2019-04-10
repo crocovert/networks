@@ -43,7 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="269"/>
+        <location filename="ajout_champ.py" line="270"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -65,12 +65,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="238"/>
+        <location filename="ajout_champ.py" line="239"/>
         <source>Update field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="245"/>
+        <location filename="ajout_champ.py" line="246"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -78,7 +78,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="231"/>
+        <location filename="creer_graphe.py" line="235"/>
         <source>Building graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -169,42 +169,42 @@
 <context>
     <name>ConcatReseaux</name>
     <message>
-        <location filename="concat_reseaux.py" line="81"/>
-        <source>Network files elements</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="concat_reseaux.py" line="87"/>
+        <location filename="concat_reseaux.py" line="89"/>
         <source>Global network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="163"/>
+        <location filename="concat_reseaux.py" line="143"/>
+        <source>Concatenate networks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="150"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="82"/>
+        <source>Network elements folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="166"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>musliw_file: name of the global network file (txt)
+            network elements folder&#xa0;: Musliw networks elements folder
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>global network: name of the global network file (txt)
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="concat_reseaux.py" line="140"/>
-        <source>Concatenate networks</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="concat_reseaux.py" line="147"/>
-        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ConnectNodes2Lines</name>
     <message>
-        <location filename="connect_nodes2lines.py" line="208"/>
+        <location filename="connect_nodes2lines.py" line="209"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -229,12 +229,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="201"/>
+        <location filename="connect_nodes2lines.py" line="202"/>
         <source>Connect nodes to lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="221"/>
+        <location filename="connect_nodes2lines.py" line="222"/>
         <source>
         Connect points to a a linear objetcs layers within a search radius. Points are conencted to the closest line. 
         The closest line is splitted at the shorstest distance point in two lines, and a line is generated between the point and the closest point
@@ -441,7 +441,7 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="294"/>
+        <location filename="creer_graphe.py" line="301"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -461,7 +461,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="287"/>
+        <location filename="creer_graphe.py" line="294"/>
         <source>Build graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -471,7 +471,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="310"/>
+        <location filename="creer_graphe.py" line="317"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -701,6 +701,14 @@
             
             
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Generating nodes</name>
+    <message>
+        <location filename="creer_graphe.py" line="218"/>
+        <source>Generating nodes</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1074,7 +1082,7 @@
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="277"/>
+        <location filename="maj_titj.py" line="287"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1134,12 +1142,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="270"/>
+        <location filename="maj_titj.py" line="280"/>
         <source>Update ti tj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="293"/>
+        <location filename="maj_titj.py" line="303"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -1533,7 +1541,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="147"/>
+        <location filename="networks_provider.py" line="149"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1957,6 +1965,85 @@
     </message>
 </context>
 <context>
+    <name>Spatial_aggregation</name>
+    <message>
+        <location filename="spatial_aggregation.py" line="91"/>
+        <source>Polygons</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="98"/>
+        <source>Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="105"/>
+        <source>Source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="112"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>Aggregator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>mean</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>sum</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>min</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="119"/>
+        <source>max</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="218"/>
+        <source>Spatial aggregation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="240"/>
+        <source>
+        Perform a spatial aggregation between 2 layers in order to estimate 
+        for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            polygons: the polygon layer (ex: iso-value layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>id: field containing the polygon id (ex: 30min iso-value)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>source: a polygon layer with a variable to compute (ex: municipalities layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>aggregator: aggregator (min,max, mean, sum) 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>output: the result of aggration layer (containing the same objects as the polygons layer)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="127"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Trafic</name>
     <message>
         <location filename="trafic.py" line="95"/>
@@ -2012,6 +2099,14 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>Both directions?: check if two ways arc
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Updating arcs</name>
+    <message>
+        <location filename="creer_graphe.py" line="236"/>
+        <source>Updating arcs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

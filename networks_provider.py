@@ -58,6 +58,7 @@ from .decaler_lignes import ShiftLines
 from .fichier_od import FichierOD
 from .fichier_temps import FichierTemps
 from .trafic import Trafic
+from .spatial_aggregation import SpatialAggregation
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -90,10 +91,11 @@ class NetworksProvider(QgsProcessingProvider):
                         MatrixDoubleList(),
                         IsolatedNodes(),
                         FichierAff(),
-						ShiftLines(),
+                        ShiftLines(),
                         FichierOD(),
                         FichierTemps(),
-                        Trafic()]
+                        Trafic(),
+                        SpatialAggregation()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

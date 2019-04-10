@@ -179,6 +179,7 @@ class ConnectNodes2Lines(QgsProcessingAlgorithm):
                         index.insertFeature(fb)
                         couche_lines.deleteFeature(g.id())
                         index.deleteFeature(g)
+        couche_lines.commitChanges()
         couche_lines.endEditCommand()
         return {self.LINES: 'OK'}
 

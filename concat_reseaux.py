@@ -50,6 +50,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterFileDestination,
                        QgsProcessingParameterFile)
 import codecs
+import os
 
 class ConcatReseaux(QgsProcessingAlgorithm):
     """
@@ -81,15 +82,16 @@ class ConcatReseaux(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterFile(
                 self.INPUT,
-                self.tr('Network files elements'),
+                self.tr('Network elements folder'),
+                behavior= QgsProcessingParameterFile.Folder
             )
         )
         self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.DESTINATION,
                 self.tr('Global network'),
-                'txt',
-                '*.txt'
+                fileFilter='*.txt',
+                defaultValue='*.txt'
             )
         )
 
@@ -107,12 +109,13 @@ class ConcatReseaux(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         #couche = self.parameterAsSource(parameters, self.INPUT, context)
+
         source = self.parameterAsFile(parameters, self.INPUT, context)
         fichier_musliw=self.parameterAsFileOutput(parameters, self.DESTINATION, context)
-
+        os.chdir(source)        
         fichiers=source.split(";")
         sortie=open(fichier_musliw,"w")
-        for nom_fichier in fichiers:
+        for nom_fichier in os.listdir(source):
 
             fichier=open(nom_fichier)
             for fiche in fichier:
@@ -165,8 +168,8 @@ class ConcatReseaux(QgsProcessingAlgorithm):
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources : Musliw networks elements (use <shift> and <ctrl> in order to select several files)
-			musliw_file: name of the global network file (txt)
+            network elements folder : Musliw networks elements folder
+			global network: name of the global network file (txt)
         """)
 
     def createInstance(self):

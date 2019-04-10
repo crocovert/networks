@@ -49,10 +49,14 @@ if cmd_folder not in sys.path:
 class NetworksPlugin(object):
 
     def __init__(self):
-        self.provider = NetworksProvider()
+        self.provider = None
 
-    def initGui(self):
+    def initProcessing(self):
+        self.provider=NetworksProvider()
         QgsApplication.processingRegistry().addProvider(self.provider)
+    
+    def initGui(self):
+        self.initProcessing()
 
     def unload(self):
         try:
