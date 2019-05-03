@@ -49,13 +49,13 @@
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
         Parameters:
-            layer&#xa0;: a vector layer
-            field&#xa0;: name of the field to update or name of the new field
-            type&#xa0;: field data type (if new field)
-            size&#xa0;: field size (if new field)
-            precision&#xa0;: field precision (if new field and real type)
+            layer : a vector layer
+            field : name of the field to update or name of the new field
+            type : field data type (if new field)
+            size : field size (if new field)
+            precision : field precision (if new field and real type)
             filter: expression determining which rows will be updated
-            formula&#xa0;: expression that will be written in the field( for filtered rows only)
+            formula : expression that will be written in the field( for filtered rows only)
             
         </source>
         <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
@@ -152,7 +152,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network&#xa0;: Musliw network
+            network : Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -208,7 +208,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network&#xa0;: Musliw network
+            network : Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -256,7 +256,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
+            sources : Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
 			musliw_file: name of the global network file (txt)
         </source>
         <translation type="obsolete">        Concatene différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -288,7 +288,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder&#xa0;: Musliw networks elements folder
+            network elements folder : Musliw networks elements folder
 			global network: name of the global network file (txt)
         </source>
         <translation>        Concatène différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -339,7 +339,7 @@
         The lines layer is in editable mode in order to be alble to cancel the connections.
         
         Parameters:
-            lines&#xa0;: lines layer (linear objects)
+            lines : lines layer (linear objects)
 			nodes: points layer
             radius: search radius (m)
         </source>
@@ -442,7 +442,7 @@
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
         Parameters:
-            stops&#xa0;: stops layer
+            stops : stops layer
 			stop_id: stop id
 			nodes: nodes layer
 			node_id: node id
@@ -609,7 +609,7 @@
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
-            network&#xa0;: Network layer (linear objects)
+            network : Network layer (linear objects)
 			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
             node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
@@ -1026,7 +1026,7 @@
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder&#xa0;: GTFS folder path
+            GTFS_folder : GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -1244,7 +1244,7 @@
         
         
         Parameters:
-            network&#xa0;: network layer (linear objects)
+            network : network layer (linear objects)
 			reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
@@ -1261,6 +1261,41 @@
         <location filename="inverser.py" line="168"/>
         <source>Reverse arcs</source>
         <translation>Inverser arcs</translation>
+    </message>
+</context>
+<context>
+    <name>InverserSelection</name>
+    <message>
+        <location filename="inverser_selection.py" line="145"/>
+        <source>Network</source>
+        <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="inverser_selection.py" line="138"/>
+        <source>Reverse selection geometries</source>
+        <translation>Inverser les géométries de la sélection</translation>
+    </message>
+    <message>
+        <location filename="inverser_selection.py" line="161"/>
+        <source>
+        Reverse arc directions from a selection of linear objcts:
+        The script modify the geoometry of the existing table and 
+        do not create a new table with the reult (use &quot;revert arcs&quot; for that)
+        
+        
+        Parameters:
+            network : network layer (linear objects) where the selected objects belong
+			
+        </source>
+        <translation>        Inverse la géométrie des objets de la sélection:
+        Le script modifie la géométrie d&apos;une sélection d&apos;objets linéiares
+       Il ne crée pas une nouvelle table résultat (utiliser les scripts &quot;Inverser arcs&quot; pour cela)
+        
+        
+        Paramètres:
+            réseau : couche réseau (objets linéaires) à laquelle la sélection appartient
+			
+        </translation>
     </message>
 </context>
 <context>
@@ -1422,7 +1457,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer&#xa0;: network layer (linear objects)
+            layer : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
             arc time: arc travel time
@@ -1827,7 +1862,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 		Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -1903,7 +1938,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -1960,7 +1995,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="149"/>
+        <location filename="networks_provider.py" line="151"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2094,7 +2129,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder&#xa0;: GTFS folder 
+            GTFs folder : GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file

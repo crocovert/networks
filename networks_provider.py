@@ -44,6 +44,7 @@ from .interpole import Interpole
 from .maj_titj import Majtitj
 from .import_gtfs import ImportGTFS
 from .inverser import Inverser
+from .inverser_selection import InverserSelection
 from .reseau_tc import ReseauTC
 from .prepare_gtfs import PrepareGTFS
 from .connect_nodes2lines import ConnectNodes2Lines
@@ -81,6 +82,7 @@ class NetworksProvider(QgsProcessingProvider):
                         Majtitj(),
                         ImportGTFS(),
                         Inverser(),
+                        InverserSelection(),
                         ReseauTC(),
                         PrepareGTFS(),
                         ConnectNodes2Lines(),

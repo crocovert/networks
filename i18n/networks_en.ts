@@ -1024,6 +1024,33 @@
     </message>
 </context>
 <context>
+    <name>InverserSelection</name>
+    <message>
+        <location filename="inverser_selection.py" line="145"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser_selection.py" line="138"/>
+        <source>Reverse selection geometries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="inverser_selection.py" line="161"/>
+        <source>
+        Reverse arc directions from a selection of linear objcts:
+        The script modify the geoometry of the existing table and 
+        do not create a new table with the reult (use &quot;revert arcs&quot; for that)
+        
+        
+        Parameters:
+            network&#xa0;: network layer (linear objects) where the selected objects belong
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>IsolatedNodes</name>
     <message>
         <location filename="noeuds_isoles.py" line="82"/>
@@ -1541,7 +1568,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="149"/>
+        <location filename="networks_provider.py" line="151"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1965,7 +1992,7 @@
     </message>
 </context>
 <context>
-    <name>Spatial_aggregation</name>
+    <name>SpatialAggregation</name>
     <message>
         <location filename="spatial_aggregation.py" line="91"/>
         <source>Polygons</source>
@@ -2012,13 +2039,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="218"/>
-        <source>Spatial aggregation</source>
+        <location filename="spatial_aggregation.py" line="127"/>
+        <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="225"/>
-        <source>Analysis</source>
+        <location filename="spatial_aggregation.py" line="218"/>
+        <source>Spatial aggregation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2038,8 +2065,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="127"/>
-        <source>Output</source>
+        <location filename="spatial_aggregation.py" line="225"/>
+        <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
