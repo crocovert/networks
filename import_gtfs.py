@@ -193,18 +193,29 @@ class ImportGTFS(QgsProcessingAlgorithm):
             t_noeuds=QgsFields()
             t_noeuds.append(QgsField(self.tr("ident"),QVariant.String,len=15))
             t_noeuds.append(QgsField(self.tr("name"),QVariant.String,len=40))
-            t_noeuds.append(QgsField(self.tr("arrivals"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("departures"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("int_tot"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("out_tot"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("in_mon-fri"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("out_mon-fri"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("in_sat"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("out_sat"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("in_sun"),QVariant.Double))
+            t_noeuds.append(QgsField(self.tr("out_sun"),QVariant.Double))
             
             t_links=QgsFields()
             t_links.append(QgsField(self.tr("line_num"),QVariant.String,len=15))
             t_links.append(QgsField(self.tr("ligne_name"),QVariant.String,len=50))
             t_links.append(QgsField("i",QVariant.String,len=15))
             t_links.append(QgsField("j",QVariant.String,len=15))
-            t_links.append(QgsField(self.tr("lines_count"),QVariant.Int))
-            t_links.append(QgsField(self.tr("services_count"),QVariant.Int))
-            t_links.append(QgsField("delta1",QVariant.Int))
-            t_links.append(QgsField("delta2",QVariant.Int))
+            t_links.append(QgsField(self.tr("nb_tot"),QVariant.Double))
+            t_links.append(QgsField("d1_tot",QVariant.Double))
+            t_links.append(QgsField("d2_tot",QVariant.Double))
+            t_links.append(QgsField(self.tr("nb_mon-fri"),QVariant.Double))
+            t_links.append(QgsField("d2_mon-fri",QVariant.Double))
+            t_links.append(QgsField(self.tr("nb_sat"),QVariant.Double))
+            t_links.append(QgsField("d2_sat",QVariant.Double))
+            t_links.append(QgsField(self.tr("nb_sun"),QVariant.Double))
+            t_links.append(QgsField("d2_sun",QVariant.Double))
             
             src=QgsCoordinateReferenceSystem("EPSG:4326")
             dest=QgsCoordinateReferenceSystem(proj)
@@ -220,6 +231,20 @@ class ImportGTFS(QgsProcessingAlgorithm):
             
             
             arrets={}
+            nb_jours=(fin_periode-debut_periode).days
+            nb_mon=0
+            nb_sat=0
+            nb_sun=0
+            for k in range(nb_jours+1):
+                date_offre=debut_periode+datetime.timedelta(days=k)
+                if debut_periode<=date_offre<=fin_periode:
+                    jour=date_offre.isoweekday()
+                if jour in [1,2,3,4,5]:
+                    nb_mon+=1
+                elif jour==6:
+                    nb_sat+=1
+                elif jour==7:
+                    nb_sun+=1
             feedback.setProgressText("Lecture des stops")
             for i,ligne in enumerate(fich_noeuds):
                 if i==0:
@@ -233,7 +258,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 else:
 
                     elements=re.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)",ligne[:-1])
-                    arrets[elements[iid]]=[elements[iid],elements[iname].strip("\""),elements[idx].strip("\""),elements[idy].strip("\""),0.0,0.0]
+                    arrets[elements[iid]]=[elements[iid],elements[iname].strip("\""),elements[idx].strip("\""),elements[idy].strip("\""),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
 
         calendar={}
@@ -367,42 +392,86 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         hj=QTime(int(elements[iharr][0:2]),int(elements[iharr][3:5]),int(elements[iharr][6:8]))
                         if (id_trip2==id_trip):
                             nbservices=0
+                            nbservices_mon=0
+                            nbservices_sat=0
+                            nbservices_sun=0
                             nbs1=0
                             nbs2=0
+                            nbs1_mon=0
+                            nbs2_mon=0
+                            nbs1_sat=0
+                            nbs2_sat=0
+                            nbs1_sun=0
+                            nbs2_sun=0
                             if ("calendar.txt" in  os.listdir(nom_rep)):
                                 if trips[elements[iid]][2] in calendar:
                                     dp=calendar[trips[elements[iid]][2]][1]
                                     fp=calendar[trips[elements[iid]][2]][2]
-                                    nb_jours=(fin_periode-debut_periode).days
+                                    #nb_jours=(fin_periode-debut_periode).days
+                                    #nb_mon=0
+                                    #nb_sat=0
+                                    #nb_sun=0
                                     for k in range(nb_jours+1):
                                         date_offre=debut_periode+datetime.timedelta(days=k)
                                         if dp<=date_offre<=fp:
                                             jour=date_offre.isoweekday()
                                             if int(calendar[trips[id_trip][2]][2+jour])==1:
-                                                nbservices+=1
-                                            if (trips[id_trip][2],date_offre,'1') in calendar_dates:
+                                                if (trips[id_trip][2],date_offre,'2') not in calendar_dates:
                                                     nbservices+=1
-                                            if (trips[id_trip][2],date_offre,'2') in calendar_dates:
-                                                    nbservices+=-1
+                                                    if jour in [1,2,3,4,5]:
+                                                        nbservices_mon+=1
+                                                    elif jour==6:
+                                                        nbservices_sat+=1
+                                                    elif jour==7:
+                                                        nbservices_sun+=1
+                                            elif int(calendar[trips[id_trip][2]][2+jour])==0:
+                                                if (trips[id_trip][2],date_offre,'1') in calendar_dates:
+                                                    nb_service+=1
+                                                    if jour in [1,2,3,4,5]:
+                                                        nbservices_mon+=1
+                                                    elif jour==6:
+                                                        nbservices_sat+=1
+                                                    elif jour==7:
+                                                        nbservices_sun+=1
                                     
                             elif trips[elements[iid]][2] in calendar_dates2:
                                 for k in calendar_dates2[trips[elements[iid]][2]]:
-                                    nbservices+=1
+                                    if debut_periode<=k[1]<=fin_periode:
+                                        nbservices+=1
+                                        jour=k[1].isoweekday()
+                                        if jour in [1,2,3,4,5]:
+                                            nbservices_mon+=1
+                                        elif jour==6:
+                                            nbservices_sat+=1
+                                        elif jour==7:
+                                            nbservices_sun+=1
                             segment_id=(num_ligne, id_stop,id_stop2)
                             if (t1<=hi2<=t2):
                                 nbs1=nbservices
+                                nbs1_mon=nbservices_mon
+                                nbs1_sat=nbservices_sat
+                                nbs1_sun=nbservices_sun
                             if (t1<=hj<=t2):
                                 nbs2=nbservices
+                                nbs2_mon=nbservices_mon
+                                nbs2_sat=nbservices_sat
+                                nbs2_sun=nbservices_sun
                             if (id_stop,id_stop2) not in links:
                                 links[(id_stop,id_stop2)]={}
                             if num_ligne not in links[(id_stop,id_stop2)]:
-                                links[(id_stop,id_stop2)][num_ligne]=(1,nbs1,descr)
+                                links[(id_stop,id_stop2)][num_ligne]=(nbs1,nbs1_mon,nbs1_sat,nbs1_sun,descr)
                             else:
                                 seg= links[(id_stop,id_stop2)][num_ligne]
-                                links[(id_stop,id_stop2)][num_ligne]=(1,seg[1]+nbs1,descr)
+                                links[(id_stop,id_stop2)][num_ligne]=(seg[0]+nbs1,seg[1]+nbs1_mon,seg[2]+nbs1_sat,seg[3]+nbs1_sun,descr)
                                 
                             arrets[id_stop][5]+=nbs1
                             arrets[id_stop2][4]+=nbs2
+                            arrets[id_stop][7]+=nbs1_mon
+                            arrets[id_stop2][6]+=nbs2_mon
+                            arrets[id_stop][9]+=nbs1_sat
+                            arrets[id_stop2][8]+=nbs2_sat
+                            arrets[id_stop][11]+=nbs1_sun
+                            arrets[id_stop2][10]+=nbs2_sun
                         hi2=hi1
                         id_stop=id_stop2
                         id_trip=id_trip2
@@ -410,6 +479,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
             for i,s in enumerate(links):
                 i1=0
                 i2=0
+                i2_mon=0
+                i2_sat=0
+                i2_sun=0                
                 g_links=QgsFeature()
                 g_arcs=QgsFeature()
                 #print([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
@@ -427,12 +499,17 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         tt=t
                     #print([tt.decode("cp1252"),links[s][t][2].decode("cp1252"),unicode(s[0]),unicode(s[1]),links[s][t][0],links[s][t][1],i1,i2])
                     try:
-                        g_links.setAttributes([unicode(t),unicode(links[s][t][2]),unicode(s[0]),unicode(s[1]),links[s][t][0],links[s][t][1],i1,i2])
+                        g_links.setAttributes([unicode(t),unicode(links[s][t][2]),unicode(s[0]),unicode(s[1])
+                                ,links[s][t][0]/nb_jours,i1,i2/nb_jours,links[s][t][1]/nb_mon,i2_mon/nb_mon
+                                ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
                     except:
                         print(t,links[s][t][2])
                     
                     i1+=1
-                    i2+=links[s][t][1]
+                    i2+=links[s][t][0]
+                    i2_mon+=links[s][t][1]
+                    i2_sat+=links[s][t][2]
+                    i2_sun+=links[s][t][3]
                     if g_links.geometry().length()<1600000:
                         l_links.addFeature(g_links)
             del(stop_times)
@@ -448,7 +525,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 g_noeuds.setGeometry(QgsGeometry.fromPointXY(xtr.transform(QgsPointXY(float(arrets[s][2]),float(arrets[s][3])))))
                 #print([unicode(arrets[s][0]),arrets[s][1].decode('cp1252'),arrets[s][4],arrets[s][5]])
                 try:
-                    g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4],arrets[s][5]])
+                    g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/nb_jours,arrets[s][5]/nb_jours
+                            ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
                 except:
                     print(arrets[s][1])
                 l_noeuds.addFeature(g_noeuds)

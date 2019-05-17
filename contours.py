@@ -352,19 +352,19 @@ class Contours(QgsProcessingAlgorithm):
         if lu>novalue:
             ilu=int(math.floor(lu/s))
         else:
-            ilu=novalue
+            ilu=int(novalue)
         if ld>novalue:
             ild=int(math.floor(ld/s))
         else:
-            ild=novalue
+            ild=int(novalue)
         if ru>novalue:
             iru=int(math.floor(ru/s))
         else:
-            iru=novalue
+            iru=int(novalue)
         if rd>novalue:
             ird=int(math.floor(rd/s))
         else:
-            ird=novalue
+            ird=int(novalue)
         if ilu>novalue:
             ilu=min(max(ilu,int(math.floor(mini/s))),int(math.floor(maxi/s)))
         if ild>novalue:

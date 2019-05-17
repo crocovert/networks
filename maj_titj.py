@@ -220,10 +220,16 @@ class Majtitj(QgsProcessingAlgorithm):
                 t=elements[colonnes[temps_musliw]].replace(",",".")
                 ij=elements[colonnes["ij"]]
                 if temps_terminal==False:
-                    links[str(ij)]=(float(t),0)
+                    if str(ij) not in links:
+                        links[str(ij)]=(1e38,0)
+                    if float(t)<links[str(ij)][0]:
+                        links[str(ij)]=(float(t),0)
                 else:
+                    if str(ij) not in links:
+                        links[str(ij)]=(1e38,0)
                     tatt1=elements[colonnes["tatt1"]].replace(",",".")
-                    links[str(ij)]=(float(t),float(tatt1))
+                    if float(t)-float(tatt1)<links[str(ij)][0]-links[str(ij)][1]:
+                        links[str(ij)]=(float(t),float(tatt1))
 
 
         n=reseau.featureCount()
@@ -231,6 +237,7 @@ class Majtitj(QgsProcessingAlgorithm):
         ida=reseau.fields().indexFromName(champ_ti)
         idb=reseau.fields().indexFromName(champ_tj)
         valid={}
+
         for k,f in enumerate(reseau.getFeatures()):
             feedback.setProgress((k+1)*100/n)
             num=f.id()
@@ -259,6 +266,7 @@ class Majtitj(QgsProcessingAlgorithm):
         feedback.setProgress((k+1)*100/n)            
         reseau.commitChanges()
         reseau.endEditCommand()
+        feedback.setProgress(100)     
         return {self.RESEAU: self.RESEAU}
 
 
