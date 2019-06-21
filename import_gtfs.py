@@ -426,7 +426,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                                         nbservices_sun+=1
                                             elif int(calendar[trips[id_trip][2]][2+jour])==0:
                                                 if (trips[id_trip][2],date_offre,'1') in calendar_dates:
-                                                    nb_service+=1
+                                                    nbservices+=1
                                                     if jour in [1,2,3,4,5]:
                                                         nbservices_mon+=1
                                                     elif jour==6:
