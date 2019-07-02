@@ -967,60 +967,60 @@
     <message>
         <location filename="import_gtfs.py" line="196"/>
         <source>arrivals</source>
-        <translation>arrivees</translation>
+        <translation type="obsolete">arrivees</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="197"/>
         <source>departures</source>
-        <translation>departs</translation>
+        <translation type="obsolete">departs</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="201"/>
+        <location filename="import_gtfs.py" line="207"/>
         <source>ligne_name</source>
         <translation>nom_ligne</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="204"/>
         <source>lines_count</source>
-        <translation>nb_lignes</translation>
+        <translation type="obsolete">nb_lignes</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="205"/>
         <source>services_count</source>
-        <translation>nb_services</translation>
+        <translation type="obsolete">nb_services</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="242"/>
+        <location filename="import_gtfs.py" line="267"/>
         <source>Reading calendars...</source>
         <translation>Lecture des calendars...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="270"/>
+        <location filename="import_gtfs.py" line="295"/>
         <source>reading calendar dates...</source>
         <translation>Lectures des calendar_dates...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="296"/>
+        <location filename="import_gtfs.py" line="321"/>
         <source>Reading routes...</source>
         <translation>Lectures des routes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="321"/>
+        <location filename="import_gtfs.py" line="346"/>
         <source>Reading trips...</source>
         <translation>Lecture des trips...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="345"/>
+        <location filename="import_gtfs.py" line="370"/>
         <source>Reading stop times...</source>
         <translation>Lecture des stop_times...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="409"/>
+        <location filename="import_gtfs.py" line="478"/>
         <source>Generating arcs and lines...</source>
         <translation>Génération des arcs et lignes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="497"/>
+        <location filename="import_gtfs.py" line="575"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1054,19 +1054,79 @@
 			</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="477"/>
+        <location filename="import_gtfs.py" line="555"/>
         <source>GTFS import</source>
         <translation>Import GTFS</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="484"/>
+        <location filename="import_gtfs.py" line="562"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="200"/>
+        <location filename="import_gtfs.py" line="206"/>
         <source>line_num</source>
         <translation>Identifiant de ligne</translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="196"/>
+        <source>int_tot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="197"/>
+        <source>out_tot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="198"/>
+        <source>in_mon-fri</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="199"/>
+        <source>out_mon-fri</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="200"/>
+        <source>in_sat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="201"/>
+        <source>out_sat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="202"/>
+        <source>in_sun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="203"/>
+        <source>out_sun</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="210"/>
+        <source>nb_tot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="213"/>
+        <source>nb_mon-fri</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="215"/>
+        <source>nb_sat</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="217"/>
+        <source>nb_sun</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1392,7 +1452,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="287"/>
+        <location filename="maj_titj.py" line="295"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1447,12 +1507,12 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="230"/>
+        <location filename="maj_titj.py" line="236"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jout ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="303"/>
+        <location filename="maj_titj.py" line="311"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -1481,7 +1541,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="280"/>
+        <location filename="maj_titj.py" line="288"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
     </message>
@@ -1995,7 +2055,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="151"/>
+        <location filename="networks_provider.py" line="153"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2285,6 +2345,49 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <location filename="reseau_ti.py" line="289"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+</context>
+<context>
+    <name>Routes</name>
+    <message>
+        <location filename="routes.py" line="87"/>
+        <source>Musliw travel times</source>
+        <translation>Temps de parcours Musliw</translation>
+    </message>
+    <message>
+        <location filename="routes.py" line="94"/>
+        <source>Output</source>
+        <translation>Sortie</translation>
+    </message>
+    <message>
+        <location filename="routes.py" line="203"/>
+        <source>Routes</source>
+        <translation>Itinéraires</translation>
+    </message>
+    <message>
+        <location filename="routes.py" line="210"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="routes.py" line="225"/>
+        <source>
+        Display shortest paths from a selection of starting or ending arcs and a 
+        a Musliw travel times files
+		        
+        Parameters:
+            Mulsiw travel times: Musliw travel times file &quot;*_temps.txt&quot;
+			Output: Output layer containing shortest paths traces
+			
+        </source>
+        <translation>       Affiche lesitinéraires à partir d&apos;une sélection d&apos;arcs et
+d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
+
+		        
+        Paramètres:
+            Temps de parcours Musliw:Fichier Musliw temps de parcours&quot;*_temps.txt&quot;
+			Sortie: Couche résultat contenant les tracés des itinéraires
+			</translation>
     </message>
 </context>
 <context>

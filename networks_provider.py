@@ -60,6 +60,7 @@ from .fichier_od import FichierOD
 from .fichier_temps import FichierTemps
 from .trafic import Trafic
 from .spatial_aggregation import SpatialAggregation
+from .routes import Routes
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -97,7 +98,8 @@ class NetworksProvider(QgsProcessingProvider):
                         FichierOD(),
                         FichierTemps(),
                         Trafic(),
-                        SpatialAggregation()]
+                        SpatialAggregation(),
+                        Routes()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
