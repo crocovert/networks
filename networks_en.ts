@@ -1608,8 +1608,81 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="153"/>
+        <location filename="networks_provider.py" line="155"/>
         <source>Networks</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PathAnalysis</name>
+    <message>
+        <location filename="path_analysis.py" line="93"/>
+        <source>Arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="100"/>
+        <source>Result paths Musliw File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="107"/>
+        <source>ij</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="114"/>
+        <source>Flows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="121"/>
+        <source>Arc Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="128"/>
+        <source>By lines?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="135"/>
+        <source>Encoding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="142"/>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="298"/>
+        <source>Path analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="305"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="320"/>
+        <source>
+        Intercepts the demand that use on the selected arcs
+        The result is a layer that containes arcs from trips using these arcs
+        with the selected demand
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            arcs: network layer 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
+            ij: arc ID (combining i-node and j-node ex: m1456-m3256
+            Flows: field containing flow values
+            arc type: field containig arc_type
+            by line: if selected the total flows are computed by lines instead of by arc
+            Enconding: Encoding of the Reuslt Musliw file utf_8_sig normally
+            output: layer of the slect link analysis
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
         <translation type="unfinished"></translation>
     </message>
 </context>

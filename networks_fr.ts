@@ -2055,9 +2055,95 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="153"/>
+        <location filename="networks_provider.py" line="155"/>
         <source>Networks</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>PathAnalysis</name>
+    <message>
+        <location filename="path_analysis.py" line="93"/>
+        <source>Arcs</source>
+        <translation>Arcs</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="100"/>
+        <source>Result paths Musliw File</source>
+        <translation>Fichier chemins Musliw</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="107"/>
+        <source>ij</source>
+        <translation>ij</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="114"/>
+        <source>Flows</source>
+        <translation>Volumes</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="121"/>
+        <source>Arc Type</source>
+        <translation>Type d&apos;arc</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="128"/>
+        <source>By lines?</source>
+        <translation>Par lignes?</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="135"/>
+        <source>Encoding</source>
+        <translation>Encodage</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="142"/>
+        <source>Output</source>
+        <translation>Sortie</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="298"/>
+        <source>Path analysis</source>
+        <translation>Arborescence</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="305"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="path_analysis.py" line="320"/>
+        <source>
+        Intercepts the demand that use on the selected arcs
+        The result is a layer that containes arcs from trips using these arcs
+        with the selected demand
+		        
+        Parameters:
+            arcs: network layer 
+			result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
+            ij: arc ID (combining i-node and j-node ex: m1456-m3256
+            Flows: field containing flow values
+            arc type: field containig arc_type
+            by line: if selected the total flows are computed by lines instead of by arc
+            Enconding: Encoding of the Reuslt Musliw file utf_8_sig normally
+            output: layer of the slect link analysis
+			
+        </source>
+        <translation>
+        Intercepte la demande qui parcourt les arcs sélectionnés (arborescence)
+        Le result est une couche qui contient les arcs appartenant aux OD qui passent par las arcs sélectionnés
+        avec la demande interceptée
+		        
+        Paramètres:
+            arcs: Couche réseau
+            Fichier chemins Musliw: Fichier résultat du calcul Musliw où sont stockés les plus courts chemins sur les OD calculéeschemins  (*_chemins.txt)
+            ij: identifiant d&apos;arc(combine le noedu i et le noeud j ex: m1456-m3256
+            volumnes: champ contenant la demande totale interceptée
+            type d&apos;arc: Champ contenant le type d&apos;arc
+            par ligne:si sélectionné calcule la demande interceptée par segment de ligne et non par arc
+            encondage: encodage du fichier chemins Musliw utf_8_sig normalement
+            sortie: couche resultat contenant les arcs de la demande interceptée</translation>
     </message>
 </context>
 <context>
