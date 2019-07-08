@@ -500,7 +500,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     #print([tt.decode("cp1252"),links[s][t][2].decode("cp1252"),unicode(s[0]),unicode(s[1]),links[s][t][0],links[s][t][1],i1,i2])
                     try:
                         g_links.setAttributes([unicode(t),unicode(links[s][t][2]),unicode(s[0]),unicode(s[1])
-                                ,links[s][t][0]/nb_jours,i1,i2/nb_jours,links[s][t][1]/nb_mon,i2_mon/nb_mon
+                                ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
                     except:
                         print(t,links[s][t][2])
@@ -525,7 +525,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 g_noeuds.setGeometry(QgsGeometry.fromPointXY(xtr.transform(QgsPointXY(float(arrets[s][2]),float(arrets[s][3])))))
                 #print([unicode(arrets[s][0]),arrets[s][1].decode('cp1252'),arrets[s][4],arrets[s][5]])
                 try:
-                    g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/nb_jours,arrets[s][5]/nb_jours
+                    g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/(nb_jours+1),arrets[s][5]/(nb_jours+1)
                             ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
                 except:
                     print(arrets[s][1])
