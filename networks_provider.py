@@ -62,6 +62,7 @@ from .trafic import Trafic
 from .spatial_aggregation import SpatialAggregation
 from .routes import Routes
 from .path_analysis import PathAnalysis
+from .create_ti_arcs import ArcsTi
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -101,7 +102,8 @@ class NetworksProvider(QgsProcessingProvider):
                         Trafic(),
                         SpatialAggregation(),
                         Routes(),
-                        PathAnalysis()]
+                        PathAnalysis(),
+                        ArcsTi()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

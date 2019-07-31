@@ -76,6 +76,61 @@
     </message>
 </context>
 <context>
+    <name>ArcsTi</name>
+    <message>
+        <location filename="create_ti_arcs.py" line="80"/>
+        <source>Road network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="88"/>
+        <source>i-node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="97"/>
+        <source>j-node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="107"/>
+        <source>Node ID concatenator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="117"/>
+        <source>Output layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="169"/>
+        <source>Create individual networks arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="176"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="192"/>
+        <source>
+        Generates a arcs layer for individual transport mode similarly to arcs layers from GTFS Import
+        in order to concatenate every netwrok element for multimodal routing visualization
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            road network: road network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>i-node: i_node id field
+            j-node: j-node id field
+            Node id concatenator: a character or a string to build ij field by concatenating i-node and j-node field 
+            output layer: name of teh result output layer
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Building graph</name>
     <message>
         <location filename="creer_graphe.py" line="235"/>
@@ -1608,7 +1663,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="155"/>
+        <location filename="networks_provider.py" line="157"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1741,72 +1796,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="155"/>
+        <location filename="reseau_tc.py" line="143"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="162"/>
+        <location filename="reseau_tc.py" line="150"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="169"/>
+        <location filename="reseau_tc.py" line="157"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="577"/>
+        <location filename="reseau_tc.py" line="562"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="542"/>
+        <location filename="reseau_tc.py" line="527"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="544"/>
+        <location filename="reseau_tc.py" line="529"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="546"/>
+        <location filename="reseau_tc.py" line="531"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="548"/>
+        <location filename="reseau_tc.py" line="533"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="550"/>
+        <location filename="reseau_tc.py" line="535"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="552"/>
+        <location filename="reseau_tc.py" line="537"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="554"/>
+        <location filename="reseau_tc.py" line="539"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="556"/>
+        <location filename="reseau_tc.py" line="541"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="584"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="601"/>
+        <location filename="reseau_tc.py" line="586"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        

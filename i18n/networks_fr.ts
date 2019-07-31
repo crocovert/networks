@@ -88,6 +88,116 @@
     </message>
 </context>
 <context>
+    <name>ArcsTi</name>
+    <message>
+        <location filename="create_ti_arcs.py" line="80"/>
+        <source>Road network</source>
+        <translation>Réseau routier</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="88"/>
+        <source>i-node</source>
+        <translation>noeud i</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="97"/>
+        <source>j-node</source>
+        <translation>noeud j</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="107"/>
+        <source>Node ID concatenator</source>
+        <translation>concaténateur de noeud</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="117"/>
+        <source>Output layer</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="169"/>
+        <source>Create individual networks arcs</source>
+        <translation>Génère des tables arcs transport individuel</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="176"/>
+        <source>Network</source>
+        <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="192"/>
+        <source>
+        Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
+		
+        Parameters:
+            road network: road network layer (linear objects)
+			window: area of the generated network (could be a sub area from the whole network layer)
+            direction: flow direction (&apos;0&apos; proxhibited, &apos;1&apos; one way same direction as object, &apos;2&apos; one way reverse direction of object, &apos;3&apos; both directions
+            time: arc travel time field
+            length: arc length field
+            i-node: i-node id
+            j-node: j-node id
+            time category id: time category id
+            time period id: time period id into the time category 
+            start time: start time of the period
+            end time: end time of the period 
+            calendar: calendar of the period (ex: &apos;OOOOONN&apos; evary day except saturday and sunday
+            arc label: arc label
+            mode: mode id for multimodal routing
+            musliw network: name of the genarated Musliw network (txt file)
+            
+            
+        </source>
+        <translation type="obsolete">        Généère un réseau Musliw de mode individuel (voiture, marche, vélo,...)à partir d&apos;une couche réseau (objets linéaires)
+		
+        Paramètres:
+            réseau routier: couche réseau routier( objets linéaires)
+			fenêtre: aire de génération (peut être une sous partie du réseau global)
+            sens: sens de circulation (&apos;0&apos; interdit, &apos;1&apos; sen sunique sens de la géométrie, &apos;2&apos;sens unique sens inverse de la géométrie, &apos;3&apos;double sens
+            temps: temps de parcours sur l&apos;arc
+            longueur: longueur de l&apos;arc
+            i-node: identifiant noeud i
+            j-node: identifiant noeud j
+            id période: identifiant de la période
+            id palge horaire: identifiant de la plage horaire
+            heure début:heure de début de la plage horaire
+            heure fin: heure fin de la plage horaire
+            calendrier: calendrier de la plage horaire (ex: &apos;OOOOONN&apos; tous les jours sauf samedi et dimanche
+            texte arc: libellé arc
+            mode: identifiant de mode pour le calcul de plus courts chemins multimodal
+            réseau Musliw: Nom du réseau Musliw généré (txt file)
+            
+            </translation>
+    </message>
+    <message>
+        <location filename="create_ti_arcs.py" line="192"/>
+        <source>
+        Generates a arcs layer for individual transport mode similarly to arcs layers from GTFS Import
+        in order to concatenate every netwrok element for multimodal routing visualization
+		
+        Parameters:
+            road network: road network layer (linear objects)
+			i-node: i_node id field
+            j-node: j-node id field
+            Node id concatenator: a character or a string to build ij field by concatenating i-node and j-node field 
+            output layer: name of teh result output layer
+            
+            
+        </source>
+        <translation>
+        Génère un couche arcs similaire à celle générée lors d&apos;un import GTFS.
+ Cela permet de fusionner les différents réseaux pour visualiser les itinéraires multimodaux
+
+		
+        Paramètres:
+            réseau: réseau de transport individuel (objets linéaires)
+			i-node: noeud i
+            j-node:noeud j
+            Node id concatenator: caractère pour concaténer les identifiant de noeud i et j pour générer l&apos;identifiant d&apos;arc ij
+            couche résultat: nom de la couches arcs générée</translation>
+    </message>
+</context>
+<context>
     <name>Building graph</name>
     <message>
         <location filename="creer_graphe.py" line="235"/>
@@ -215,26 +325,23 @@
 			output : Mulsiw results file (without extension)
             Accept to download Muslic binary: If checked, the algorithm will download Muslic.exe on the github repository
         </source>
-        <translation>        Perform a calculation of multimodal accessibility and routing
-        Peut télécharger l&apos;exécutable Muslic.exe du dépôt GitHub si celui-ci n&apos;a pas été téléchargé auparavant pour le effectuer le calcul
-		Produce output files (semi-column separated files (if selected in parameters):
-        . Origin destination results file &quot;_od.txt&quot;
-        . Cumulative times on arcs &quot;_temps.txt&quot; (usefull for isochron maps)
-        . Detailed paths &quot;_chemins.txt&quot; 
-        . Assignment results file on links &quot;_aff.txt&quot;
-        . Log file &quot;_log.txt&quot;
-        . Parameters files &quot;_param.txt&quot;
-        . results on services &quot;_services.txt&quot;
-        . cumulative times on nodes &quot;_noeuds.txt&quot;
+        <translation>        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
+		Génère des fichiers résultat (format texte séparateur &quot;;&quot;  (si sélectionné dans les paramtères):
+        .Fichier origine destination  &quot;_od.txt&quot; (résultats par origine destination
+        .Temps d&apos;accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
+        .Chemins détaillés &quot;_chemins.txt&quot; 
+        . Résultats d&apos;affectation sur les arcs &quot;_aff.txt&quot;
+        . fichier Log &quot;_log.txt&quot;
+        . Fichier pramètres &quot;_param.txt&quot;
+        .Résultats par services &quot;_services.txt&quot;
+        . Temps d&apos;accès par noeuds &quot;_noeuds.txt&quot;
         
-        Parameters:
-            network : Musliw network
-            matrix: Musliw matrix
-            parameters: Musliw parameters
-            penalties: Musliw penalties and transfers file
-			output : Mulsiw results file (without extension)
-        Accepter de télécharger l&apos;exécutable Musliw de Github:Si sélectionné, l&apos;algorithme va télécharger l&apos;exécutable Muslic.exe sur le dépot Github pour pouvoir exécuter la calcul
-        </translation>
+        Paramètres:
+           Réseau Musliw 
+            Matrice Musliw
+            Paramètres Musliw
+            Pénalités Musliw
+			sortie : Fichier de resultats Musliw (sans extension)</translation>
     </message>
 </context>
 <context>
@@ -1071,62 +1178,62 @@
     <message>
         <location filename="import_gtfs.py" line="196"/>
         <source>int_tot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="197"/>
         <source>out_tot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="198"/>
         <source>in_mon-fri</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="199"/>
         <source>out_mon-fri</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="200"/>
         <source>in_sat</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="201"/>
         <source>out_sat</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="202"/>
         <source>in_sun</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="203"/>
         <source>out_sun</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="210"/>
         <source>nb_tot</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="213"/>
         <source>nb_mon-fri</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="215"/>
         <source>nb_sat</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="217"/>
         <source>nb_sun</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2055,7 +2162,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="155"/>
+        <location filename="networks_provider.py" line="157"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2210,67 +2317,67 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="155"/>
+        <location filename="reseau_tc.py" line="143"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="162"/>
+        <location filename="reseau_tc.py" line="150"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="169"/>
+        <location filename="reseau_tc.py" line="157"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="577"/>
+        <location filename="reseau_tc.py" line="562"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="542"/>
+        <location filename="reseau_tc.py" line="527"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="544"/>
+        <location filename="reseau_tc.py" line="529"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="546"/>
+        <location filename="reseau_tc.py" line="531"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="548"/>
+        <location filename="reseau_tc.py" line="533"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="550"/>
+        <location filename="reseau_tc.py" line="535"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="552"/>
+        <location filename="reseau_tc.py" line="537"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="554"/>
+        <location filename="reseau_tc.py" line="539"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="556"/>
+        <location filename="reseau_tc.py" line="541"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="601"/>
+        <location filename="reseau_tc.py" line="586"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -2290,7 +2397,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="584"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
