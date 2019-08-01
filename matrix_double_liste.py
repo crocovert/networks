@@ -77,6 +77,7 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
     FIN_PERIODE='FIN_PERIODE'
     INTERVALLE='INTERVALLE'
     DEPART='DEPART'
+    LABEL='LABEL'
     SORTIE='SORTIE'
     
     
@@ -165,7 +166,13 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
                 defaultValue=0
             )
         )    
-
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.LABEL,
+                self.tr("OD label?"),
+                False
+            )
+        )          
 
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
@@ -197,6 +204,7 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
         h2=self.parameterAsString(parameters,self.FIN_PERIODE,context)
         intervalle=self.parameterAsDouble(parameters,self.INTERVALLE,context)
         depart=self.parameterAsEnum(parameters,self.DEPART,context)
+        label2=self.parameterAsBool(parameters,self.LABEL,context)
         fichier_matrice = self.parameterAsFileOutput(parameters, self.SORTIE,context)
 
         
@@ -226,8 +234,11 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
             for n,i in enumerate(liste_nodes_a):
                 feedback.setProgress(100*n/len(liste_nodes_a))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
-                    for j in liste_nodes_b:
-                        matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(i)+"-"+str(j)]])+"\n")
+                    for u,j in enumerate(liste_nodes_b):
+                        if label2==True:
+                            matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                        else:
+                            matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d]])+"\n")
         elif d=="a":
             for i in nodes_a.getFeatures():
                 liste_nodes_a.add(i[id_o])
@@ -236,8 +247,11 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
             for n,i in enumerate(liste_nodes_b):
                 feedback.setProgress(100*n/len(liste_nodes_b))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
-                    for j in liste_nodes_a:
-                        matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                    for u,j in enumerate(liste_nodes_a):
+                        if label2==True:
+                            matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                        else:
+                            matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d]])+"\n")
 
         matrice.close()
         
@@ -297,6 +311,7 @@ class MatrixDoubleList(QgsProcessingAlgorithm):
             Start time: Beginning of the time period
             Step: Step time in minutes
             Departure/Arrival: Departure (from Start point to end point forward) - Arrival (from end point to start point backward)
+            OD label: If True an origin-destination ID will be written combining o and d IDs separated by a '-'
             Musliw matrix: Musliw matrix name (text file with ";" separator 
         """)
 

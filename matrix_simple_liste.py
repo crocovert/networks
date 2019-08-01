@@ -77,6 +77,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
     DEPART='DEPART'
     DIAGONALE='DIAGONALE'
     SORTIE='SORTIE'
+    LABEL='LABEL'
     
     
     def initAlgorithm(self, config):
@@ -152,7 +153,15 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.DIAGONALE,
-                self.tr("Diagonal maatrix?"),
+                self.tr("Diagonal matrix?"),
+                False
+            )
+        )          
+
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.LABEL,
+                self.tr("OD label?"),
                 False
             )
         )          
@@ -186,6 +195,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         intervalle=self.parameterAsDouble(parameters,self.INTERVALLE,context)
         depart=self.parameterAsEnum(parameters,self.DEPART,context)
         diagonale=self.parameterAsBool(parameters,self.DIAGONALE,context)
+        label2=self.parameterAsBool(parameters,self.LABEL,context)
         fichier_matrice = self.parameterAsFileOutput(parameters, self.SORTIE,context)
 
         
@@ -211,18 +221,25 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
             for n,i in enumerate(liste_nodes):
                 feedback.setProgress(100*n/len(liste_nodes))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
-                    for j in liste_nodes:
+                    for u,j in enumerate(liste_nodes):
                         if diagonale==False or i==j:
-                            matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(i)+"-"+str(j)]])+"\n")
+                            if label2==True:
+                                matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                            else:
+                                matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d]])+"\n")
+
         elif d=="a":
             for i in nodes.getFeatures():
                 liste_nodes.add(i[id])
             for n,i in enumerate(liste_nodes):
                 feedback.setProgress(100*n/len(liste_nodes))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
-                    for j in liste_nodes:
+                    for u,j in enumerate(liste_nodes):
                         if diagonale==False or i==j:
-                            matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                            if label2==True:
+                                matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                            else:
+                                matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d]])+"\n")
 
         matrice.close()
           
@@ -280,6 +297,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
             Step: Step time in minutes
             Departure/Arrival: Departure (from Start point to end point forward) - Arrival (from end point to start point backward)
             Diagonal matrix: Check if you want only a digonal matrix instead of a full square matrix
+            OD label: If True an origin-destination ID will be written combining o and d IDs separated by a '-'
             Musliw matrix: Musliw matrix name (text file with ";" separator
             
             
