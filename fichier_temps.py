@@ -159,37 +159,46 @@ class FichierTemps(QgsProcessingAlgorithm):
                 elements[cols[variable]]=elements[cols[variable]].replace(',','.')
                 if temps_attente_terminal==True and 'tatt1' in cols:
                     elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
-                if tc_seul==False or elements[cols['ligne']]>0:
+                if tc_seul==False or float(elements[cols['ligne']])>0:
                     
                     if elements[cols['ij']] not in links:
                         pole=(elements[cols['pole']],1)
 
                         
-                        links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['o']],elements[cols['o']]]
+                        links[elements[cols['ij']]]={}
+                    if elements[cols['o']] not in links[elements[cols['ij']]]:
+                            links[elements[cols['ij']]][elements[cols['o']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['o']],elements[cols['o']]]
                     else:
                         hd=elements[cols['heureo']]
-                        if hd not in links[elements[cols['ij']]][7]:
-                                links[elements[cols['ij']]][7].append(hd)
+                        if hd not in links[elements[cols['ij']]][elements[cols['o']]][7]:
+                                links[elements[cols['ij']]][elements[cols['o']]][7].append(hd)
                         hf=elements[cols['heured']]
-                        if hf not in links[elements[cols['ij']]][8]:
-                                links[elements[cols['ij']]][8].append(hf)
-                        links[elements[cols['ij']]][1]+=float(elements[cols[variable]])
-                        links[elements[cols['ij']]][9]+=float(elements[cols[variable]])**2
-                        links[elements[cols['ij']]][2]+=1
-                        if float(elements[cols[variable]])<float(links[elements[cols['ij']]][3]):
-                            links[elements[cols['ij']]][3]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][5]=elements[cols['pole']]
-                            links[elements[cols['ij']]][10]=elements[cols['o']]
-                        if float(elements[cols[variable]])>float(links[elements[cols['ij']]][4]):
-                            links[elements[cols['ij']]][4]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][6]=elements[cols['pole']]
-                            links[elements[cols['ij']]][11]=elements[cols['o']]            
+                        if hf not in links[elements[cols['ij']]][elements[cols['o']]][8]:
+                                links[elements[cols['ij']]][elements[cols['o']]][8].append(hf)
+                        links[elements[cols['ij']]][elements[cols['o']]][1]+=float(elements[cols[variable]])
+                        links[elements[cols['ij']]][elements[cols['o']]][9]+=float(elements[cols[variable]])**2
+                        links[elements[cols['ij']]][elements[cols['o']]][2]+=1
+                        if float(elements[cols[variable]])<float(links[elements[cols['ij']]][elements[cols['o']]][3]):
+                            links[elements[cols['ij']]][elements[cols['o']]][3]=float(elements[cols[variable]])
+                            links[elements[cols['ij']]][elements[cols['o']]][5]=elements[cols['pole']]
+                            links[elements[cols['ij']]][elements[cols['o']]][10]=elements[cols['o']]
+                        if float(elements[cols[variable]])>float(links[elements[cols['ij']]][elements[cols['o']]][4]):
+                            links[elements[cols['ij']]][elements[cols['o']]][4]=float(elements[cols[variable]])
+                            links[elements[cols['ij']]][elements[cols['o']]][6]=elements[cols['pole']]
+                            links[elements[cols['ij']]][elements[cols['o']]][11]=elements[cols['o']]            
         res.write('ij;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
-        for i in links:
-                try:
-                    res.write(links[i][0]+";"+unicode(links[i][1]/links[i][2])+";"+unicode(links[i][2])+";"+unicode(links[i][3])+";"+unicode(links[i][4])+";"+links[i][5]+";"+links[i][6]+";"+unicode(len(links[i][7]))+";"+unicode(len(links[i][8]))+";"+unicode((abs(-((links[i][1]**2)/links[i][2])+links[i][9]))**0.5)+";"+links[i][10]+";"+links[i][11]+"\n")
-                except:
-                    progress.setText(self.tr('ignored element'))
+        for j,i in enumerate(links):
+            sum_tri=sorted(list(links[i].items()),key=lambda x:x[1][1])
+            #if j<=10:
+                #print(sum_tri)
+                
+            try:
+                sum_tri=sum_tri[0][1]
+                res.write(sum_tri[0]+";"+unicode(sum_tri[1]/sum_tri[2])+";"+unicode(sum_tri[2])+";"+unicode(sum_tri[3])+";"+unicode(sum_tri[4])+";"+sum_tri[5]+";"+sum_tri[6]+";"+unicode(len(sum_tri[7]))+";"+unicode(len(sum_tri[8]))+";"+unicode((abs(-((sum_tri[1]**2)/sum_tri[2])+sum_tri[9]))**0.5)+";"+sum_tri[10]+";"+sum_tri[11]+"\n")
+            except:
+                pass
+                '''res.write('*********************'+str(sum_tri)+'\n')'''
+                
         res.close()
 
         return {self.FICHIER_RESULTAT: fichier_resultat}
