@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import subprocess
-import os,sys
+import os,sys,stat
 import processing
 
 """
@@ -158,8 +158,13 @@ class CalculMusliw(QgsProcessingAlgorithm):
         if sys.platform.startswith('win'):
             prog=os.path.dirname(__file__)+"/Muslic.exe"
         elif sys.platform.startswith('linux'):
-            prog="mono "+os.path.dirname(__file__)+"/Muslic.exe"
-        
+            prog=os.path.dirname(__file__)+"/Muslic.exe"
+            st = os.stat(prog)
+            os.chmod(prog, st.st_mode | stat.S_IEXEC)
+
+
+
+      
         CREATE_NO_WINDOW = 0x08000000
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
         if len(penalites)==0:
