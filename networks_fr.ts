@@ -847,7 +847,7 @@
     <message>
         <location filename="fichier_od.py" line="111"/>
         <source>Time based links only?</source>
-        <translation>Tronçons à horaires uniquement?</translation>
+        <translation type="unfinished">Sans les tronçons à horaires?</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="119"/>

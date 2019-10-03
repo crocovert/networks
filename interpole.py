@@ -255,7 +255,7 @@ class Interpole(QgsProcessingAlgorithm):
         vitesse_diffusion=QgsExpression(self.parameterAsExpression(parameters,self.VITESSE_DIFFUSION,context))
         intraversable = self.parameterAsBool(parameters, self.INTRAVERSABLE, context)
 
-        resultat = self.parameterAsFileOutput(parameters, self.RESULTAT,context)        # Compute the number of steps to display within the progress bar and
+        resultat = self.parameterAsOutputLayer(parameters, self.RESULTAT,context)       # Compute the number of steps to display within the progress bar and
         
         formule_cout_i=self.createExpressionContext(parameters,context)
         cout_i.prepare(formule_cout_i)
@@ -395,7 +395,6 @@ class Interpole(QgsProcessingAlgorithm):
                                                             if (t<grille[d2x,d2y] and d==grille_distance[d2x,d2y]) or d<grille_distance[d2x,d2y]:
                                                                 grille_distance[d2x,d2y] =d
                                                                 grille[d2x,d2y] =t
-
                     sortie=os.path.splitext(resultat)
                     fichier_grille=open(sortie[0]+sortie[1],'w')
                     fichier_grille.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))
@@ -421,7 +420,7 @@ class Interpole(QgsProcessingAlgorithm):
                     nom_sortie=os.path.basename(sortie[0])
                     rlayer=QgsRasterLayer(resultat,nom_sortie)
 
-        return {self.RESULTAT: fichier_grille}
+        return {self.RESULTAT: resultat}
 
 
     def name(self):
