@@ -65,6 +65,7 @@ from .path_analysis import PathAnalysis
 from .create_ti_arcs import ArcsTi
 from .maj_links_times import MajLinksTimes
 from .fichier_noeuds import NodesFile
+from .autoconnectors import AutoConnecteurs
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -107,7 +108,8 @@ class NetworksProvider(QgsProcessingProvider):
                         PathAnalysis(),
                         ArcsTi(),
                         MajLinksTimes(),
-                        NodesFile()]
+                        NodesFile(),
+                        AutoConnecteurs()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale

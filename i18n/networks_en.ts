@@ -131,6 +131,71 @@
     </message>
 </context>
 <context>
+    <name>AutoConnecteurs</name>
+    <message>
+        <location filename="autoconnectors.py" line="86"/>
+        <source>Nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="93"/>
+        <source>node_id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="101"/>
+        <source>mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="108"/>
+        <source>Radius(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="118"/>
+        <source>Speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="129"/>
+        <source>Connectors file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="210"/>
+        <source> connected nodes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="230"/>
+        <source>Auto-connectors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="237"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="autoconnectors.py" line="250"/>
+        <source>
+        Generate a layer of linear objects corresponding to connections between points closest within a layer (e.g. PT stops)
+        
+        Parameters:
+            nodes&#xa0;: nodes layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>node_id: node id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>radius: search radius(m)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>mode: mode at node
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>speed: travel speed on connectors (0= infinite speed)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>connectors file: name of the resulting connectors layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>NB: the tool generates in the same time a txt file in Musliw format (same name as connectors file with txt extension)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Building graph</name>
     <message>
         <location filename="creer_graphe.py" line="235"/>
@@ -166,17 +231,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="164"/>
+        <location filename="calcul_musliw.py" line="169"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="187"/>
+        <location filename="calcul_musliw.py" line="192"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="194"/>
+        <location filename="calcul_musliw.py" line="199"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -196,7 +261,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="210"/>
+        <location filename="calcul_musliw.py" line="215"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 <byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -625,42 +690,42 @@
 <context>
     <name>FichierOD</name>
     <message>
-        <location filename="fichier_od.py" line="83"/>
+        <location filename="fichier_od.py" line="85"/>
         <source>OD output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="95"/>
+        <location filename="fichier_od.py" line="97"/>
         <source>Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="103"/>
+        <location filename="fichier_od.py" line="105"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="111"/>
+        <location filename="fichier_od.py" line="113"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="119"/>
+        <location filename="fichier_od.py" line="121"/>
         <source>OD indicator file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="217"/>
+        <location filename="fichier_od.py" line="221"/>
         <source>indicators by OD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="224"/>
+        <location filename="fichier_od.py" line="228"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="240"/>
+        <location filename="fichier_od.py" line="244"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
@@ -715,22 +780,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="192"/>
-        <source>ignored element</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="fichier_temps.py" line="213"/>
+        <location filename="fichier_temps.py" line="222"/>
         <source>indicators by link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="220"/>
+        <location filename="fichier_temps.py" line="229"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="236"/>
+        <location filename="fichier_temps.py" line="245"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
@@ -1038,17 +1098,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="442"/>
+        <location filename="interpole.py" line="441"/>
         <source>Linear interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="449"/>
+        <location filename="interpole.py" line="448"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="465"/>
+        <location filename="interpole.py" line="464"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -1432,12 +1492,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_double_liste.py" line="274"/>
+        <location filename="matrix_double_liste.py" line="277"/>
         <source>Musliw matrix double list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_double_liste.py" line="281"/>
+        <location filename="matrix_double_liste.py" line="284"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1447,7 +1507,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_double_liste.py" line="297"/>
+        <location filename="matrix_double_liste.py" line="300"/>
         <source>
         Generates a Musliw matrix from two point layers and a period of time (from start time to end time with a step in minutes)
         the script generates a rectangular matrix (NxM od). The first layer (N records) corresponds to origins and the second layer (M records) to destinations
@@ -1531,12 +1591,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="260"/>
+        <location filename="matrix_simple_liste.py" line="264"/>
         <source>Musliw matrix simple list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="267"/>
+        <location filename="matrix_simple_liste.py" line="271"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1551,7 +1611,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="283"/>
+        <location filename="matrix_simple_liste.py" line="287"/>
         <source>
         Generates a Musliw matrix from a point layer and a period of time (from start time to end time with a step in minutes)
         the script generates a full square matrix (NxN od) or a diagonal matrix (N od with same origin and same destination)
@@ -1748,7 +1808,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="161"/>
+        <location filename="networks_provider.py" line="163"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1947,72 +2007,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="143"/>
+        <location filename="reseau_tc.py" line="155"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="150"/>
+        <location filename="reseau_tc.py" line="162"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="157"/>
+        <location filename="reseau_tc.py" line="169"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="562"/>
+        <location filename="reseau_tc.py" line="577"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="527"/>
+        <location filename="reseau_tc.py" line="542"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="529"/>
+        <location filename="reseau_tc.py" line="544"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="531"/>
+        <location filename="reseau_tc.py" line="546"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="533"/>
+        <location filename="reseau_tc.py" line="548"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="535"/>
+        <location filename="reseau_tc.py" line="550"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="537"/>
+        <location filename="reseau_tc.py" line="552"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="539"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="541"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="584"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="586"/>
+        <location filename="reseau_tc.py" line="601"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2157,17 +2217,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="routes.py" line="203"/>
+        <location filename="routes.py" line="211"/>
         <source>Routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="routes.py" line="210"/>
+        <location filename="routes.py" line="218"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="routes.py" line="225"/>
+        <location filename="routes.py" line="233"/>
         <source>
         Display shortest paths from a selection of starting or ending arcs and a 
         a Musliw travel times files

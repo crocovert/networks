@@ -46,6 +46,8 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExpression,
                        QgsProcessingParameterFileDestination)
 import io
+import statistics
+
 
 class FichierOD(QgsProcessingAlgorithm):
     """
@@ -162,6 +164,7 @@ class FichierOD(QgsProcessingAlgorithm):
 
 
             else:
+                elements[cols['ij']]=elements[cols['o']]+'-'+elements[cols['d']]
                 if (tc_seul==True and float(elements[cols['tveh']])>0) or (tc_seul==False):
                 #elements.append(elements[cols['o']]+"-"+elements[cols['d']])
                     if temps_attente_terminal==True:
@@ -172,7 +175,7 @@ class FichierOD(QgsProcessingAlgorithm):
                         pole=(elements[cols['pole']],1)
 
                         
-                        links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2]
+                        links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,[float(elements[cols[variable]])]]
                     else:
                         hd=elements[cols['heureo']]
                         if hd not in links[elements[cols['ij']]][7]:
@@ -189,10 +192,11 @@ class FichierOD(QgsProcessingAlgorithm):
                         if float(elements[cols[variable]])>float(links[elements[cols['ij']]][4]):
                             links[elements[cols['ij']]][4]=float(elements[cols[variable]])
                             links[elements[cols['ij']]][6]=elements[cols['pole']]
+                            links[elements[cols['ij']]][10].append(float(elements[cols[variable]]))
                     
-        res.write('id;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev\n')
+        res.write('id;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;median\n')
         for i in links:
-                res.write(str(links[i][0])+";"+str(links[i][1]/links[i][2])+";"+str(links[i][2])+";"+str(links[i][3])+";"+str(links[i][4])+";"+links[i][5]+";"+links[i][6]+";"+str(len(links[i][7]))+";"+str(len(links[i][8]))+";"+str((abs(-((links[i][1]**2)/links[i][2])+links[i][9]))**0.5)+"\n")
+                res.write(str(links[i][0])+";"+str(links[i][1]/links[i][2])+";"+str(links[i][2])+";"+str(links[i][3])+";"+str(links[i][4])+";"+links[i][5]+";"+links[i][6]+";"+str(len(links[i][7]))+";"+str(len(links[i][8]))+";"+str((abs(-((links[i][1]**2)/links[i][2])+links[i][9]))**0.5)+";"+str(statistics.median(links[i][10]))+"\n")
         res.close()
 
 
