@@ -24,7 +24,8 @@ repository=https://github.com/crocovert/networks/
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
-changelog=2.3.17 add auto_connectors tool
+changelog=2.3.18 fix bug 
+		2.3.17 add auto_connectors tool
 		2.3.16 Fix bug in routes.py when "," as decimal separator
 		2.3.15 fix some bugs
 		2.3.14 fix bug in routes script

@@ -137,8 +137,38 @@ class NetworksProvider(QgsProcessingProvider):
         """
         Loads all algorithms belonging to this provider.
         """
-        for alg in self.alglist:
-            self.addAlgorithm( alg )
+        self.addAlgorithm( ReseauTi() )
+        self.addAlgorithm( AjoutChamp() )
+        self.addAlgorithm( ConcatReseaux() )
+        self.addAlgorithm( ConnecteursGeo() )
+        self.addAlgorithm( Contours() )
+        self.addAlgorithm(CreerGraphe())
+        self.addAlgorithm(Interpole())
+        self.addAlgorithm(Majtitj())
+        self.addAlgorithm(ImportGTFS())
+        self.addAlgorithm(Inverser())
+        self.addAlgorithm(InverserSelection())
+        self.addAlgorithm(ReseauTC())
+        self.addAlgorithm(PrepareGTFS())
+        self.addAlgorithm(ConnectNodes2Lines())
+        self.addAlgorithm(CalculMusliw())
+        self.addAlgorithm(MusliwParam())
+        self.addAlgorithm(SimpleMatrix())
+        self.addAlgorithm(MatrixSimpleList())
+        self.addAlgorithm(MatrixDoubleList())
+        self.addAlgorithm(IsolatedNodes())
+        self.addAlgorithm(FichierAff())
+        self.addAlgorithm(ShiftLines())
+        self.addAlgorithm(FichierOD())
+        self.addAlgorithm(FichierTemps())
+        self.addAlgorithm(Trafic())
+        self.addAlgorithm(SpatialAggregation())
+        self.addAlgorithm(Routes())
+        self.addAlgorithm(PathAnalysis())
+        self.addAlgorithm(ArcsTi())
+        self.addAlgorithm(MajLinksTimes())
+        self.addAlgorithm(NodesFile())
+        self.addAlgorithm(AutoConnecteurs())
         
 
 
