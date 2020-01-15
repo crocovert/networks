@@ -71,6 +71,9 @@ class FichierOD(QgsProcessingAlgorithm):
     VARIABLE='VARIABLE'
     TATT1='TATT1'
     TCSEUL='TCSEUL'
+    WAIT_MAX='WAIT_MAX'
+    TRANSFER_MAX='TRANSFER_MAX'
+    TI_MAX='TI_MAX'
     FICHIER_RESULTAT='FICHIER_RESULTAT'
 
     
@@ -119,6 +122,30 @@ class FichierOD(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterNumber(
+                self.WAIT_MAX,
+                self.tr('Max wait time'),
+                type=QgsProcessingParameterNumber.Double,
+                defaultValue=60.0
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterNumber(
+                self.TRANSFER_MAX,
+                self.tr('Max number of boardings'),
+                type=QgsProcessingParameterNumber.Integer,
+                defaultValue=2
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterNumber(
+                self.TI_MAX,
+                self.tr('Max indiviudal modes time'),
+                type=QgsProcessingParameterNumber.Double,
+                defaultValue=60.0
+            )
+        )
+        self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.FICHIER_RESULTAT,
                 self.tr('OD indicator file'),
@@ -144,6 +171,9 @@ class FichierOD(QgsProcessingAlgorithm):
         variable=self.parameterAsString(parameters,self.VARIABLE,context)
         temps_attente_terminal=self.parameterAsBool(parameters, self.TATT1, context)
         tc_seul= self.parameterAsBool(parameters, self.TCSEUL, context)
+        tatt_max=self.parameterAsDouble(parameters,self.WAIT_MAX,context)
+        nbcorr_max=self.parameterAsInt(parameters,self.TRANSFER_MAX,context)
+        ti_max=self.parameterAsDouble(parameters,self.TI_MAX,context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
 
@@ -165,7 +195,7 @@ class FichierOD(QgsProcessingAlgorithm):
 
             else:
                 elements[cols['ij']]=elements[cols['o']]+'-'+elements[cols['d']]
-                if (tc_seul==True and float(elements[cols['tveh']])>0) or (tc_seul==False):
+                if ((tc_seul==True and float(elements[cols['tveh']])>0) or (tc_seul==False)) and (float(elements[cols['tmap']])<=ti_max and float(elements[cols['ncorr']])<=nbcorr_max and float(elements[cols['tatt']])<=tatt_max):
                 #elements.append(elements[cols['o']]+"-"+elements[cols['d']])
                     if temps_attente_terminal==True:
                         elements[cols['temps']]=float(elements[cols['temps']])-float(elements[cols['tatt1']])
@@ -250,6 +280,10 @@ class FichierOD(QgsProcessingAlgorithm):
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 			time based links only: If checked only time based links are analysed
+            Max wait time: filter to select only OD with a lower total waiting time 
+            Max number of boarding: filter to select only OD with a lower total number of boardings
+            MAx individual modes times: filter to select only OD with a lower total individual modes travel times
+            
             OD indicator file: name of the result file (delimited text with ";" as separator) which containes the following attributes 
             id: OD id
             avg: average value 

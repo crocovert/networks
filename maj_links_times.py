@@ -227,7 +227,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
                 tj=links[f["ij"]][2]-links[f["ij"]][1]
-                if start==0:
+                if start==1:
                     valid={ida : tj, idb: ti}
                     reseau.changeAttributeValues(num,valid)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)

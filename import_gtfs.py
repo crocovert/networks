@@ -205,6 +205,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
             t_links=QgsFields()
             t_links.append(QgsField(self.tr("line_num"),QVariant.String,len=15))
             t_links.append(QgsField(self.tr("ligne_name"),QVariant.String,len=50))
+            t_links.append(QgsField(self.tr("ligne_descr"),QVariant.String,len=150))
             t_links.append(QgsField("i",QVariant.String,len=15))
             t_links.append(QgsField("j",QVariant.String,len=15))
             t_links.append(QgsField(self.tr("nb_tot"),QVariant.Double))
@@ -386,7 +387,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         id_stop2=elements[istop]
                         id_trip2=elements[iid]
                         ligne=trips[elements[iid]][1]
-                        num_ligne=routes[ligne][1].strip()
+                        num_ligne=routes[ligne][0].strip()
+                        nom_ligne=routes[ligne][1].strip()
                         descr=routes[ligne][2].strip()
                         hi1=QTime(int(elements[ihdep][0:2]),int(elements[ihdep][3:5]),int(elements[ihdep][6:8]))
                         hj=QTime(int(elements[iharr][0:2]),int(elements[iharr][3:5]),int(elements[iharr][6:8]))
@@ -407,11 +409,11 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                 if trips[elements[iid]][2] in calendar:
                                     dp=calendar[trips[elements[iid]][2]][1]
                                     fp=calendar[trips[elements[iid]][2]][2]
-                                    #nb_jours=(fin_periode-debut_periode).days
+                                    nb_jours=(fin_periode-debut_periode).days
                                     #nb_mon=0
                                     #nb_sat=0
                                     #nb_sun=0
-                                    for k in range(nb_jours+1):
+                                    for kk,k in enumerate(range(nb_jours+1)):
                                         date_offre=debut_periode+datetime.timedelta(days=k)
                                         if dp<=date_offre<=fp:
                                             jour=date_offre.isoweekday()
@@ -459,10 +461,10 @@ class ImportGTFS(QgsProcessingAlgorithm):
                             if (id_stop,id_stop2) not in links:
                                 links[(id_stop,id_stop2)]={}
                             if num_ligne not in links[(id_stop,id_stop2)]:
-                                links[(id_stop,id_stop2)][num_ligne]=(nbs1,nbs1_mon,nbs1_sat,nbs1_sun,descr)
+                                links[(id_stop,id_stop2)][num_ligne]=(nbs1,nbs1_mon,nbs1_sat,nbs1_sun,descr,nom_ligne)
                             else:
                                 seg= links[(id_stop,id_stop2)][num_ligne]
-                                links[(id_stop,id_stop2)][num_ligne]=(seg[0]+nbs1,seg[1]+nbs1_mon,seg[2]+nbs1_sat,seg[3]+nbs1_sun,descr)
+                                links[(id_stop,id_stop2)][num_ligne]=(seg[0]+nbs1,seg[1]+nbs1_mon,seg[2]+nbs1_sat,seg[3]+nbs1_sun,descr,nom_ligne)
                                 
                             arrets[id_stop][5]+=nbs1
                             arrets[id_stop2][4]+=nbs2
@@ -499,7 +501,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         tt=t
                     #print([tt.decode("cp1252"),links[s][t][2].decode("cp1252"),unicode(s[0]),unicode(s[1]),links[s][t][0],links[s][t][1],i1,i2])
                     try:
-                        g_links.setAttributes([unicode(t),unicode(links[s][t][2]),unicode(s[0]),unicode(s[1])
+                        g_links.setAttributes([unicode(t),unicode(links[s][t][4]),unicode(links[s][t][5]),unicode(s[0]),unicode(s[1])
                                 ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
                     except:

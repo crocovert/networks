@@ -906,42 +906,42 @@
 <context>
     <name>FichierOD</name>
     <message>
-        <location filename="fichier_od.py" line="85"/>
+        <location filename="fichier_od.py" line="88"/>
         <source>OD output file</source>
         <translation>Fichier OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="97"/>
+        <location filename="fichier_od.py" line="100"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="105"/>
+        <location filename="fichier_od.py" line="108"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="113"/>
+        <location filename="fichier_od.py" line="116"/>
         <source>Time based links only?</source>
         <translation>Sans les tronçons à horaires?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="121"/>
+        <location filename="fichier_od.py" line="148"/>
         <source>OD indicator file</source>
         <translation>Fichier indicateurs des liens</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="221"/>
+        <location filename="fichier_od.py" line="251"/>
         <source>indicators by OD</source>
         <translation>indicateurs par OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="228"/>
+        <location filename="fichier_od.py" line="258"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="244"/>
+        <location filename="fichier_od.py" line="274"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -965,6 +965,72 @@
             
             
         </source>
+        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
+			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+            id: OD id
+            avg: valeur moyenne
+            nb: nombre de lignes pour cette OD traitées
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
+            
+            
+        </translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="124"/>
+        <source>Max wait time</source>
+        <translation>Temps d&apos;attente maxi</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="132"/>
+        <source>Max number of boardings</source>
+        <translation>Nombre de voyages maxi</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="140"/>
+        <source>Max indiviudal modes time</source>
+        <translation>Temps en modes individuels maxi</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="274"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            Max wait time: filter to select only OD with a lower total waiting time 
+            Max number of boarding: filter to select only OD with a lower total number of boardings
+            MAx individual modes times: filter to select only OD with a lower total individual modes travel times
+            
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            id: OD id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            
+            
+        </source>
         <translation>        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
@@ -972,6 +1038,11 @@
 			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
             retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+			temps d&apos;attente maxi: Filtre pour sélectionner les OD avec un temps d&apos;attente total inférieur
+			nombre de voyages maxi: Filtre pour sélectionner les OD avec un nombre de voyages inférieur
+			temps en modes individuels maxi: Filtre pour sélectionner les OD avec un temps total en modes individuel inférieur
+
+
            Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
             id: OD id
             avg: valeur moyenne
@@ -1173,37 +1244,37 @@
         <translation type="obsolete">nb_services</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="267"/>
+        <location filename="import_gtfs.py" line="268"/>
         <source>Reading calendars...</source>
         <translation>Lecture des calendars...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="295"/>
+        <location filename="import_gtfs.py" line="296"/>
         <source>reading calendar dates...</source>
         <translation>Lectures des calendar_dates...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="321"/>
+        <location filename="import_gtfs.py" line="322"/>
         <source>Reading routes...</source>
         <translation>Lectures des routes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="346"/>
+        <location filename="import_gtfs.py" line="347"/>
         <source>Reading trips...</source>
         <translation>Lecture des trips...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="370"/>
+        <location filename="import_gtfs.py" line="371"/>
         <source>Reading stop times...</source>
         <translation>Lecture des stop_times...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="478"/>
+        <location filename="import_gtfs.py" line="480"/>
         <source>Generating arcs and lines...</source>
         <translation>Génération des arcs et lignes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="575"/>
+        <location filename="import_gtfs.py" line="577"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1237,12 +1308,12 @@
 			</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="555"/>
+        <location filename="import_gtfs.py" line="557"/>
         <source>GTFS import</source>
         <translation>Import GTFS</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="562"/>
+        <location filename="import_gtfs.py" line="564"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1292,23 +1363,28 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="210"/>
+        <location filename="import_gtfs.py" line="211"/>
         <source>nb_tot</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="213"/>
+        <location filename="import_gtfs.py" line="214"/>
         <source>nb_mon-fri</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="215"/>
+        <location filename="import_gtfs.py" line="216"/>
         <source>nb_sat</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="217"/>
+        <location filename="import_gtfs.py" line="218"/>
         <source>nb_sun</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="import_gtfs.py" line="208"/>
+        <source>ligne_descr</source>
         <translation></translation>
     </message>
 </context>
@@ -2407,7 +2483,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="163"/>
+        <location filename="networks_provider.py" line="193"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2645,67 +2721,67 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="155"/>
+        <location filename="reseau_tc.py" line="143"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="162"/>
+        <location filename="reseau_tc.py" line="150"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="169"/>
+        <location filename="reseau_tc.py" line="157"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="577"/>
+        <location filename="reseau_tc.py" line="562"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="542"/>
+        <location filename="reseau_tc.py" line="527"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="544"/>
+        <location filename="reseau_tc.py" line="529"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="546"/>
+        <location filename="reseau_tc.py" line="531"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="548"/>
+        <location filename="reseau_tc.py" line="533"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="550"/>
+        <location filename="reseau_tc.py" line="535"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="552"/>
+        <location filename="reseau_tc.py" line="537"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="554"/>
+        <location filename="reseau_tc.py" line="539"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="556"/>
+        <location filename="reseau_tc.py" line="541"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="601"/>
+        <location filename="reseau_tc.py" line="586"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -2725,7 +2801,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="584"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
