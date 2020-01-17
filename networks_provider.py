@@ -66,6 +66,7 @@ from .create_ti_arcs import ArcsTi
 from .maj_links_times import MajLinksTimes
 from .fichier_noeuds import NodesFile
 from .autoconnectors import AutoConnecteurs
+from .matrix_table import MatrixTable
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -109,7 +110,8 @@ class NetworksProvider(QgsProcessingProvider):
                         ArcsTi(),
                         MajLinksTimes(),
                         NodesFile(),
-                        AutoConnecteurs()]
+                        AutoConnecteurs(),
+                        MatrixTable()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -169,6 +171,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(MajLinksTimes())
         self.addAlgorithm(NodesFile())
         self.addAlgorithm(AutoConnecteurs())
+        self.addAlgorithm(MatrixTable())
         
 
 

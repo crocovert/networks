@@ -1658,6 +1658,111 @@
     </message>
 </context>
 <context>
+    <name>MatrixTable</name>
+    <message>
+        <location filename="matrix_table.py" line="89"/>
+        <source>OD Table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="97"/>
+        <source>Origin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="104"/>
+        <source>Destination</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="111"/>
+        <source>Demand</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="119"/>
+        <source>Day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="128"/>
+        <source>Start time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="136"/>
+        <source>End time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="144"/>
+        <source>Step</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Departure/Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Departure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="162"/>
+        <source>OD label?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="173"/>
+        <source>Musliw matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="219"/>
+        <source>Writing Musliw matrix...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="264"/>
+        <source>Musliw matrix from table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="271"/>
+        <source>Matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="287"/>
+        <source>
+        Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
+        
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            Nodes: nodes layer (corresponding to nodes layer or the graph )
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origin: Field that contains the node Id of the origin
+            Destination: Field that contains the node Id of the destination
+            Demand: number of passengers for assignment
+            Day: number of the day in the calendar (1 first day of the calendar)
+            Start time: Beginning of the time period
+            Step: Step time in minutes
+            Departure/Arrival: Departure (from Start point to end point forward) - Arrival (from end point to start point backward)
+            OD label: If True an origin-destination ID will be written combining o and d IDs separated by a &apos;-&apos;
+            Musliw matrix: Musliw matrix name (text file with &quot;;&quot; separator
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MusliwParam</name>
     <message>
         <location filename="param_musliw.py" line="106"/>
@@ -1832,7 +1937,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="193"/>
+        <location filename="networks_provider.py" line="196"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>

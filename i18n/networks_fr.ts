@@ -2207,6 +2207,125 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     </message>
 </context>
 <context>
+    <name>MatrixTable</name>
+    <message>
+        <location filename="matrix_table.py" line="89"/>
+        <source>OD Table</source>
+        <translation>Table OD</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="97"/>
+        <source>Origin</source>
+        <translation>Origine</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="104"/>
+        <source>Destination</source>
+        <translation>Destination</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="111"/>
+        <source>Demand</source>
+        <translation>Demande</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="119"/>
+        <source>Day</source>
+        <translation>Jour</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="128"/>
+        <source>Start time</source>
+        <translation>Heure début</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="136"/>
+        <source>End time</source>
+        <translation>Heure fin</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="144"/>
+        <source>Step</source>
+        <translation>Intervalle</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Departure/Arrival</source>
+        <translation>Départ/Arrivée</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Departure</source>
+        <translation>Départ</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="152"/>
+        <source>Arrival</source>
+        <translation>Arrivée</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="162"/>
+        <source>OD label?</source>
+        <translation>Texte OD?</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="173"/>
+        <source>Musliw matrix</source>
+        <translation>Matrice Musliw</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="219"/>
+        <source>Writing Musliw matrix...</source>
+        <translation>Ecriture de la matrice Musliw...</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="264"/>
+        <source>Musliw matrix from table</source>
+        <translation>Matrice à partir d&apos;une table</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="271"/>
+        <source>Matrix</source>
+        <translation>Matrice</translation>
+    </message>
+    <message>
+        <location filename="matrix_table.py" line="287"/>
+        <source>
+        Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
+        
+		
+        Parameters:
+            Nodes: nodes layer (corresponding to nodes layer or the graph )
+			Origin: Field that contains the node Id of the origin
+            Destination: Field that contains the node Id of the destination
+            Demand: number of passengers for assignment
+            Day: number of the day in the calendar (1 first day of the calendar)
+            Start time: Beginning of the time period
+            Step: Step time in minutes
+            Departure/Arrival: Departure (from Start point to end point forward) - Arrival (from end point to start point backward)
+            OD label: If True an origin-destination ID will be written combining o and d IDs separated by a &apos;-&apos;
+            Musliw matrix: Musliw matrix name (text file with &quot;;&quot; separator
+            
+            
+        </source>
+        <translation>        Génère une matrice Musliw à partir d&apos;une table et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
+		
+        Paramètres:
+            Noeuds : Couche des noeuds (correspond aux noeuds du graphe de cheminement)
+			Origine : Champ qui contient l&apos;identifiant de noeud origine
+			Destination : Champ qui contient l&apos;identifiant de noeud destination
+            Demande: nombre de passagers pour l&apos;affectation
+            Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
+            Début période: heure de début de la période
+            Fin période: heure de fin de la période
+            Intervalle:Intervalle de temps en minutes
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
+            Texte Od: Si coché un identifiant d&apos;origine destination sera écrit (conbinant o et d séparés par un &apos;-&apos;)
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )
+</translation>
+    </message>
+</context>
+<context>
     <name>MusliwParam</name>
     <message>
         <location filename="param_musliw.py" line="106"/>
@@ -2483,7 +2602,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="193"/>
+        <location filename="networks_provider.py" line="196"/>
         <source>Networks</source>
         <translation></translation>
     </message>
