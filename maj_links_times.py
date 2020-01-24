@@ -160,6 +160,8 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         champs=reseau.fields()
         start=depart
         noms_champs=[]
+        request=(QgsFeatureRequest().setFilterRect(iface.mapCanvas().extent()))
+
 
         #lecture du noms des champs
         for f in champs:
@@ -176,7 +178,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         if  u"ij" not in noms_champs:
             reseau.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
             #reseau.addAttribute(QgsField("ij",QVariant.String))
-            for f in reseau.getFeatures():
+            for f in reseau.getFeatures(request):
                 num=f.id()
                 lab_ij=f['i']+'-'+f['j']
                 reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()['ij'],lab_ij)
@@ -219,7 +221,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         idb=reseau.fields().indexFromName(champ_tj)
         valid={}
 
-        for k,f in enumerate(reseau.getFeatures()):
+        for k,f in enumerate(reseau.getFeatures(request)):
             feedback.setProgress((k+1)*100/n)
             num=f.id()
             #temps=float(f["temps"])
@@ -227,7 +229,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
                 tj=links[f["ij"]][2]-links[f["ij"]][1]
-                if start==1:
+                if start==0:
                     valid={ida : tj, idb: ti}
                     reseau.changeAttributeValues(num,valid)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)

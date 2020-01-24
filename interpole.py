@@ -54,6 +54,7 @@ from qgis.core import (QgsProcessing,
 import codecs
 import numpy
 import math
+import json
 
 
 class Interpole(QgsProcessingAlgorithm):
@@ -89,6 +90,7 @@ class Interpole(QgsProcessingAlgorithm):
     RAYON='RAYON'
     VITESSE_DIFFUSION='VITESSE_DIFFUSION'
     INTRAVERSABLE='INTRAVERSABLE'
+    IND_VALUES='IND_VALUES'
     RESULTAT='RESULTAT'
 
     def initAlgorithm(self, config):
@@ -218,6 +220,15 @@ class Interpole(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterExpression(
+                self.IND_VALUES,
+                self.tr('Individual values'),
+                None,
+                self.RESEAU
+
+            )
+        )
+        self.addParameter(
             QgsProcessingParameterRasterDestination(
                 self.RESULTAT,
                 self.tr('Raster file')
@@ -254,9 +265,11 @@ class Interpole(QgsProcessingAlgorithm):
         rayon=self.parameterAsDouble(parameters,self.RAYON,context)
         vitesse_diffusion=QgsExpression(self.parameterAsExpression(parameters,self.VITESSE_DIFFUSION,context))
         intraversable = self.parameterAsBool(parameters, self.INTRAVERSABLE, context)
+        valeurs_individuelles=QgsExpression(self.parameterAsExpression(parameters,self.IND_VALUES,context))
 
         resultat = self.parameterAsOutputLayer(parameters, self.RESULTAT,context)       # Compute the number of steps to display within the progress bar and
         
+        poles={}
         formule_cout_i=self.createExpressionContext(parameters,context)
         cout_i.prepare(formule_cout_i)
         formule_cout_j=self.createExpressionContext(parameters,context)
@@ -269,9 +282,12 @@ class Interpole(QgsProcessingAlgorithm):
         traversabilite.prepare(formule_traversabilite)
         formule_vitesse_diffusion=self.createExpressionContext(parameters,context)
         vitesse_diffusion.prepare(formule_vitesse_diffusion)
+        formule_valeurs_individuelles=self.createExpressionContext(parameters,context)
+        valeurs_individuelles.prepare(formule_valeurs_individuelles)
         
         grille=numpy.array([[-9999.0]*nb_pixels_y]*nb_pixels_x)
         grille_distance=numpy.array([[1e38]*nb_pixels_y]*nb_pixels_x)
+        grille_ind=numpy.array([['0']*nb_pixels_y]*nb_pixels_x,dtype='<U25')
         rep=os.path.dirname(resultat)
         a=fenetre.asWktCoordinates().split(',')
         fenetre2=fenetre#QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
@@ -297,8 +313,10 @@ class Interpole(QgsProcessingAlgorithm):
                     simple.setTolerance(min(taille_pixel_x,taille_pixel_y)/2)
                     texte=diffusion.dump()+' in (\'1\',\'2\',\'3\') and ('+cout_j.dump()+' IS NOT NULL and '+sens.dump()+' in (\'1\',\'3\')) '
                     
-                    request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
+                    #request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
+                    request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte)
+                    #req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
+                    req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')')
                     features=[f for f in layer.getFeatures(request)]
 
                     if intraversable:
@@ -312,11 +330,13 @@ class Interpole(QgsProcessingAlgorithm):
                         formule_vitesse_diffusion.setFeature(i)
                         formule_diffusion.setFeature(i)
                         formule_traversabilite.setFeature(i)
+                        formule_valeurs_individuelles.setFeature(i)
                         var_diffusion=diffusion.evaluate(formule_diffusion)
                         var_sens=sens.evaluate(formule_sens)
                         var_traversabilite=traversabilite.evaluate(formule_traversabilite)
                         ti=cout_i.evaluate(formule_cout_i)
                         tj=cout_j.evaluate(formule_cout_j)
+                        var_ind=valeurs_individuelles.evaluate(formule_valeurs_individuelles)
 
                         var_vitesse_diffusion=vitesse_diffusion.evaluate(formule_vitesse_diffusion)
                         speed=60/(1000*var_vitesse_diffusion)
@@ -339,7 +359,7 @@ class Interpole(QgsProcessingAlgorithm):
                                 d2x=deltax+p
                                 for q in range(dy):
                                     d2y=deltay+q
-                                    if 0<=d2x<nb_pixels_x and 0<=d2y<nb_pixels_y:
+                                    if 0<=d2x<nb_pixels_x and 0<=d2y<nb_pixels_y :
                                         pt1=QgsGeometry.fromPointXY(QgsPointXY(ll[0]+(d2x+0.5)*taille_pixel_x,ll[1]+(d2y+0.5)*taille_pixel_y))
                                         res=geom.closestSegmentWithContext(pt1.asPoint())
                                         d=round(res[0],decimales)
@@ -395,6 +415,9 @@ class Interpole(QgsProcessingAlgorithm):
                                                             if (t<grille[d2x,d2y] and d==grille_distance[d2x,d2y]) or d<grille_distance[d2x,d2y]:
                                                                 grille_distance[d2x,d2y] =d
                                                                 grille[d2x,d2y] =t
+                                                                if var_ind not in poles:
+                                                                    poles[var_ind]=len(poles)+1
+                                                                grille_ind[d2x,d2y]=poles[var_ind]
                     sortie=os.path.splitext(resultat)
                     fichier_grille=open(sortie[0]+sortie[1],'w')
                     fichier_grille.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))
@@ -402,21 +425,24 @@ class Interpole(QgsProcessingAlgorithm):
                     fichier_grille2.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))
                     g1=numpy.rot90(grille,1)
                     #g1=numpy.flipud(g1)
-                    g2=numpy.rot90(grille_distance,1)
+                    g2=numpy.rot90(grille_ind,1)
                     #g2=numpy.flipud(g2)
                     for i in g1:
                         fichier_grille.write(" ".join([str(ii) for ii in i])+"\n")
                     fichier_grille.close()
                     for i in g2:
-                        fichier_grille2.write(" ".join([str(math.sqrt(ii)) for ii in i])+"\n")
+                        fichier_grille2.write(" ".join([str(ii) for ii in i])+"\n")
                     fichier_grille2.close()
 
                     fichier_prj=open(sortie[0]+".prj",'w')
                     fichier2_prj=open(sortie[0]+"_dist.prj",'w')
+                    fichier2_dict=open(sortie[0]+"_dist.dic",'w')
                     fichier_prj.write(layer.crs().toWkt())
                     fichier2_prj.write(layer.crs().toWkt())
+                    fichier2_dict.write(json.dumps(dict(map(reversed, poles.items()))))
                     fichier_prj.close()
                     fichier2_prj.close()
+                    fichier2_dict.close()
                     nom_sortie=os.path.basename(sortie[0])
                     rlayer=QgsRasterLayer(resultat,nom_sortie)
 
@@ -484,6 +510,7 @@ class Interpole(QgsProcessingAlgorithm):
             radius : search radius m inside blocks
             spread speed : speeed of spread inside blocks in km/h (60 for iso-distance maps)
             impassable : when selected impassable elements ara taken into account  for iso-values computations
+            Individual values: (Optional) field for individual values polygons (ex: stations access area)
             result : output raster layer
             """)
 

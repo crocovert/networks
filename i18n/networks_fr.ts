@@ -671,57 +671,57 @@
 <context>
     <name>Contours</name>
     <message>
-        <location filename="contours.py" line="94"/>
+        <location filename="contours.py" line="97"/>
         <source>Raster</source>
         <translation>Raster</translation>
     </message>
     <message>
-        <location filename="contours.py" line="100"/>
+        <location filename="contours.py" line="103"/>
         <source>Band</source>
         <translation>Bande</translation>
     </message>
     <message>
-        <location filename="contours.py" line="108"/>
+        <location filename="contours.py" line="111"/>
         <source>Min</source>
         <translation>Min</translation>
     </message>
     <message>
-        <location filename="contours.py" line="116"/>
+        <location filename="contours.py" line="119"/>
         <source>Max</source>
         <translation>Max</translation>
     </message>
     <message>
-        <location filename="contours.py" line="124"/>
+        <location filename="contours.py" line="127"/>
         <source>Interval</source>
         <translation>Intervalle</translation>
     </message>
     <message>
-        <location filename="contours.py" line="132"/>
+        <location filename="contours.py" line="135"/>
         <source>No Value</source>
         <translation>Valeur absente</translation>
     </message>
     <message>
-        <location filename="contours.py" line="140"/>
+        <location filename="contours.py" line="143"/>
         <source>Polygons</source>
         <translation>Polygones</translation>
     </message>
     <message>
-        <location filename="contours.py" line="316"/>
+        <location filename="contours.py" line="341"/>
         <source>Isovalue polygons</source>
         <translation>Contours iso-valeurs</translation>
     </message>
     <message>
-        <location filename="contours.py" line="216"/>
+        <location filename="contours.py" line="235"/>
         <source>Grid interpolation...</source>
         <translation>Interpolation de la grille...</translation>
     </message>
     <message>
-        <location filename="contours.py" line="257"/>
+        <location filename="contours.py" line="280"/>
         <source>Generating isovalue polygons...</source>
         <translation>Génération des polygones iso-valeurs...</translation>
     </message>
     <message>
-        <location filename="contours.py" line="697"/>
+        <location filename="contours.py" line="732"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
 		        
@@ -733,6 +733,7 @@
 			interval: step between each isovalue
 			no_value: value corresponding to the raster no_value
 			polygons: True= genarates polygons: False generates Polylines
+            individual values: if chekes generate a polygon for each individual raster value (no interpolation)
 			result: name of the resulted isovalue polygons layer
         </source>
         <translation>        Généère des polygones iso-valeurs à partir d&apos;une couche Rasterr (ex: pour générer des surfaces isochrones)
@@ -745,13 +746,19 @@
 			interval: intervalle entre chaque polygone iso-valeur
 			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
 			polygones: True=Génère des polygones: False génère des polylignes
+			valeurs individuelles : True=Génèreun polygone pour chaque valeur de pixel du raster (pas d&apos;interpolation)
 			contours iso-valeurs: nom de la couche iso_valeurs en sortie
         </translation>
     </message>
     <message>
-        <location filename="contours.py" line="323"/>
+        <location filename="contours.py" line="348"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="contours.py" line="150"/>
+        <source>Individual Values</source>
+        <translation>Valeurs individuelles</translation>
     </message>
 </context>
 <context>
@@ -1391,87 +1398,87 @@
 <context>
     <name>Interpole</name>
     <message>
-        <location filename="interpole.py" line="100"/>
+        <location filename="interpole.py" line="102"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="107"/>
+        <location filename="interpole.py" line="109"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="114"/>
+        <location filename="interpole.py" line="116"/>
         <source>i-cost</source>
         <translation>Temps i</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="122"/>
+        <location filename="interpole.py" line="124"/>
         <source>j-cost</source>
         <translation>Temps j</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="131"/>
+        <location filename="interpole.py" line="133"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="140"/>
+        <location filename="interpole.py" line="142"/>
         <source>Spread</source>
         <translation>Diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="149"/>
+        <location filename="interpole.py" line="151"/>
         <source>Impassibility</source>
         <translation>Impasse</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="157"/>
+        <location filename="interpole.py" line="159"/>
         <source>Pixels nb x</source>
         <translation>Nb pixels x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="165"/>
+        <location filename="interpole.py" line="167"/>
         <source>Pixels nb y</source>
         <translation>Nb pixels y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="173"/>
+        <location filename="interpole.py" line="175"/>
         <source>Pixel size x</source>
         <translation>Taille pixel x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="181"/>
+        <location filename="interpole.py" line="183"/>
         <source>Pixel size y</source>
         <translation>Taille pixel y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="189"/>
+        <location filename="interpole.py" line="191"/>
         <source>Decimals</source>
         <translation>Décimales</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="197"/>
+        <location filename="interpole.py" line="199"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="205"/>
+        <location filename="interpole.py" line="207"/>
         <source>Spread speed</source>
         <translation>Vitesse de diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="213"/>
+        <location filename="interpole.py" line="215"/>
         <source>Impassable?</source>
         <translation>Intraversables?</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="220"/>
+        <location filename="interpole.py" line="231"/>
         <source>Raster file</source>
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="464"/>
+        <location filename="interpole.py" line="490"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -1495,6 +1502,7 @@
             radius : search radius m inside blocks
             spread speed : speeed of spread inside blocks in km/h (60 for iso-distance maps)
             impassable : when selected impassable elements ara taken into account  for iso-values computations
+            Individual values: (Optional) field for individual values polygons (ex: stations access area)
             result : output raster layer
             </source>
         <translation>
@@ -1520,18 +1528,24 @@
             rayon(m) :rayon de recherche à l&apos;intérieur des ilôts
             vitesse de diffusion :vitesse de diffusion à l&apos;intérieur des ilôts en km/h (60 pour les cartes  iso-distance)
             intraversable : lorsque que le contrôle est sélectionné l&apos;algorithme tient compte des emprises intraversables
+            valeurs individuelles : (optionnel) champ pour générer des polygones à base de valeurs individuelles (ex: aires d&apos;influence des gares)
             fichier Raster : fichier Raster généré
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="441"/>
+        <location filename="interpole.py" line="467"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="448"/>
+        <location filename="interpole.py" line="474"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="222"/>
+        <source>Individual values</source>
+        <translation>Valeurs individuelles</translation>
     </message>
 </context>
 <context>
@@ -1711,7 +1725,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="277"/>
+        <location filename="maj_links_times.py" line="279"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1751,22 +1765,22 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="169"/>
+        <location filename="maj_links_times.py" line="171"/>
         <source>updating ti tj</source>
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="217"/>
+        <location filename="maj_links_times.py" line="219"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="270"/>
+        <location filename="maj_links_times.py" line="272"/>
         <source>Update links times</source>
         <translation>Mise à jour des temps des arcs</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="293"/>
+        <location filename="maj_links_times.py" line="295"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        

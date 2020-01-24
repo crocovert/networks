@@ -57,6 +57,8 @@ from qgis.core import (QgsProcessing,
                        QgsFeature
                        )
 import codecs
+import pathlib
+import json
 
 class Contours(QgsProcessingAlgorithm):
     """
@@ -84,6 +86,7 @@ class Contours(QgsProcessingAlgorithm):
     NOVALUE='NOVALUE'
     POLYGONS='POLYGONS'
     CONTOURS='CONTOURS'
+    IND_VALUES='IND_VALUES'
 
     def initAlgorithm(self, config):
         """
@@ -145,6 +148,13 @@ class Contours(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.IND_VALUES,
+                self.tr('Individual Values'),
+                False
+            )
+        )
+        self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.CONTOURS,
                 self.tr('Isovalue polygons'),
@@ -172,8 +182,9 @@ class Contours(QgsProcessingAlgorithm):
         intervalle=self.parameterAsDouble(parameters,self.INTERVALLE,context)
         novalue=self.parameterAsDouble(parameters,self.NOVALUE,context)
         polygones=self.parameterAsBool(parameters,self.POLYGONS,context)
+        val_ind=self.parameterAsBool(parameters,self.IND_VALUES,context)
         # get features from source
-
+        poles_dict={}
 
         novalue=novalue
         layer=raster
@@ -182,10 +193,18 @@ class Contours(QgsProcessingAlgorithm):
             if layer.type()==QgsMapLayer.RasterLayer:
                 provider = layer.dataProvider()
                 filePath = str(provider.dataSourceUri())
-                raster_or = gdal.Open(filePath)
+                dict_path= str(pathlib.PurePath(filePath).parent / pathlib.PurePath(filePath).stem) + '_dist.dic'
+                if val_ind==True:
+                    json_dict=open(dict_path)
+                    poles_dict=dict(json.load(json_dict))
+                    json_dict.close()
+                    raster_or = gdal.Open(str(pathlib.PurePath(filePath).parent / pathlib.PurePath(filePath).stem) + '_dist.tif')
+                    poles_dict['0']='0'
+                else:
+                    raster_or = gdal.Open(filePath)
                 nb_bands=layer.bandCount()
                 champs2=QgsFields()
-                champs2.append(QgsField("id",QVariant.Double))
+                champs2.append(QgsField("id",QVariant.String,len=31))
                 if polygones==True:
                     (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.Polygon, raster.crs())        # Compute the number of steps to display within the progress bar and
                 else:
@@ -217,7 +236,11 @@ class Contours(QgsProcessingAlgorithm):
                 for p in range(nx-1):
                     feedback.setProgress(50*p/nx)
                     for q in range(ny-1):
-                        self.contours(grille,p,q,intervalle,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny)
+                        if val_ind==False:
+                            self.contours(grille,p,q,intervalle,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny)
+                        else:
+                            self.contours_ind(grille,p,q,intervalle,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny,poles_dict)
+
                 conn = db.connect(':memory:')
                 conn.enable_load_extension(True)
                 conn.execute("select load_extension('mod_spatialite')")
@@ -249,15 +272,16 @@ class Contours(QgsProcessingAlgorithm):
                     liste1=[QgsGeometry.fromMultiPolylineXY(l1) for l1 in li]
                     for j,i in enumerate(liste1):
             
-                        texte='insert into '+nom_sortie +' values('+str(float(ff[0]))+','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
+                        texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
                         rs = c.execute(texte)
                         conn.commit()
                         tlignes=NULL
                 db_filename = rep_sortie+"/"+nom_sortie +".sqlite"
                 feedback.setProgressText(self.tr("Generating isovalue polygons..."))
                 feedback.setProgress(0)
+
                 if polygones==True:
-                    texte='create table \"'+nom_sortie+"_polys\" as SELECT id, casttomultipolygon(polygonize("+nom_sortie+'.geom)) AS geom FROM \"'+nom_sortie+'\" GROUP BY id,p,q;'
+                    texte='create table \"'+nom_sortie+"_polys\" as SELECT id, casttomultipolygon(st_polygonize("+nom_sortie+'.geom)) AS geom FROM \"'+nom_sortie+'\" GROUP BY id,p,q;'
                     rs = c.execute(texte)
                     conn.commit()
                     feedback.setProgress(20)
@@ -277,17 +301,18 @@ class Contours(QgsProcessingAlgorithm):
                     rs = c.execute(texte)
                     conn.commit()
                     feedback.setProgress(60)
-                
+
                 texte='select id, asWkt(geom) from '+nom_sortie+"_polys2"
                 rs=c.execute(texte)
                 feedback.setProgress(80)
                 resultat2=c.fetchall()
+
                 conn.commit()
                 for r0,r in enumerate(resultat2):
                     f1=QgsFeature(champs2)
                     geom=QgsGeometry.fromWkt(r[1])
                     f1.setGeometry(geom)
-                    f1.setAttributes([float(r[0])])
+                    f1.setAttributes([r[0]])
                     resultat.addFeature(f1)
                     feedback.setProgress(80+(r0*20/len(resultat2)))
                 conn.close()
@@ -331,7 +356,17 @@ class Contours(QgsProcessingAlgorithm):
         formatting characters.
         """
         return 'Analysis'
-
+    def contours_ind(self,grille, p,q,s,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny,poles_dict):
+        p1=ll[0]+(p)*pixel_size_x
+        p2=ll[0]+(p+1)*pixel_size_x
+        q1=ll[1]+(q)*pixel_size_y
+        q2=ll[1]+(q+1)*pixel_size_y
+        ligne1=QgsGeometry.fromMultiPolylineXY([[QgsPointXY(p1,q1),QgsPointXY(p2,q1),QgsPointXY(p2,q2),QgsPointXY(p1,q2),QgsPointXY(p1,q1)]])
+        f1=QgsFeature()
+        f1.setAttributes([poles_dict[str(int(grille[p][q]))]])
+        f1.setGeometry(ligne1)
+        self.polys[poles_dict[str(int(grille[p][q]))],p,q]=[f1.geometry().asMultiPolyline()]
+        
     def contours(self,grille, p,q,s,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny):
         lignes={}
         points={}
@@ -700,11 +735,12 @@ class Contours(QgsProcessingAlgorithm):
         Parameters:
             raster: input raster layer name
 			band: band to compute
-			min: minimum isovalue area to genarate
+			min: minimum isovalue area to generate
 			max: maximum isovalue area to generate
 			interval: step between each isovalue
 			no_value: value corresponding to the raster no_value
 			polygons: True= genarates polygons: False generates Polylines
+            individual values: if chekes generate a polygon for each individual raster value (no interpolation)
 			result: name of the resulted isovalue polygons layer
         """)
 
