@@ -204,7 +204,7 @@ class Contours(QgsProcessingAlgorithm):
                     raster_or = gdal.Open(filePath)
                 nb_bands=layer.bandCount()
                 champs2=QgsFields()
-                champs2.append(QgsField("id",QVariant.String,len=31))
+                champs2.append(QgsField("id",QVariant.String,len=50))
                 if polygones==True:
                     (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.Polygon, raster.crs())        # Compute the number of steps to display within the progress bar and
                 else:
