@@ -53,7 +53,7 @@ from qgis.core import (QgsProcessing,
                        )
 import codecs
 
-class MajLinksTimes(QgsProcessingAlgorithm):
+class MajLinksPole(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -74,10 +74,9 @@ class MajLinksTimes(QgsProcessingAlgorithm):
     RESEAU = 'RESEAU'
     FICHIER_TEMPS = 'FICHIER_TEMPS'
     DEPART='DEPART'
-    TI='TI'
-    TJ='TJ'
-    TEMPS_TERMINAL='TEMPS_TERMINAL'
+    TEXT='TEXT'
     WINDOW= 'WINDOW'
+    ORIGIN= 'ORIGIN'
 
     def initAlgorithm(self, config):
         """
@@ -119,29 +118,25 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         )            
         self.addParameter(
             QgsProcessingParameterExpression(
-                self.TI,
-                self.tr('i-node time'),
+                self.TEXT,
+                self.tr('Intermodality node'),
                 parentLayerParameterName=self.RESEAU,
                 optional=False,
-                defaultValue='ti'
+                defaultValue='Inter'
             )
         )
         self.addParameter(
             QgsProcessingParameterExpression(
-                self.TJ,
-                self.tr('j-node time'),
+                self.ORIGIN,
+                self.tr('Origin node'),
                 parentLayerParameterName=self.RESEAU,
                 optional=False,
-                defaultValue='tj'            
-                )
-        )
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.TEMPS_TERMINAL,
-                self.tr('Initial/final waiting time?'),
-                False
+                defaultValue='O'
             )
         )
+
+        
+
 
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
@@ -159,9 +154,8 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
         fichier_temps=self.parameterAsFile(parameters,self.FICHIER_TEMPS,context)
         depart=self.parameterAsEnum(parameters,self.DEPART,context)
-        champ_ti=self.parameterAsExpression(parameters,self.TI,context).strip("'").strip("\"")
-        champ_tj=self.parameterAsExpression(parameters,self.TJ,context).strip("'").strip("\"")
-        temps_terminal = self.parameterAsBool(parameters, self.TEMPS_TERMINAL, context)
+        champ_texte=self.parameterAsExpression(parameters,self.TEXT,context).strip("'").strip("\"")
+        champ_textu=self.parameterAsExpression(parameters,self.ORIGIN,context).strip("'").strip("\"")
         fenetre=self.parameterAsExtent(parameters,self.WINDOW, context)
         
         if depart==0:
@@ -182,12 +176,12 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             noms_champs.append(f.name())
         #ajout si necessaire champ ti tj
         reseau.startEditing()
-        reseau.beginEditCommand(self.tr("updating ti tj"))
-        if  champ_ti not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_ti,QVariant.Double)])
+        reseau.beginEditCommand(self.tr("updating pole"))
+        if  champ_texte not in noms_champs:
+            reseau.dataProvider().addAttributes([QgsField(champ_texte,QVariant.String,len=40)])
+        if  champ_textu not in noms_champs:
+            reseau.dataProvider().addAttributes([QgsField(champ_textu,QVariant.String,len=40)])
           
-        if  champ_tj not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_tj,QVariant.Double)])
 
         if  u"ij" not in noms_champs:
             reseau.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
@@ -213,26 +207,20 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                 for j in range(ncols):
                     colonnes[elements[j]]=j
             else:
-                t=elements[colonnes["temps"]].replace(",",".")
-                u=elements[colonnes["ti"]].replace(",",".")
+                t=elements[colonnes["pole"]]
+                u=elements[colonnes["o"]]
                 ij=elements[colonnes["ij"]]
-                if temps_terminal==False:
-                    if str(ij) not in links:
-                        links[str(ij)]=(1e38,0,1e38)
-                    if float(t)<links[str(ij)][0]:
-                        links[str(ij)]=(float(t),0,float(u))
-                else:
-                    if str(ij) not in links:
-                        links[str(ij)]=(1e38,0)
-                    tatt1=elements[colonnes["tatt1"]].replace(",",".")
-                    if float(t)-float(tatt1)<links[str(ij)][0]-links[str(ij)][1]:
-                        links[str(ij)]=(float(t),float(tatt1),float(u))
+
+                if str(ij) not in links:
+                    links[str(ij)]=[".","."]
+
+                links[str(ij)]=[str(t),str(u)]
 
 
         n=reseau.featureCount()
-        feedback.setProgressText(self.tr("updating ti and tj..."))
-        ida=reseau.fields().indexFromName(champ_ti)
-        idb=reseau.fields().indexFromName(champ_tj)
+        feedback.setProgressText(self.tr("updating pole..."))
+        idt=reseau.fields().indexFromName(champ_texte)
+        idu=reseau.fields().indexFromName(champ_textu)
         valid={}
 
         for k,f in enumerate(reseau.getFeatures(request)):
@@ -241,21 +229,18 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             #temps=float(f["temps"])
             ij=f["ij"]
             if ij in links:
-                ti=links[f["ij"]][0]-links[f["ij"]][1]
-                tj=links[f["ij"]][2]-links[f["ij"]][1]
-                if start==0:
-                    valid={ida : tj, idb: ti}
-                    reseau.changeAttributeValues(num,valid)
+                texte=links[f["ij"]][0]
+                textu=links[f["ij"]][1]
+                valid={idt : texte, idu: textu}
+                reseau.changeAttributeValues(num,valid)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
-                else:
-                    valid={ida : ti, idb : tj}
-                    reseau.changeAttributeValues(num,valid)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
-                ti=NULL
-                valid={ida : ti, idb : ti}
+                texte='.'
+                textu='.'
+                valid={idt : texte, idu: textu}
                 reseau.changeAttributeValues(num,valid)
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
@@ -276,14 +261,14 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'update_links_times'
+        return 'update_links_pole'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr("Update links times")
+        return self.tr("Update links pole")
 
     def group(self):
         """
@@ -303,20 +288,18 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         return 'Network'
 
     def tr(self, string):
-        return QCoreApplication.translate('MajLinksTimes', string)
+        return QCoreApplication.translate('MajLinksPole', string)
         
     def shortHelpString(self):
         return self.tr("""
-        Read the travel times file ".._temps.txt" computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file ".._temps.txt" computed by Musliw and creates (if they don't exist) in the network layer fields where intermodaly node and service area node are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            network : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
-            fenêtre: fenêtre déterminants les arcs à mettre à jour (seuls ceux à l'intérieur seront mis à jour)
-            departure/arrival: departure if "d" in Musliw matrix, arrival if "a"
-            i_node time: travel time at i-node field
-            j-node time; travel time at j-node field
-            initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
+            extent: window for fields update (only links in the window will be updates)
+            intermodality node; initial/ final node of intermodality (depends on arrival/departure choice)
+            origin node: origin or destination node (depends on arrival/departure choice) in order to determine service areas
         """)
     def createInstance(self):
-        return MajLinksTimes()
+        return MajLinksPole()

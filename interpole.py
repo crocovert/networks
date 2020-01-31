@@ -98,6 +98,8 @@ class Interpole(QgsProcessingAlgorithm):
         Here we define the inputs and output of the algorithm, along
         with some other properties.
         """
+        e=iface.mapCanvas().extent()
+        etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
 
         self.addParameter(
             QgsProcessingParameterVectorLayer(
@@ -109,7 +111,8 @@ class Interpole(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterExtent(
                 self.FENETRE,
-                self.tr('Window')
+                self.tr('Window'),
+                etendue
                 
             )
         )

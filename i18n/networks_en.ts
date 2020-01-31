@@ -548,12 +548,12 @@
         Parameters:
             raster: input raster layer name
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>band: band to compute
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>min: minimum isovalue area to genarate
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>min: minimum isovalue area to generate
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>max: maximum isovalue area to generate
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>interval: step between each isovalue
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>no_value: value corresponding to the raster no_value
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>polygons: True= genarates polygons: False generates Polylines
-            individual values: if chekes generate a polygon for each individual raster value (no interpolation)
+            individual values: if checked generate a polygon for each individual raster value (no interpolation)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>result: name of the resulted isovalue polygons layer
         </source>
         <translation type="unfinished"></translation>
@@ -1048,97 +1048,97 @@
 <context>
     <name>Interpole</name>
     <message>
-        <location filename="interpole.py" line="102"/>
+        <location filename="interpole.py" line="104"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="109"/>
+        <location filename="interpole.py" line="111"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="116"/>
+        <location filename="interpole.py" line="119"/>
         <source>i-cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="124"/>
+        <location filename="interpole.py" line="127"/>
         <source>j-cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="133"/>
+        <location filename="interpole.py" line="136"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="142"/>
+        <location filename="interpole.py" line="145"/>
         <source>Spread</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="151"/>
+        <location filename="interpole.py" line="154"/>
         <source>Impassibility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="159"/>
+        <location filename="interpole.py" line="162"/>
         <source>Pixels nb x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="167"/>
+        <location filename="interpole.py" line="170"/>
         <source>Pixels nb y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="175"/>
+        <location filename="interpole.py" line="178"/>
         <source>Pixel size x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="183"/>
+        <location filename="interpole.py" line="186"/>
         <source>Pixel size y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="191"/>
+        <location filename="interpole.py" line="194"/>
         <source>Decimals</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="199"/>
+        <location filename="interpole.py" line="202"/>
         <source>Radius(m)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="207"/>
+        <location filename="interpole.py" line="210"/>
         <source>Spread speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="215"/>
+        <location filename="interpole.py" line="218"/>
         <source>Impassable?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="231"/>
+        <location filename="interpole.py" line="234"/>
         <source>Raster file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="467"/>
+        <location filename="interpole.py" line="470"/>
         <source>Linear interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="474"/>
+        <location filename="interpole.py" line="477"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="490"/>
+        <location filename="interpole.py" line="493"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -1168,7 +1168,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="222"/>
+        <location filename="interpole.py" line="225"/>
         <source>Individual values</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1298,75 +1298,153 @@
     </message>
 </context>
 <context>
-    <name>MajLinksTimes</name>
+    <name>MajLinksPole</name>
     <message>
-        <location filename="maj_links_times.py" line="279"/>
+        <location filename="maj_links_pole.py" line="278"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="94"/>
+        <location filename="maj_links_pole.py" line="97"/>
         <source>Travel times file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="100"/>
+        <location filename="maj_links_pole.py" line="103"/>
+        <source>Extent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="110"/>
         <source>Departure/arrival</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="100"/>
+        <location filename="maj_links_pole.py" line="110"/>
         <source>Departure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="100"/>
+        <location filename="maj_links_pole.py" line="110"/>
         <source>Arrival</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="109"/>
+        <location filename="maj_links_pole.py" line="119"/>
+        <source>Intermodality node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="128"/>
+        <source>Origin node</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="179"/>
+        <source>updating pole</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="221"/>
+        <source>updating pole...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="271"/>
+        <source>Update links pole</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_pole.py" line="294"/>
+        <source>
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            network&#xa0;: network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
+            extent: window for fields update (only links in the window will be updates)
+            intermodality node; initial/ final node of intermodality (depends on arrival/departure choice)
+            origin node: origin or destination node (depends on arrival/departure choice) in order to determine service areas
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MajLinksTimes</name>
+    <message>
+        <location filename="maj_links_times.py" line="293"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="98"/>
+        <source>Travel times file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="111"/>
+        <source>Departure/arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="111"/>
+        <source>Departure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="111"/>
+        <source>Arrival</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="120"/>
         <source>i-node time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="118"/>
+        <location filename="maj_links_times.py" line="129"/>
         <source>j-node time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="127"/>
+        <location filename="maj_links_times.py" line="138"/>
         <source>Initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="171"/>
+        <location filename="maj_links_times.py" line="185"/>
         <source>updating ti tj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="219"/>
+        <location filename="maj_links_times.py" line="233"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="272"/>
+        <location filename="maj_links_times.py" line="286"/>
         <source>Update links times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="295"/>
+        <location filename="maj_links_times.py" line="309"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
         Parameters:
             layer&#xa0;: network layer (linear objects)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
+            fen&#xea;tre: fen&#xea;tre d&#xe9;terminants les arcs &#xe0; mettre &#xe0; jour (seuls ceux &#xe0; l&apos;int&#xe9;rieur seront mis &#xe0; jour)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
             i_node time: travel time at i-node field
             j-node time; travel time at j-node field
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_links_times.py" line="104"/>
+        <source>Extent</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1949,7 +2027,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="196"/>
+        <location filename="networks_provider.py" line="199"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>

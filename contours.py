@@ -740,7 +740,7 @@ class Contours(QgsProcessingAlgorithm):
 			interval: step between each isovalue
 			no_value: value corresponding to the raster no_value
 			polygons: True= genarates polygons: False generates Polylines
-            individual values: if chekes generate a polygon for each individual raster value (no interpolation)
+            individual values: if checked generate a polygon for each individual raster value (no interpolation)
 			result: name of the resulted isovalue polygons layer
         """)
 
