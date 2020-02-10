@@ -108,15 +108,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                 etendue
             )
         )
-        self.addParameter(
-            QgsProcessingParameterEnum(
-                self.DEPART,
-                self.tr('Departure/arrival'),
-                options=[self.tr('Departure'),self.tr('Arrival')],
-                defaultValue=0
-                
-            )
-        )            
+            
         self.addParameter(
             QgsProcessingParameterExpression(
                 self.TI,
@@ -243,16 +235,16 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
                 tj=links[f["ij"]][2]-links[f["ij"]][1]
-                if start==0:
+                """if start==0:
                     valid={ida : tj, idb: ti}
                     reseau.changeAttributeValues(num,valid)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
-                else:
-                    valid={ida : ti, idb : tj}
-                    reseau.changeAttributeValues(num,valid)
-                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
-                    #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
+                else:"""
+                valid={ida : tj, idb : ti}
+                reseau.changeAttributeValues(num,valid)
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
+                #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
                 valid={ida : ti, idb : ti}
