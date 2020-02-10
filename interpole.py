@@ -226,7 +226,7 @@ class Interpole(QgsProcessingAlgorithm):
             QgsProcessingParameterExpression(
                 self.IND_VALUES,
                 self.tr('Individual values'),
-                None,
+                "'.'",
                 self.RESEAU
 
             )
