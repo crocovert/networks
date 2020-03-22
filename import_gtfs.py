@@ -191,31 +191,31 @@ class ImportGTFS(QgsProcessingAlgorithm):
         if "stops.txt" in os.listdir(nom_rep) :
             fich_noeuds=io.open(nom_rep+"/stops.txt","r",encoding=encodage)
             t_noeuds=QgsFields()
-            t_noeuds.append(QgsField(self.tr("ident"),QVariant.String,len=15))
-            t_noeuds.append(QgsField(self.tr("name"),QVariant.String,len=40))
-            t_noeuds.append(QgsField(self.tr("int_tot"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("out_tot"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("in_mon-fri"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("out_mon-fri"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("in_sat"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("out_sat"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("in_sun"),QVariant.Double))
-            t_noeuds.append(QgsField(self.tr("out_sun"),QVariant.Double))
+            t_noeuds.append(QgsField("ident",QVariant.String,len=15))
+            t_noeuds.append(QgsField("name",QVariant.String,len=40))
+            t_noeuds.append(QgsField("int_tot",QVariant.Double))
+            t_noeuds.append(QgsField("out_tot",QVariant.Double))
+            t_noeuds.append(QgsField("in_mon-fri",QVariant.Double))
+            t_noeuds.append(QgsField("out_mon-fri",QVariant.Double))
+            t_noeuds.append(QgsField("in_sat",QVariant.Double))
+            t_noeuds.append(QgsField("out_sat",QVariant.Double))
+            t_noeuds.append(QgsField("in_sun",QVariant.Double))
+            t_noeuds.append(QgsField("out_sun",QVariant.Double))
             
             t_links=QgsFields()
-            t_links.append(QgsField(self.tr("line_num"),QVariant.String,len=15))
-            t_links.append(QgsField(self.tr("ligne_name"),QVariant.String,len=50))
-            t_links.append(QgsField(self.tr("ligne_descr"),QVariant.String,len=150))
+            t_links.append(QgsField("line_num",QVariant.String,len=15))
+            t_links.append(QgsField("ligne_name",QVariant.String,len=50))
+            t_links.append(QgsField("ligne_descr",QVariant.String,len=150))
             t_links.append(QgsField("i",QVariant.String,len=15))
             t_links.append(QgsField("j",QVariant.String,len=15))
-            t_links.append(QgsField(self.tr("nb_tot"),QVariant.Double))
+            t_links.append(QgsField("nb_tot",QVariant.Double))
             t_links.append(QgsField("d1_tot",QVariant.Double))
             t_links.append(QgsField("d2_tot",QVariant.Double))
-            t_links.append(QgsField(self.tr("nb_mon-fri"),QVariant.Double))
+            t_links.append(QgsField("nb_mon-fri",QVariant.Double))
             t_links.append(QgsField("d2_mon-fri",QVariant.Double))
-            t_links.append(QgsField(self.tr("nb_sat"),QVariant.Double))
+            t_links.append(QgsField("nb_sat",QVariant.Double))
             t_links.append(QgsField("d2_sat",QVariant.Double))
-            t_links.append(QgsField(self.tr("nb_sun"),QVariant.Double))
+            t_links.append(QgsField("nb_sun",QVariant.Double))
             t_links.append(QgsField("d2_sun",QVariant.Double))
             
             src=QgsCoordinateReferenceSystem("EPSG:4326")
@@ -393,18 +393,18 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         hi1=QTime(int(elements[ihdep][0:2]),int(elements[ihdep][3:5]),int(elements[ihdep][6:8]))
                         hj=QTime(int(elements[iharr][0:2]),int(elements[iharr][3:5]),int(elements[iharr][6:8]))
                         if (id_trip2==id_trip):
-                            nbservices=0
-                            nbservices_mon=0
-                            nbservices_sat=0
-                            nbservices_sun=0
-                            nbs1=0
-                            nbs2=0
-                            nbs1_mon=0
-                            nbs2_mon=0
-                            nbs1_sat=0
-                            nbs2_sat=0
-                            nbs1_sun=0
-                            nbs2_sun=0
+                            nbservices=0.0
+                            nbservices_mon=0.0
+                            nbservices_sat=0.0
+                            nbservices_sun=0.0
+                            nbs1=0.0
+                            nbs2=0.0
+                            nbs1_mon=0.0
+                            nbs2_mon=0.0
+                            nbs1_sat=0.0
+                            nbs2_sat=0.0
+                            nbs1_sun=0.0
+                            nbs2_sun=0.0
                             if ("calendar.txt" in  os.listdir(nom_rep)):
                                 if trips[elements[iid]][2] in calendar:
                                     dp=calendar[trips[elements[iid]][2]][1]
@@ -479,11 +479,11 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         id_trip=id_trip2
             feedback.setProgressText(self.tr("Generating arcs and lines..."))
             for i,s in enumerate(links):
-                i1=0
-                i2=0
-                i2_mon=0
-                i2_sat=0
-                i2_sun=0                
+                i1=0.0
+                i2=0.0
+                i2_mon=0.0
+                i2_sat=0.0
+                i2_sun=0.0                
                 g_links=QgsFeature()
                 g_arcs=QgsFeature()
                 #print([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
@@ -501,6 +501,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         tt=t
                     #print([tt.decode("cp1252"),links[s][t][2].decode("cp1252"),unicode(s[0]),unicode(s[1]),links[s][t][0],links[s][t][1],i1,i2])
                     try:
+                        """print([unicode(t),unicode(links[s][t][4]),unicode(links[s][t][5]),unicode(s[0]),unicode(s[1])
+                                ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
+                                ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])"""
                         g_links.setAttributes([unicode(t),unicode(links[s][t][4]),unicode(links[s][t][5]),unicode(s[0]),unicode(s[1])
                                 ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
@@ -525,7 +528,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
             for s in arrets:
                 g_noeuds=QgsFeature()
                 g_noeuds.setGeometry(QgsGeometry.fromPointXY(xtr.transform(QgsPointXY(float(arrets[s][2]),float(arrets[s][3])))))
-                #print([unicode(arrets[s][0]),arrets[s][1].decode('cp1252'),arrets[s][4],arrets[s][5]])
+                #print([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/(nb_jours+1),arrets[s][5]/(nb_jours+1)
+                #            ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
                 try:
                     g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/(nb_jours+1),arrets[s][5]/(nb_jours+1)
                             ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
