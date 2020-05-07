@@ -413,8 +413,16 @@ class ReseauTC(QgsProcessingAlgorithm):
                     passage = Google_Stop_Time()
                    
                     passage.trip_id=elements[headers["trip_id"]]
-                    h1 = elements[headers["arrival_time"]].split(':')
-                    h2 = elements[headers["departure_time"]].split(':')
+                    try:
+                        h1 = elements[headers["arrival_time"]].split(':')
+                    except:
+                        print(headers)
+                        print(elements)
+                    try:
+                        h2 = elements[headers["departure_time"]].split(':')
+                    except:
+                        print(headers)
+                        print(elements)
                     if len(h1) > 1:
                         passage.heure_arr = float(h1[0]) * 60.0 + float(h1[1]) + float(h1[2]) / 60.0
                         passage.heure_dep = float(h2[0]) * 60.0+ float(h2[1]) + float(h2[2]) / 60.0

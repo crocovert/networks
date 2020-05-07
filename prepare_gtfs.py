@@ -180,7 +180,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     arrets[elements[iid]]=elements
                 else:
                     for i1,i2 in enumerate(elements):
-                        elements[i1]=i2.strip("\"")
+                        elements[i1]=i2.strip("\"").strip()
                     idx=elements.index('stop_lon')
                     idy=elements.index('stop_lat')
                     iid=elements.index('stop_id')
@@ -206,7 +206,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             elements=ligne.strip().split(',')
 
             for z,e in enumerate(elements):
-                elements[z]=e.strip('"')
+                elements[z]=e.strip('"').strip()
             if len(elements)>1:
                 if i>0:
                     if not test_agency=='ZZ':
@@ -271,7 +271,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 pass
             elements=ligne.strip().split(',')
             for z,e in enumerate(elements):
-                elements[z]=e.strip('"')
+                elements[z]=e.strip('"').strip()
             if len(elements)>1:
                 if i>0:
                     if elements[itrip] in services:
@@ -281,14 +281,20 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                             elements[istop]=eval("elements[istop]"+formula)
                             o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
                         else:
-                            o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                            try:
+                                o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                            except:
+                                print(elements)
                     o.extend(elements[5:])
                     if elements[0] not in horaires:
                         horaires[elements[0]]={}
                     if len(elements)>5 and elements[itrip] in htrip:
                         horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep],elements[5]]
                     else:
-                        horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep]]
+                        try:
+                            horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep]]
+                        except:
+                            print(elements)
                 else:
                     iarr=elements.index("arrival_time")
                     idep=elements.index("departure_time")
@@ -296,7 +302,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     istop=elements.index("stop_id")
                     iseq=elements.index("stop_sequence")
                     hstop_times=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
-                    hstop_times.extend(elements[5:])
+                    #hstop_times.extend(elements[5:])
                     hstop_times=','.join(hstop_times)
         stop_times.close()
         
@@ -334,7 +340,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     pass
                 elements=ligne.strip().split(',')
                 for z,e in enumerate(elements):
-                    elements[z]=e.strip('"')
+                    elements[z]=e.strip('"').strip()
                 if len(elements)>1:
                     if i>0:
                         elements[0]=prefixe+elements[0]
@@ -356,7 +362,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 if ligne not in ['\n',None,'',u'\r\n']:
                     elements=ligne.strip().split(',')
                     for z,e in enumerate(elements):
-                        elements[z]=e.strip('"')
+                        elements[z]=e.strip('"').strip()
                     elements[1]=elements[1].zfill(8)
                     if len(elements)>1:
                         if i>0:

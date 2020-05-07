@@ -154,7 +154,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
             QgsProcessingParameterBoolean(
                 self.DIAGONALE,
                 self.tr("Diagonal matrix?"),
-                False
+                True
             )
         )          
 
