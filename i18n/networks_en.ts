@@ -845,6 +845,73 @@
     </message>
 </context>
 <context>
+    <name>FichierTempsJour</name>
+    <message>
+        <location filename="fichier_temps_jour.py" line="83"/>
+        <source>Link times output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="95"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="119"/>
+        <source>Link indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="223"/>
+        <source>indicators by link and day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="230"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="246"/>
+        <source>
+        Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Generating nodes</name>
     <message>
         <location filename="creer_graphe.py" line="218"/>
@@ -900,21 +967,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="194"/>
-        <source>ident</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="195"/>
-        <source>name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="207"/>
-        <source>ligne_name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="import_gtfs.py" line="268"/>
         <source>Reading calendars...</source>
         <translation type="unfinished"></translation>
@@ -945,17 +997,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="557"/>
+        <location filename="import_gtfs.py" line="561"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="564"/>
+        <location filename="import_gtfs.py" line="568"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="577"/>
+        <location filename="import_gtfs.py" line="581"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -972,76 +1024,6 @@
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="206"/>
-        <source>line_num</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="196"/>
-        <source>int_tot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="197"/>
-        <source>out_tot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="198"/>
-        <source>in_mon-fri</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="199"/>
-        <source>out_mon-fri</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="200"/>
-        <source>in_sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="201"/>
-        <source>out_sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="202"/>
-        <source>in_sun</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="203"/>
-        <source>out_sun</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="211"/>
-        <source>nb_tot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="214"/>
-        <source>nb_mon-fri</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="216"/>
-        <source>nb_sat</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="218"/>
-        <source>nb_sun</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="208"/>
-        <source>ligne_descr</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1372,7 +1354,7 @@
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="293"/>
+        <location filename="maj_links_times.py" line="285"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1382,52 +1364,37 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="111"/>
-        <source>Departure/arrival</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="maj_links_times.py" line="111"/>
-        <source>Departure</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="maj_links_times.py" line="111"/>
-        <source>Arrival</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="maj_links_times.py" line="120"/>
+        <location filename="maj_links_times.py" line="112"/>
         <source>i-node time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="129"/>
+        <location filename="maj_links_times.py" line="121"/>
         <source>j-node time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="138"/>
+        <location filename="maj_links_times.py" line="130"/>
         <source>Initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="185"/>
+        <location filename="maj_links_times.py" line="177"/>
         <source>updating ti tj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="233"/>
+        <location filename="maj_links_times.py" line="225"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="286"/>
+        <location filename="maj_links_times.py" line="278"/>
         <source>Update links times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="309"/>
+        <location filename="maj_links_times.py" line="301"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -2027,7 +1994,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="199"/>
+        <location filename="networks_provider.py" line="202"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2199,17 +2166,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="458"/>
+        <location filename="prepare_gtfs.py" line="464"/>
         <source>Prepare GTFS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="465"/>
+        <location filename="prepare_gtfs.py" line="471"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="481"/>
+        <location filename="prepare_gtfs.py" line="487"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -2226,72 +2193,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="143"/>
+        <location filename="reseau_tc.py" line="144"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="150"/>
+        <location filename="reseau_tc.py" line="151"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="157"/>
+        <location filename="reseau_tc.py" line="158"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="562"/>
+        <location filename="reseau_tc.py" line="581"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="527"/>
+        <location filename="reseau_tc.py" line="546"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="529"/>
+        <location filename="reseau_tc.py" line="548"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="531"/>
+        <location filename="reseau_tc.py" line="550"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="533"/>
+        <location filename="reseau_tc.py" line="552"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="535"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="537"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="539"/>
+        <location filename="reseau_tc.py" line="558"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="541"/>
+        <location filename="reseau_tc.py" line="560"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="588"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="586"/>
+        <location filename="reseau_tc.py" line="605"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2301,6 +2268,11 @@
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="165"/>
+        <source>Line based network?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

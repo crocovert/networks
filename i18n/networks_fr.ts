@@ -49,13 +49,13 @@
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
         Parameters:
-            layer : a vector layer
-            field : name of the field to update or name of the new field
-            type : field data type (if new field)
-            size : field size (if new field)
-            precision : field precision (if new field and real type)
+            layer&#xa0;: a vector layer
+            field&#xa0;: name of the field to update or name of the new field
+            type&#xa0;: field data type (if new field)
+            size&#xa0;: field size (if new field)
+            precision&#xa0;: field precision (if new field and real type)
             filter: expression determining which rows will be updated
-            formula : expression that will be written in the field( for filtered rows only)
+            formula&#xa0;: expression that will be written in the field( for filtered rows only)
             
         </source>
         <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
@@ -250,7 +250,7 @@
         Generate a layer of linear objects corresponding to connections between points closest within a layer (e.g. PT stops)
         
         Parameters:
-            nodes : nodes layer
+            nodes&#xa0;: nodes layer
 			node_id: node id
 			radius: search radius(m)
 			mode: mode at node
@@ -338,7 +338,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -394,7 +394,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -439,7 +439,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources : Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
+            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
 			musliw_file: name of the global network file (txt)
         </source>
         <translation type="obsolete">        Concatene différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -471,7 +471,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder : Musliw networks elements folder
+            network elements folder&#xa0;: Musliw networks elements folder
 			global network: name of the global network file (txt)
         </source>
         <translation>        Concatène différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -522,7 +522,7 @@
         The lines layer is in editable mode in order to be alble to cancel the connections.
         
         Parameters:
-            lines : lines layer (linear objects)
+            lines&#xa0;: lines layer (linear objects)
 			nodes: points layer
             radius: search radius (m)
         </source>
@@ -625,7 +625,7 @@
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
         Parameters:
-            stops : stops layer
+            stops&#xa0;: stops layer
 			stop_id: stop id
 			nodes: nodes layer
 			node_id: node id
@@ -799,7 +799,7 @@
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
-            network : Network layer (linear objects)
+            network&#xa0;: Network layer (linear objects)
 			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
             node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
 			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
@@ -1161,6 +1161,94 @@
     </message>
 </context>
 <context>
+    <name>FichierTempsJour</name>
+    <message>
+        <location filename="fichier_temps_jour.py" line="83"/>
+        <source>Link times output file</source>
+        <translation>Fichier temps Musliw</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="95"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="103"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="111"/>
+        <source>Time based links only?</source>
+        <translation>Tronçons horaires uniquement?</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="119"/>
+        <source>Link indicators file</source>
+        <translation>Fichier résultat des indicateurs par tronçons</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="223"/>
+        <source>indicators by link and day</source>
+        <translation>indicateurs par tronçon et jour</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="230"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="246"/>
+        <source>
+        Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation>       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            ij:  id tronçon
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum
+            
+            
+        </translation>
+    </message>
+</context>
+<context>
     <name>Generating nodes</name>
     <message>
         <location filename="creer_graphe.py" line="218"/>
@@ -1218,12 +1306,12 @@
     <message>
         <location filename="import_gtfs.py" line="194"/>
         <source>ident</source>
-        <translation>ident</translation>
+        <translation type="obsolete">ident</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="195"/>
         <source>name</source>
-        <translation>nom</translation>
+        <translation type="obsolete">nom</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="196"/>
@@ -1238,7 +1326,7 @@
     <message>
         <location filename="import_gtfs.py" line="207"/>
         <source>ligne_name</source>
-        <translation>nom_ligne</translation>
+        <translation type="obsolete">nom_ligne</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="204"/>
@@ -1281,13 +1369,13 @@
         <translation>Génération des arcs et lignes...</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="577"/>
+        <location filename="import_gtfs.py" line="581"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder : GTFS folder path
+            GTFS_folder&#xa0;: GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -1315,84 +1403,19 @@
 			</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="557"/>
+        <location filename="import_gtfs.py" line="561"/>
         <source>GTFS import</source>
         <translation>Import GTFS</translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="564"/>
+        <location filename="import_gtfs.py" line="568"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
         <location filename="import_gtfs.py" line="206"/>
         <source>line_num</source>
-        <translation>Identifiant de ligne</translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="196"/>
-        <source>int_tot</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="197"/>
-        <source>out_tot</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="198"/>
-        <source>in_mon-fri</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="199"/>
-        <source>out_mon-fri</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="200"/>
-        <source>in_sat</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="201"/>
-        <source>out_sat</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="202"/>
-        <source>in_sun</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="203"/>
-        <source>out_sun</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="211"/>
-        <source>nb_tot</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="214"/>
-        <source>nb_mon-fri</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="216"/>
-        <source>nb_sat</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="218"/>
-        <source>nb_sun</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="import_gtfs.py" line="208"/>
-        <source>ligne_descr</source>
-        <translation></translation>
+        <translation type="obsolete">Identifiant de ligne</translation>
     </message>
 </context>
 <context>
@@ -1577,7 +1600,7 @@
         
         
         Parameters:
-            network : network layer (linear objects)
+            network&#xa0;: network layer (linear objects)
 			reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
@@ -1617,7 +1640,7 @@
         
         
         Parameters:
-            network : network layer (linear objects) where the selected objects belong
+            network&#xa0;: network layer (linear objects) where the selected objects belong
 			
         </source>
         <translation>        Inverse la géométrie des objets de la sélection:
@@ -1785,7 +1808,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
 		        
         Parameters:
-            network : network layer (linear objects)
+            network&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window for fields update (only links in the window will be updates)
             intermodality node; initial/ final node of intermodality (depends on arrival/departure choice)
@@ -1805,7 +1828,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="293"/>
+        <location filename="maj_links_times.py" line="285"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1817,55 +1840,55 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     <message>
         <location filename="maj_links_times.py" line="111"/>
         <source>Departure/arrival</source>
-        <translation>Départ/arrivée</translation>
+        <translation type="obsolete">Départ/arrivée</translation>
     </message>
     <message>
         <location filename="maj_links_times.py" line="111"/>
         <source>Departure</source>
-        <translation>Départ</translation>
+        <translation type="obsolete">Départ</translation>
     </message>
     <message>
         <location filename="maj_links_times.py" line="111"/>
         <source>Arrival</source>
-        <translation>Arrivée</translation>
+        <translation type="obsolete">Arrivée</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="120"/>
+        <location filename="maj_links_times.py" line="112"/>
         <source>i-node time</source>
         <translation>temps en i</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="129"/>
+        <location filename="maj_links_times.py" line="121"/>
         <source>j-node time</source>
         <translation>temps en j</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="138"/>
+        <location filename="maj_links_times.py" line="130"/>
         <source>Initial/final waiting time?</source>
         <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="185"/>
+        <location filename="maj_links_times.py" line="177"/>
         <source>updating ti tj</source>
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="233"/>
+        <location filename="maj_links_times.py" line="225"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="286"/>
+        <location filename="maj_links_times.py" line="278"/>
         <source>Update links times</source>
         <translation>Mise à jour des temps des arcs</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="309"/>
+        <location filename="maj_links_times.py" line="301"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             fenêtre: fenêtre déterminants les arcs à mettre à jour (seuls ceux à l&apos;intérieur seront mis à jour)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
@@ -1958,7 +1981,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
             arc time: arc travel time
@@ -2569,7 +2592,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 		Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -2645,7 +2668,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -2702,7 +2725,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="199"/>
+        <location filename="networks_provider.py" line="202"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2904,7 +2927,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="481"/>
+        <location filename="prepare_gtfs.py" line="487"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -2927,12 +2950,12 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="458"/>
+        <location filename="prepare_gtfs.py" line="464"/>
         <source>Prepare GTFS</source>
         <translation>Préparer GTFS</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="465"/>
+        <location filename="prepare_gtfs.py" line="471"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2940,72 +2963,72 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="143"/>
+        <location filename="reseau_tc.py" line="144"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="150"/>
+        <location filename="reseau_tc.py" line="151"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="157"/>
+        <location filename="reseau_tc.py" line="158"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="562"/>
+        <location filename="reseau_tc.py" line="581"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="527"/>
+        <location filename="reseau_tc.py" line="546"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="529"/>
+        <location filename="reseau_tc.py" line="548"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="531"/>
+        <location filename="reseau_tc.py" line="550"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="533"/>
+        <location filename="reseau_tc.py" line="552"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="535"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="537"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="539"/>
+        <location filename="reseau_tc.py" line="558"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="541"/>
+        <location filename="reseau_tc.py" line="560"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="586"/>
+        <location filename="reseau_tc.py" line="605"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder : GTFS folder 
+            GTFs folder&#xa0;: GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
@@ -3020,9 +3043,14 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="588"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="165"/>
+        <source>Line based network?</source>
+        <translation>Réseau basé sur des lignes?</translation>
     </message>
 </context>
 <context>

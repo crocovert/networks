@@ -58,6 +58,7 @@ from .fichier_aff import FichierAff
 from .decaler_lignes import ShiftLines
 from .fichier_od import FichierOD
 from .fichier_temps import FichierTemps
+from .fichier_temps_jour import FichierTempsJour
 from .trafic import Trafic
 from .spatial_aggregation import SpatialAggregation
 from .routes import Routes
@@ -104,6 +105,7 @@ class NetworksProvider(QgsProcessingProvider):
                         ShiftLines(),
                         FichierOD(),
                         FichierTemps(),
+                        FichierTempsJour(),
                         Trafic(),
                         SpatialAggregation(),
                         Routes(),
@@ -165,6 +167,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(ShiftLines())
         self.addAlgorithm(FichierOD())
         self.addAlgorithm(FichierTemps())
+        self.addAlgorithm(FichierTempsJour())
         self.addAlgorithm(Trafic())
         self.addAlgorithm(SpatialAggregation())
         self.addAlgorithm(Routes())
