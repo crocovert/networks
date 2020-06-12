@@ -66,6 +66,7 @@ from .path_analysis import PathAnalysis
 from .create_ti_arcs import ArcsTi
 from .maj_links_times import MajLinksTimes
 from .fichier_noeuds import NodesFile
+from .fichier_noeud_jour import NodesFileDay
 from .autoconnectors import AutoConnecteurs
 from .matrix_table import MatrixTable
 from .maj_links_pole import MajLinksPole
@@ -113,6 +114,7 @@ class NetworksProvider(QgsProcessingProvider):
                         ArcsTi(),
                         MajLinksTimes(),
                         NodesFile(),
+                        NodesFileDay(),
                         AutoConnecteurs(),
                         MatrixTable(),
                         MajLinksPole()]
@@ -175,6 +177,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(ArcsTi())
         self.addAlgorithm(MajLinksTimes())
         self.addAlgorithm(NodesFile())
+        self.addAlgorithm(NodesFileDay())
         self.addAlgorithm(AutoConnecteurs())
         self.addAlgorithm(MatrixTable())
         self.addAlgorithm(MajLinksPole())

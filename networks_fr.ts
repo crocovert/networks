@@ -1069,27 +1069,27 @@
 <context>
     <name>FichierTemps</name>
     <message>
-        <location filename="fichier_temps.py" line="83"/>
+        <location filename="fichier_temps.py" line="84"/>
         <source>Link times output file</source>
         <translation>Fichier temps Musliw</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="95"/>
+        <location filename="fichier_temps.py" line="96"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="103"/>
+        <location filename="fichier_temps.py" line="112"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="111"/>
+        <location filename="fichier_temps.py" line="120"/>
         <source>Time based links only?</source>
         <translation>Tronçons horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="119"/>
+        <location filename="fichier_temps.py" line="128"/>
         <source>Link indicators file</source>
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
@@ -1099,12 +1099,12 @@
         <translation type="obsolete">élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="222"/>
+        <location filename="fichier_temps.py" line="255"/>
         <source>indicators by link</source>
         <translation>indicateurs par tronçon</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="229"/>
+        <location filename="fichier_temps.py" line="262"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1135,7 +1135,7 @@
             
             
         </source>
-        <translation>
+        <translation type="obsolete">
         Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
@@ -1159,41 +1159,99 @@
             
         </translation>
     </message>
+    <message>
+        <location filename="fichier_temps.py" line="104"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="278"/>
+        <source>
+        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation>       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
+            ij:  id tronçon
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum
+            
+            
+        </translation>
+    </message>
 </context>
 <context>
     <name>FichierTempsJour</name>
     <message>
-        <location filename="fichier_temps_jour.py" line="83"/>
+        <location filename="fichier_temps_jour.py" line="84"/>
         <source>Link times output file</source>
         <translation>Fichier temps Musliw</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="95"/>
+        <location filename="fichier_temps_jour.py" line="96"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="103"/>
+        <location filename="fichier_temps_jour.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="111"/>
+        <location filename="fichier_temps_jour.py" line="119"/>
         <source>Time based links only?</source>
         <translation>Tronçons horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="119"/>
+        <location filename="fichier_temps_jour.py" line="127"/>
         <source>Link indicators file</source>
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="223"/>
+        <location filename="fichier_temps_jour.py" line="255"/>
         <source>indicators by link and day</source>
         <translation>indicateurs par tronçon et jour</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="230"/>
+        <location filename="fichier_temps_jour.py" line="262"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1224,7 +1282,7 @@
             
             
         </source>
-        <translation>       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        <translation type="obsolete">       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
@@ -1232,6 +1290,65 @@
             retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            ij:  id tronçon
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum
+            
+            
+        </translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="104"/>
+        <source>Filter</source>
+        <translatorcomment>Filtre</translatorcomment>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="278"/>
+        <source>
+        Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation>       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
             ij:  id tronçon
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
@@ -2725,7 +2842,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="202"/>
+        <location filename="networks_provider.py" line="205"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -2743,27 +2860,27 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="102"/>
+        <location filename="fichier_noeuds.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="111"/>
+        <location filename="fichier_noeuds.py" line="120"/>
         <source>Nodes indicators file</source>
         <translation>Fichier résultat des indicateurs par noeud</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="181"/>
+        <location filename="fichier_noeuds.py" line="214"/>
         <source>ignored element</source>
         <translation>élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="202"/>
+        <location filename="fichier_noeuds.py" line="235"/>
         <source>indicators by node</source>
         <translation>indicateurs par noeud</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="209"/>
+        <location filename="fichier_noeuds.py" line="242"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -2793,7 +2910,149 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             
             
         </source>
+        <translation type="obsolete">        Produit des indicateurs aggrégés par noeud. 
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+           Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            numero:  id noeud
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds.py" line="103"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds.py" line="258"/>
+        <source>
+        Produce indicators aggregated by node. 
+		
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
         <translation>        Produit des indicateurs aggrégés par noeud. 
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+			Filtre: expression pour filtrer le fichier noeuds Musliw (ex: ncorr&lt;3)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+
+           Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            numero:  id noeud
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum</translation>
+    </message>
+</context>
+<context>
+    <name>NodesFileDay</name>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="83"/>
+        <source>Nodes times output file</source>
+        <translation>Fichier noeuds Musliw</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="95"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="103"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="111"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation>Retrancher les temps d&apos;attente initiaux/finaux</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="120"/>
+        <source>Nodes indicators file</source>
+        <translation>Fichier résultat des indicateurs par noeud</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="216"/>
+        <source>ignored element</source>
+        <translation>élément ignoré</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="237"/>
+        <source>indicators by node and day</source>
+        <translation>Indicateurs for noeuds et jour</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="244"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="260"/>
+        <source>
+        Produce indicators aggregated by node. 
+		
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation>        Produit des indicateurs aggrégés par noeud et jour. 
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)

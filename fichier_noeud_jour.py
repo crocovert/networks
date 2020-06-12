@@ -47,7 +47,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterFileDestination)
 import io
 
-class FichierTemps(QgsProcessingAlgorithm):
+class NodesFileDay(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -68,7 +68,6 @@ class FichierTemps(QgsProcessingAlgorithm):
     INPUT = 'INPUT'
     VARIABLE='VARIABLE'
     TATT1='TATT1'
-    TCSEUL='TCSEUL'
     FICHIER_RESULTAT='FICHIER_RESULTAT'
     FILTER='FILTER'
 
@@ -84,7 +83,7 @@ class FichierTemps(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterFile(
                 self.INPUT,
-                self.tr('Link times output file'),
+                self.tr('Nodes times output file'),
                 0,
                 "txt"
 
@@ -100,7 +99,7 @@ class FichierTemps(QgsProcessingAlgorithm):
                 "temps"
             )
         )
-        
+
         self.addParameter(
             QgsProcessingParameterString(
                 self.FILTER,
@@ -117,18 +116,11 @@ class FichierTemps(QgsProcessingAlgorithm):
                 
             )
         )
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.TCSEUL,
-                self.tr('Time based links only?'),
-                True
-                
-            )
-        )
+
         self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.FICHIER_RESULTAT,
-                self.tr('Link indicators file'),
+                self.tr('Nodes indicators file'),
                 "*.txt"
                 
             )
@@ -149,32 +141,33 @@ class FichierTemps(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         fichier_temps=self.parameterAsFile(parameters,self.INPUT,context)
         variable=self.parameterAsString(parameters,self.VARIABLE,context)
-        filter=self.parameterAsString(parameters,self.FILTER,context)
+        filter=self.parameterAsString(parameters,self.FILTER,context)        
         temps_attente_terminal=self.parameterAsBool(parameters, self.TATT1, context)
-        tc_seul= self.parameterAsBool(parameters, self.TCSEUL, context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
-        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','precedent','toll','ti']
-        champs_alpha=['id','ij','origin','ligne','numtrc','pole','type']
-        
+        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','toll']
+        champs_alpha=['id','destination','origin','numero','pole']
         fichier=io.open(fichier_temps,"r",encoding="utf8")
         res=io.open(fichier_resultat,"w",encoding='utf8')
         cols={}
         links={}
-        
+
         for ch in champs_num:
             if ch in filter:
                 filter=filter.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
         for ch in champs_alpha:
             if ch in filter:
-                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]])')        
+                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]])')
+
 
         for i,ligne in enumerate(fichier):
             elements=ligne.strip().replace(',','.').split(';')
             if i==0:
                 for j,e in enumerate(elements):
                     if e=='o':
-                        e='origin'                    
+                        e='origin'
+                    elif e=='d':
+                        e='destination'
                     cols[e]=j
             else:
                 try:
@@ -188,50 +181,39 @@ class FichierTemps(QgsProcessingAlgorithm):
                         elements[cols[variable]]=elements[cols[variable]].replace(',','.')
                     except:
                         print(elements,cols[variable])
-                    elements[cols['ij']]=elements[cols['ij']]+';'+elements[cols['jour']]
-                    
+                    elements[cols['numero']]=elements[cols['numero']]+';'+elements[cols['jour']]
+                    elements[cols[variable]]=elements[cols[variable]].replace(',','.')
                     if temps_attente_terminal==True and 'tatt1' in cols:
                         elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
-                    if tc_seul==False or float(elements[cols['ligne']])>0:
-                        
-                        if elements[cols['ij']] not in links:
-                            pole=(elements[cols['pole']],1)
+                    if elements[cols['numero']] not in links:
+                        pole=(elements[cols['pole']],1)
 
-                            
-                            links[elements[cols['ij']]]={}
-                        if elements[cols['origin']] not in links[elements[cols['ij']]]:
-                                links[elements[cols['ij']]][elements[cols['origin']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['origin']],elements[cols['origin']]]
-                        else:
-                            hd=elements[cols['heureo']]
-                            if hd not in links[elements[cols['ij']]][elements[cols['origin']]][7]:
-                                    links[elements[cols['ij']]][elements[cols['origin']]][7].append(hd)
-                            hf=elements[cols['heured']]
-                            if hf not in links[elements[cols['ij']]][elements[cols['origin']]][8]:
-                                    links[elements[cols['ij']]][elements[cols['origin']]][8].append(hf)
-                            links[elements[cols['ij']]][elements[cols['origin']]][1]+=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][elements[cols['origin']]][9]+=float(elements[cols[variable]])**2
-                            links[elements[cols['ij']]][elements[cols['origin']]][2]+=1
-                            if float(elements[cols[variable]])<float(links[elements[cols['ij']]][elements[cols['origin']]][3]):
-                                links[elements[cols['ij']]][elements[cols['origin']]][3]=float(elements[cols[variable]])
-                                links[elements[cols['ij']]][elements[cols['origin']]][5]=elements[cols['pole']]
-                                links[elements[cols['ij']]][elements[cols['origin']]][10]=elements[cols['origin']]
-                            if float(elements[cols[variable]])>float(links[elements[cols['ij']]][elements[cols['origin']]][4]):
-                                links[elements[cols['ij']]][elements[cols['origin']]][4]=float(elements[cols[variable]])
-                                links[elements[cols['ij']]][elements[cols['origin']]][6]=elements[cols['pole']]
-                                links[elements[cols['ij']]][elements[cols['origin']]][11]=elements[cols['origin']]            
-        res.write('ij;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
-        for j,i in enumerate(links):
-            sum_tri=sorted(list(links[i].items()),key=lambda x:x[1][1])
-            #if j<=10:
-                #print(sum_tri)
-                
-            try:
-                sum_tri=sum_tri[0][1]
-                res.write(sum_tri[0]+";"+unicode(sum_tri[1]/sum_tri[2])+";"+unicode(sum_tri[2])+";"+unicode(sum_tri[3])+";"+unicode(sum_tri[4])+";"+sum_tri[5]+";"+sum_tri[6]+";"+unicode(len(sum_tri[7]))+";"+unicode(len(sum_tri[8]))+";"+unicode((abs(-((sum_tri[1]**2)/sum_tri[2])+sum_tri[9]))**0.5)+";"+sum_tri[10]+";"+sum_tri[11]+"\n")
-            except:
-                pass
-                '''res.write('*********************'+str(sum_tri)+'\n')'''
-                
+                        
+                        links[elements[cols['numero']]]=[elements[cols['numero']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['origin']],elements[cols['origin']]]
+                    else:
+                        hd=elements[cols['heureo']]
+                        if hd not in links[elements[cols['numero']]][7]:
+                                links[elements[cols['numero']]][7].append(hd)
+                        hf=elements[cols['heured']]
+                        if hf not in links[elements[cols['numero']]][8]:
+                                links[elements[cols['numero']]][8].append(hf)
+                        links[elements[cols['numero']]][1]+=float(elements[cols[variable]])
+                        links[elements[cols['numero']]][9]+=float(elements[cols[variable]])**2
+                        links[elements[cols['numero']]][2]+=1
+                        if float(elements[cols[variable]])<float(links[elements[cols['numero']]][3]):
+                            links[elements[cols['numero']]][3]=float(elements[cols[variable]])
+                            links[elements[cols['numero']]][5]=elements[cols['pole']]
+                            links[elements[cols['numero']]][10]=elements[cols['origin']]
+                        if float(elements[cols[variable]])>float(links[elements[cols['numero']]][4]):
+                            links[elements[cols['numero']]][4]=float(elements[cols[variable]])
+                            links[elements[cols['numero']]][6]=elements[cols['pole']]
+                            links[elements[cols['numero']]][11]=elements[cols['origin']]            
+        res.write('numero;jour;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
+        for i in links:
+                try:
+                    res.write(links[i][0]+";"+unicode(links[i][1]/links[i][2])+";"+unicode(links[i][2])+";"+unicode(links[i][3])+";"+unicode(links[i][4])+";"+links[i][5]+";"+links[i][6]+";"+unicode(len(links[i][7]))+";"+unicode(len(links[i][8]))+";"+unicode((abs(-((links[i][1]**2)/links[i][2])+links[i][9]))**0.5)+";"+links[i][10]+";"+links[i][11]+"\n")
+                except:
+                    progress.setText(self.tr('ignored element'))
         res.close()
 
         return {self.FICHIER_RESULTAT: fichier_resultat}
@@ -245,14 +227,14 @@ class FichierTemps(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'indicators_by_link'
+        return 'indicators_by_node_and_day'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr('indicators by link')
+        return self.tr('indicators by node and day')
 
     def group(self):
         """
@@ -272,21 +254,20 @@ class FichierTemps(QgsProcessingAlgorithm):
         return 'Analysis'
 
     def tr(self, string):
-        return QCoreApplication.translate('FichierTemps', string)
+        return QCoreApplication.translate('NodesFileDay', string)
         
     def shortHelpString(self):
         return self.tr("""
-        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
+        Produce indicators aggregated by node. 
 		
         Parameters:
-            link times ouput file: the Musliw link times  output file (<FILENAME>_temps.txt)
+            nodes times ouput file: the Musliw link times  output file (<FILENAME>_noeuds.txt)
 			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr<3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with ";" as separator) which containes the following attributes 
-            ij: link id
+            numero: node id
             avg: average value 
             nb: number of od rows in the matrix file 
             min: minimum value indicator
@@ -303,4 +284,4 @@ class FichierTemps(QgsProcessingAlgorithm):
         """)
 
     def createInstance(self):
-        return FichierTemps()
+        return NodesFileDay()

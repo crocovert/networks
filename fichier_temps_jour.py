@@ -70,6 +70,7 @@ class FichierTempsJour(QgsProcessingAlgorithm):
     TATT1='TATT1'
     TCSEUL='TCSEUL'
     FICHIER_RESULTAT='FICHIER_RESULTAT'
+    FILTER='FILTER'
 
     
 
@@ -99,7 +100,14 @@ class FichierTempsJour(QgsProcessingAlgorithm):
                 "temps"
             )
         )
-            
+        
+        self.addParameter(
+            QgsProcessingParameterString(
+                self.FILTER,
+                self.tr('Filter'),
+                "1"
+            )
+        )    
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.TATT1,
@@ -140,53 +148,77 @@ class FichierTempsJour(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         fichier_temps=self.parameterAsFile(parameters,self.INPUT,context)
         variable=self.parameterAsString(parameters,self.VARIABLE,context)
+        filter=self.parameterAsString(parameters,self.FILTER,context)
         temps_attente_terminal=self.parameterAsBool(parameters, self.TATT1, context)
         tc_seul= self.parameterAsBool(parameters, self.TCSEUL, context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
-
+        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','precedent','toll','ti']
+        champs_alpha=['id','ij','origin','ligne','numtrc','pole','type']
         fichier=io.open(fichier_temps,"r",encoding="utf8")
         res=io.open(fichier_resultat,"w",encoding='utf8')
         cols={}
         links={}
+        
+        for ch in champs_num:
+            if ch in filter:
+                filter=filter.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
+        for ch in champs_alpha:
+            if ch in filter:
+                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]])')
 
         for i,ligne in enumerate(fichier):
+            
             elements=ligne.strip().replace(',','.').split(';')
             if i==0:
                 for j,e in enumerate(elements):
+                    if e=='o':
+                        e='origin'
                     cols[e]=j
-            else:
-                elements[cols[variable]]=elements[cols[variable]].replace(',','.')
-                elements[cols['ij']]=elements[cols['ij']]+';'+elements[cols['jour']]
-                if temps_attente_terminal==True and 'tatt1' in cols:
-                    elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
-                if tc_seul==False or float(elements[cols['ligne']])>0:
-                    
-                    if elements[cols['ij']] not in links:
-                        pole=(elements[cols['pole']],1)
 
+            else:
+                try:
+                    texte=eval(filter)
+                except:
+                    print('Filter syntax error')
+                    print(filter)
+                    break
+                if texte==True:
+                    try:
+                        elements[cols[variable]]=elements[cols[variable]].replace(',','.')
+                    except:
+                        print(elements,cols[variable])
+                    elements[cols['ij']]=elements[cols['ij']]+';'+elements[cols['jour']]
+                    
+                    if temps_attente_terminal==True and 'tatt1' in cols:
+                        elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
+                    if tc_seul==False or float(elements[cols['ligne']])>0:
                         
-                        links[elements[cols['ij']]]={}
-                    if elements[cols['o']] not in links[elements[cols['ij']]]:
-                            links[elements[cols['ij']]][elements[cols['o']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['o']],elements[cols['o']]]
-                    else:
-                        hd=elements[cols['heureo']]
-                        if hd not in links[elements[cols['ij']]][elements[cols['o']]][7]:
-                                links[elements[cols['ij']]][elements[cols['o']]][7].append(hd)
-                        hf=elements[cols['heured']]
-                        if hf not in links[elements[cols['ij']]][elements[cols['o']]][8]:
-                                links[elements[cols['ij']]][elements[cols['o']]][8].append(hf)
-                        links[elements[cols['ij']]][elements[cols['o']]][1]+=float(elements[cols[variable]])
-                        links[elements[cols['ij']]][elements[cols['o']]][9]+=float(elements[cols[variable]])**2
-                        links[elements[cols['ij']]][elements[cols['o']]][2]+=1
-                        if float(elements[cols[variable]])<float(links[elements[cols['ij']]][elements[cols['o']]][3]):
-                            links[elements[cols['ij']]][elements[cols['o']]][3]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][elements[cols['o']]][5]=elements[cols['pole']]
-                            links[elements[cols['ij']]][elements[cols['o']]][10]=elements[cols['o']]
-                        if float(elements[cols[variable]])>float(links[elements[cols['ij']]][elements[cols['o']]][4]):
-                            links[elements[cols['ij']]][elements[cols['o']]][4]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][elements[cols['o']]][6]=elements[cols['pole']]
-                            links[elements[cols['ij']]][elements[cols['o']]][11]=elements[cols['o']]            
+                        if elements[cols['ij']] not in links:
+                            pole=(elements[cols['pole']],1)
+
+                            
+                            links[elements[cols['ij']]]={}
+                        if elements[cols['o']] not in links[elements[cols['ij']]]:
+                                links[elements[cols['ij']]][elements[cols['o']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['o']],elements[cols['o']]]
+                        else:
+                            hd=elements[cols['heureo']]
+                            if hd not in links[elements[cols['ij']]][elements[cols['origin']]][7]:
+                                    links[elements[cols['ij']]][elements[cols['origin']]][7].append(hd)
+                            hf=elements[cols['heured']]
+                            if hf not in links[elements[cols['ij']]][elements[cols['origin']]][8]:
+                                    links[elements[cols['ij']]][elements[cols['origin']]][8].append(hf)
+                            links[elements[cols['ij']]][elements[cols['origin']]][1]+=float(elements[cols[variable]])
+                            links[elements[cols['ij']]][elements[cols['origin']]][9]+=float(elements[cols[variable]])**2
+                            links[elements[cols['ij']]][elements[cols['origin']]][2]+=1
+                            if float(elements[cols[variable]])<float(links[elements[cols['ij']]][elements[cols['origin']]][3]):
+                                links[elements[cols['ij']]][elements[cols['origin']]][3]=float(elements[cols[variable]])
+                                links[elements[cols['ij']]][elements[cols['origin']]][5]=elements[cols['pole']]
+                                links[elements[cols['ij']]][elements[cols['origin']]][10]=elements[cols['origin']]
+                            if float(elements[cols[variable]])>float(links[elements[cols['ij']]][elements[cols['origin']]][4]):
+                                links[elements[cols['ij']]][elements[cols['origin']]][4]=float(elements[cols[variable]])
+                                links[elements[cols['ij']]][elements[cols['origin']]][6]=elements[cols['pole']]
+                                links[elements[cols['ij']]][elements[cols['origin']]][11]=elements[cols['origin']]            
         res.write('ij;jour;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
         for j,i in enumerate(links):
             sum_tri=sorted(list(links[i].items()),key=lambda x:x[1][1])
@@ -249,6 +281,7 @@ class FichierTempsJour(QgsProcessingAlgorithm):
         Parameters:
             link times ouput file: the Musliw link times  output file (<FILENAME>_temps.txt)
 			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr<3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 			time based links only: If checked only time based links are analysed

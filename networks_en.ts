@@ -780,48 +780,54 @@
 <context>
     <name>FichierTemps</name>
     <message>
-        <location filename="fichier_temps.py" line="83"/>
+        <location filename="fichier_temps.py" line="84"/>
         <source>Link times output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="95"/>
+        <location filename="fichier_temps.py" line="96"/>
         <source>Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="103"/>
+        <location filename="fichier_temps.py" line="112"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="111"/>
+        <location filename="fichier_temps.py" line="120"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="119"/>
+        <location filename="fichier_temps.py" line="128"/>
         <source>Link indicators file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="222"/>
+        <location filename="fichier_temps.py" line="255"/>
         <source>indicators by link</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="229"/>
+        <location filename="fichier_temps.py" line="262"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="245"/>
+        <location filename="fichier_temps.py" line="104"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps.py" line="278"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
@@ -847,48 +853,54 @@
 <context>
     <name>FichierTempsJour</name>
     <message>
-        <location filename="fichier_temps_jour.py" line="83"/>
+        <location filename="fichier_temps_jour.py" line="84"/>
         <source>Link times output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="95"/>
+        <location filename="fichier_temps_jour.py" line="96"/>
         <source>Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="103"/>
+        <location filename="fichier_temps_jour.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="111"/>
+        <location filename="fichier_temps_jour.py" line="119"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="119"/>
+        <location filename="fichier_temps_jour.py" line="127"/>
         <source>Link indicators file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="223"/>
+        <location filename="fichier_temps_jour.py" line="255"/>
         <source>indicators by link and day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="230"/>
+        <location filename="fichier_temps_jour.py" line="262"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="246"/>
+        <location filename="fichier_temps_jour.py" line="104"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_jour.py" line="278"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
@@ -1994,7 +2006,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="202"/>
+        <location filename="networks_provider.py" line="205"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2012,38 +2024,116 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="102"/>
+        <location filename="fichier_noeuds.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="111"/>
+        <location filename="fichier_noeuds.py" line="120"/>
         <source>Nodes indicators file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="181"/>
+        <location filename="fichier_noeuds.py" line="214"/>
         <source>ignored element</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="202"/>
+        <location filename="fichier_noeuds.py" line="235"/>
         <source>indicators by node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="209"/>
+        <location filename="fichier_noeuds.py" line="242"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="225"/>
+        <location filename="fichier_noeuds.py" line="103"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds.py" line="258"/>
         <source>
         Produce indicators aggregated by node. 
 <byte value="x9"/><byte value="x9"/>
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NodesFileDay</name>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="83"/>
+        <source>Nodes times output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="95"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="103"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="111"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="120"/>
+        <source>Nodes indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="216"/>
+        <source>ignored element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="237"/>
+        <source>indicators by node and day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="244"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="260"/>
+        <source>
+        Produce indicators aggregated by node. 
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
