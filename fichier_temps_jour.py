@@ -199,8 +199,8 @@ class FichierTempsJour(QgsProcessingAlgorithm):
 
                             
                             links[elements[cols['ij']]]={}
-                        if elements[cols['o']] not in links[elements[cols['ij']]]:
-                                links[elements[cols['ij']]][elements[cols['o']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['o']],elements[cols['o']]]
+                        if elements[cols['origin']] not in links[elements[cols['ij']]]:
+                                links[elements[cols['ij']]][elements[cols['origin']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,elements[cols['origin']],elements[cols['origin']]]
                         else:
                             hd=elements[cols['heureo']]
                             if hd not in links[elements[cols['ij']]][elements[cols['origin']]][7]:

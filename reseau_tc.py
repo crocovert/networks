@@ -131,9 +131,10 @@ class ReseauTC(QgsProcessingAlgorithm):
     # calling from the QGIS console.
 
     INPUT= 'INPUT'
-    DEBUT_PERIODE = 'DEBUT_PERIODE'
-    FIN_PERIODE = 'FIN_PERIODE'
+    DEBUT_PERIODE = 'START_PERIOD'
+    FIN_PERIODE = 'END_PERIOD'
     OUTPUT='OUTPUT'
+    LINE_BASED='LINE_BASED'
 
     def initAlgorithm(self, config):
         """
@@ -161,7 +162,13 @@ class ReseauTC(QgsProcessingAlgorithm):
                 datetime.date.today().strftime("%d/%m/%Y")
             )
         )
-        # We add a feature sink in which to store our processed features (this
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.LINE_BASED,
+                self.tr('Line based network?'),
+                True
+            )
+        )        # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
         self.addParameter(
@@ -461,7 +468,7 @@ class ReseauTC(QgsProcessingAlgorithm):
         return chainages;
 
 
-    def cree_musliw(self,nom_musliw, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback):
+    def cree_musliw(self,nom_musliw, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,line_based):
         i=0
         fichier_musliw = io.open(nom_musliw,"w",encoding="utf8")
 
@@ -501,7 +508,10 @@ class ReseauTC(QgsProcessingAlgorithm):
                         textel = unicode(elements[k][1].num_arret)
                         textel += ";" + unicode(elements[k + 1][1].num_arret)
                         textel += ";0;0"
-                        textel += ";" + unicode(i) + ";" + unicode(j)
+                        if line_based==True:
+                            textel += ";" + unicode(i) + ";" + unicode(j)
+                        else:
+                            textel += ";" + unicode(i*10000+j) + ";" + unicode(j)
                         textel += ";" + unicode(elements[k][1].heure_dep )+ ";" + unicode(elements[k + 1][1].heure_arr)
                         textel += ";" + google_calendars[mission.service_id].calendrier + ";"
                         textel += google_routes[mission.route_id].nom + "|" + google_stops[elements[k][1].num_arret].nom + "-" + google_stops[elements[k + 1][1].num_arret].nom + ";"+google_routes[mission.route_id].type+";0\n"
@@ -524,6 +534,7 @@ class ReseauTC(QgsProcessingAlgorithm):
         debut_calendrier=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
         fin_calendrier=self.parameterAsString(parameters,self.FIN_PERIODE,context)
         fichier_Musliw=self.parameterAsFileOutput(parameters, self.OUTPUT,context)
+        line_based=self.parameterAsBool(parameters, self.LINE_BASED,context)
         # Compute the number of steps to display within the progress bar and
         # get features from source
         ##a=fenetre.split(",")
@@ -547,7 +558,7 @@ class ReseauTC(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr(u"Generating lines"))
         google_chainages=self.cree_chainages(google_routes, google_trips, google_calendars, google_stop_times,feedback)
         feedback.setProgressText(self.tr(u'Generation Musliw file'))
-        self.cree_musliw(sortie, google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback)
+        self.cree_musliw(sortie, google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,line_based)
         
         return {self.OUTPUT:self.OUTPUT}
 
