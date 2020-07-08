@@ -197,6 +197,13 @@ class ReseauTC(QgsProcessingAlgorithm):
                     google_stop = Google_Stop()
                     google_stop.numero = elements[headers["stop_id"]]
                     google_stop.nom = elements[headers["stop_name"]]
+                    elements[headers["stop_lon"]]=elements[headers["stop_lon"]].replace("'", "").replace('"','')
+                    elements[headers["stop_lat"]]=elements[headers["stop_lat"]].replace("'", "").replace('"','')
+                    
+                    if elements[headers["stop_lon"]]=='':
+                         elements[headers["stop_lon"]]='0'
+                    if elements[headers["stop_lat"]]=='':
+                         elements[headers["stop_lat"]]='0'
                     if locale.localeconv()["decimal_point"]==",":
                         google_stop.x = float(elements[headers["stop_lon"]].replace(".", ","))
                         google_stop.y = float(elements[headers["stop_lat"]].replace(".", ","))

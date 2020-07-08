@@ -259,7 +259,14 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 else:
 
                     elements=re.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)",ligne[:-1])
-                    arrets[elements[iid]]=[elements[iid],elements[iname].strip("\""),elements[idx].strip("\""),elements[idy].strip("\""),0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                    elements[idx]=elements[idx].replace('"','').replace("'",'')
+                    elements[idy]=elements[idy].replace('"','').replace("'",'')
+                    if elements[idx]=='':
+                        elements[idx]='0'
+                    if elements[idy]=='':
+                        elements[idy]='0'
+                        
+                    arrets[elements[iid]]=[elements[iid],elements[iname].strip("\""),elements[idx],elements[idy],0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
 
 
         calendar={}
@@ -282,11 +289,13 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 else:
 
                     elements=cal.strip().split(",")
-                    dato=elements[idato]
+                    dato=elements[idato].replace('"','').replace("'",'')
                     dato=datetime.date(int(dato[0:4]),int(dato[4:6]),int(dato[6:8]))
-                    datd=elements[idatd]
+                    datd=elements[idatd].replace('"','').replace("'",'')
                     datd=datetime.date(int(datd[0:4]),int(datd[4:6]),int(datd[6:8]))
-                    calendar[elements[iid]]=[elements[iid],dato,datd,elements[i1],elements[i2],elements [i3],elements[i4],elements[i5],elements[i6],elements[i7]]
+                    calendar[elements[iid]]=[elements[iid],dato,datd,elements[i1].replace('"','').replace("'",''),
+                            elements[i2].replace('"','').replace("'",''),elements [i3].replace('"','').replace("'",''),elements[i4].replace('"','').replace("'",''),
+                            elements[i5].replace('"','').replace("'",''),elements[i6].replace('"','').replace("'",''),elements[i7].replace('"','').replace("'",'')]
                     
 
         calendar_dates={}
@@ -306,9 +315,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 else:
 
                     elements=calendar_date.strip().split(",")
-                    vdate=elements[idate].strip('"')
+                    vdate=elements[idate].replace('"','').replace("'",'')
                     vdate=datetime.date(int(vdate[0:4]),int(vdate[4:6]),int(vdate[6:8]))
-                    calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex]]
+                    calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex].replace('"','').replace("'",'')]
                     if elements[iex]=="1":
                         if elements[iid] not in calendar_dates2:
                             calendar_dates2[elements[iid]]=[]
@@ -384,12 +393,14 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     
                     #print((istop,iid,elements[istop],elements[iid]))
                     if elements[istop] in arrets and trips[elements[iid]][1] in routes:
-                        id_stop2=elements[istop]
+                        id_stop2=elements[istop].replace('"','').replace("'",'')
                         id_trip2=elements[iid]
                         ligne=trips[elements[iid]][1]
                         num_ligne=routes[ligne][0].strip()
                         nom_ligne=routes[ligne][1].strip()
                         descr=routes[ligne][2].strip()
+                        elements[ihdep]=elements[ihdep].replace('"','').replace("'",'')
+                        elements[iharr]=elements[iharr].replace('"','').replace("'",'')
                         hi1=QTime(int(elements[ihdep][0:2]),int(elements[ihdep][3:5]),int(elements[ihdep][6:8]))
                         hj=QTime(int(elements[iharr][0:2]),int(elements[iharr][3:5]),int(elements[iharr][6:8]))
                         if (id_trip2==id_trip):
@@ -487,7 +498,12 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 g_links=QgsFeature()
                 g_arcs=QgsFeature()
                 #print([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
-                g_links.setGeometry(QgsGeometry.fromPolylineXY([(xtr.transform(QgsPointXY(float(arrets[s[0]][2]),float(arrets[s[0]][3])))),xtr.transform(QgsPointXY(float(arrets[s[1]][2]),float(arrets[s[1]][3])))]))
+                try:
+                    g_links.setGeometry(QgsGeometry.fromPolylineXY([(xtr.transform(QgsPointXY(float(arrets[s[0]][2]),float(arrets[s[0]][3])))),xtr.transform(QgsPointXY(float(arrets[s[1]][2]),float(arrets[s[1]][3])))]))
+                except:
+                    print(arrets[s[0]],arrets[s[1]])
+                    g_links.setGeometry(QgsGeometry.fromPolylineXY([(xtr.transform(QgsPointXY(float(arrets[s[0]][2]),float(arrets[s[0]][3])))),xtr.transform(QgsPointXY(float(arrets[s[1]][2]),float(arrets[s[1]][3])))]))
+                    
                 g_arcs.setAttributes([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
                 g_arcs.setGeometry(g_links.geometry())
                 
