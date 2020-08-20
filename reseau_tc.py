@@ -44,6 +44,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExtent,
                        QgsProcessingParameterField,
                        QgsProcessingParameterExpression,
+                       QgsProcessingParameterDateTime,
                        QgsProcessingParameterFileDestination)
 
 import io, locale
@@ -149,17 +150,17 @@ class ReseauTC(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
-            QgsProcessingParameterString(
+            QgsProcessingParameterDateTime(
                 self.DEBUT_PERIODE,
                 self.tr('Calendar start'),
-                datetime.date.today().strftime("%d/%m/%Y")
+                type=1
             )
         )
         self.addParameter(
-            QgsProcessingParameterString(
+            QgsProcessingParameterDateTime(
                 self.FIN_PERIODE,
                 self.tr('Calendar end'),
-                datetime.date.today().strftime("%d/%m/%Y")
+                type=1
             )
         )
         self.addParameter(
@@ -351,19 +352,19 @@ class ReseauTC(QgsProcessingAlgorithm):
                         google_calendar.semaine = "".join([elements[headers[k]] for k in ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']])
                         google_calendar.debut = QDate(int(elements[headers["start_date"]][0:4]), int(elements[headers["start_date"]][4:6]), int(elements[headers["start_date"]][6:8])).toPyDate()
                         google_calendar.fin =  QDate(int(elements[headers["end_date"]][0:4]), int(elements[headers["end_date"]][4:6]), int(elements[headers["end_date"]][6:8])).toPyDate()
-                        duree_cal = max((fin_cal - debut_cal).days, 1)
+                        duree_cal = max((debut_cal.daysTo(fin_cal)+1),1)
                         jour = debut_cal
 
                         calendrier=""
                         for i in range(duree_cal+1):
-                            jour_semaine = jour.isoweekday()-1
+                            jour_semaine = jour.dayOfWeek()-1
                             if (google_calendar.debut <= jour <= google_calendar.fin and google_calendar.semaine[jour_semaine] == '1'):
                                 calendrier += "O"
                             
                             else:
                                 calendrier += "N"
                             
-                            jour = jour+ datetime.timedelta(days=1)
+                            jour = jour.addDays(1)
 
 
                         
@@ -378,7 +379,7 @@ class ReseauTC(QgsProcessingAlgorithm):
 
         for  cal in google_calendar_dates:
             if  cal not in google_calendars:
-                duree_cal=max((fin_cal - debut_cal).days+1,1)
+                duree_cal=max((debut_cal.daysTo(fin_cal)+1),1)
                 cal_sem='N'*duree_cal
                 gc=Google_Calendar()
                 gc.calendrier=cal_sem
@@ -393,7 +394,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                     date_jour=caldate.date
                     typjour = caldate.type
                     if (debut_cal<=date_jour<=fin_cal):
-                        delta=(date_jour-debut_cal).days
+                        delta=(debut_cal.daysTo(fin_cal))
                         if (typjour == 1):
                             google_calendars[cal].calendrier = google_calendars[cal].calendrier[0: delta] + "O" + google_calendars[cal].calendrier[delta + 1:]
                         
@@ -538,8 +539,8 @@ class ReseauTC(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         fichier_GTFS = self.parameterAsFile(parameters, self.INPUT, context)
-        debut_calendrier=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
-        fin_calendrier=self.parameterAsString(parameters,self.FIN_PERIODE,context)
+        debut_calendrier=self.parameterAsDateTime(parameters,self.DEBUT_PERIODE,context)
+        fin_calendrier=self.parameterAsDateTime(parameters,self.FIN_PERIODE,context)
         fichier_Musliw=self.parameterAsFileOutput(parameters, self.OUTPUT,context)
         line_based=self.parameterAsBool(parameters, self.LINE_BASED,context)
         # Compute the number of steps to display within the progress bar and
@@ -547,8 +548,8 @@ class ReseauTC(QgsProcessingAlgorithm):
         ##a=fenetre.split(",")
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
         os.chdir(fichier_GTFS)
-        date_debut=QDate.fromString(debut_calendrier, "d/M/yyyy").toPyDate()
-        date_fin=QDate.fromString(fin_calendrier, "d/M/yyyy").toPyDate()
+        date_debut=debut_calendrier.date()#QDate.fromString(debut_calendrier, "d/M/yyyy").toPyDate()
+        date_fin=fin_calendrier.date()#QDate.fromString(fin_calendrier, "d/M/yyyy").toPyDate()
         sortie=fichier_Musliw
         feedback.setProgressText(self.tr(u'Reading stops'))
         google_stops = self.lit_google_stops("stops.txt")

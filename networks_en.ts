@@ -231,17 +231,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="169"/>
+        <location filename="calcul_musliw.py" line="170"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="192"/>
+        <location filename="calcul_musliw.py" line="194"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="199"/>
+        <location filename="calcul_musliw.py" line="201"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -261,7 +261,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="215"/>
+        <location filename="calcul_musliw.py" line="217"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 <byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -287,7 +287,12 @@
     </message>
 </context>
 <context>
-    <name>ConcatReseaux</name>
+    <name>ConcatFolder</name>
+    <message>
+        <location filename="concat_reseaux.py" line="82"/>
+        <source>Network elements folder</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="concat_reseaux.py" line="89"/>
         <source>Global network</source>
@@ -295,17 +300,12 @@
     </message>
     <message>
         <location filename="concat_reseaux.py" line="143"/>
-        <source>Concatenate networks</source>
+        <source>Concatenate networks folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="concat_reseaux.py" line="150"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="concat_reseaux.py" line="82"/>
-        <source>Network elements folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -316,6 +316,41 @@
         
         Parameters:
             network elements folder&#xa0;: Musliw networks elements folder
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>global network: name of the global network file (txt)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ConcatNetworkFiles</name>
+    <message>
+        <location filename="concat_files.py" line="83"/>
+        <source>Network files to concatenate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_files.py" line="90"/>
+        <source>Global network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_files.py" line="143"/>
+        <source>Concatenate network files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_files.py" line="150"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_files.py" line="166"/>
+        <source>
+        Concatenate Musliw networks elements,
+<byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
+        
+        Parameters:
+            network elements files&#xa0;: Musliw networks elements files
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>global network: name of the global network file (txt)
         </source>
         <translation type="unfinished"></translation>
@@ -934,92 +969,92 @@
 <context>
     <name>ImportGTFS</name>
     <message>
-        <location filename="import_gtfs.py" line="91"/>
+        <location filename="import_gtfs.py" line="93"/>
         <source>GTFS Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="98"/>
+        <location filename="import_gtfs.py" line="100"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="105"/>
+        <location filename="import_gtfs.py" line="108"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="112"/>
+        <location filename="import_gtfs.py" line="115"/>
         <source>Start time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="119"/>
+        <location filename="import_gtfs.py" line="126"/>
         <source>End time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="126"/>
+        <location filename="import_gtfs.py" line="136"/>
         <source>Table names</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="133"/>
+        <location filename="import_gtfs.py" line="143"/>
         <source>CRS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="140"/>
+        <location filename="import_gtfs.py" line="151"/>
         <source>Ouput folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="146"/>
+        <location filename="import_gtfs.py" line="157"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="268"/>
+        <location filename="import_gtfs.py" line="283"/>
         <source>Reading calendars...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="296"/>
+        <location filename="import_gtfs.py" line="313"/>
         <source>reading calendar dates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="322"/>
+        <location filename="import_gtfs.py" line="339"/>
         <source>Reading routes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="347"/>
+        <location filename="import_gtfs.py" line="364"/>
         <source>Reading trips...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="371"/>
+        <location filename="import_gtfs.py" line="388"/>
         <source>Reading stop times...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="480"/>
+        <location filename="import_gtfs.py" line="499"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="561"/>
+        <location filename="import_gtfs.py" line="591"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="568"/>
+        <location filename="import_gtfs.py" line="598"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="581"/>
+        <location filename="import_gtfs.py" line="611"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -2006,7 +2041,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="205"/>
+        <location filename="networks_provider.py" line="207"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2283,72 +2318,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="144"/>
+        <location filename="reseau_tc.py" line="145"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="151"/>
+        <location filename="reseau_tc.py" line="152"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="158"/>
+        <location filename="reseau_tc.py" line="159"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="581"/>
+        <location filename="reseau_tc.py" line="589"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="546"/>
+        <location filename="reseau_tc.py" line="554"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="548"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="550"/>
+        <location filename="reseau_tc.py" line="558"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="552"/>
+        <location filename="reseau_tc.py" line="560"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="554"/>
+        <location filename="reseau_tc.py" line="562"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="556"/>
+        <location filename="reseau_tc.py" line="564"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="558"/>
+        <location filename="reseau_tc.py" line="566"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="560"/>
+        <location filename="reseau_tc.py" line="568"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="588"/>
+        <location filename="reseau_tc.py" line="596"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="605"/>
+        <location filename="reseau_tc.py" line="613"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2361,7 +2396,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="165"/>
+        <location filename="reseau_tc.py" line="166"/>
         <source>Line based network?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2606,67 +2641,67 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="113"/>
+        <location filename="simple_matrix.py" line="114"/>
         <source>Demand</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="121"/>
+        <location filename="simple_matrix.py" line="122"/>
         <source>Day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="129"/>
+        <location filename="simple_matrix.py" line="130"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="137"/>
+        <location filename="simple_matrix.py" line="138"/>
         <source>Departure/Arrival</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="137"/>
+        <location filename="simple_matrix.py" line="138"/>
         <source>Departure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="137"/>
+        <location filename="simple_matrix.py" line="138"/>
         <source>Arrival</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="149"/>
+        <location filename="simple_matrix.py" line="150"/>
         <source>Musliw matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="156"/>
+        <location filename="simple_matrix.py" line="157"/>
         <source>Write Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="156"/>
+        <location filename="simple_matrix.py" line="157"/>
         <source>Write</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="156"/>
+        <location filename="simple_matrix.py" line="157"/>
         <source>Append</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="241"/>
+        <location filename="simple_matrix.py" line="243"/>
         <source>Musliw simple matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="248"/>
+        <location filename="simple_matrix.py" line="250"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="264"/>
+        <location filename="simple_matrix.py" line="266"/>
         <source>
         Generates a Musliw matrix from clicking on 2 nodes to define an origin(1st point)-destination(2nd point)
 <byte value="x9"/><byte value="x9"/>

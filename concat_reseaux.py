@@ -52,7 +52,7 @@ from qgis.core import (QgsProcessing,
 import codecs
 import os
 
-class ConcatReseaux(QgsProcessingAlgorithm):
+class ConcatFolder(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -133,14 +133,14 @@ class ConcatReseaux(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'concatenate_networks'
+        return 'concatenate_networks_folder'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr('Concatenate networks')
+        return self.tr('Concatenate networks folder')
 
     def group(self):
         """
@@ -160,7 +160,7 @@ class ConcatReseaux(QgsProcessingAlgorithm):
         return 'Network'
 
     def tr(self, string):
-        return QCoreApplication.translate('ConcatReseaux', string)
+        return QCoreApplication.translate('ConcatFolder', string)
 	
     def shortHelpString(self):
         return self.tr("""
@@ -173,4 +173,4 @@ class ConcatReseaux(QgsProcessingAlgorithm):
         """)
 
     def createInstance(self):
-        return ConcatReseaux()
+        return ConcatFolder()

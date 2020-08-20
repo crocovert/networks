@@ -36,7 +36,8 @@ from processing.core.Processing import Processing
 from processing.core.ProcessingConfig import ProcessingConfig, Setting
 from .reseau_ti import ReseauTi
 from .ajout_champ import AjoutChamp
-from .concat_reseaux import ConcatReseaux
+from .concat_reseaux import ConcatFolder
+from .concat_files import ConcatNetworkFiles
 from .connecteurs_geo import ConnecteursGeo
 from .contours import Contours
 from .creer_graphe import CreerGraphe
@@ -84,7 +85,7 @@ class NetworksProvider(QgsProcessingProvider):
         # Load algorithms
         self.alglist = [ReseauTi(),
                         AjoutChamp(),
-                        ConcatReseaux(),
+                        ConcatFolder(),
                         ConnecteursGeo(),
                         Contours(),
                         CreerGraphe(),
@@ -147,7 +148,8 @@ class NetworksProvider(QgsProcessingProvider):
         """
         self.addAlgorithm( ReseauTi() )
         self.addAlgorithm( AjoutChamp() )
-        self.addAlgorithm( ConcatReseaux() )
+        self.addAlgorithm( ConcatFolder() )
+        self.addAlgorithm( ConcatNetworkFiles() )
         self.addAlgorithm( ConnecteursGeo() )
         self.addAlgorithm( Contours() )
         self.addAlgorithm(CreerGraphe())

@@ -44,7 +44,9 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExtent,
                        QgsProcessingParameterField,
                        QgsProcessingParameterExpression,
+                       QgsProcessingParameterDateTime,
                        QgsProcessingParameterFileDestination,
+                       QgsProcessingParameters,
                        QgsSpatialIndex,
                        QgsGeometry,
                        QgsFeature,
@@ -89,38 +91,46 @@ class ImportGTFS(QgsProcessingAlgorithm):
         """
 
         self.addParameter(
-            QgsProcessingParameterFile(
+            QgsProcessingParameterFile( 
                 self.REP_GTFS,
                 self.tr('GTFS Folder'),
                 QgsProcessingParameterFile.Folder
             )
         )
-        self.addParameter(
-            QgsProcessingParameterString(
+        self.addParameter( 
+            QgsProcessingParameterDateTime(
                 self.DEBUT_PERIODE,
                 self.tr('Calendar start'),
-                datetime.date.today().strftime("%d/%m/%Y")
+                type=1
+                
             )
         )
         self.addParameter(
-            QgsProcessingParameterString(
+            QgsProcessingParameterDateTime(
                 self.FIN_PERIODE,
                 self.tr('Calendar end'),
-                datetime.date.today().strftime("%d/%m/%Y")
+                type=1
             )
         )
         self.addParameter(
-            QgsProcessingParameterString(
+            QgsProcessingParameterDateTime(
                 self.T1,
                 self.tr('Start time'),
-                "00:00:00"
+                type=2,
+                defaultValue=QDateTime(QDate.currentDate(),QTime(0,0,0))
+                
+
+                
             )
         )
         self.addParameter(
-            QgsProcessingParameterString(
+            QgsProcessingParameterDateTime(
                 self.T2,
                 self.tr('End time'),
-                "23:59:59"
+                type=2,
+                defaultValue=QDateTime(QDate.currentDate(),QTime(23,59,59))
+                
+                
             )
         )        
         self.addParameter(
@@ -134,7 +144,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
             QgsProcessingParameterCrs(
                 self.PROJ,
                 self.tr('CRS'),
-                QgsCoordinateReferenceSystem('EPSG:2154')
+                QgsCoordinateReferenceSystem('EPSG:2154'),
+                
             )
         )
         self.addParameter(
@@ -166,22 +177,19 @@ class ImportGTFS(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         rep_GTFS = self.parameterAsFile(parameters, self.REP_GTFS, context)
-        debut_periode=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
-        fin_periode=self.parameterAsString(parameters,self.FIN_PERIODE,context)
-        t1=self.parameterAsString(parameters,self.T1,context)
-        t2=self.parameterAsString(parameters,self.T2,context)
+        debut_periode=self.parameterAsDateTime(parameters,self.DEBUT_PERIODE,context)
+        fin_periode=self.parameterAsDateTime(parameters,self.FIN_PERIODE,context)
+        t1=self.parameterAsDateTime(parameters,self.T1,context)
+        t2=self.parameterAsDateTime(parameters,self.T2,context)
         prefixe=self.parameterAsString(parameters,self.PREFIXE,context)
         proj=self.parameterAsCrs(parameters,self.PROJ,context)
         rep_sortie = self.parameterAsFile(parameters, self.REP_SORTIE, context)
         encodage = self.parameterAsString(parameters, self.ENCODAGE, context)
 
 
-        debut_periode=QDate.fromString(debut_periode, "d/M/yyyy").toPyDate()
-        fin_periode=QDate.fromString(fin_periode, "d/M/yyyy").toPyDate()
 
 
-        t1=QTime.fromString(t1,"h:m:s")
-        t2=QTime.fromString(t2,"h:m:s")
+
         nom_rep=rep_GTFS
         lname=prefixe
         isnodes=True
@@ -232,14 +240,14 @@ class ImportGTFS(QgsProcessingAlgorithm):
             
             
             arrets={}
-            nb_jours=(fin_periode-debut_periode).days
+            nb_jours=debut_periode.daysTo(fin_periode)
             nb_mon=0
             nb_sat=0
             nb_sun=0
             for k in range(nb_jours+1):
-                date_offre=debut_periode+datetime.timedelta(days=k)
+                date_offre=debut_periode.addDays(k)
                 if debut_periode<=date_offre<=fin_periode:
-                    jour=date_offre.isoweekday()
+                    jour=date_offre.date().dayOfWeek()
                 if jour in [1,2,3,4,5]:
                     nb_mon+=1
                 elif jour==6:
@@ -290,9 +298,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
 
                     elements=cal.strip().split(",")
                     dato=elements[idato].replace('"','').replace("'",'')
-                    dato=datetime.date(int(dato[0:4]),int(dato[4:6]),int(dato[6:8]))
+                    dato=QDate(int(dato[0:4]),int(dato[4:6]),int(dato[6:8]))
                     datd=elements[idatd].replace('"','').replace("'",'')
-                    datd=datetime.date(int(datd[0:4]),int(datd[4:6]),int(datd[6:8]))
+                    datd=QDate(int(datd[0:4]),int(datd[4:6]),int(datd[6:8]))
                     calendar[elements[iid]]=[elements[iid],dato,datd,elements[i1].replace('"','').replace("'",''),
                             elements[i2].replace('"','').replace("'",''),elements [i3].replace('"','').replace("'",''),elements[i4].replace('"','').replace("'",''),
                             elements[i5].replace('"','').replace("'",''),elements[i6].replace('"','').replace("'",''),elements[i7].replace('"','').replace("'",'')]
@@ -316,7 +324,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
 
                     elements=calendar_date.strip().split(",")
                     vdate=elements[idate].replace('"','').replace("'",'')
-                    vdate=datetime.date(int(vdate[0:4]),int(vdate[4:6]),int(vdate[6:8]))
+                    vdate=QDate(int(vdate[0:4]),int(vdate[4:6]),int(vdate[6:8]))
                     calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex].replace('"','').replace("'",'')]
                     if elements[iex]=="1":
                         if elements[iid] not in calendar_dates2:
@@ -420,14 +428,14 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                 if trips[elements[iid]][2] in calendar:
                                     dp=calendar[trips[elements[iid]][2]][1]
                                     fp=calendar[trips[elements[iid]][2]][2]
-                                    nb_jours=(fin_periode-debut_periode).days
+                                    nb_jours=debut_periode.daysTo(fin_periode)
                                     #nb_mon=0
                                     #nb_sat=0
                                     #nb_sun=0
                                     for kk,k in enumerate(range(nb_jours+1)):
-                                        date_offre=debut_periode+datetime.timedelta(days=k)
+                                        date_offre=debut_periode.addDays(k).date()
                                         if dp<=date_offre<=fp:
-                                            jour=date_offre.isoweekday()
+                                            jour=date_offre.dayOfWeek()
                                             if int(calendar[trips[id_trip][2]][2+jour])==1:
                                                 if (trips[id_trip][2],date_offre,'2') not in calendar_dates:
                                                     nbservices+=1
@@ -459,12 +467,12 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                         elif jour==7:
                                             nbservices_sun+=1
                             segment_id=(num_ligne, id_stop,id_stop2)
-                            if (t1<=hi2<=t2):
+                            if (t1.time()<=hi2<=t2.time()):
                                 nbs1=nbservices
                                 nbs1_mon=nbservices_mon
                                 nbs1_sat=nbservices_sat
                                 nbs1_sun=nbservices_sun
-                            if (t1<=hj<=t2):
+                            if (t1.time()<=hj<=t2.time()):
                                 nbs2=nbservices
                                 nbs2_mon=nbservices_mon
                                 nbs2_sat=nbservices_sat
@@ -501,8 +509,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 try:
                     g_links.setGeometry(QgsGeometry.fromPolylineXY([(xtr.transform(QgsPointXY(float(arrets[s[0]][2]),float(arrets[s[0]][3])))),xtr.transform(QgsPointXY(float(arrets[s[1]][2]),float(arrets[s[1]][3])))]))
                 except:
-                    print(arrets[s[0]],arrets[s[1]])
-                    g_links.setGeometry(QgsGeometry.fromPolylineXY([(xtr.transform(QgsPointXY(float(arrets[s[0]][2]),float(arrets[s[0]][3])))),xtr.transform(QgsPointXY(float(arrets[s[1]][2]),float(arrets[s[1]][3])))]))
+                    test_q=1
                     
                 g_arcs.setAttributes([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
                 g_arcs.setGeometry(g_links.geometry())
@@ -520,11 +527,18 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         """print([unicode(t),unicode(links[s][t][4]),unicode(links[s][t][5]),unicode(s[0]),unicode(s[1])
                                 ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])"""
+                        if nb_mon==0:
+                            nb_mon=1
+                            
+                        if nb_sat==0:
+                            nb_sat=1
+                        if nb_sun==0:
+                            nb_sun=1
                         g_links.setAttributes([unicode(t),unicode(links[s][t][4]),unicode(links[s][t][5]),unicode(s[0]),unicode(s[1])
                                 ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
                     except:
-                        print(t,links[s][t][2])
+                        test_q=1#print(t,links[s][t][2])
                     
                     i1+=1
                     i2+=links[s][t][0]
@@ -550,13 +564,13 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/(nb_jours+1),arrets[s][5]/(nb_jours+1)
                             ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
                 except:
-                    print(arrets[s][1])
+                    test_q=1#print(arrets[s][1])
                 l_noeuds.addFeature(g_noeuds)
         del(arrets)
         del(l_noeuds)
         del(l_links)
         del(l_arcs)
-        return {self.REP_GTFS: self.REP_GTFS}
+        return {self.REP_SORTIE: rep_sortie+"/"+lname+"_stops.shp"}
 
 
     def name(self):

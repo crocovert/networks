@@ -166,12 +166,14 @@ class CalculMusliw(QgsProcessingAlgorithm):
 
       
         CREATE_NO_WINDOW = 0x08000000
+        DETACHED_PROCESS = 0x00000008
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
         if len(penalites)==0:
-            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres])
+            musliw=subprocess.Popen([prog,reseau,matrice,sortie,parametres])
         else:
-            musliw=subprocess.call([prog,reseau,matrice,sortie,parametres,penalites])
-        return {'musliw': 'OK'}
+            musliw=subprocess.Popen([prog,reseau,matrice,sortie,parametres,penalites])
+        musliw.wait()
+        return {'SORTIE': sortie}
 
 
     def name(self):
