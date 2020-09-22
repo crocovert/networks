@@ -992,37 +992,37 @@
 <context>
     <name>FichierOD</name>
     <message>
-        <location filename="fichier_od.py" line="88"/>
+        <location filename="fichier_od.py" line="89"/>
         <source>OD output file</source>
         <translation>Fichier OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="100"/>
+        <location filename="fichier_od.py" line="101"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="108"/>
+        <location filename="fichier_od.py" line="117"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="116"/>
+        <location filename="fichier_od.py" line="125"/>
         <source>Time based links only?</source>
         <translation>Sans les tronçons à horaires?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="148"/>
+        <location filename="fichier_od.py" line="135"/>
         <source>OD indicator file</source>
         <translation>Fichier indicateurs des liens</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="251"/>
+        <location filename="fichier_od.py" line="261"/>
         <source>indicators by OD</source>
         <translation>indicateurs par OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="258"/>
+        <location filename="fichier_od.py" line="268"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1076,17 +1076,17 @@
     <message>
         <location filename="fichier_od.py" line="124"/>
         <source>Max wait time</source>
-        <translation>Temps d&apos;attente maxi</translation>
+        <translation type="obsolete">Temps d&apos;attente maxi</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="132"/>
         <source>Max number of boardings</source>
-        <translation>Nombre de voyages maxi</translation>
+        <translation type="obsolete">Nombre de voyages maxi</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="140"/>
         <source>Max indiviudal modes time</source>
-        <translation>Temps en modes individuels maxi</translation>
+        <translation type="obsolete">Temps en modes individuels maxi</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="274"/>
@@ -1117,7 +1117,7 @@
             
             
         </source>
-        <translation>        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
+        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
@@ -1127,6 +1127,67 @@
 			temps d&apos;attente maxi: Filtre pour sélectionner les OD avec un temps d&apos;attente total inférieur
 			nombre de voyages maxi: Filtre pour sélectionner les OD avec un nombre de voyages inférieur
 			temps en modes individuels maxi: Filtre pour sélectionner les OD avec un temps total en modes individuel inférieur
+
+
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+            id: OD id
+            avg: valeur moyenne
+            nb: nombre de lignes pour cette OD traitées
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
+            
+            
+        </translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="109"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_od.py" line="284"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            filter: filter expression to select a subset of OD. Available variables are:
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
+            
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
+            id: OD id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            
+            
+        </source>
+        <translation>       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
+			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+			filtre: expression filtre pour effectuer une sélection des OD. Les variables disponibles sont:
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
 
 
            Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants

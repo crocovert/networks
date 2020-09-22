@@ -731,57 +731,47 @@
 <context>
     <name>FichierOD</name>
     <message>
-        <location filename="fichier_od.py" line="88"/>
+        <location filename="fichier_od.py" line="89"/>
         <source>OD output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="100"/>
+        <location filename="fichier_od.py" line="101"/>
         <source>Variable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="108"/>
+        <location filename="fichier_od.py" line="117"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="116"/>
+        <location filename="fichier_od.py" line="125"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="148"/>
+        <location filename="fichier_od.py" line="135"/>
         <source>OD indicator file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="251"/>
+        <location filename="fichier_od.py" line="261"/>
         <source>indicators by OD</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="258"/>
+        <location filename="fichier_od.py" line="268"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="124"/>
-        <source>Max wait time</source>
+        <location filename="fichier_od.py" line="109"/>
+        <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="132"/>
-        <source>Max number of boardings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="fichier_od.py" line="140"/>
-        <source>Max indiviudal modes time</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="fichier_od.py" line="274"/>
+        <location filename="fichier_od.py" line="284"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
@@ -791,11 +781,11 @@
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
-            Max wait time: filter to select only OD with a lower total waiting time 
-            Max number of boarding: filter to select only OD with a lower total number of boardings
-            MAx individual modes times: filter to select only OD with a lower total individual modes travel times
+            filter: filter expression to select a subset of OD. Available variables are:
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
             
-            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
             id: OD id
             avg: average value 
             nb: number of od rows in the matrix file 

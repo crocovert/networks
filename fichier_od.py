@@ -75,6 +75,7 @@ class FichierOD(QgsProcessingAlgorithm):
     TRANSFER_MAX='TRANSFER_MAX'
     TI_MAX='TI_MAX'
     FICHIER_RESULTAT='FICHIER_RESULTAT'
+    FILTER='FILTER'
 
     
 
@@ -104,7 +105,15 @@ class FichierOD(QgsProcessingAlgorithm):
                 "temps"
             )
         )
-            
+
+        self.addParameter(
+            QgsProcessingParameterString(
+                self.FILTER,
+                self.tr('Filter'),
+                "1"
+            )
+        )    
+        
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.TATT1,
@@ -121,30 +130,8 @@ class FichierOD(QgsProcessingAlgorithm):
                 
             )
         )
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.WAIT_MAX,
-                self.tr('Max wait time'),
-                type=QgsProcessingParameterNumber.Double,
-                defaultValue=60.0
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.TRANSFER_MAX,
-                self.tr('Max number of boardings'),
-                type=QgsProcessingParameterNumber.Integer,
-                defaultValue=2
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.TI_MAX,
-                self.tr('Max indiviudal modes time'),
-                type=QgsProcessingParameterNumber.Double,
-                defaultValue=60.0
-            )
-        )
+
+        
         self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.FICHIER_RESULTAT,
@@ -169,24 +156,36 @@ class FichierOD(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         fichier_temps=self.parameterAsFile(parameters,self.INPUT,context)
         variable=self.parameterAsString(parameters,self.VARIABLE,context)
+        filter=self.parameterAsString(parameters,self.FILTER,context)
         temps_attente_terminal=self.parameterAsBool(parameters, self.TATT1, context)
         tc_seul= self.parameterAsBool(parameters, self.TCSEUL, context)
-        tatt_max=self.parameterAsDouble(parameters,self.WAIT_MAX,context)
-        nbcorr_max=self.parameterAsInt(parameters,self.TRANSFER_MAX,context)
-        ti_max=self.parameterAsDouble(parameters,self.TI_MAX,context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
+        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','nbpop','toll']
+        champs_alpha=['id','origin','destination','pole','texte']
 
         
         fichier=io.open(fichier_temps,"r",encoding='utf_8_sig')
         res=open(fichier_resultat,"w")
         cols={}
         links={}
-
+        
+        for ch in champs_num:
+            if ch in filter:
+                filter=filter.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
+        for ch in champs_alpha:
+            if ch in filter:
+                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]])')        
+                
+                
         for i,ligne in enumerate(fichier):
             elements=ligne.strip().replace(',','.').split(';')
             if i==0:
                 for j,e in enumerate(elements):
+                    if e=='o':
+                        e='origin'
+                    elif e=='d':
+                        e='destination'
                     cols[e]=j
         #        cols['ij']=len(elements)
 
@@ -194,35 +193,46 @@ class FichierOD(QgsProcessingAlgorithm):
 
 
             else:
-                elements[cols['ij']]=elements[cols['o']]+'-'+elements[cols['d']]
-                if ((tc_seul==True and float(elements[cols['tveh']])>0) or (tc_seul==False)) and (float(elements[cols['tmap']])<=ti_max and float(elements[cols['ncorr']])<=nbcorr_max and float(elements[cols['tatt']])<=tatt_max):
-                #elements.append(elements[cols['o']]+"-"+elements[cols['d']])
-                    if temps_attente_terminal==True:
-                        elements[cols['temps']]=float(elements[cols['temps']])-float(elements[cols['tatt1']])
-                    else:
-                        elements[cols['temps']]=float(elements[cols['temps']])
-                    if elements[cols['ij']] not in links:
-                        pole=(elements[cols['pole']],1)
+                try:
+                    texte=eval(filter)
+                except:
+                    print('Filter syntax error')
+                    print(filter)
+                    break
+                if texte==True:
+                    try:
+                        elements[cols[variable]]=elements[cols[variable]].replace(',','.')
+                    except:
+                        print(elements,cols[variable])
+                    elements[cols['ij']]=elements[cols['origin']]+'-'+elements[cols['destination']]
+                    if (tc_seul==True and float(elements[cols['tveh']])>0) :
+                    #elements.append(elements[cols['o']]+"-"+elements[cols['d']])
+                        if temps_attente_terminal==True:
+                            elements[cols['temps']]=float(elements[cols['temps']])-float(elements[cols['tatt1']])
+                        else:
+                            elements[cols['temps']]=float(elements[cols['temps']])
+                        if elements[cols['ij']] not in links:
+                            pole=(elements[cols['pole']],1)
 
-                        
-                        links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,[float(elements[cols[variable]])]]
-                    else:
-                        hd=elements[cols['heureo']]
-                        if hd not in links[elements[cols['ij']]][7]:
-                                links[elements[cols['ij']]][7].append(hd)
-                        hf=elements[cols['heured']]
-                        if hf not in links[elements[cols['ij']]][8]:
-                                links[elements[cols['ij']]][8].append(hf)
-                        links[elements[cols['ij']]][1]+=float(elements[cols[variable]])
-                        links[elements[cols['ij']]][9]+=float(elements[cols[variable]])**2
-                        links[elements[cols['ij']]][2]+=1
-                        if float(elements[cols[variable]])<float(links[elements[cols['ij']]][3]):
-                            links[elements[cols['ij']]][3]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][5]=elements[cols['pole']]
-                        if float(elements[cols[variable]])>float(links[elements[cols['ij']]][4]):
-                            links[elements[cols['ij']]][4]=float(elements[cols[variable]])
-                            links[elements[cols['ij']]][6]=elements[cols['pole']]
-                            links[elements[cols['ij']]][10].append(float(elements[cols[variable]]))
+                            
+                            links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,[float(elements[cols[variable]])]]
+                        else:
+                            hd=elements[cols['heureo']]
+                            if hd not in links[elements[cols['ij']]][7]:
+                                    links[elements[cols['ij']]][7].append(hd)
+                            hf=elements[cols['heured']]
+                            if hf not in links[elements[cols['ij']]][8]:
+                                    links[elements[cols['ij']]][8].append(hf)
+                            links[elements[cols['ij']]][1]+=float(elements[cols[variable]])
+                            links[elements[cols['ij']]][9]+=float(elements[cols[variable]])**2
+                            links[elements[cols['ij']]][2]+=1
+                            if float(elements[cols[variable]])<float(links[elements[cols['ij']]][3]):
+                                links[elements[cols['ij']]][3]=float(elements[cols[variable]])
+                                links[elements[cols['ij']]][5]=elements[cols['pole']]
+                            if float(elements[cols[variable]])>float(links[elements[cols['ij']]][4]):
+                                links[elements[cols['ij']]][4]=float(elements[cols[variable]])
+                                links[elements[cols['ij']]][6]=elements[cols['pole']]
+                                links[elements[cols['ij']]][10].append(float(elements[cols[variable]]))
                     
         res.write('id;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;median\n')
         for i in links:
@@ -280,11 +290,11 @@ class FichierOD(QgsProcessingAlgorithm):
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 			time based links only: If checked only time based links are analysed
-            Max wait time: filter to select only OD with a lower total waiting time 
-            Max number of boarding: filter to select only OD with a lower total number of boardings
-            MAx individual modes times: filter to select only OD with a lower total individual modes travel times
+            filter: filter expression to select a subset of OD. Available variables are:
+                'jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','nbpop','toll' as numeric 
+                and 'id','origin','destination','pole','texte' as string
             
-            OD indicator file: name of the result file (delimited text with ";" as separator) which containes the following attributes 
+            OD indicator file: name of the result file (delimited text with ";" as separator) which contains the following attributes 
             id: OD id
             avg: average value 
             nb: number of od rows in the matrix file 

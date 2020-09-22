@@ -191,7 +191,7 @@ class FichierTemps(QgsProcessingAlgorithm):
                     elements[cols['ij']]=elements[cols['ij']]+';'+elements[cols['jour']]
                     
                     if temps_attente_terminal==True and 'tatt1' in cols:
-                        elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
+                        elements[cols['temps']]=float(elements[cols['temps']])-float(elements[cols['tatt1']])
                     if tc_seul==False or float(elements[cols['ligne']])>0:
                         
                         if elements[cols['ij']] not in links:
