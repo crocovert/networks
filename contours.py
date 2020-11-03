@@ -206,7 +206,7 @@ class Contours(QgsProcessingAlgorithm):
                 champs2=QgsFields()
                 champs2.append(QgsField("id",QVariant.String,len=50))
                 if polygones==True:
-                    (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.Polygon, raster.crs())        # Compute the number of steps to display within the progress bar and
+                    (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.MultiPolygon, raster.crs())        # Compute the number of steps to display within the progress bar and
                 else:
                     (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.LineString, raster.crs())        # Compute the number of steps to display within the progress bar and
                 sortie=os.path.splitext(dest_id)
@@ -271,11 +271,11 @@ class Contours(QgsProcessingAlgorithm):
                     li=self.polys[ff] 
                     liste1=[QgsGeometry.fromMultiPolylineXY(l1) for l1 in li]
                     for j,i in enumerate(liste1):
-            
-                        texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
-                        rs = c.execute(texte)
-                        conn.commit()
-                        tlignes=NULL
+                        if ff[0]<maxi and not(ff[0]==novalue):
+                            texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
+                            rs = c.execute(texte)
+                            conn.commit()
+                            tlignes=NULL
                 db_filename = rep_sortie+"/"+nom_sortie +".sqlite"
                 feedback.setProgressText(self.tr("Generating isovalue polygons..."))
                 feedback.setProgress(0)
