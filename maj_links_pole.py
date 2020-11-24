@@ -83,8 +83,8 @@ class MajLinksPole(QgsProcessingAlgorithm):
         Here we define the inputs and output of the algorithm, along
         with some other properties.
         """
-        e=iface.mapCanvas().extent()
-        etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
+        #e=iface.mapCanvas().extent()
+        #etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
         
 
         self.addParameter(
@@ -104,7 +104,7 @@ class MajLinksPole(QgsProcessingAlgorithm):
             QgsProcessingParameterExtent(
                 self.WINDOW,
                 self.tr('Extent'),
-                etendue
+                #etendue
             )
         )
         self.addParameter(
@@ -215,7 +215,7 @@ class MajLinksPole(QgsProcessingAlgorithm):
                     links[str(ij)]=[".","."]
 
                 links[str(ij)]=[str(t),str(u)]
-
+        fichier.close()
 
         n=reseau.featureCount()
         feedback.setProgressText(self.tr("updating pole..."))

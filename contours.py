@@ -230,8 +230,9 @@ class Contours(QgsProcessingAlgorithm):
                 largeur=float(p2[0])-float(p1[0])
                 nx=int(layer.width())
                 ny=int(layer.height())
-                pixel_size_x=round(largeur/nx,2)
-                pixel_size_y=round(hauteur/ny,2)
+                pixel_size_x=float(largeur/nx)
+                pixel_size_y=float(hauteur/ny)
+
                 feedback.setProgressText(self.tr('Grid interpolation...'))
                 for p in range(nx-1):
                     feedback.setProgress(50*p/nx)
@@ -243,7 +244,9 @@ class Contours(QgsProcessingAlgorithm):
 
                 conn = db.connect(':memory:')
                 conn.enable_load_extension(True)
-                conn.execute("select load_extension('mod_spatialite')")
+                conn.execute("select load_extension('mod_spatialite');")
+                conn.execute("SELECT InitSpatialMetaData();")
+
                 c = conn.cursor()
                 texte='drop table if exists "'+nom_sortie+'_polys"'
                 rs = c.execute(texte)
@@ -264,19 +267,21 @@ class Contours(QgsProcessingAlgorithm):
                 rs = c.execute(texte)
                 conn.commit()
 
-
-
+                toto=open('g:/poubelle/toto.txt','w')
+                proj=str(layer.crs().postgisSrid())
                 for k,ff in enumerate(self.polys):
                     feedback.setProgress(51+(k*50/len(self.polys)))
                     li=self.polys[ff] 
+                    toto.write(str(li)+'\n')
                     liste1=[QgsGeometry.fromMultiPolylineXY(l1) for l1 in li]
                     for j,i in enumerate(liste1):
                         if ff[0]<maxi and not(ff[0]==novalue):
-                            texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
+                            #texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
+                            texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\','+proj+'))'
                             rs = c.execute(texte)
                             conn.commit()
                             tlignes=NULL
-                db_filename = rep_sortie+"/"+nom_sortie +".sqlite"
+                toto.close()
                 feedback.setProgressText(self.tr("Generating isovalue polygons..."))
                 feedback.setProgress(0)
 

@@ -84,8 +84,8 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         Here we define the inputs and output of the algorithm, along
         with some other properties.
         """
-        e=iface.mapCanvas().extent()
-        etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
+        #e=iface.mapCanvas().extent()
+        #etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
         
 
         self.addParameter(
@@ -105,7 +105,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             QgsProcessingParameterExtent(
                 self.WINDOW,
                 self.tr('Extent'),
-                etendue
+                #etendue
             )
         )
             
@@ -219,7 +219,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                     tatt1=elements[colonnes["tatt1"]].replace(",",".")
                     if float(t)-float(tatt1)<links[str(ij)][0]-links[str(ij)][1]:
                         links[str(ij)]=(float(t),float(tatt1),float(u))
-
+        fichier.close()
 
         n=reseau.featureCount()
         feedback.setProgressText(self.tr("updating ti and tj..."))

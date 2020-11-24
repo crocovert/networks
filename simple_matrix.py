@@ -45,7 +45,8 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExtent,
                        QgsProcessingParameterField,
                        QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination)
+                       QgsProcessingParameterFileDestination,
+                       QgsSpatialIndex)
 import codecs
 
 class SimpleMatrix(QgsProcessingAlgorithm):
@@ -193,9 +194,7 @@ class SimpleMatrix(QgsProcessingAlgorithm):
             sens='a'
 
 
-        index=QgsSpatialIndex()
-        for i in nodes.getFeatures():
-            index.insertFeature(i)
+        index=QgsSpatialIndex(nodes.getFeatures())
         dep=pt_depart
         arr=pt_arrivee
         inode=index.nearestNeighbor(dep,1)

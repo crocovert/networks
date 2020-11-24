@@ -230,6 +230,7 @@ class Majtitj(QgsProcessingAlgorithm):
                     tatt1=elements[colonnes["tatt1"]].replace(",",".")
                     if float(t)-float(tatt1)<links[str(ij)][0]-links[str(ij)][1]:
                         links[str(ij)]=(float(t),float(tatt1))
+        fichier.close()
 
 
         n=reseau.featureCount()

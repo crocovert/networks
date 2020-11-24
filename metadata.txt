@@ -24,7 +24,8 @@ repository=https://github.com/crocovert/networks/
 # Recommended items:
 
 # Uncomment the following line and add your changelog:
-changelog=2.5.2 fix isovalue polygons in postgis and remove useless isovalue polygons to increase speed
+changelog=2.5.3 Fix iso value polygon bug (proj issue) & otherminor bugs
+		2.5.2 fix isovalue polygons in postgis and remove useless isovalue polygons to increase speed
 		2.5.1 add expression filter for indicators by od 
 		2.5.0 add concatenate network files algorithm and introduce Datetime parameters (need Qgis 3.14 and +)
 		2.4.6 fix some bugs
@@ -34,27 +35,6 @@ changelog=2.5.2 fix isovalue polygons in postgis and remove useless isovalue pol
 		2.4.2 bug fixes
 		2.4.1 fix some bugs
 		2.4.0 add intermodality and origin node update for individual values polygon generation (draw service areas)
-		2.3.21 add individual values polygon generation & bug fixes
-		2.3.20 add matrix from table script
-		2.3.19 enhance od indicator file and bug fix
-		2.3.17 add auto_connectors tool
-		2.3.11 add a script to upadte easily links times
-		2.3.10 add a script to generate arcs layer for individual modes to faciltate multimodal routing visualizations
-		2.3.8 Add an algorithm for select link analysis
-		2.3.7 Add algorithm to display shortest paths
-		2.3.4 add a script for inversing the geometries of the selection (modify the geometries in place)
-		2.3.3 add a spatial aggregation algorithm taking into acount the proportion of areas concerned
-		2.3.2 connect points to lines modified to be used in models. Fix bugs
-		2.3.1 fix some bugs and enhance speed of updating field
-		2.3.0 add variable buffer width with nice cuts algorithm and fix some bugs
-		2.2.4 Fix some bugs
-		2.2.1 Add scripts for indicatos by od and link. Fix some bugs. Need to download Muslic.exe to update the routing algorithm
-		2.2.0 Add scripts for the generation of flow maps (results of assignment). Allow to download Muslic binary to compute multimodal routing
-		2.1.1 Add matrix wirting algorithms, non connected nodes algorithm and dataset for testing
-		2.1.0 Multimodal routing and accessibility 
-		2.0.3  build graph allow number series or geographic string for node ids
-		2.0.2 add algorithm to connect a point layer to a line layer
-		2.0.0 upgrade to Qgis 3.+ as a processing provider
 
 # Tags are comma separated with spaces allowed
 tags=python, transport, accessibility, multimodal, network, isovalue, routing, GTFS, interpolation
