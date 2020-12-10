@@ -49,7 +49,8 @@ from qgis.core import (QgsProcessing,
                        QgsGeometry,
                        QgsFeature,
                        QgsCoordinateTransform,
-                       QgsCoordinateReferenceSystem
+                       QgsCoordinateReferenceSystem,
+                       QgsUnitTypes
                        )
 import codecs
 import numpy
@@ -98,8 +99,8 @@ class Interpole(QgsProcessingAlgorithm):
         Here we define the inputs and output of the algorithm, along
         with some other properties.
         """
-        e=iface.mapCanvas().extent()
-        etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
+        #e=iface.mapCanvas().extent()
+        #etendue=str(tuple([e.xMinimum(),e.xMaximum(), e.yMinimum(), e.yMaximum()]))[1:-1]
 
         self.addParameter(
             QgsProcessingParameterVectorLayer(
@@ -112,7 +113,7 @@ class Interpole(QgsProcessingAlgorithm):
             QgsProcessingParameterExtent(
                 self.FENETRE,
                 self.tr('Window'),
-                etendue
+                #etendue
                 
             )
         )
@@ -288,6 +289,10 @@ class Interpole(QgsProcessingAlgorithm):
         formule_valeurs_individuelles=self.createExpressionContext(parameters,context)
         valeurs_individuelles.prepare(formule_valeurs_individuelles)
         
+        crsSrc = QgsCoordinateReferenceSystem('EPSG:4326') 
+        dist_unit=QgsUnitTypes.fromUnitToUnitFactor(crsSrc.mapUnits(),QgsUnitTypes.DistanceMeters)
+        rayon=rayon/dist_unit
+        
         grille=numpy.array([[-9999.0]*nb_pixels_y]*nb_pixels_x)
         grille_distance=numpy.array([[1e38]*nb_pixels_y]*nb_pixels_x)
         grille_ind=numpy.array([['0']*nb_pixels_y]*nb_pixels_x,dtype='<U25')
@@ -405,7 +410,7 @@ class Interpole(QgsProcessingAlgorithm):
                                                         if not tj==None:
                                                             
                                                             if not ti==None:
-                                                                t=tj*(l2/l1)+ti*(1-(l2/l1))+math.sqrt(d)*speed
+                                                                t=tj*(l2/l1)+ti*(1-(l2/l1))+math.sqrt(d)*speed/dist_unit
                                                                 l3=QgsGeometry.fromPolylineXY([pt1.asPoint(),QgsPointXY(pt2)])
                                                         result_test=False
                                                         if l3!=None:

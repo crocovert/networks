@@ -265,10 +265,10 @@ class Majtitj(QgsProcessingAlgorithm):
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
 
         feedback.setProgress((k+1)*100/n)            
-        reseau.commitChanges()
         reseau.endEditCommand()
+        reseau.commitChanges()
         feedback.setProgress(100)     
-        return {self.RESEAU: self.RESEAU}
+        return {self.RESEAU: reseau.sourceName()}
 
 
     def name(self):

@@ -219,7 +219,7 @@ class SimpleMatrix(QgsProcessingAlgorithm):
             sortie=open(fichier_matrice,"w")
         sortie.write(";".join([unicode(d),unicode(a),unicode(nb_passagers),unicode(jour),unicode(h),sens])+"\n")
         sortie.close()
-        return {self.NODES:self.OUTPUT}
+        return {self.OUTPUT:fichier_matrice}
 
 
     def name(self):

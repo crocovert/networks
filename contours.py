@@ -316,7 +316,7 @@ class Contours(QgsProcessingAlgorithm):
                 for r0,r in enumerate(resultat2):
                     f1=QgsFeature(champs2)
                     geom=QgsGeometry.fromWkt(r[1])
-                    f1.setGeometry(geom)
+                    f1.setGeometry(geom.forceRHR())
                     f1.setAttributes([r[0]])
                     resultat.addFeature(f1)
                     feedback.setProgress(80+(r0*20/len(resultat2)))

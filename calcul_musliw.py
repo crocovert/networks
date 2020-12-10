@@ -151,7 +151,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
         
         if download==True:
             feedback.setProgressText(self.tr("Downloading Muslic binary"))
-            processing.run("native:filedownloader", {'URL':'https://github.com/crocovert/muslic/raw/master/Muslic/bin/Release/Muslic.exe','OUTPUT':os.path.dirname(__file__)+"/Muslic.exe"})
+            processing.run("native:filedownloader", {'URL':'https://github.com/crocovert/muslic/raw/master/Muslic/bin/x64/Release/Muslic.exe','OUTPUT':os.path.dirname(__file__)+"/Muslic.exe"})
             feedback.setProgressText(self.tr("Muslic downloaded succesfully"))
         
         
