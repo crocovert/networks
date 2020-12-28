@@ -122,7 +122,13 @@ class NetworksProvider(QgsProcessingProvider):
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
-        locale = QSettings().value('locale/userLocale')[0:2]
+        locale = QSettings().value('locale/userLocale')
+        
+        if locale==None:
+            locale='en'
+        else: 
+            locale=locale[-2:]
+        
         locale_path = os.path.join(
             self.plugin_dir,
             'i18n',

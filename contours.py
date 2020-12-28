@@ -267,12 +267,12 @@ class Contours(QgsProcessingAlgorithm):
                 rs = c.execute(texte)
                 conn.commit()
 
-                toto=open('g:/poubelle/toto.txt','w')
+
                 proj=str(layer.crs().postgisSrid())
                 for k,ff in enumerate(self.polys):
                     feedback.setProgress(51+(k*50/len(self.polys)))
                     li=self.polys[ff] 
-                    toto.write(str(li)+'\n')
+
                     liste1=[QgsGeometry.fromMultiPolylineXY(l1) for l1 in li]
                     for j,i in enumerate(liste1):
                         if ff[0]<maxi and not(ff[0]==novalue):
@@ -281,7 +281,7 @@ class Contours(QgsProcessingAlgorithm):
                             rs = c.execute(texte)
                             conn.commit()
                             tlignes=NULL
-                toto.close()
+
                 feedback.setProgressText(self.tr("Generating isovalue polygons..."))
                 feedback.setProgress(0)
 
