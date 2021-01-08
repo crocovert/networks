@@ -289,7 +289,7 @@ class Interpole(QgsProcessingAlgorithm):
         formule_valeurs_individuelles=self.createExpressionContext(parameters,context)
         valeurs_individuelles.prepare(formule_valeurs_individuelles)
         
-        crsSrc = QgsCoordinateReferenceSystem('EPSG:4326') 
+        crsSrc = QgsCoordinateReferenceSystem('EPSG:'+str(reseau.crs().postgisSrid()))
         dist_unit=QgsUnitTypes.fromUnitToUnitFactor(crsSrc.mapUnits(),QgsUnitTypes.DistanceMeters)
         rayon=rayon/dist_unit
         
