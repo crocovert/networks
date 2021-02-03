@@ -115,9 +115,9 @@ class AjoutChamp(QgsProcessingAlgorithm):
                 self.TAILLE,
                 self.tr('Size'),
                 QgsProcessingParameterNumber.Integer,
-                defaultValue=255,
+                defaultValue=20,
                 minValue=1,
-                maxValue=20
+                maxValue=255
                 
             )
         )
@@ -175,6 +175,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
         precision=self.parameterAsInt(parameters,self.PRECISION,context)
         filtre=QgsExpression(self.parameterAsExpression(parameters,self.FILTRE,context))
         formule=QgsExpression(self.parameterAsExpression(parameters,self.FORMULE,context))
+
         # Compute the number of steps to display within the progress bar and
         # get features from source
         ##a=fenetre.split(",")
@@ -196,8 +197,10 @@ class AjoutChamp(QgsProcessingAlgorithm):
             else:
                 expr= filtre
                 request = QgsFeatureRequest(expr)
-
+            
+            
             formuleContexte=self.createExpressionContext(parameters,context)
+            formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
             formule.prepare(formuleContexte)
 
 
