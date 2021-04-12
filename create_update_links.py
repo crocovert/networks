@@ -53,7 +53,7 @@ from qgis.core import (QgsProcessing,
                        )
 import codecs
 
-class MajLinksTimes(QgsProcessingAlgorithm):
+class CreateUpdateLinks(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -73,11 +73,9 @@ class MajLinksTimes(QgsProcessingAlgorithm):
 
     RESEAU = 'RESEAU'
     FICHIER_TEMPS = 'FICHIER_TEMPS'
-    DEPART='DEPART'
-    TI='TI'
-    TJ='TJ'
     TEMPS_TERMINAL='TEMPS_TERMINAL'
     WINDOW= 'WINDOW'
+    OUTPUT='OUTPUT'
 
     def initAlgorithm(self, config):
         """
@@ -109,24 +107,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
             )
         )
             
-        self.addParameter(
-            QgsProcessingParameterExpression(
-                self.TI,
-                self.tr('i-node time'),
-                parentLayerParameterName=self.RESEAU,
-                optional=False,
-                defaultValue='ti'
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterExpression(
-                self.TJ,
-                self.tr('j-node time'),
-                parentLayerParameterName=self.RESEAU,
-                optional=False,
-                defaultValue='tj'            
-                )
-        )
+
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.TEMPS_TERMINAL,
@@ -134,6 +115,17 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                 False
             )
         )
+        
+        
+        self.addParameter(
+            QgsProcessingParameterFeatureSink(
+                self.OUTPUT,
+                self.tr('Result network'),
+                QgsProcessing.TypeVectorLine
+                
+            )
+        )
+        
 
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
@@ -150,47 +142,35 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
         fichier_temps=self.parameterAsFile(parameters,self.FICHIER_TEMPS,context)
-        depart=self.parameterAsEnum(parameters,self.DEPART,context)
-        champ_ti=self.parameterAsExpression(parameters,self.TI,context).strip("'").strip("\"")
-        champ_tj=self.parameterAsExpression(parameters,self.TJ,context).strip("'").strip("\"")
         temps_terminal = self.parameterAsBool(parameters, self.TEMPS_TERMINAL, context)
         fenetre=self.parameterAsExtent(parameters,self.WINDOW, context)
         
-        if depart==0:
-            start=True
-        else:
-            start=False
+        champs=reseau.fields()
+        noms_champs=[]
+        #lecture du nom des champs
+        for f in champs:
+            noms_champs.append(f.name())
+
+        #ajout des champs ti et tj s'ils ne font pas partie de la liste de champs
+        champs2=reseau.fields()
+        if u"ti" not in noms_champs:
+            champs2.append(QgsField("ti",QVariant.Double))
+        if u"tj" not in noms_champs:
+            champs2.append(QgsField("tj",QVariant.Double))
+        if  u"ij" not in noms_champs:
+            champ2.append(QgsField("ij",QVariant.String))
+            
+        #initialisation de la table sortie
+        (resultat,dest_id) = self.parameterAsSink(parameters, self.OUTPUT,context,champs2, QgsWkbTypes.MultiLineString, reseau.crs())
+        
 
         fichier=codecs.open(fichier_temps,"r","utf-8")
-        champs=reseau.fields()
-        start=depart
-        noms_champs=[]
-        
+
         request=(QgsFeatureRequest().setFilterRect(fenetre))
 
 
-        #lecture du noms des champs
-        for f in champs:
-            noms_champs.append(f.name())
-        #ajout si necessaire champ ti tj
-        reseau.startEditing()
-        reseau.beginEditCommand(self.tr("updating ti tj"))
-        if  champ_ti not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_ti,QVariant.Double)])
-          
-        if  champ_tj not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField(champ_tj,QVariant.Double)])
 
-        if  u"ij" not in noms_champs:
-            reseau.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
             #reseau.addAttribute(QgsField("ij",QVariant.String))
-            for f in reseau.getFeatures(request):
-                num=f.id()
-                lab_ij=f['i']+'-'+f['j']
-                reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()['ij'],lab_ij)
-
-
-        reseau.updateFields()
 
 
 
@@ -223,15 +203,19 @@ class MajLinksTimes(QgsProcessingAlgorithm):
 
         n=reseau.featureCount()
         feedback.setProgressText(self.tr("updating ti and tj..."))
-        ida=reseau.fields().indexFromName(champ_ti)
-        idb=reseau.fields().indexFromName(champ_tj)
+
         valid={}
 
         for k,f in enumerate(reseau.getFeatures(request)):
             feedback.setProgress((k+1)*100/n)
+            res=QgsFeature(champs2)
             num=f.id()
+            for ch in noms_champs:
+                res[ch]=f[ch]
+            res.setGeometry(f.geometry())
             #temps=float(f["temps"])
-            ij=f["ij"]
+            ij=f["i"]+'-'+f["j"]
+            res['ij']=ij
             if ij in links:
                 ti=links[f["ij"]][0]-links[f["ij"]][1]
                 tj=links[f["ij"]][2]-links[f["ij"]][1]
@@ -241,21 +225,26 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
                 else:"""
-                valid={ida : tj, idb : ti}
-                reseau.changeAttributeValues(num,valid)
+                res['tj']=ti
+                res['ti']=tj
+                #valid={ida : tj, idb : ti}
+                #reseau.changeAttributeValues(num,valid)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
-                valid={ida : ti, idb : ti}
-                reseau.changeAttributeValues(num,valid)
+                res['tj']=ti
+                res['ti']=ti
+                #valid={ida : ti, idb : ti}
+                #reseau.changeAttributeValues(num,valid)
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
+            resultat.addFeature(res)
 
-        feedback.setProgress((k+1)*100/n)            
-        reseau.endEditCommand()
-        reseau.commitChanges()
+            feedback.setProgress((k+1)*100/n)            
+
+
 
         feedback.setProgress(100)     
         return {self.RESEAU: reseau.sourceName()}
@@ -269,14 +258,14 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'update_links_times'
+        return 'create_update_links'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr("Update links times")
+        return self.tr("Create updated links")
 
     def group(self):
         """
@@ -296,20 +285,19 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         return 'Network'
 
     def tr(self, string):
-        return QCoreApplication.translate('MajLinksTimes', string)
+        return QCoreApplication.translate('CreateUpdateLinks', string)
         
     def shortHelpString(self):
         return self.tr("""
-        Read the travel times file ".._temps.txt" computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file ".._temps.txt" computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 		        
         Parameters:
             layer : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
-            extent: window to select the subset of links (only those inside the window will be updated)
+            extent: window that defines the updated links  (only those inside the window)
             departure/arrival: departure if "d" in Musliw matrix, arrival if "a"
-            i_node time: travel time at i-node field
-            j-node time; travel time at j-node field
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
+            result network: name of the network layer subset with updated travel times (ti & tj)
         """)
     def createInstance(self):
-        return MajLinksTimes()
+        return CreateUpdateLinks()

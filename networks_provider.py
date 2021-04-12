@@ -71,6 +71,8 @@ from .fichier_noeud_jour import NodesFileDay
 from .autoconnectors import AutoConnecteurs
 from .matrix_table import MatrixTable
 from .maj_links_pole import MajLinksPole
+from .create_update_links import CreateUpdateLinks
+
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -118,7 +120,8 @@ class NetworksProvider(QgsProcessingProvider):
                         NodesFileDay(),
                         AutoConnecteurs(),
                         MatrixTable(),
-                        MajLinksPole()]
+                        MajLinksPole(),
+                        CreateUpdateLinks()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -189,6 +192,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(AutoConnecteurs())
         self.addAlgorithm(MatrixTable())
         self.addAlgorithm(MajLinksPole())
+        self.addAlgorithm(CreateUpdateLinks())
         
 
 

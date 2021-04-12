@@ -33,17 +33,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="208"/>
+        <location filename="ajout_champ.py" line="211"/>
         <source>updating field...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="210"/>
+        <location filename="ajout_champ.py" line="213"/>
         <source>updating field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="270"/>
+        <location filename="ajout_champ.py" line="273"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -65,12 +65,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="239"/>
+        <location filename="ajout_champ.py" line="242"/>
         <source>Update field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="246"/>
+        <location filename="ajout_champ.py" line="249"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -231,17 +231,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="170"/>
+        <location filename="calcul_musliw.py" line="173"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="194"/>
+        <location filename="calcul_musliw.py" line="198"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="201"/>
+        <location filename="calcul_musliw.py" line="205"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -261,7 +261,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="217"/>
+        <location filename="calcul_musliw.py" line="221"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 <byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -556,27 +556,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="341"/>
+        <location filename="contours.py" line="346"/>
         <source>Isovalue polygons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="235"/>
+        <location filename="contours.py" line="236"/>
         <source>Grid interpolation...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="280"/>
+        <location filename="contours.py" line="285"/>
         <source>Generating isovalue polygons...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="348"/>
+        <location filename="contours.py" line="353"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="732"/>
+        <location filename="contours.py" line="737"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
 <byte value="x9"/><byte value="x9"/>        
@@ -596,6 +596,59 @@
     <message>
         <location filename="contours.py" line="150"/>
         <source>Individual Values</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CreateUpdateLinks</name>
+    <message>
+        <location filename="create_update_links.py" line="280"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="96"/>
+        <source>Travel times file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="102"/>
+        <source>Extent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="111"/>
+        <source>Initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="120"/>
+        <source>Result network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="210"/>
+        <source>updating ti and tj...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="273"/>
+        <source>Create updated links</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="create_update_links.py" line="296"/>
+        <source>
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            layer&#xa0;: network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
+            extent: window that defines the updated links  (only those inside the window)
+            departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
+            initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
+            result network: name of the network layer subset with updated travel times (ti &amp; tj)
+        </source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1067,97 +1120,97 @@
 <context>
     <name>Interpole</name>
     <message>
-        <location filename="interpole.py" line="104"/>
+        <location filename="interpole.py" line="105"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="111"/>
+        <location filename="interpole.py" line="112"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="119"/>
+        <location filename="interpole.py" line="120"/>
         <source>i-cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="127"/>
+        <location filename="interpole.py" line="128"/>
         <source>j-cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="136"/>
+        <location filename="interpole.py" line="137"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="145"/>
+        <location filename="interpole.py" line="146"/>
         <source>Spread</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="154"/>
+        <location filename="interpole.py" line="155"/>
         <source>Impassibility</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="162"/>
+        <location filename="interpole.py" line="163"/>
         <source>Pixels nb x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="170"/>
+        <location filename="interpole.py" line="171"/>
         <source>Pixels nb y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="178"/>
+        <location filename="interpole.py" line="179"/>
         <source>Pixel size x</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="186"/>
+        <location filename="interpole.py" line="187"/>
         <source>Pixel size y</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="194"/>
+        <location filename="interpole.py" line="195"/>
         <source>Decimals</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="202"/>
+        <location filename="interpole.py" line="203"/>
         <source>Radius(m)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="210"/>
+        <location filename="interpole.py" line="211"/>
         <source>Spread speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="218"/>
+        <location filename="interpole.py" line="219"/>
         <source>Impassable?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="234"/>
+        <location filename="interpole.py" line="235"/>
         <source>Raster file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="470"/>
+        <location filename="interpole.py" line="477"/>
         <source>Linear interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="477"/>
+        <location filename="interpole.py" line="484"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="493"/>
+        <location filename="interpole.py" line="500"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -1187,7 +1240,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="225"/>
+        <location filename="interpole.py" line="226"/>
         <source>Individual values</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1391,7 +1444,7 @@
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="285"/>
+        <location filename="maj_links_times.py" line="286"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1426,24 +1479,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="278"/>
+        <location filename="maj_links_times.py" line="279"/>
         <source>Update links times</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="maj_links_times.py" line="301"/>
-        <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
-<byte value="x9"/><byte value="x9"/>        
-        Parameters:
-            layer&#xa0;: network layer (linear objects)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
-            fen&#xea;tre: fen&#xea;tre d&#xe9;terminants les arcs &#xe0; mettre &#xe0; jour (seuls ceux &#xe0; l&apos;int&#xe9;rieur seront mis &#xe0; jour)
-            departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
-            i_node time: travel time at i-node field
-            j-node time; travel time at j-node field
-            initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
-        </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1451,11 +1488,27 @@
         <source>Extent</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="maj_links_times.py" line="302"/>
+        <source>
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
+<byte value="x9"/><byte value="x9"/>        
+        Parameters:
+            layer&#xa0;: network layer (linear objects)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>travel times file: travel times text file ..._temps.txt generated by Musliw
+            extent: window to select the subset of links (only those inside the window will be updated)
+            departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
+            i_node time: travel time at i-node field
+            j-node time; travel time at j-node field
+            initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="295"/>
+        <location filename="maj_titj.py" line="296"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1510,17 +1563,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="236"/>
+        <location filename="maj_titj.py" line="237"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="288"/>
+        <location filename="maj_titj.py" line="289"/>
         <source>Update ti tj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="311"/>
+        <location filename="maj_titj.py" line="312"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -2031,7 +2084,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="207"/>
+        <location filename="networks_provider.py" line="217"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2308,72 +2361,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="145"/>
+        <location filename="reseau_tc.py" line="157"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="152"/>
+        <location filename="reseau_tc.py" line="164"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="159"/>
+        <location filename="reseau_tc.py" line="171"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="589"/>
+        <location filename="reseau_tc.py" line="604"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="554"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="556"/>
+        <location filename="reseau_tc.py" line="571"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="558"/>
+        <location filename="reseau_tc.py" line="573"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="560"/>
+        <location filename="reseau_tc.py" line="575"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="562"/>
+        <location filename="reseau_tc.py" line="577"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="564"/>
+        <location filename="reseau_tc.py" line="579"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="566"/>
+        <location filename="reseau_tc.py" line="581"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="568"/>
+        <location filename="reseau_tc.py" line="583"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="596"/>
+        <location filename="reseau_tc.py" line="611"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="613"/>
+        <location filename="reseau_tc.py" line="628"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2386,7 +2439,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="166"/>
+        <location filename="reseau_tc.py" line="178"/>
         <source>Line based network?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2611,22 +2664,22 @@
 <context>
     <name>SimpleMatrix</name>
     <message>
-        <location filename="simple_matrix.py" line="86"/>
+        <location filename="simple_matrix.py" line="87"/>
         <source>Nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="94"/>
+        <location filename="simple_matrix.py" line="95"/>
         <source>Node ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="101"/>
+        <location filename="simple_matrix.py" line="102"/>
         <source>Trip start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="107"/>
+        <location filename="simple_matrix.py" line="108"/>
         <source>Trip end</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2681,17 +2734,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="243"/>
+        <location filename="simple_matrix.py" line="240"/>
         <source>Musliw simple matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="250"/>
+        <location filename="simple_matrix.py" line="247"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="266"/>
+        <location filename="simple_matrix.py" line="263"/>
         <source>
         Generates a Musliw matrix from clicking on 2 nodes to define an origin(1st point)-destination(2nd point)
 <byte value="x9"/><byte value="x9"/>
