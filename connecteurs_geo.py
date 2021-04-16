@@ -83,6 +83,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
     NOMBRE='NOMBRE'
     CONNECTEURS='CONNECTEURS'
     MAX_NB='MAX_NB'
+    LONG_0='LONG_0'
 
     def initAlgorithm(self, config):
         """
@@ -179,6 +180,16 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.LONG_0,
+                self.tr('No connector length'),
+                QgsProcessingParameterBoolean,
+                True
+
+                
+            )
+        )
+        self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.CONNECTEURS,
                 self.tr('Connectors file'),
@@ -211,6 +222,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         rayon=self.parameterAsDouble(parameters,self.RAYON,context)
         vitesse=self.parameterAsDouble(parameters,self.VITESSE,context)
         nb_max=self.parameterAsInt(parameters,self.MAX_NB,context)
+        l0=self.parameterAsBool(parameters,self.LONG_0,context)
 
         # Compute the number of steps to display within the progress bar and
         # get features from source
@@ -251,7 +263,10 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
 
                                     fline=QgsFeature()
                                     fline.setGeometry(gline)
-                                    ll=gline.length()
+                                    if l0==0:
+                                        ll=0
+                                    else:
+                                        ll=gline.length()
                                     moda=unicode(mode_i)+unicode(mode_j)
                                     if vitesse<=0:
                                         fline.setAttributes([id_stop,id_node, ll/1000,0.0,moda])

@@ -317,37 +317,37 @@ class MusliwParam(QgsProcessingAlgorithm):
 
         
         fich_param=io.open(sortie,"w",encoding="utf-8")
-        fich_param.write('0\n')
-        fich_param.write(unicode(demi_tours).title()+"\n")
-        fich_param.write(unicode(nb_classes)+"\n")
-        fich_param.write(unicode(nb_jours)+"\n")
-        fich_param.write("\n")
-        fich_param.write("\n")
-        fich_param.write("\n")
-        fich_param.write("\n")
-        fich_param.write(unicode(echelle)+"\n")
-        fich_param.write(unicode(pu)+"\n")
-        fich_param.write(unicode(sortie_chemins).title()+"\n")
-        fich_param.write(unicode(sortie_services).title()+"\n")
-        fich_param.write(unicode(temps_detailles)+"\n")
-        fich_param.write(unicode(sortie_transferts).title()+"\n")
-        fich_param.write(cboa+"\n")
-        fich_param.write(cmap+"\n")
-        fich_param.write(ctmap+"\n")
-        fich_param.write(ctc+"\n")
-        fich_param.write(catt+"\n")
-        fich_param.write(tboa_min+"\n")
-        fich_param.write(tboa_max+"\n")
-        fich_param.write(unicode(tmap_max)+"\n")
-        fich_param.write(toll+"\n")
-        fich_param.write(filtre+"\n")
-        fich_param.write(unicode(cout_max)+"\n")
-        fich_param.write(unicode(sortie_noeuds).title()+"\n")
-        fich_param.write("False"+"\n")
+        fich_param.write('0'+self.tr(';algorithm\n'))
+        fich_param.write(unicode(demi_tours).title()+self.tr(";Prohibited U-turns\n"))
+        fich_param.write(unicode(nb_classes)+self.tr(";max buckets\n"))
+        fich_param.write(unicode(nb_jours)+self.tr(";number of days\n"))
+        fich_param.write(self.tr(";matrix file\n"))
+        fich_param.write(self.tr(";turns and transfers files\n"))
+        fich_param.write(self.tr(";network file\n"))
+        fich_param.write(self.tr(";generic output file\n"))
+        fich_param.write(unicode(echelle)+self.tr(";algorithm parameter\n"))
+        fich_param.write(unicode(pu)+self.tr(";algorithm power\n"))
+        fich_param.write(unicode(sortie_chemins).title()+self.tr(";output paths\n"))
+        fich_param.write(unicode(sortie_services).title()+self.tr(";output services\n"))
+        fich_param.write(unicode(temps_detailles)+self.tr(";output travel times\n"))
+        fich_param.write(unicode(sortie_transferts).title()+self.tr(";output turns and transfers\n"))
+        fich_param.write(cboa+self.tr(";boarding weight\n"))
+        fich_param.write(cmap+self.tr(";individual mode weight\n"))
+        fich_param.write(ctmap+self.tr(";individual travel time factor\n"))
+        fich_param.write(ctc+self.tr(";in-vehicle time weight\n"))
+        fich_param.write(catt+self.tr(";wait time weight\n"))
+        fich_param.write(tboa_min+self.tr(";min transfer time\n"))
+        fich_param.write(tboa_max+self.tr(";max transfer time\n"))
+        fich_param.write(unicode(tmap_max)+self.tr(";max individual travel time\n"))
+        fich_param.write(toll+self.tr(";toll weight\n"))
+        fich_param.write(filtre+self.tr(";output types filter\n"))
+        fich_param.write(unicode(cout_max)+self.tr(";max travel cost\n"))
+        fich_param.write(unicode(sortie_noeuds).title()+self.tr(";output nodes\n"))
+        fich_param.write("False"+self.tr(";output isolated links\n"))
         fich_param.close()
         
 
-        return {'parameters': 'ok'}
+        return {'parameters': sortie}
 
 
     def name(self):
@@ -386,7 +386,7 @@ class MusliwParam(QgsProcessingAlgorithm):
 
     def tr(self, string):
         return QCoreApplication.translate('MusliwParam', string)
-	
+
     def shortHelpString(self):
         return self.tr("""
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
@@ -398,7 +398,7 @@ class MusliwParam(QgsProcessingAlgorithm):
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
             Individual mode speed factor: homothetic factor that apply to the individual travel times
-			Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
+            Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
             Maximum transfer delay: maximum waiting time for transfer (ex: 60 means that you will not be able to take atrain that leaves more that 60 minutes after you arrive)
             Extra day duration: By default Musliw takes only into account timetable of the day selected in the matrix. If you can extend with the timetable of the day after (if departure) or the day before (arrival) your must enter 1
             Max. indiviudal time budegt: The algorithm path will not explore shortest paths that have a individual time budget greater than this value

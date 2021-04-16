@@ -191,7 +191,6 @@ class FichierOD(QgsProcessingAlgorithm):
 
                 cols['ij']=cols['id']
 
-
             else:
                 try:
                     texte=eval(filter)
@@ -200,21 +199,23 @@ class FichierOD(QgsProcessingAlgorithm):
                     print(filter)
                     break
                 if texte==True:
+
                     try:
                         elements[cols[variable]]=elements[cols[variable]].replace(',','.')
                     except:
                         print(elements,cols[variable])
-                    elements[cols['ij']]=elements[cols['origin']]+'-'+elements[cols['destination']]
-                    if (tc_seul==True and float(elements[cols['tveh']])>0) :
+                    elements[cols['ij']]=elements[cols['id']]
+                    if (tc_seul==True and float(elements[cols['tveh']])>0) or (tc_seul==False) :
                     #elements.append(elements[cols['o']]+"-"+elements[cols['d']])
                         if temps_attente_terminal==True:
                             elements[cols['temps']]=float(elements[cols['temps']])-float(elements[cols['tatt1']])
                         else:
                             elements[cols['temps']]=float(elements[cols['temps']])
+
                         if elements[cols['ij']] not in links:
                             pole=(elements[cols['pole']],1)
 
-                            
+                                
                             links[elements[cols['ij']]]=[elements[cols['ij']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['pole']],elements[cols['pole']],[elements[cols['heureo']]],[elements[cols['heured']]],float(elements[cols[variable]])**2,[float(elements[cols[variable]])]]
                         else:
                             hd=elements[cols['heureo']]

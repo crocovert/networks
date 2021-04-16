@@ -619,87 +619,87 @@
 <context>
     <name>ConnecteursGeo</name>
     <message>
-        <location filename="connecteurs_geo.py" line="93"/>
+        <location filename="connecteurs_geo.py" line="94"/>
         <source>Stops</source>
         <translation>Arrêts</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="100"/>
+        <location filename="connecteurs_geo.py" line="101"/>
         <source>Stop_id</source>
         <translation>Stop_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="108"/>
+        <location filename="connecteurs_geo.py" line="109"/>
         <source>i-text</source>
         <translation>Texte noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="115"/>
+        <location filename="connecteurs_geo.py" line="116"/>
         <source>i-mode</source>
         <translation>mode noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="122"/>
+        <location filename="connecteurs_geo.py" line="123"/>
         <source>Nodes</source>
         <translation>Noeuds</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="129"/>
+        <location filename="connecteurs_geo.py" line="130"/>
         <source>node_id</source>
         <translation>node_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="137"/>
+        <location filename="connecteurs_geo.py" line="138"/>
         <source>j-text</source>
         <translation>Texte noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="144"/>
+        <location filename="connecteurs_geo.py" line="145"/>
         <source>j-mode</source>
         <translation>Mode noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="151"/>
+        <location filename="connecteurs_geo.py" line="152"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="161"/>
+        <location filename="connecteurs_geo.py" line="162"/>
         <source>Speed</source>
         <translation>Vitesse</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="171"/>
+        <location filename="connecteurs_geo.py" line="172"/>
         <source>Maximum number</source>
         <translation>Nombre max</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="181"/>
+        <location filename="connecteurs_geo.py" line="192"/>
         <source>Connectors file</source>
         <translation>Fichier connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="226"/>
+        <location filename="connecteurs_geo.py" line="238"/>
         <source>length</source>
         <translation>longueur</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="227"/>
+        <location filename="connecteurs_geo.py" line="239"/>
         <source>time</source>
         <translation>temps</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="228"/>
+        <location filename="connecteurs_geo.py" line="240"/>
         <source>mode</source>
         <translation>mode</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="275"/>
+        <location filename="connecteurs_geo.py" line="290"/>
         <source> connected nodes</source>
         <translation>noeuds connectés</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="315"/>
+        <location filename="connecteurs_geo.py" line="330"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -737,14 +737,19 @@
         </translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="295"/>
+        <location filename="connecteurs_geo.py" line="310"/>
         <source>Build connectors</source>
         <translation>Créer connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="302"/>
+        <location filename="connecteurs_geo.py" line="317"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="182"/>
+        <source>No connector length</source>
+        <translation>Connecteurs de longeuur nulle</translation>
     </message>
 </context>
 <context>
@@ -843,7 +848,7 @@
 <context>
     <name>CreateUpdateLinks</name>
     <message>
-        <location filename="create_update_links.py" line="280"/>
+        <location filename="create_update_links.py" line="275"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -868,17 +873,17 @@
         <translation>Réseau résultat</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="210"/>
+        <location filename="create_update_links.py" line="205"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="273"/>
+        <location filename="create_update_links.py" line="268"/>
         <source>Create updated links</source>
         <translation>Création des arcs mis à jour avec les temps</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="296"/>
+        <location filename="create_update_links.py" line="291"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 		        
@@ -1069,7 +1074,7 @@
     <message>
         <location filename="fichier_od.py" line="125"/>
         <source>Time based links only?</source>
-        <translation>Sans les tronçons à horaires?</translation>
+        <translation>Tronçons à horaires seulement?</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="135"/>
@@ -1077,12 +1082,12 @@
         <translation>Fichier indicateurs des liens</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="261"/>
+        <location filename="fichier_od.py" line="262"/>
         <source>indicators by OD</source>
         <translation>indicateurs par OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="268"/>
+        <location filename="fichier_od.py" line="269"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1210,7 +1215,7 @@
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="284"/>
+        <location filename="fichier_od.py" line="285"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -3014,7 +3019,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
             Individual mode speed factor: homothetic factor that apply to the individual travel times
-			Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
+            Minimum transfer delay : minimum safety time for transfer (ex: 5 means that you should wait at least 5 minutes at a stop before the bus leaves
             Maximum transfer delay: maximum waiting time for transfer (ex: 60 means that you will not be able to take atrain that leaves more that 60 minutes after you arrive)
             Extra day duration: By default Musliw takes only into account timetable of the day selected in the matrix. If you can extend with the timetable of the day after (if departure) or the day before (arrival) your must enter 1
             Max. indiviudal time budegt: The algorithm path will not explore shortest paths that have a individual time budget greater than this value
@@ -3061,6 +3066,141 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             Nb classes: Nombre d&apos;intervalle pour l&apos;algorithme de plus courts chemins
             Fichier paramètres: Nom du fichier de paramètre qui pourra être utilisé pour les calculs avec Musliw
             </translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="320"/>
+        <source>;algorithm</source>
+        <translation>;algorithme</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="321"/>
+        <source>;Prohibited U-turns</source>
+        <translation>;demi-tours interdits</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="322"/>
+        <source>;max buckets</source>
+        <translation>;nombre d&apos;intervalles</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="323"/>
+        <source>;number of days</source>
+        <translation>;nombre de jours</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="324"/>
+        <source>;matrix file</source>
+        <translation>;fichier matrice</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="325"/>
+        <source>;turns and transfers files</source>
+        <translation>;fichier pénalités</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="326"/>
+        <source>;network file</source>
+        <translation>;fichier réseau</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="327"/>
+        <source>;generic output file</source>
+        <translation>;nom générique du fichier d&apos;export</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="328"/>
+        <source>;algorithm parameter</source>
+        <translation>;parmaètre d&apos;algorithme</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="329"/>
+        <source>;algorithm power</source>
+        <translation>;exposant de l&apos;algorithme</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="330"/>
+        <source>;output paths</source>
+        <translation>,sortie chemins</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="331"/>
+        <source>;output services</source>
+        <translation>;sortie services</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="332"/>
+        <source>;output travel times</source>
+        <translation>;sortie temps détaillés</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="333"/>
+        <source>;output turns and transfers</source>
+        <translation>;sortie mouvements tournants et correspondances</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="334"/>
+        <source>;boarding weight</source>
+        <translation>;ponderation correspondance</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="335"/>
+        <source>;individual mode weight</source>
+        <translation>;pondération temps individuel</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="336"/>
+        <source>;individual travel time factor</source>
+        <translation>;facteur d&apos;échelle temps individuel</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="337"/>
+        <source>;in-vehicle time weight</source>
+        <translation>;ponderation temps à bord du véhicule</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="338"/>
+        <source>;wait time weight</source>
+        <translation>;pondération temps d&apos;attente</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="339"/>
+        <source>;min transfer time</source>
+        <translation>;temps de correspondance mini</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="340"/>
+        <source>;max transfer time</source>
+        <translation>;temps de corresponance maxi</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="341"/>
+        <source>;max individual travel time</source>
+        <translation>;temps individuel max</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="342"/>
+        <source>;toll weight</source>
+        <translation>;pondération péage</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="343"/>
+        <source>;output types filter</source>
+        <translation>;filtre sortie temps</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="344"/>
+        <source>;max travel cost</source>
+        <translation>;cout maximum</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="345"/>
+        <source>;output nodes</source>
+        <translation>;sortie noeuds</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="346"/>
+        <source>;output isolated links</source>
+        <translation>;sortie noeuds isolés</translation>
     </message>
 </context>
 <context>
