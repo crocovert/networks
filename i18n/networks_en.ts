@@ -2224,7 +2224,7 @@
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="217"/>
+        <location filename="networks_provider.py" line="220"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2442,6 +2442,73 @@
             Enconding: Encoding of the Reuslt Musliw file utf_8_sig normally
             output: layer of the slect link analysis
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PathIndicators</name>
+    <message>
+        <location filename="path_indicators.py" line="87"/>
+        <source>Path output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="100"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="108"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="116"/>
+        <source>Time based links only?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="126"/>
+        <source>Path indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="220"/>
+        <source>indicators by path</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="227"/>
+        <source>Analysis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="243"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+            path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
+            id: OD id
+            temps: total travel time
+            temps individuel: individual modes travel time
+            temps_attente: wainting time
+            temps_TC: timetable travel time
+            longueur: length
+            voyages: number of boardings
+            montee: initial timetable modes text
+            descente: final timetable modes text
+            temps_individuel1: initial incoming travel time
+            longueur1: intinial incoming length
+            temps_individuel2: final outgoing travel time
+            longueur2: final outgoing length
+            
+            
         </source>
         <translation type="unfinished"></translation>
     </message>

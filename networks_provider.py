@@ -72,6 +72,7 @@ from .autoconnectors import AutoConnecteurs
 from .matrix_table import MatrixTable
 from .maj_links_pole import MajLinksPole
 from .create_update_links import CreateUpdateLinks
+from .path_indicators import PathIndicators
 
 
 from qgis.PyQt.QtGui import QIcon
@@ -121,7 +122,8 @@ class NetworksProvider(QgsProcessingProvider):
                         AutoConnecteurs(),
                         MatrixTable(),
                         MajLinksPole(),
-                        CreateUpdateLinks()]
+                        CreateUpdateLinks(),
+                        PathIndicators()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -193,6 +195,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(MatrixTable())
         self.addAlgorithm(MajLinksPole())
         self.addAlgorithm(CreateUpdateLinks())
+        self.addAlgorithm(PathIndicators())
         
 
 

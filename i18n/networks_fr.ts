@@ -3206,7 +3206,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="217"/>
+        <location filename="networks_provider.py" line="220"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -3520,6 +3520,152 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             par ligne:si sélectionné calcule la demande interceptée par segment de ligne et non par arc
             encondage: encodage du fichier chemins Musliw utf_8_sig normalement
             sortie: couche resultat contenant les arcs de la demande interceptée</translation>
+    </message>
+</context>
+<context>
+    <name>PathIndicators</name>
+    <message>
+        <location filename="path_indicators.py" line="87"/>
+        <source>Path output file</source>
+        <translation>Fichier chemins</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="100"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="108"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation>Retirer le temps d&apos;attente initial/final</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="116"/>
+        <source>Time based links only?</source>
+        <translation>Tronçons à horaires uniquement?</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="126"/>
+        <source>Path indicators file</source>
+        <translation>Fichier synthèse des chemins</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="220"/>
+        <source>indicators by path</source>
+        <translation>Indicateurs par chemins</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="227"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="243"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            filter: filter expression to select a subset of OD. Available variables are:
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
+            
+            OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
+            id: OD id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            
+            
+        </source>
+        <translation type="obsolete">       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
+			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+			filtre: expression filtre pour effectuer une sélection des OD. Les variables disponibles sont:
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
+
+
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+            id: OD id
+            avg: valeur moyenne
+            nb: nombre de lignes pour cette OD traitées
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
+            
+            
+        </translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="243"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
+            id: OD id
+            temps: total travel time
+            temps individuel: individual modes travel time
+            temps_attente: wainting time
+            temps_TC: timetable travel time
+            longueur: length
+            voyages: number of boardings
+            montee: initial timetable modes text
+            descente: final timetable modes text
+            temps_individuel1: initial incoming travel time
+            longueur1: intinial incoming length
+            temps_individuel2: final outgoing travel time
+            longueur2: final outgoing length
+            
+            
+        </source>
+        <translation>
+        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l&apos;on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
+		
+        Paramètres:
+            Fichier chemins :le fichier détail des chemins produit par Musliw (&lt;FILENAME&gt;_chemins.txt)
+            Retrancher le temps d&apos;attente initial:final: Si coché le temps d&apos;attente sera retranché (entre l&apos;heure réelle et l&apos;heure d&apos;arrivée ou de départ souhaitée)
+			Arcs à horaires uniquements: Si coché seuls les arcs à horaires seront étudiés
+            Nom du fichier synthèse: Nom du fichier résultat (fichier texte delimitétext avec &quot;;&quot; comme séparateur) qui contient les champs suivants
+            id: OD id
+            temps: temps de parcours total
+            temps individuel:temps en modes individuels
+            temps_attente: temps d&apos;attente
+            temps_TC: temps à bord des véhicules
+            longueur: longueur
+            voyages: nombre de voyages
+            montee: texte des premiers arcs de chaque voyage
+            descente: texte des derniers arcs pour chaque voyage
+            temps_individuel1:temps individuel de rabattement initial
+            longueur1: longueur de rabattement initial
+            temps_individuel2: temps individuel de diffusion finale
+            longueur2: longueur de diffusion finale
+            
+            
+        </translation>
     </message>
 </context>
 <context>
