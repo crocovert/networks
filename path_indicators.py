@@ -143,8 +143,9 @@ class PathIndicators(QgsProcessingAlgorithm):
         tc_seul= self.parameterAsBool(parameters, self.TCSEUL, context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
-
-        chemins=pandas.read_csv(fichier_chemins,sep=';',decimal='.')
+        dec=lambda x: float(x.replace(',','.'))
+        chemins=pandas.read_csv(fichier_chemins,sep=';',decimal='.',converters={'tatt':dec,'tatt1':dec,'temps':dec,'tmap':dec,'tveh':dec,'cout':dec,
+                'heureo':dec,'heured':dec,'jour':dec,'tcorr':dec,'ncorr':dec,'longueur':dec,'volau':dec,'boai':dec,'alij':dec,'toll':dec})
         if temps_attente_terminal==True:
             chemins.eval('twait=tatt-tatt1',inplace=True)
         else:
@@ -154,14 +155,11 @@ class PathIndicators(QgsProcessingAlgorithm):
         sortie.write('id;temps;temps_individuel;temps_attente;temps_TC;longueur;voyages;montee;descente;temps_individuel1;longueur1;temps_individuel2;longueur2\n')
         nb=len(ch)
         for u,(k,i) in enumerate(ch):
-            a=i[['tmap']].diff(periods=-1).fillna(0)
-            i['temps_i']=a
-            a=i[['twait']].diff(periods=-1).fillna(0)
-            i['temps_att']=a
-            a=i[['tveh']].diff(periods=-1).fillna(0)
-            i['temps_veh']=a
-            a=i[['longueur']].diff(periods=-1).fillna(0)
-            i['l']=a
+            i['temps_i']=i['tmap'].diff(periods=-1).fillna(0)
+            i['l']=i['longueur'].diff(periods=-1).fillna(0)
+            i['temps_att']=i['twait'].diff(periods=-1).fillna(0)
+            i['temps_veh']=i['tveh'].diff(periods=-1).fillna(0)
+            
             i.eval("voyages=1*(boai>0)",inplace=True)
             texte_montee='||'.join(i.query('boai>0')['type'].str.cat(i['texte'],sep='-'))
             texte_descente='||'.join(i.query('alij>0')['type'].str.cat(i['texte'],sep='-'))
@@ -182,9 +180,9 @@ class PathIndicators(QgsProcessingAlgorithm):
                 ti2=i.loc[max_ligne+2:]['temps_i'].sum()
                 l2=i.loc[max_ligne+2:]['l'].sum()
             else:
-                t11=0
+                ti1=0
                 l1=0
-                t12=0
+                ti2=0
                 l2=0
             resultat=[k,temps,temps_individuel,temps_attente,temps_TC,longueur,voyages,texte_montee,texte_descente,ti1,l1,ti2,l2]
             if tc_seul==False or (tc_seul==True and voyages>0):
@@ -244,7 +242,7 @@ class PathIndicators(QgsProcessingAlgorithm):
             id: OD id
             temps: total travel time
             temps individuel: individual modes travel time
-            temps_attente: wainting time
+            temps_attente: waiting time
             temps_TC: timetable travel time
             longueur: length
             voyages: number of boardings

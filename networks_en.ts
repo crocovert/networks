@@ -406,87 +406,87 @@
 <context>
     <name>ConnecteursGeo</name>
     <message>
-        <location filename="connecteurs_geo.py" line="94"/>
+        <location filename="connecteurs_geo.py" line="95"/>
         <source>Stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="101"/>
+        <location filename="connecteurs_geo.py" line="102"/>
         <source>Stop_id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="109"/>
+        <location filename="connecteurs_geo.py" line="110"/>
         <source>i-text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="116"/>
+        <location filename="connecteurs_geo.py" line="117"/>
         <source>i-mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="123"/>
+        <location filename="connecteurs_geo.py" line="124"/>
         <source>Nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="130"/>
+        <location filename="connecteurs_geo.py" line="131"/>
         <source>node_id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="138"/>
+        <location filename="connecteurs_geo.py" line="139"/>
         <source>j-text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="145"/>
+        <location filename="connecteurs_geo.py" line="146"/>
         <source>j-mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="152"/>
+        <location filename="connecteurs_geo.py" line="153"/>
         <source>Radius(m)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="162"/>
+        <location filename="connecteurs_geo.py" line="163"/>
         <source>Speed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="172"/>
+        <location filename="connecteurs_geo.py" line="173"/>
         <source>Maximum number</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="192"/>
+        <location filename="connecteurs_geo.py" line="204"/>
         <source>Connectors file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="238"/>
+        <location filename="connecteurs_geo.py" line="251"/>
         <source>length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="239"/>
+        <location filename="connecteurs_geo.py" line="252"/>
         <source>time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="240"/>
+        <location filename="connecteurs_geo.py" line="253"/>
         <source>mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="290"/>
+        <location filename="connecteurs_geo.py" line="303"/>
         <source> connected nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="330"/>
+        <location filename="connecteurs_geo.py" line="343"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -508,18 +508,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="310"/>
+        <location filename="connecteurs_geo.py" line="323"/>
         <source>Build connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="317"/>
+        <location filename="connecteurs_geo.py" line="330"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="182"/>
+        <location filename="connecteurs_geo.py" line="194"/>
         <source>No connector length</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="183"/>
+        <source>ID field size</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1205,17 +1210,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="477"/>
+        <location filename="interpole.py" line="475"/>
         <source>Linear interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="484"/>
+        <location filename="interpole.py" line="482"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="500"/>
+        <location filename="interpole.py" line="498"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -2087,137 +2092,164 @@
     </message>
     <message>
         <location filename="param_musliw.py" line="320"/>
-        <source>;algorithm</source>
+        <source>;algorithm
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="321"/>
-        <source>;Prohibited U-turns</source>
+        <source>;Prohibited U-turns
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="322"/>
-        <source>;max buckets</source>
+        <source>;max buckets
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="323"/>
-        <source>;number of days</source>
+        <source>;number of days
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="324"/>
-        <source>;matrix file</source>
+        <source>;matrix file
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="325"/>
-        <source>;turns and transfers files</source>
+        <source>;turns and transfers files
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="326"/>
-        <source>;network file</source>
+        <source>;network file
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="327"/>
-        <source>;generic output file</source>
+        <source>;generic output file
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="328"/>
-        <source>;algorithm parameter</source>
+        <source>;algorithm parameter
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="329"/>
-        <source>;algorithm power</source>
+        <source>;algorithm power
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="330"/>
-        <source>;output paths</source>
+        <source>;output paths
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="331"/>
-        <source>;output services</source>
+        <source>;output services
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="332"/>
-        <source>;output travel times</source>
+        <source>;output travel times
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="333"/>
-        <source>;output turns and transfers</source>
+        <source>;output turns and transfers
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="334"/>
-        <source>;boarding weight</source>
+        <source>;boarding weight
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="335"/>
-        <source>;individual mode weight</source>
+        <source>;individual mode weight
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="336"/>
-        <source>;individual travel time factor</source>
+        <source>;individual travel time factor
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="337"/>
-        <source>;in-vehicle time weight</source>
+        <source>;in-vehicle time weight
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="338"/>
-        <source>;wait time weight</source>
+        <source>;wait time weight
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="339"/>
-        <source>;min transfer time</source>
+        <source>;min transfer time
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="340"/>
-        <source>;max transfer time</source>
+        <source>;max transfer time
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="341"/>
-        <source>;max individual travel time</source>
+        <source>;max individual travel time
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="342"/>
-        <source>;toll weight</source>
+        <source>;toll weight
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="343"/>
-        <source>;output types filter</source>
+        <source>;output types filter
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="344"/>
-        <source>;max travel cost</source>
+        <source>;max travel cost
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="345"/>
-        <source>;output nodes</source>
+        <source>;output nodes
+</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="346"/>
-        <source>;output isolated links</source>
+        <source>;output isolated links
+</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2454,37 +2486,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="100"/>
-        <source>Filter</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="path_indicators.py" line="108"/>
+        <location filename="path_indicators.py" line="101"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="116"/>
+        <location filename="path_indicators.py" line="109"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="126"/>
+        <location filename="path_indicators.py" line="119"/>
         <source>Path indicators file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="220"/>
+        <location filename="path_indicators.py" line="210"/>
         <source>indicators by path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="227"/>
+        <location filename="path_indicators.py" line="217"/>
         <source>Analysis</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="243"/>
+        <location filename="path_indicators.py" line="233"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
@@ -2497,7 +2524,7 @@
             id: OD id
             temps: total travel time
             temps individuel: individual modes travel time
-            temps_attente: wainting time
+            temps_attente: waiting time
             temps_TC: timetable travel time
             longueur: length
             voyages: number of boardings

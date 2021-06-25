@@ -619,87 +619,87 @@
 <context>
     <name>ConnecteursGeo</name>
     <message>
-        <location filename="connecteurs_geo.py" line="94"/>
+        <location filename="connecteurs_geo.py" line="95"/>
         <source>Stops</source>
         <translation>Arrêts</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="101"/>
+        <location filename="connecteurs_geo.py" line="102"/>
         <source>Stop_id</source>
         <translation>Stop_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="109"/>
+        <location filename="connecteurs_geo.py" line="110"/>
         <source>i-text</source>
         <translation>Texte noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="116"/>
+        <location filename="connecteurs_geo.py" line="117"/>
         <source>i-mode</source>
         <translation>mode noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="123"/>
+        <location filename="connecteurs_geo.py" line="124"/>
         <source>Nodes</source>
         <translation>Noeuds</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="130"/>
+        <location filename="connecteurs_geo.py" line="131"/>
         <source>node_id</source>
         <translation>node_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="138"/>
+        <location filename="connecteurs_geo.py" line="139"/>
         <source>j-text</source>
         <translation>Texte noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="145"/>
+        <location filename="connecteurs_geo.py" line="146"/>
         <source>j-mode</source>
         <translation>Mode noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="152"/>
+        <location filename="connecteurs_geo.py" line="153"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="162"/>
+        <location filename="connecteurs_geo.py" line="163"/>
         <source>Speed</source>
         <translation>Vitesse</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="172"/>
+        <location filename="connecteurs_geo.py" line="173"/>
         <source>Maximum number</source>
         <translation>Nombre max</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="192"/>
+        <location filename="connecteurs_geo.py" line="204"/>
         <source>Connectors file</source>
         <translation>Fichier connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="238"/>
+        <location filename="connecteurs_geo.py" line="251"/>
         <source>length</source>
         <translation>longueur</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="239"/>
+        <location filename="connecteurs_geo.py" line="252"/>
         <source>time</source>
         <translation>temps</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="240"/>
+        <location filename="connecteurs_geo.py" line="253"/>
         <source>mode</source>
         <translation>mode</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="290"/>
+        <location filename="connecteurs_geo.py" line="303"/>
         <source> connected nodes</source>
         <translation>noeuds connectés</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="330"/>
+        <location filename="connecteurs_geo.py" line="343"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -737,19 +737,24 @@
         </translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="310"/>
+        <location filename="connecteurs_geo.py" line="323"/>
         <source>Build connectors</source>
         <translation>Créer connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="317"/>
+        <location filename="connecteurs_geo.py" line="330"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="182"/>
+        <location filename="connecteurs_geo.py" line="194"/>
         <source>No connector length</source>
         <translation>Connecteurs de longeuur nulle</translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="183"/>
+        <source>ID field size</source>
+        <translation>Taille du champ Id</translation>
     </message>
 </context>
 <context>
@@ -1822,7 +1827,7 @@
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="500"/>
+        <location filename="interpole.py" line="498"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -1877,12 +1882,12 @@
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="477"/>
+        <location filename="interpole.py" line="475"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="484"/>
+        <location filename="interpole.py" line="482"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -3069,137 +3074,164 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     </message>
     <message>
         <location filename="param_musliw.py" line="320"/>
-        <source>;algorithm</source>
+        <source>;algorithm
+</source>
         <translation>;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="321"/>
-        <source>;Prohibited U-turns</source>
+        <source>;Prohibited U-turns
+</source>
         <translation>;demi-tours interdits</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="322"/>
-        <source>;max buckets</source>
+        <source>;max buckets
+</source>
         <translation>;nombre d&apos;intervalles</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="323"/>
-        <source>;number of days</source>
+        <source>;number of days
+</source>
         <translation>;nombre de jours</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="324"/>
-        <source>;matrix file</source>
+        <source>;matrix file
+</source>
         <translation>;fichier matrice</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="325"/>
-        <source>;turns and transfers files</source>
+        <source>;turns and transfers files
+</source>
         <translation>;fichier pénalités</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="326"/>
-        <source>;network file</source>
+        <source>;network file
+</source>
         <translation>;fichier réseau</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="327"/>
-        <source>;generic output file</source>
+        <source>;generic output file
+</source>
         <translation>;nom générique du fichier d&apos;export</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="328"/>
-        <source>;algorithm parameter</source>
+        <source>;algorithm parameter
+</source>
         <translation>;parmaètre d&apos;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="329"/>
-        <source>;algorithm power</source>
+        <source>;algorithm power
+</source>
         <translation>;exposant de l&apos;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="330"/>
-        <source>;output paths</source>
+        <source>;output paths
+</source>
         <translation>,sortie chemins</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="331"/>
-        <source>;output services</source>
+        <source>;output services
+</source>
         <translation>;sortie services</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="332"/>
-        <source>;output travel times</source>
+        <source>;output travel times
+</source>
         <translation>;sortie temps détaillés</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="333"/>
-        <source>;output turns and transfers</source>
+        <source>;output turns and transfers
+</source>
         <translation>;sortie mouvements tournants et correspondances</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="334"/>
-        <source>;boarding weight</source>
+        <source>;boarding weight
+</source>
         <translation>;ponderation correspondance</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="335"/>
-        <source>;individual mode weight</source>
+        <source>;individual mode weight
+</source>
         <translation>;pondération temps individuel</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="336"/>
-        <source>;individual travel time factor</source>
+        <source>;individual travel time factor
+</source>
         <translation>;facteur d&apos;échelle temps individuel</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="337"/>
-        <source>;in-vehicle time weight</source>
+        <source>;in-vehicle time weight
+</source>
         <translation>;ponderation temps à bord du véhicule</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="338"/>
-        <source>;wait time weight</source>
+        <source>;wait time weight
+</source>
         <translation>;pondération temps d&apos;attente</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="339"/>
-        <source>;min transfer time</source>
+        <source>;min transfer time
+</source>
         <translation>;temps de correspondance mini</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="340"/>
-        <source>;max transfer time</source>
+        <source>;max transfer time
+</source>
         <translation>;temps de corresponance maxi</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="341"/>
-        <source>;max individual travel time</source>
+        <source>;max individual travel time
+</source>
         <translation>;temps individuel max</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="342"/>
-        <source>;toll weight</source>
+        <source>;toll weight
+</source>
         <translation>;pondération péage</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="343"/>
-        <source>;output types filter</source>
+        <source>;output types filter
+</source>
         <translation>;filtre sortie temps</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="344"/>
-        <source>;max travel cost</source>
+        <source>;max travel cost
+</source>
         <translation>;cout maximum</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="345"/>
-        <source>;output nodes</source>
+        <source>;output nodes
+</source>
         <translation>;sortie noeuds</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="346"/>
-        <source>;output isolated links</source>
+        <source>;output isolated links
+</source>
         <translation>;sortie noeuds isolés</translation>
     </message>
 </context>
@@ -3532,30 +3564,30 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     <message>
         <location filename="path_indicators.py" line="100"/>
         <source>Filter</source>
-        <translation>Filtre</translation>
+        <translation type="obsolete">Filtre</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="108"/>
+        <location filename="path_indicators.py" line="101"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retirer le temps d&apos;attente initial/final</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="116"/>
+        <location filename="path_indicators.py" line="109"/>
         <source>Time based links only?</source>
         <translation>Tronçons à horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="126"/>
+        <location filename="path_indicators.py" line="119"/>
         <source>Path indicators file</source>
         <translation>Fichier synthèse des chemins</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="220"/>
+        <location filename="path_indicators.py" line="210"/>
         <source>indicators by path</source>
         <translation>Indicateurs par chemins</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="227"/>
+        <location filename="path_indicators.py" line="217"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -3642,7 +3674,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             
             
         </source>
-        <translation>
+        <translation type="obsolete">
         Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l&apos;on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
 		
         Paramètres:
@@ -3666,6 +3698,56 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             
             
         </translation>
+    </message>
+    <message>
+        <location filename="path_indicators.py" line="233"/>
+        <source>
+        Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
+            id: OD id
+            temps: total travel time
+            temps individuel: individual modes travel time
+            temps_attente: waiting time
+            temps_TC: timetable travel time
+            longueur: length
+            voyages: number of boardings
+            montee: initial timetable modes text
+            descente: final timetable modes text
+            temps_individuel1: initial incoming travel time
+            longueur1: intinial incoming length
+            temps_individuel2: final outgoing travel time
+            longueur2: final outgoing length
+            
+            
+        </source>
+        <translation>        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l&apos;on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
+		
+        Paramètres:
+            Fichier chemins :le fichier détail des chemins produit par Musliw (&lt;FILENAME&gt;_chemins.txt)
+            Retrancher le temps d&apos;attente initial:final: Si coché le temps d&apos;attente sera retranché (entre l&apos;heure réelle et l&apos;heure d&apos;arrivée ou de départ souhaitée)
+			Arcs à horaires uniquements: Si coché seuls les arcs à horaires seront étudiés
+            Nom du fichier synthèse: Nom du fichier résultat (fichier texte delimitétext avec &quot;;&quot; comme séparateur) qui contient les champs suivants
+            id: OD id
+            temps: temps de parcours total
+            temps individuel:temps en modes individuels
+            temps_attente: temps d&apos;attente
+            temps_TC: temps à bord des véhicules
+            longueur: longueur
+            voyages: nombre de voyages
+            montee: texte des premiers arcs de chaque voyage
+            descente: texte des derniers arcs pour chaque voyage
+            temps_individuel1:temps individuel de rabattement initial
+            longueur1: longueur de rabattement initial
+            temps_individuel2: temps individuel de diffusion finale
+            longueur2: longueur de diffusion finale
+            
+            </translation>
     </message>
 </context>
 <context>

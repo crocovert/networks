@@ -84,6 +84,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
     CONNECTEURS='CONNECTEURS'
     MAX_NB='MAX_NB'
     LONG_0='LONG_0'
+    FIELD_SIZE='FIELD_SIZE'
 
     def initAlgorithm(self, config):
         """
@@ -103,7 +104,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                 self.STOP_ID,
                 self.tr('Stop_id'),
                 parentLayerParameterName=self.STOPS,
-                type=QgsProcessingParameterField.String
+                
             )
         )
         self.addParameter(
@@ -132,7 +133,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                 self.NODE_ID,
                 self.tr('node_id'),
                 parentLayerParameterName=self.NOEUDS,
-                type=QgsProcessingParameterField.String
+                
             )
         )
         self.addParameter(
@@ -180,6 +181,17 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterNumber(
+                self.FIELD_SIZE,
+                self.tr('ID field size'),
+                QgsProcessingParameterNumber.Integer,
+                defaultValue=15
+
+                
+            )
+        )
+
+        self.addParameter(
             QgsProcessingParameterBoolean(
                 self.LONG_0,
                 self.tr('No connector length'),
@@ -222,6 +234,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         rayon=self.parameterAsDouble(parameters,self.RAYON,context)
         vitesse=self.parameterAsDouble(parameters,self.VITESSE,context)
         nb_max=self.parameterAsInt(parameters,self.MAX_NB,context)
+        size=self.parameterAsInt(parameters,self.FIELD_SIZE,context)
         l0=self.parameterAsBool(parameters,self.LONG_0,context)
 
         # Compute the number of steps to display within the progress bar and
@@ -233,8 +246,8 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         
         index=QgsSpatialIndex(noeuds.getFeatures())
         champs=QgsFields()
-        champs.append(QgsField('i',QVariant.String,len=15))
-        champs.append(QgsField('j',QVariant.String,len=15))
+        champs.append(QgsField('i',QVariant.String,len=size))
+        champs.append(QgsField('j',QVariant.String,len=size))
         champs.append(QgsField(self.tr('length'),QVariant.Double))
         champs.append(QgsField(self.tr('time'),QVariant.Double))
         champs.append(QgsField(self.tr('mode'),QVariant.String,len=10))
@@ -254,8 +267,8 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                         for j, g in enumerate(f):
                             if j==0:
                                 l=n.geometry().distance(g.geometry())
-                                id_node=unicode(g.attribute(node_id))
-                                id_stop=unicode(n.attribute(stop_id))
+                                id_node=str(g.attribute(node_id))
+                                id_stop=str(n.attribute(stop_id))
                                 if l<rayon:
                                     nbc+=1
                                     gline=QgsGeometry.fromPolylineXY([QgsPointXY(n.geometry().centroid().asPoint()),QgsPointXY(g.geometry().centroid().asPoint())])
@@ -263,7 +276,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
 
                                     fline=QgsFeature()
                                     fline.setGeometry(gline)
-                                    if l0==0:
+                                    if l0==True:
                                         ll=0
                                     else:
                                         ll=gline.length()
