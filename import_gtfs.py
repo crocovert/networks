@@ -199,8 +199,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
         if "stops.txt" in os.listdir(nom_rep) :
             fich_noeuds=io.open(nom_rep+"/stops.txt","r",encoding=encodage)
             t_noeuds=QgsFields()
-            t_noeuds.append(QgsField("ident",QVariant.String,len=15))
-            t_noeuds.append(QgsField("name",QVariant.String,len=40))
+            t_noeuds.append(QgsField("ident",QVariant.String))
+            t_noeuds.append(QgsField("name",QVariant.String))
             t_noeuds.append(QgsField("int_tot",QVariant.Double))
             t_noeuds.append(QgsField("out_tot",QVariant.Double))
             t_noeuds.append(QgsField("in_mon-fri",QVariant.Double))
@@ -211,11 +211,11 @@ class ImportGTFS(QgsProcessingAlgorithm):
             t_noeuds.append(QgsField("out_sun",QVariant.Double))
             
             t_links=QgsFields()
-            t_links.append(QgsField("line_num",QVariant.String,len=15))
-            t_links.append(QgsField("ligne_name",QVariant.String,len=50))
-            t_links.append(QgsField("ligne_descr",QVariant.String,len=150))
-            t_links.append(QgsField("i",QVariant.String,len=15))
-            t_links.append(QgsField("j",QVariant.String,len=15))
+            t_links.append(QgsField("line_num",QVariant.String))
+            t_links.append(QgsField("ligne_name",QVariant.String))
+            t_links.append(QgsField("ligne_descr",QVariant.String))
+            t_links.append(QgsField("i",QVariant.String))
+            t_links.append(QgsField("j",QVariant.String))
             t_links.append(QgsField("nb_tot",QVariant.Double))
             t_links.append(QgsField("d1_tot",QVariant.Double))
             t_links.append(QgsField("d2_tot",QVariant.Double))
@@ -231,9 +231,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
             xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
                 
             t_arcs=QgsFields()
-            t_arcs.append(QgsField("i",QVariant.String,len=15))
-            t_arcs.append(QgsField("j",QVariant.String,len=15))
-            t_arcs.append(QgsField("ij",QVariant.String,len=40))
+            t_arcs.append(QgsField("i",QVariant.String))
+            t_arcs.append(QgsField("j",QVariant.String))
+            t_arcs.append(QgsField("ij",QVariant.String))
             l_noeuds=QgsVectorFileWriter(rep_sortie+"/"+lname+"_stops.shp","UTF-8",t_noeuds,QgsWkbTypes.Point,dest,"ESRI Shapefile")
             l_arcs=QgsVectorFileWriter(rep_sortie+"/"+lname+"_arcs.shp","UTF-8",t_arcs,QgsWkbTypes.MultiLineString,dest,"ESRI Shapefile")
             l_links=QgsVectorFileWriter(rep_sortie+"/"+lname+"_lines.shp","UTF-8",t_links,QgsWkbTypes.MultiLineString,dest,"ESRI Shapefile")
@@ -275,6 +275,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         elements[idy]='0'
                         
                     arrets[elements[iid]]=[elements[iid],elements[iname].strip("\""),elements[idx],elements[idy],0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
+                    
 
 
         calendar={}
@@ -511,6 +512,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
                 except:
                     test_q=1
                     
+                    
                 g_arcs.setAttributes([unicode(s[0]),unicode(s[1]),unicode(s[0])+"-"+unicode(s[1])])
                 g_arcs.setGeometry(g_links.geometry())
                 
@@ -538,7 +540,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                 ,links[s][t][0]/(nb_jours+1),i1,i2/(nb_jours+1),links[s][t][1]/nb_mon,i2_mon/nb_mon
                                 ,links[s][t][2]/nb_sat,i2_sat/nb_sat,links[s][t][3]/nb_sun,i2_sun/nb_sun])
                     except:
-                        test_q=1#print(t,links[s][t][2])
+                        test_q=1
+                        print(t,links[s][t][2])
                     
                     i1+=1
                     i2+=links[s][t][0]
@@ -564,7 +567,8 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     g_noeuds.setAttributes([unicode(arrets[s][0]),unicode(arrets[s][1]),arrets[s][4]/(nb_jours+1),arrets[s][5]/(nb_jours+1)
                             ,arrets[s][6]/nb_mon,arrets[s][7]/nb_mon,arrets[s][8]/nb_sat,arrets[s][9]/nb_sat,arrets[s][10]/nb_sun,arrets[s][11]/nb_sun])
                 except:
-                    test_q=1#print(arrets[s][1])
+                    test_q=1#
+
                 l_noeuds.addFeature(g_noeuds)
         del(arrets)
         del(l_noeuds)
