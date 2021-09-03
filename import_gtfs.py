@@ -408,10 +408,10 @@ class ImportGTFS(QgsProcessingAlgorithm):
                         num_ligne=routes[ligne][0].strip()
                         nom_ligne=routes[ligne][1].strip()
                         descr=routes[ligne][2].strip()
-                        elements[ihdep]=elements[ihdep].replace('"','').replace("'",'')
-                        elements[iharr]=elements[iharr].replace('"','').replace("'",'')
-                        hi1=QTime(int(elements[ihdep][0:2]),int(elements[ihdep][3:5]),int(elements[ihdep][6:8]))
-                        hj=QTime(int(elements[iharr][0:2]),int(elements[iharr][3:5]),int(elements[iharr][6:8]))
+                        elements[ihdep]=elements[ihdep].replace('"','').replace("'",'').split(':')
+                        elements[iharr]=elements[iharr].replace('"','').replace("'",'').split(':')
+                        hi1=QTime(int(elements[ihdep][0]),int(elements[ihdep][1]),int(elements[ihdep][2]))
+                        hj=QTime(int(elements[iharr][0]),int(elements[iharr][1]),int(elements[iharr][2]))
                         if (id_trip2==id_trip):
                             nbservices=0.0
                             nbservices_mon=0.0
@@ -458,9 +458,9 @@ class ImportGTFS(QgsProcessingAlgorithm):
                                     
                             elif trips[elements[iid]][2] in calendar_dates2:
                                 for k in calendar_dates2[trips[elements[iid]][2]]:
-                                    if debut_periode<=k[1]<=fin_periode:
+                                    if debut_periode.date()<=k[1]<=fin_periode.date():
                                         nbservices+=1
-                                        jour=k[1].isoweekday()
+                                        jour=k[1].dayOfWeek()
                                         if jour in [1,2,3,4,5]:
                                             nbservices_mon+=1
                                         elif jour==6:

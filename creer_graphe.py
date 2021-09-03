@@ -159,11 +159,11 @@ class CreerGraphe(QgsProcessingAlgorithm):
         for i in layer.fields():
             nom_champs.append(i.name())
         if ("i" not in nom_champs):
-            layer.dataProvider().addAttributes([QgsField("i",QVariant.String,len=15)])
+            layer.dataProvider().addAttributes([QgsField("i",QVariant.String)])
         if ("j" not in nom_champs):
-            layer.dataProvider().addAttributes([QgsField("j",QVariant.String,len=15)])
+            layer.dataProvider().addAttributes([QgsField("j",QVariant.String)])
         if ("ij" not in nom_champs):
-            layer.dataProvider().addAttributes([QgsField("ij",QVariant.String,len=31)])
+            layer.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
         layer.updateFields()
         #layer.commitChanges()
         ida=layer.fields().indexFromName("i")
@@ -173,7 +173,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         noeuds={}
         #nom_fichier=fichier_noeuds
         champs=QgsFields()
-        champs.append(QgsField("num",QVariant.String,len=35))
+        champs.append(QgsField("num",QVariant.String))
         champs.append(QgsField("nb",QVariant.Int))
         (table_noeuds,dest_id) = self.parameterAsSink(parameters, self.NOEUDS,context,champs, QgsWkbTypes.Point, layer.sourceCrs())
         src=QgsCoordinateReferenceSystem(layer.crs())
