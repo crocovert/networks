@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<TS version="2.0" language="fr">
 <context>
     <name>AjoutChamp</name>
     <message>
@@ -3124,7 +3124,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <location filename="param_musliw.py" line="328"/>
         <source>;algorithm parameter
 </source>
-        <translation>;parmaètre d&apos;algorithme</translation>
+        <translation>;paramètre d&apos;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="329"/>
@@ -3136,7 +3136,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <location filename="param_musliw.py" line="330"/>
         <source>;output paths
 </source>
-        <translation>,sortie chemins</translation>
+        <translation>;sortie chemins</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="331"/>

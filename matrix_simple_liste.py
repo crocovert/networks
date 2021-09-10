@@ -87,7 +87,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         """
 
         self.addParameter(
-            QgsProcessingParameterFeatureSource(
+            QgsProcessingParameterVectorLayer(
                 self.POLES,
                 self.tr('Nodes'),
                 [QgsProcessing.TypeVectorPoint]
@@ -102,11 +102,11 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
-            QgsProcessingParameterNumber(
+            QgsProcessingParameterExpression(
                 self.NB_PASSAGERS,
                 self.tr('Demand'),
-                QgsProcessingParameterNumber.Double,
-                defaultValue=1.0,
+                parentLayerParameterName=self.POLES,
+                optional=False
             )
         )
         self.addParameter(
@@ -186,9 +186,9 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         # Retrieve the feature source and sink. The 'dest_id' variable is used
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
-        poles = self.parameterAsSource(parameters, self.POLES, context)
+        poles = self.parameterAsVectorLayer(parameters, self.POLES, context)
         id = self.parameterAsFields(parameters, self.ID,context)[0]
-        nb_passagers=self.parameterAsDouble(parameters,self.NB_PASSAGERS,context)
+        nb_passagers=QgsExpression(self.parameterAsExpression(parameters,self.NB_PASSAGERS,context))
         jour=self.parameterAsInt(parameters,self.JOUR,context)
         h1=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
         h2=self.parameterAsString(parameters,self.FIN_PERIODE,context)
@@ -198,6 +198,10 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         label2=self.parameterAsBool(parameters,self.LABEL,context)
         fichier_matrice = self.parameterAsFileOutput(parameters, self.SORTIE,context)
 
+
+        formuleContexte=self.createExpressionContext(parameters,context)
+        formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(poles))
+        nb_passagers.prepare(formuleContexte)
         
         # Compute the number of steps to display within the progress bar and
         # get features from source
@@ -214,19 +218,23 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         fin_periode=int(h2[0])*60.0+int(h2[1])+int(h2[2])/60.0
         nodes=poles
         liste_nodes=set()
+        demande={}
         feedback.setProgressText(self.tr("Writing Musliw matrix..."))
         if d=="d":
             for i in nodes.getFeatures():
                 liste_nodes.add(i[id])
+                formuleContexte.setFeature(i)
+                valeur=nb_passagers.evaluate(formuleContexte)
+                demande[i[id]]=valeur
             for n,i in enumerate(liste_nodes):
                 feedback.setProgress(100*n/len(liste_nodes))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
                     for u,j in enumerate(liste_nodes):
                         if diagonale==False or i==j:
                             if label2==True:
-                                matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                                matrice.write(";".join([str(z) for z in [i,j,demande[i],jour,k,d,str(j)+"-"+str(i)]])+"\n")
                             else:
-                                matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d]])+"\n")
+                                matrice.write(";".join([str(z) for z in [i,j,demande[i],jour,k,d]])+"\n")
 
         elif d=="a":
             for i in nodes.getFeatures():
