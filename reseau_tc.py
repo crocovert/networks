@@ -317,6 +317,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                         
                         google_calendar_dates[service_id]=[]
                         google_calendar_dates[service_id].append(google_calendar_date)
+
             fichier_calendar_dates.close()
         return google_calendar_dates
 
@@ -394,7 +395,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                     date_jour=caldate.date
                     typjour = caldate.type
                     if (debut_cal<=date_jour<=fin_cal):
-                        delta=(debut_cal.daysTo(fin_cal))
+                        delta=(debut_cal.daysTo(date_jour))
                         if (typjour == 1):
                             google_calendars[cal].calendrier = google_calendars[cal].calendrier[0: delta] + "O" + google_calendars[cal].calendrier[delta + 1:]
                         
