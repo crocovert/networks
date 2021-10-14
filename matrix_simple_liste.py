@@ -87,7 +87,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         """
 
         self.addParameter(
-            QgsProcessingParameterVectorLayer(
+            QgsProcessingParameterFeatureSource(
                 self.POLES,
                 self.tr('Nodes'),
                 [QgsProcessing.TypeVectorPoint]
@@ -186,7 +186,8 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         # Retrieve the feature source and sink. The 'dest_id' variable is used
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
-        poles = self.parameterAsVectorLayer(parameters, self.POLES, context)
+        poles = self.parameterAsSource(parameters, self.POLES, context)
+        poles2=self.parameterAsVectorLayer(parameters, self.POLES, context)
         id = self.parameterAsFields(parameters, self.ID,context)[0]
         nb_passagers=QgsExpression(self.parameterAsExpression(parameters,self.NB_PASSAGERS,context))
         jour=self.parameterAsInt(parameters,self.JOUR,context)
@@ -200,7 +201,7 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
 
 
         formuleContexte=self.createExpressionContext(parameters,context)
-        formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(poles))
+        formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(poles2))
         nb_passagers.prepare(formuleContexte)
         
         # Compute the number of steps to display within the progress bar and
