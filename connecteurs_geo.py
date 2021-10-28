@@ -191,16 +191,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
             )
         )
 
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.LONG_0,
-                self.tr('No connector length'),
-                QgsProcessingParameterBoolean,
-                True
 
-                
-            )
-        )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.CONNECTEURS,
@@ -234,7 +225,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         rayon=self.parameterAsDouble(parameters,self.RAYON,context)
         vitesse=self.parameterAsDouble(parameters,self.VITESSE,context)
         nb_max=self.parameterAsInt(parameters,self.MAX_NB,context)
-        size=self.parameterAsInt(parameters,self.FIELD_SIZE,context)
+        #size=self.parameterAsInt(parameters,self.FIELD_SIZE,context)
         l0=self.parameterAsBool(parameters,self.LONG_0,context)
 
         # Compute the number of steps to display within the progress bar and
@@ -246,8 +237,9 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         
         index=QgsSpatialIndex(noeuds.getFeatures())
         champs=QgsFields()
-        champs.append(QgsField('i',QVariant.String,len=size))
-        champs.append(QgsField('j',QVariant.String,len=size))
+        champs.append(QgsField('i',QVariant.String))
+        champs.append(QgsField('j',QVariant.String))
+        champs.append(QgsField('ij',QVariant.String))
         champs.append(QgsField(self.tr('length'),QVariant.Double))
         champs.append(QgsField(self.tr('time'),QVariant.Double))
         champs.append(QgsField(self.tr('mode'),QVariant.String,len=10))
@@ -269,6 +261,8 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                                 l=n.geometry().distance(g.geometry())
                                 id_node=str(g.attribute(node_id))
                                 id_stop=str(n.attribute(stop_id))
+                                id_ij=id_stop+'-'+id_node
+                                id_ji=id_node+'-'+id_stop
                                 if l<rayon:
                                     nbc+=1
                                     gline=QgsGeometry.fromPolylineXY([QgsPointXY(n.geometry().centroid().asPoint()),QgsPointXY(g.geometry().centroid().asPoint())])
@@ -282,16 +276,16 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                                         ll=gline.length()
                                     moda=unicode(mode_i)+unicode(mode_j)
                                     if vitesse<=0:
-                                        fline.setAttributes([id_stop,id_node, ll/1000,0.0,moda])
+                                        fline.setAttributes([id_stop,id_node,id_ij, ll/1000,0.0,moda])
                                     else:
-                                        fline.setAttributes([id_stop,id_node, ll/1000,ll*60/(vitesse*1000),moda])
+                                        fline.setAttributes([id_stop,id_node,id_ij, ll/1000,ll*60/(vitesse*1000),moda])
                                     fline2=QgsFeature()
                                     fline2.setGeometry(hline)
                                     modb=unicode(mode_j)+unicode(mode_i)
                                     if vitesse<=0:
-                                        fline2.setAttributes([id_node,id_stop, ll/1000,0,modb])
+                                        fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,0,modb])
                                     else:
-                                        fline2.setAttributes([id_node,id_stop, ll/1000,ll*60/(vitesse*1000),modb])
+                                        fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,ll*60/(vitesse*1000),modb])
                                     table_connecteurs.addFeature(fline)
                                     table_connecteurs.addFeature(fline2)
                                     if vitesse>0:

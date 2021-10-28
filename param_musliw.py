@@ -199,7 +199,7 @@ class MusliwParam(QgsProcessingAlgorithm):
             QgsProcessingParameterEnum(
                 self.TEMPS_DETAILLES,
                 self.tr('Output links times?'),
-                [self.tr('No output'),self.tr('Without timetable links'),self.tr("With timetable links")],
+                [self.tr('No output'),self.tr('Without timetable links'),self.tr("With timetable links"),self.tr("Compact mode")],
                 defaultValue=0
             )
         ) 
@@ -318,7 +318,7 @@ class MusliwParam(QgsProcessingAlgorithm):
         
         fich_param=io.open(sortie,"w",encoding="utf-8")
         fich_param.write('0'+self.tr(';algorithm')+'\n')
-        fich_param.write(unicode(demi_tours).title()+self.tr(";Prohibited U-turns")+"\n")
+        fich_param.write(unicode(demi_tours).title()+self.tr(";prohibited U-turns")+"\n")
         fich_param.write(unicode(nb_classes)+self.tr(";max buckets")+"\n")
         fich_param.write(unicode(nb_jours)+self.tr(";number of days")+"\n")
         fich_param.write(self.tr(";matrix file")+"\n")

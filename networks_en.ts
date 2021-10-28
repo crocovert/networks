@@ -461,32 +461,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="204"/>
+        <location filename="connecteurs_geo.py" line="195"/>
         <source>Connectors file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="251"/>
+        <location filename="connecteurs_geo.py" line="243"/>
         <source>length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="252"/>
+        <location filename="connecteurs_geo.py" line="244"/>
         <source>time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="253"/>
+        <location filename="connecteurs_geo.py" line="245"/>
         <source>mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="303"/>
+        <location filename="connecteurs_geo.py" line="297"/>
         <source> connected nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="343"/>
+        <location filename="connecteurs_geo.py" line="337"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -508,18 +508,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="323"/>
+        <location filename="connecteurs_geo.py" line="317"/>
         <source>Build connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="330"/>
+        <location filename="connecteurs_geo.py" line="324"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="connecteurs_geo.py" line="194"/>
-        <source>No connector length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1067,47 +1062,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="283"/>
+        <location filename="import_gtfs.py" line="284"/>
         <source>Reading calendars...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="313"/>
+        <location filename="import_gtfs.py" line="314"/>
         <source>reading calendar dates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="339"/>
+        <location filename="import_gtfs.py" line="341"/>
         <source>Reading routes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="364"/>
+        <location filename="import_gtfs.py" line="366"/>
         <source>Reading trips...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="388"/>
+        <location filename="import_gtfs.py" line="390"/>
         <source>Reading stop times...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="499"/>
+        <location filename="import_gtfs.py" line="501"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="591"/>
+        <location filename="import_gtfs.py" line="596"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="598"/>
+        <location filename="import_gtfs.py" line="603"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="611"/>
+        <location filename="import_gtfs.py" line="616"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1767,17 +1762,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="217"/>
+        <location filename="matrix_simple_liste.py" line="223"/>
         <source>Writing Musliw matrix...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="264"/>
+        <location filename="matrix_simple_liste.py" line="273"/>
         <source>Musliw matrix simple list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="271"/>
+        <location filename="matrix_simple_liste.py" line="280"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1792,7 +1787,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="matrix_simple_liste.py" line="287"/>
+        <location filename="matrix_simple_liste.py" line="296"/>
         <source>
         Generates a Musliw matrix from a point layer and a period of time (from start time to end time with a step in minutes)
         the script generates a full square matrix (NxN od) or a diagonal matrix (N od with same origin and same destination)
@@ -2002,62 +1997,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="206"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Prohibited U-turns?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="213"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output paths?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="221"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output services?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="228"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output transfers?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="235"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output node times?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="243"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Algorithm scale?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="252"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Algorithm exponent?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="261"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>nb classes?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="270"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Parameters file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="368"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Musliw parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="375"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="391"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
         Produce a parameter file (to be selected in musliw computation):
@@ -2091,165 +2086,133 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="320"/>
-        <source>;algorithm
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>Compact mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="321"/>
-        <source>;Prohibited U-turns
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;algorithm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="322"/>
-        <source>;max buckets
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;Prohibited U-turns</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="323"/>
-        <source>;number of days
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;max buckets</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="324"/>
-        <source>;matrix file
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;number of days</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="325"/>
-        <source>;turns and transfers files
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;matrix file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="326"/>
-        <source>;network file
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;turns and transfers files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="327"/>
-        <source>;generic output file
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="328"/>
-        <source>;algorithm parameter
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;generic output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="329"/>
-        <source>;algorithm power
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;algorithm parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="330"/>
-        <source>;output paths
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;algorithm power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="331"/>
-        <source>;output services
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;output services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="332"/>
-        <source>;output travel times
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;output travel times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="333"/>
-        <source>;output turns and transfers
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;output turns and transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="334"/>
-        <source>;boarding weight
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;boarding weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="335"/>
-        <source>;individual mode weight
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;individual mode weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="336"/>
-        <source>;individual travel time factor
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;individual travel time factor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="337"/>
-        <source>;in-vehicle time weight
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;in-vehicle time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="338"/>
-        <source>;wait time weight
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;wait time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="339"/>
-        <source>;min transfer time
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;min transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="340"/>
-        <source>;max transfer time
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;max transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="341"/>
-        <source>;max individual travel time
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;max individual travel time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="342"/>
-        <source>;toll weight
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;toll weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="343"/>
-        <source>;output types filter
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;output types filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="344"/>
-        <source>;max travel cost
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;max travel cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="345"/>
-        <source>;output nodes
-</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="param_musliw.py" line="346"/>
-        <source>;output isolated links
-</source>
+        <location filename="param_musliw.py" line="198"/>
+        <source>;output isolated links</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2595,72 +2558,72 @@
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="157"/>
+        <location filename="reseau_tc.py" line="145"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="164"/>
+        <location filename="reseau_tc.py" line="152"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="171"/>
+        <location filename="reseau_tc.py" line="159"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="604"/>
+        <location filename="reseau_tc.py" line="590"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="555"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="571"/>
+        <location filename="reseau_tc.py" line="557"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="573"/>
+        <location filename="reseau_tc.py" line="559"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="575"/>
+        <location filename="reseau_tc.py" line="561"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="577"/>
+        <location filename="reseau_tc.py" line="563"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="579"/>
+        <location filename="reseau_tc.py" line="565"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="581"/>
+        <location filename="reseau_tc.py" line="567"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="583"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="611"/>
+        <location filename="reseau_tc.py" line="597"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="628"/>
+        <location filename="reseau_tc.py" line="614"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2673,7 +2636,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="178"/>
+        <location filename="reseau_tc.py" line="166"/>
         <source>Line based network?</source>
         <translation type="unfinished"></translation>
     </message>
