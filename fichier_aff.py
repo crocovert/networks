@@ -181,20 +181,20 @@ class FichierAff(QgsProcessingAlgorithm):
         trafic={}
         if len(ligne)==0:
             champs2=QgsFields()
-            champs2.append(QgsField("i",QVariant.String,len=15))
-            champs2.append(QgsField("j",QVariant.String,len=15))
-            champs2.append(QgsField("ij",QVariant.String,len=35))
+            champs2.append(QgsField("i",QVariant.String))
+            champs2.append(QgsField("j",QVariant.String))
+            champs2.append(QgsField("ij",QVariant.String))
             champs2.append(QgsField("volume",QVariant.Double))
-            champs2.append(QgsField("type",QVariant.String,len=35))
+            champs2.append(QgsField("type",QVariant.String))
         else:
             champs2=QgsFields()
-            champs2.append(QgsField("i",QVariant.String,len=15))
-            champs2.append(QgsField("j",QVariant.String,len=15))
-            champs2.append(QgsField("ij",QVariant.String,len=35))
-            champs2.append(QgsField("ligne",QVariant.String,len=35))
+            champs2.append(QgsField("i",QVariant.String))
+            champs2.append(QgsField("j",QVariant.String))
+            champs2.append(QgsField("ij",QVariant.String))
+            champs2.append(QgsField("ligne",QVariant.String))
             champs2.append(QgsField("volume",QVariant.Double))
             champs2.append(QgsField("decalage",QVariant.Double))
-            champs2.append(QgsField("type",QVariant.String,len=35))
+            champs2.append(QgsField("type",QVariant.String))
 
 
         (iti,affectation) = self.parameterAsSink(parameters, self.OUTPUT,context,champs2,QgsWkbTypes.MultiLineString, arcs.sourceCrs())

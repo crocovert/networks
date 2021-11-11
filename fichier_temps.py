@@ -219,7 +219,7 @@ class FichierTemps(QgsProcessingAlgorithm):
                                 links[elements[cols['ij']]][elements[cols['origin']]][4]=float(elements[cols[variable]])
                                 links[elements[cols['ij']]][elements[cols['origin']]][6]=elements[cols['pole']]
                                 links[elements[cols['ij']]][elements[cols['origin']]][11]=elements[cols['origin']]            
-        res.write('ij;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
+        res.write('ij;jour;avg;nb;min;max;pole_min;pole_max;departures;arrivals;sdev;o_min;o_max\n')
         for j,i in enumerate(links):
             sum_tri=sorted(list(links[i].items()),key=lambda x:x[1][1])
             #if j<=10:

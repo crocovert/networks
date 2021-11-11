@@ -119,8 +119,9 @@ class Routes(QgsProcessingAlgorithm):
 
         champs=QgsFields()
 
-        champs.append(QgsField('o',QVariant.String,len=30))#1
-        champs.append(QgsField('ij',QVariant.String,len=30))#2
+        champs.append(QgsField('id_iti',QVariant.String))#1
+        champs.append(QgsField('o',QVariant.String))#1
+        champs.append(QgsField('ij',QVariant.String))#2
         champs.append(QgsField('ligne',QVariant.Int))#3
         champs.append(QgsField('numtrc',QVariant.Int))#4
         champs.append(QgsField('jour',QVariant.Int))#5
@@ -134,9 +135,10 @@ class Routes(QgsProcessingAlgorithm):
         champs.append(QgsField('tatt1',QVariant.Double))#14
         champs.append(QgsField('cout',QVariant.Double))#15
         champs.append(QgsField('longueur',QVariant.Double))#16
-        champs.append(QgsField('pole',QVariant.String,len=15))#17
-        champs.append(QgsField('type',QVariant.String,len=15))#19
-        champs.append(QgsField('toll',QVariant.Double))#20
+        champs.append(QgsField('pole',QVariant.String))#17
+        champs.append(QgsField('type',QVariant.String))#20
+        champs.append(QgsField('toll',QVariant.Double))#21
+        champs.append(QgsField('ti',QVariant.Double))#22
 
 
 
@@ -170,10 +172,10 @@ class Routes(QgsProcessingAlgorithm):
                     while int(tij[d][col_temps['precedent']])>0:
                         f=QgsFeature(champs)
                         liste=[id_iti]
-                        liste.extend(tij[d][i] for i in [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,20,21])
-                        for t in [3,4,5,6,7,8,9,10,11,12,13,14,15,18]:
+                        liste.extend(tij[d][i] for i in [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,20,21,22])
+                        for t in [3,4,5,6,7,8,9,10,11,12,13,14,15,18,19]:
                             liste[t]=float(liste[t].replace(',','.'))
-                        liste=liste[1:22]
+                        liste=liste[0:22]
                         f.setAttributes(liste)
                         
                         if tij[d][col_temps['ij']] in features:

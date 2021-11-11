@@ -172,19 +172,19 @@ class PathAnalysis(QgsProcessingAlgorithm):
         od={}
         if par_lignes==True:
             champs2=QgsFields()
-            champs2.append(QgsField("i",QVariant.String,len=15))
-            champs2.append(QgsField("j",QVariant.String,len=15))
-            champs2.append(QgsField("line",QVariant.String,len=30))
-            champs2.append(QgsField("ij",QVariant.String,len=30))
+            champs2.append(QgsField("i",QVariant.String))
+            champs2.append(QgsField("j",QVariant.String))
+            champs2.append(QgsField("line",QVariant.String))
+            champs2.append(QgsField("ij",QVariant.String))
             champs2.append(QgsField("volume",QVariant.Double))
-            champs2.append(QgsField("type",QVariant.String,len=30))
+            champs2.append(QgsField("type",QVariant.String))
         else:
             champs2=QgsFields()
-            champs2.append(QgsField("i",QVariant.String,len=15))
-            champs2.append(QgsField("j",QVariant.String,len=15))
-            champs2.append(QgsField("ij",QVariant.String,len=30))
+            champs2.append(QgsField("i",QVariant.String))
+            champs2.append(QgsField("j",QVariant.String))
+            champs2.append(QgsField("ij",QVariant.String))
             champs2.append(QgsField("volume",QVariant.Double))
-            champs2.append(QgsField("type",QVariant.String,len=30))
+            champs2.append(QgsField("type",QVariant.String))
             
         (sortie,dest_id) = self.parameterAsSink(parameters, self.OUTPUT,context,champs2, QgsWkbTypes.MultiLineString, links.crs()) 
         for i,j in enumerate(valeurs):

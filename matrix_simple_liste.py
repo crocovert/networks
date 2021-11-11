@@ -240,6 +240,9 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
         elif d=="a":
             for i in nodes.getFeatures():
                 liste_nodes.add(i[id])
+                formuleContexte.setFeature(i)
+                valeur=nb_passagers.evaluate(formuleContexte)
+                demande[i[id]]=valeur
             for n,i in enumerate(liste_nodes):
                 feedback.setProgress(100*n/len(liste_nodes))
                 for k in numpy.arange(debut_periode,fin_periode,intervalle) :
