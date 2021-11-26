@@ -73,7 +73,8 @@ from .matrix_table import MatrixTable
 from .maj_links_pole import MajLinksPole
 from .create_update_links import CreateUpdateLinks
 from .path_indicators import PathIndicators
-
+from .gravityindicator import GravityIndicators
+from .multimodalgravity import MultimodalGravityIndicators
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -123,7 +124,9 @@ class NetworksProvider(QgsProcessingProvider):
                         MatrixTable(),
                         MajLinksPole(),
                         CreateUpdateLinks(),
-                        PathIndicators()]
+                        PathIndicators(),
+                        GravityIndicators(),
+                        MultimodalGravityIndicators()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -196,6 +199,8 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(MajLinksPole())
         self.addAlgorithm(CreateUpdateLinks())
         self.addAlgorithm(PathIndicators())
+        self.addAlgorithm(GravityIndicators())
+        self.addAlgorithm(MultimodalGravityIndicators())
         
 
 
