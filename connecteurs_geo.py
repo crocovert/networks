@@ -225,6 +225,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         rayon=self.parameterAsDouble(parameters,self.RAYON,context)
         vitesse=self.parameterAsDouble(parameters,self.VITESSE,context)
         nb_max=self.parameterAsInt(parameters,self.MAX_NB,context)
+        table_noeuds=self.parameterAsVectorLayer(parameters, self.NOEUDS, context)
         #size=self.parameterAsInt(parameters,self.FIELD_SIZE,context)
         l0=self.parameterAsBool(parameters,self.LONG_0,context)
 
@@ -234,6 +235,11 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
         arr=[a for a in arrets.getFeatures()]
         nb=len(arr)
+        
+        crsSrc = QgsCoordinateReferenceSystem('EPSG:'+str(table_noeuds.crs().postgisSrid()))
+        dist_unit=QgsUnitTypes.fromUnitToUnitFactor(crsSrc.mapUnits(),QgsUnitTypes.DistanceMeters)
+        rayon=rayon
+        
         
         index=QgsSpatialIndex(noeuds.getFeatures())
         champs=QgsFields()
@@ -258,7 +264,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                         f=noeuds.getFeatures(request=QgsFeatureRequest(nearest))
                         for j, g in enumerate(f):
                             if j==0:
-                                l=n.geometry().distance(g.geometry())
+                                l=n.geometry().distance(g.geometry())*dist_unit
                                 id_node=str(g.attribute(node_id))
                                 id_stop=str(n.attribute(stop_id))
                                 id_ij=id_stop+'-'+id_node
@@ -273,7 +279,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                                     if l0==True:
                                         ll=0
                                     else:
-                                        ll=gline.length()
+                                        ll=gline.length()*dist_unit
                                     moda=unicode(mode_i)+unicode(mode_j)
                                     if vitesse<=0:
                                         fline.setAttributes([id_stop,id_node,id_ij, ll/1000,0.0,moda])

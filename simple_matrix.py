@@ -183,7 +183,7 @@ class SimpleMatrix(QgsProcessingAlgorithm):
         depart=self.parameterAsEnum(parameters,self.DEPARTURE,context)
         fichier_matrice = self.parameterAsFileOutput(parameters, self.OUTPUT,context)
         write_mode=self.parameterAsEnum(parameters,self.WRITE_MODE,context)
-        
+        noeuds=self.parameterAsVectorLayer(parameters, self.NODES, context)
         # Compute the number of steps to display within the progress bar and
         # get features from source
         ##a=fenetre.split(",")
@@ -193,10 +193,13 @@ class SimpleMatrix(QgsProcessingAlgorithm):
         else:
             sens='a'
 
+        src=QgsProject.instance().crs()
+        dest=QgsCoordinateReferenceSystem(noeuds.crs())
+        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
+        dep=xtr.transform(pt_depart)
+        arr=xtr.transform(pt_arrivee)
 
         index=QgsSpatialIndex(nodes.getFeatures())
-        dep=pt_depart
-        arr=pt_arrivee
         inode=index.nearestNeighbor(dep,1)
         jnode=index.nearestNeighbor(arr,1)
         feat=nodes.getFeatures(request=QgsFeatureRequest(inode[0]))

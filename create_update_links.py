@@ -165,8 +165,12 @@ class CreateUpdateLinks(QgsProcessingAlgorithm):
         
 
         fichier=codecs.open(fichier_temps,"r","utf-8")
+        simple=QgsSimplifyMethod()
+        simple.setMethodType(QgsSimplifyMethod.PreserveTopology)
+        simple.setThreshold(1)
 
-        request=(QgsFeatureRequest().setFilterRect(fenetre))
+
+        request=(QgsFeatureRequest().setFilterRect(fenetre).setSimplifyMethod(simple))
 
 
 

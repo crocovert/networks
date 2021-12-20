@@ -205,6 +205,11 @@ class MajLinksPole(QgsProcessingAlgorithm):
             ncols=len(elements)
             if k==0:
                 for j in range(ncols):
+                    if elements[j]=='o_min':
+                        elements[j]='o'
+                    if elements[j]=='pole_min':
+                        elements[j]='pole'
+                        
                     colonnes[elements[j]]=j
             else:
                 t=elements[colonnes["pole"]]

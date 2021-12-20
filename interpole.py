@@ -322,9 +322,9 @@ class Interpole(QgsProcessingAlgorithm):
                     texte=diffusion.dump()+' in (\'1\',\'2\',\'3\') and ('+cout_j.dump()+' IS NOT NULL and '+sens.dump()+' in (\'1\',\'3\')) '
                     
                     #request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte)
+                    request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple)
                     #req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')')
+                    req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple)
                     features=[f for f in layer.getFeatures(request)]
 
                     if intraversable:
