@@ -277,7 +277,10 @@ class Contours(QgsProcessingAlgorithm):
                     for j,i in enumerate(liste1):
                         if ff[0]<maxi and not(ff[0]==novalue):
                             #texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\',2154))'
-                            texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\','+proj+'))'
+                            if val_ind==False:
+                                texte='insert into '+nom_sortie +' values(\''+str(ff[0])+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\','+proj+'))'
+                            else:
+                                texte='insert into '+nom_sortie +' values(\''+poles_dict[str(ff[0])]+'\','+str(ff[1])+','+str(ff[2])+',st_geomfromtext(\''+i.asWkt()+'\','+proj+'))'
                             rs = c.execute(texte)
                             conn.commit()
                             tlignes=NULL
@@ -370,7 +373,7 @@ class Contours(QgsProcessingAlgorithm):
         f1=QgsFeature()
         f1.setAttributes([poles_dict[str(int(grille[p][q]))]])
         f1.setGeometry(ligne1)
-        self.polys[poles_dict[str(int(grille[p][q]))],p,q]=[f1.geometry().asMultiPolyline()]
+        self.polys[int(grille[p][q]),p,q]=[f1.geometry().asMultiPolyline()]
         
     def contours(self,grille, p,q,s,novalue,mini,maxi,ll,pixel_size_x,pixel_size_y,nx,ny):
         lignes={}
