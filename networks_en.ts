@@ -2130,6 +2130,31 @@ L&apos;algorithme produit deux fichiers de résultats:
         </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>t0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>modal share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Musliw nodes file</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MusliwParam</name>

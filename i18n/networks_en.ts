@@ -466,27 +466,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="243"/>
+        <location filename="connecteurs_geo.py" line="249"/>
         <source>length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="244"/>
+        <location filename="connecteurs_geo.py" line="250"/>
         <source>time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="245"/>
+        <location filename="connecteurs_geo.py" line="251"/>
         <source>mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="297"/>
+        <location filename="connecteurs_geo.py" line="303"/>
         <source> connected nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="337"/>
+        <location filename="connecteurs_geo.py" line="343"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -508,12 +508,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="317"/>
+        <location filename="connecteurs_geo.py" line="323"/>
         <source>Build connectors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="324"/>
+        <location filename="connecteurs_geo.py" line="330"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -561,7 +561,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="346"/>
+        <location filename="contours.py" line="349"/>
         <source>Isovalue polygons</source>
         <translation type="unfinished"></translation>
     </message>
@@ -571,17 +571,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="285"/>
+        <location filename="contours.py" line="288"/>
         <source>Generating isovalue polygons...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="contours.py" line="353"/>
+        <location filename="contours.py" line="356"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="contours.py" line="737"/>
+        <location filename="contours.py" line="740"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
 <byte value="x9"/><byte value="x9"/>        
@@ -607,7 +607,7 @@
 <context>
     <name>CreateUpdateLinks</name>
     <message>
-        <location filename="create_update_links.py" line="275"/>
+        <location filename="create_update_links.py" line="279"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -632,17 +632,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="205"/>
+        <location filename="create_update_links.py" line="209"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="268"/>
+        <location filename="create_update_links.py" line="272"/>
         <source>Create updated links</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="291"/>
+        <location filename="create_update_links.py" line="295"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 <byte value="x9"/><byte value="x9"/>        
@@ -979,6 +979,74 @@
         <location filename="fichier_temps_jour.py" line="278"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>FichierTempsMulti</name>
+    <message>
+        <location filename="fichier_temps_multi.py" line="84"/>
+        <source>Link times output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="98"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="106"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="114"/>
+        <source>Time based links only?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="122"/>
+        <source>Link indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="253"/>
+        <source>indicators by link multiple points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="260"/>
+        <source>Analysis</source>
+        <translation type="unfinished">Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="276"/>
+        <source>
+        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
@@ -1459,7 +1527,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>MajLinksPole</name>
     <message>
-        <location filename="maj_links_pole.py" line="278"/>
+        <location filename="maj_links_pole.py" line="283"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1504,17 +1572,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="221"/>
+        <location filename="maj_links_pole.py" line="226"/>
         <source>updating pole...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="271"/>
+        <location filename="maj_links_pole.py" line="276"/>
         <source>Update links pole</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="294"/>
+        <location filename="maj_links_pole.py" line="299"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -2062,6 +2130,31 @@ L&apos;algorithme produit deux fichiers de résultats:
         </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Modes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>t0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>modal share</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Musliw nodes file</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MusliwParam</name>
@@ -2378,7 +2471,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="225"/>
+        <location filename="networks_provider.py" line="227"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2717,72 +2810,72 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="157"/>
+        <location filename="reseau_tc.py" line="145"/>
         <source>GTFS folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="164"/>
+        <location filename="reseau_tc.py" line="152"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="171"/>
+        <location filename="reseau_tc.py" line="159"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="605"/>
+        <location filename="reseau_tc.py" line="590"/>
         <source>Musliw timetable network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="570"/>
+        <location filename="reseau_tc.py" line="555"/>
         <source>Reading stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="572"/>
+        <location filename="reseau_tc.py" line="557"/>
         <source>Reading routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="574"/>
+        <location filename="reseau_tc.py" line="559"/>
         <source>Reading trips</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="576"/>
+        <location filename="reseau_tc.py" line="561"/>
         <source>Reading calendars_dates</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="578"/>
+        <location filename="reseau_tc.py" line="563"/>
         <source>Reading calendars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="580"/>
+        <location filename="reseau_tc.py" line="565"/>
         <source>Reading stop_times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="582"/>
+        <location filename="reseau_tc.py" line="567"/>
         <source>Generating lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="584"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Generation Musliw file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="612"/>
+        <location filename="reseau_tc.py" line="597"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="629"/>
+        <location filename="reseau_tc.py" line="614"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 <byte value="x9"/><byte value="x9"/>        
@@ -2795,7 +2888,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="178"/>
+        <location filename="reseau_tc.py" line="166"/>
         <source>Line based network?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3090,17 +3183,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="240"/>
+        <location filename="simple_matrix.py" line="243"/>
         <source>Musliw simple matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="247"/>
+        <location filename="simple_matrix.py" line="250"/>
         <source>Matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="simple_matrix.py" line="263"/>
+        <location filename="simple_matrix.py" line="266"/>
         <source>
         Generates a Musliw matrix from clicking on 2 nodes to define an origin(1st point)-destination(2nd point)
 <byte value="x9"/><byte value="x9"/>

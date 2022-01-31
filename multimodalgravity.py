@@ -34,7 +34,7 @@ import json
 class MultimodalGravityIndicators(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config):
-        self.addParameter(QgsProcessingParameterMatrix('Modes', 'Modes', numberRows=2,headers=['mode','t0','modal share','Musliw nodes file']))
+        self.addParameter(QgsProcessingParameterMatrix('Modes', self.tr('Modes'), numberRows=2,headers=[self.tr('mode'),self.tr('t0'),self.tr('modal share'),self.tr('Musliw nodes file')]))
         self.addParameter(QgsProcessingParameterString('Amenityfield', self.tr('Amenity'),  defaultValue='volau'))
         self.addParameter(QgsProcessingParameterFeatureSource('Socioeconomicdata', self.tr('Socioeconomic data'), types=[QgsProcessing.TypeVectorPolygon], defaultValue=None))
         self.addParameter(QgsProcessingParameterField('ZoneId', self.tr('Zone Id'), type=QgsProcessingParameterField.Any, parentLayerParameterName='Socioeconomicdata', allowMultiple=False, defaultValue=None))
@@ -182,7 +182,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                             p=modes[fich]['pct'][k]
                             if equipements[equip][k]>0 and equipements[equip]['pop_'+k]:
                                 zones[zone][k]+=(equipements[equip]['pop']/equipements[equip]['pop_'+k])*equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
-
+                            zones[zone]['nb']+=1
                             zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
 
         feedback.setCurrentStep(3)
@@ -224,7 +224,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         fich_zones.close()
 
 
-        fich_equip=open(os.path.splitext(resultat)[0]+"_multi_zones.txt","w")
+        fich_equip=open(os.path.splitext(resultat)[0]+"_multi_equip.txt","w")
         for k,i in enumerate(equipements.items()):
             if k==0:
                 fich_equip.write("equip;"+";".join([str(l) for l in i[1]])+"\n")

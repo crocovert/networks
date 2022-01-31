@@ -2975,7 +2975,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     <message>
         <location filename="multimodalgravity.py" line="38"/>
         <source>Amenity</source>
-        <translation>Aménité</translation>
+        <translation>Amenité</translation>
     </message>
     <message>
         <location filename="multimodalgravity.py" line="39"/>
@@ -3053,6 +3053,31 @@ L&apos;algorithme produit deux fichiers de résultats:
 - ..._multi_zones.txt (indicateur gravitaire par zone), zone d&apos;accessibilité
 L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est dans la variable w_pop
 </translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Modes</source>
+        <translation>Modes</translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>mode</source>
+        <translation>mode</translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>t0</source>
+        <translation>t0</translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>modal share</source>
+        <translation>part modale</translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="37"/>
+        <source>Musliw nodes file</source>
+        <translation>Fichier noeuds Musliw</translation>
     </message>
 </context>
 <context>
@@ -3331,7 +3356,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     <message>
         <location filename="param_musliw.py" line="320"/>
         <source>;algorithm</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="321"/>
