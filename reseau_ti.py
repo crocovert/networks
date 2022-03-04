@@ -215,8 +215,9 @@ class ReseauTi(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         reseau_routier = self.parameterAsSource(parameters, self.INPUT, context)
+        reseau_source=self.parameterAsVectorLayer(parameters, self.INPUT, context)
         reseau_musliw = self.parameterAsFileOutput(parameters, self.OUTPUT,context)
-        fenetre=self.parameterAsExtent(parameters,self.RECTANGLE,context)
+        fenetre_source=self.parameterAsExtent(parameters,self.RECTANGLE,context)
         sens=self.parameterAsFields(parameters,self.SENS,context)
         temps=self.parameterAsFields(parameters,self.TEMPS,context)
         longueur=self.parameterAsFields(parameters,self.LONGUEUR,context)
@@ -233,6 +234,11 @@ class ReseauTi(QgsProcessingAlgorithm):
         # get features from source
         ##a=fenetre.split(",")
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
+        src=QgsProject.instance().crs()
+        dest=QgsCoordinateReferenceSystem(reseau_source.crs())
+        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
+        fenetre=xtr.transformBoundingBox(fenetre_source)
+        
         request=QgsFeatureRequest().setFilterRect(fenetre)
         layer=reseau_routier
         sortie=codecs.open(reseau_musliw,"w",encoding="utf8")

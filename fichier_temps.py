@@ -121,7 +121,7 @@ class FichierTemps(QgsProcessingAlgorithm):
             QgsProcessingParameterBoolean(
                 self.TCSEUL,
                 self.tr('Time based links only?'),
-                True
+                False
                 
             )
         )

@@ -143,7 +143,7 @@ class CreateUpdateLinks(QgsProcessingAlgorithm):
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
         fichier_temps=self.parameterAsFile(parameters,self.FICHIER_TEMPS,context)
         temps_terminal = self.parameterAsBool(parameters, self.TEMPS_TERMINAL, context)
-        fenetre=self.parameterAsExtent(parameters,self.WINDOW, context)
+        fenetre_source=self.parameterAsExtent(parameters,self.WINDOW, context)
         
         champs=reseau.fields()
         noms_champs=[]
@@ -168,7 +168,11 @@ class CreateUpdateLinks(QgsProcessingAlgorithm):
         simple=QgsSimplifyMethod()
         simple.setMethodType(QgsSimplifyMethod.PreserveTopology)
         simple.setThreshold(1)
-
+        
+        src=QgsProject.instance().crs()
+        dest=QgsCoordinateReferenceSystem(reseau.crs())
+        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
+        fenetre=xtr.transformBoundingBox(fenetre_source)
 
         request=(QgsFeatureRequest().setFilterRect(fenetre).setSimplifyMethod(simple))
 

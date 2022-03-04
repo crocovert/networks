@@ -255,7 +255,7 @@ class Interpole(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
-        fenetre=self.parameterAsExtent(parameters,self.FENETRE,context)
+        fenetre_source=self.parameterAsExtent(parameters,self.FENETRE,context)
         cout_i=QgsExpression(self.parameterAsExpression(parameters,self.COUT_I,context))
         cout_j=QgsExpression(self.parameterAsExpression(parameters,self.COUT_J,context))
         sens=QgsExpression(self.parameterAsExpression(parameters,self.SENS,context))
@@ -270,8 +270,17 @@ class Interpole(QgsProcessingAlgorithm):
         vitesse_diffusion=QgsExpression(self.parameterAsExpression(parameters,self.VITESSE_DIFFUSION,context))
         intraversable = self.parameterAsBool(parameters, self.INTRAVERSABLE, context)
         valeurs_individuelles=QgsExpression(self.parameterAsExpression(parameters,self.IND_VALUES,context))
+        
+        
+        
 
         resultat = self.parameterAsOutputLayer(parameters, self.RESULTAT,context)       # Compute the number of steps to display within the progress bar and
+        
+        src=QgsProject.instance().crs()
+        dest=QgsCoordinateReferenceSystem(reseau.crs())
+        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
+        fenetre=xtr.transformBoundingBox(fenetre_source)
+        
         
         poles={}
         formule_cout_i=self.createExpressionContext(parameters,context)

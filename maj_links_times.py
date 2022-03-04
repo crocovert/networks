@@ -154,7 +154,12 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         champ_ti=self.parameterAsExpression(parameters,self.TI,context).strip("'").strip("\"")
         champ_tj=self.parameterAsExpression(parameters,self.TJ,context).strip("'").strip("\"")
         temps_terminal = self.parameterAsBool(parameters, self.TEMPS_TERMINAL, context)
-        fenetre=self.parameterAsExtent(parameters,self.WINDOW, context)
+        fenetre_source=self.parameterAsExtent(parameters,self.WINDOW, context)
+        
+        src=QgsProject.instance().crs()
+        dest=QgsCoordinateReferenceSystem(reseau.crs())
+        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
+        fenetre=xtr.transformBoundingBox(fenetre_source)
         
         if depart==0:
             start=True
