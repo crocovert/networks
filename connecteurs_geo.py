@@ -181,11 +181,10 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
-            QgsProcessingParameterNumber(
-                self.FIELD_SIZE,
-                self.tr('ID field size'),
-                QgsProcessingParameterNumber.Integer,
-                defaultValue=15
+            QgsProcessingParameterBoolean(
+                self.LONG_0,
+                self.tr('Null length connectors'),
+                defaultValue=False
 
                 
             )
@@ -248,7 +247,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         champs.append(QgsField('ij',QVariant.String))
         champs.append(QgsField(self.tr('length'),QVariant.Double))
         champs.append(QgsField(self.tr('time'),QVariant.Double))
-        champs.append(QgsField(self.tr('mode'),QVariant.String,len=10))
+        champs.append(QgsField(self.tr('mode'),QVariant.String))
 
         (table_connecteurs,dest_id) = self.parameterAsSink(parameters, self.CONNECTEURS,context,champs, QgsWkbTypes.LineString, noeuds.sourceCrs())
         nom_fichier=dest_id

@@ -309,17 +309,17 @@
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="173"/>
+        <location filename="calcul_musliw.py" line="172"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="198"/>
+        <location filename="calcul_musliw.py" line="197"/>
         <source>Musliw computation</source>
         <translation>Calcul Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="205"/>
+        <location filename="calcul_musliw.py" line="204"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -379,7 +379,7 @@
         <translation>Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="221"/>
+        <location filename="calcul_musliw.py" line="220"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 		Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -674,32 +674,32 @@
         <translation>Nombre max</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="195"/>
+        <location filename="connecteurs_geo.py" line="194"/>
         <source>Connectors file</source>
-        <translation>Fichier connecteurs</translation>
+        <translation type="unfinished">Connecteurs de longeuur nulle</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="249"/>
+        <location filename="connecteurs_geo.py" line="248"/>
         <source>length</source>
         <translation>longueur</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="250"/>
+        <location filename="connecteurs_geo.py" line="249"/>
         <source>time</source>
         <translation>temps</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="251"/>
+        <location filename="connecteurs_geo.py" line="250"/>
         <source>mode</source>
         <translation>mode</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="303"/>
+        <location filename="connecteurs_geo.py" line="302"/>
         <source> connected nodes</source>
         <translation>noeuds connectés</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="343"/>
+        <location filename="connecteurs_geo.py" line="342"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -737,24 +737,24 @@
         </translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="323"/>
+        <location filename="connecteurs_geo.py" line="322"/>
         <source>Build connectors</source>
         <translation>Créer connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="330"/>
+        <location filename="connecteurs_geo.py" line="329"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="194"/>
-        <source>No connector length</source>
-        <translation type="obsolete">Connecteurs de longeuur nulle</translation>
+        <location filename="connecteurs_geo.py" line="183"/>
+        <source>ID field size</source>
+        <translation type="obsolete">Taille du champ Id</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="183"/>
-        <source>ID field size</source>
-        <translation>Taille du champ Id</translation>
+        <source>Null length connectors</source>
+        <translation>Connecteurs de longueur nulle</translation>
     </message>
 </context>
 <context>
@@ -853,7 +853,7 @@
 <context>
     <name>CreateUpdateLinks</name>
     <message>
-        <location filename="create_update_links.py" line="279"/>
+        <location filename="create_update_links.py" line="283"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -878,17 +878,17 @@
         <translation>Réseau résultat</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="209"/>
+        <location filename="create_update_links.py" line="213"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="272"/>
+        <location filename="create_update_links.py" line="276"/>
         <source>Create updated links</source>
         <translation>Création des arcs mis à jour avec les temps</translation>
     </message>
     <message>
-        <location filename="create_update_links.py" line="295"/>
+        <location filename="create_update_links.py" line="299"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 		        
@@ -1674,52 +1674,52 @@
 <context>
     <name>GravityIndicators</name>
     <message>
-        <location filename="gravityindicator.py" line="36"/>
+        <location filename="gravityindicator.py" line="37"/>
         <source>Musliw Output Nodes File</source>
         <translation>Fichier noeuds Musliw</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="37"/>
+        <location filename="gravityindicator.py" line="38"/>
         <source>Amenity</source>
         <translation>Aménité</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="39"/>
+        <location filename="gravityindicator.py" line="40"/>
         <source>Socioeconomic data</source>
         <translation>Donénes socioéconomiques</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="40"/>
+        <location filename="gravityindicator.py" line="41"/>
         <source>Zone Id</source>
         <translation>Zone ID</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="41"/>
+        <location filename="gravityindicator.py" line="42"/>
         <source>Population</source>
         <translation>Population</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="42"/>
+        <location filename="gravityindicator.py" line="43"/>
         <source>Number of time periods</source>
         <translation>Nombre de périodes</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="43"/>
+        <location filename="gravityindicator.py" line="44"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="245"/>
+        <location filename="gravityindicator.py" line="247"/>
         <source>Gravity Indicators</source>
         <translation>Indicateurs gravitaires</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="248"/>
+        <location filename="gravityindicator.py" line="250"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="257"/>
+        <location filename="gravityindicator.py" line="259"/>
         <source>
         The algorithm performs a gravity indicator of accessibility based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -1998,7 +1998,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="498"/>
+        <location filename="interpole.py" line="507"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -2053,12 +2053,12 @@ L&apos;algorithme produit deux fichiers de résultats:
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="475"/>
+        <location filename="interpole.py" line="484"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="482"/>
+        <location filename="interpole.py" line="491"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -2325,7 +2325,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="286"/>
+        <location filename="maj_links_times.py" line="291"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2365,17 +2365,17 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="177"/>
+        <location filename="maj_links_times.py" line="182"/>
         <source>updating ti tj</source>
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="225"/>
+        <location filename="maj_links_times.py" line="230"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="279"/>
+        <location filename="maj_links_times.py" line="284"/>
         <source>Update links times</source>
         <translation>Mise à jour des temps des arcs</translation>
     </message>
@@ -2410,7 +2410,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="302"/>
+        <location filename="maj_links_times.py" line="307"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -2973,47 +2973,47 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MultimodalGravityIndicators</name>
     <message>
-        <location filename="multimodalgravity.py" line="38"/>
+        <location filename="multimodalgravity.py" line="39"/>
         <source>Amenity</source>
         <translation>Amenité</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="39"/>
+        <location filename="multimodalgravity.py" line="40"/>
         <source>Socioeconomic data</source>
         <translation>Données socioéconomiques</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="40"/>
+        <location filename="multimodalgravity.py" line="41"/>
         <source>Zone Id</source>
         <translation>Zone ID</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="41"/>
+        <location filename="multimodalgravity.py" line="42"/>
         <source>Population</source>
         <translation>Population</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="42"/>
+        <location filename="multimodalgravity.py" line="43"/>
         <source>Number of time periods</source>
         <translation>Nombre de périodes</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="43"/>
+        <location filename="multimodalgravity.py" line="44"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="251"/>
+        <location filename="multimodalgravity.py" line="252"/>
         <source>Multimodal Gravity Indicators</source>
         <translation>Indicateurs d&apos;accessibilité gravitaire multimodale</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="254"/>
+        <location filename="multimodalgravity.py" line="255"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="263"/>
+        <location filename="multimodalgravity.py" line="264"/>
         <source>
         The algorithm performs a gravity indicator of accessibility with spatial and modal competition based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -3055,27 +3055,27 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 </translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="37"/>
+        <location filename="multimodalgravity.py" line="38"/>
         <source>Modes</source>
         <translation>Modes</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="37"/>
+        <location filename="multimodalgravity.py" line="38"/>
         <source>mode</source>
         <translation>mode</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="37"/>
+        <location filename="multimodalgravity.py" line="38"/>
         <source>t0</source>
         <translation>t0</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="37"/>
+        <location filename="multimodalgravity.py" line="38"/>
         <source>modal share</source>
         <translation>part modale</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="37"/>
+        <location filename="multimodalgravity.py" line="38"/>
         <source>Musliw nodes file</source>
         <translation>Fichier noeuds Musliw</translation>
     </message>
@@ -4241,12 +4241,12 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Réseau Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="239"/>
+        <location filename="reseau_ti.py" line="245"/>
         <source>Writing Musliw network file...</source>
         <translation>Ecriture du réseau Musliw...</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="305"/>
+        <location filename="reseau_ti.py" line="311"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
 		
@@ -4291,12 +4291,12 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             </translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="282"/>
+        <location filename="reseau_ti.py" line="288"/>
         <source>Musliw individual network</source>
         <translation>Réseau Musliw transport individuel</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="289"/>
+        <location filename="reseau_ti.py" line="295"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>

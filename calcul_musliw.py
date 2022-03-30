@@ -157,13 +157,13 @@ class CalculMusliw(QgsProcessingAlgorithm):
         
         if sys.platform.startswith('win'):
             prog=os.path.dirname(__file__)+"/Muslic.exe"
-               
+            cmd=[prog,reseau,matrice,sortie,parametres]
+
         elif sys.platform.startswith('linux'):
-            prog=os.path.dirname(__file__)+"/Muslic.exe"
+            prog=os.path.join(os.path.dirname(__file__),"/Muslic.exe")
             st = os.stat(prog)
             os.chmod(prog, st.st_mode | stat.S_IEXEC)
             cmd=["mono",prog,reseau,matrice,sortie,parametres]
-
 
 
       
@@ -171,11 +171,11 @@ class CalculMusliw(QgsProcessingAlgorithm):
         DETACHED_PROCESS = 0x00000008
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
         if len(penalites)==0:
-            musliw=subprocess.Popen(cmd)
+            musliw_test=subprocess.Popen(cmd)
         else:
             cmd.append(penalites)
-            musliw=subprocess.Popen(cmd)
-        musliw.wait()
+            musliw_test=subprocess.Popen(cmd)
+        #musliw_test.wait()
         return {'SORTIE': sortie}
 
 

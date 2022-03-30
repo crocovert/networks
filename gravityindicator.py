@@ -27,6 +27,7 @@ import processing
 import os
 import gc
 import math
+import io
 
 
 
@@ -87,12 +88,13 @@ class GravityIndicators(QgsProcessingAlgorithm):
             
         tpond=0
         pond=0
-        with open(fichier_temps) as fich_temps:
+        with io.open(fichier_temps,encoding='utf_8_sig') as fich_temps:
             for i,od in enumerate(fich_temps):
                 if i==0:
                     e=od.strip('\n').strip('\r').split(";")
                     for g,f in enumerate(e):
                         cols[f]=g
+                    print(cols)
                 else:
                     od=od.replace(',','.')
                     e=od.strip('\n').strip('\r').split(";")
@@ -218,7 +220,7 @@ class GravityIndicators(QgsProcessingAlgorithm):
 
 
 
-        fich_equip=open(os.path.splitext(resultat)[0]+"_zones.txt","w")
+        fich_equip=open(os.path.splitext(resultat)[0]+"_equip.txt","w")
         for k,i in enumerate(equipements.items()):
             if k==0:
                 fich_equip.write("equip;"+";".join([str(l) for l in i[1]])+"\n")
@@ -236,7 +238,7 @@ class GravityIndicators(QgsProcessingAlgorithm):
     
 
 
-        return {'zones':os.path.splitext(resultat)[0]+"_zones.txt",os.path.splitext(resultat)[0]+"_zones.txt":fich_equip}
+        return {'zones':os.path.splitext(resultat)[0]+"_zones.txt",'equip':os.path.splitext(resultat)[0]+"_equip.txt"}
 
     def name(self):
         return 'GravityIndicators'

@@ -28,6 +28,7 @@ import os
 import gc
 import math
 import json
+import io
 
 
 
@@ -111,7 +112,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         'lit fichier temps TC'
 
         for fich in modes:
-            with open(modes[fich]["fichier"]) as fich_temps:
+            with io.open(modes[fich]["fichier"],encoding='utf_8_sig') as fich_temps:
                 t0=modes[fich]['t0']
                 for i,od in enumerate(fich_temps):
                     if i==0:
@@ -153,7 +154,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         #    logger.info(equipements[i])
            
         for fich in modes:
-            with open(modes[fich]["fichier"]) as fich_temps:
+            with io.open(modes[fich]["fichier"],encoding='utf_8_sig') as fich_temps:
                 t0=modes[fich]['t0']
                 for i,od in enumerate(fich_temps):
                     if i==0:
@@ -190,7 +191,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
             return {}
 
         for fich in modes:
-            with open(modes[fich]["fichier"]) as fich_temps:
+            with io.open(modes[fich]["fichier"],encoding='utf_8_sig') as fich_temps:
                 t0=modes[fich]['t0']
                 for i,od in enumerate(fich_temps):
                     if i==0:
@@ -242,7 +243,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
     
 
 
-        return {'zones':os.path.splitext(resultat)[0]+"_multi_zones.txt",'equip':os.path.splitext(resultat)[0]+"_multi_zones.txt"}
+        return {'zones':os.path.splitext(resultat)[0]+"_multi_zones.txt",'equip':os.path.splitext(resultat)[0]+"_multi_equip.txt"}
 
     def name(self):
         return 'MultimodalGravityIndicators'
