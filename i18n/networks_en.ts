@@ -2089,25 +2089,25 @@ L&apos;algorithme produit deux fichiers de résultats:
     <message>
         <location filename="multimodalgravity.py" line="43"/>
         <source>Number of time periods</source>
-        <translation type="unfinished">Nombre de périodes</translation>
+        <translation type="obsolete">Nombre de périodes</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="44"/>
+        <location filename="multimodalgravity.py" line="45"/>
         <source>Output</source>
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="252"/>
+        <location filename="multimodalgravity.py" line="271"/>
         <source>Multimodal Gravity Indicators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="255"/>
+        <location filename="multimodalgravity.py" line="274"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="264"/>
+        <location filename="multimodalgravity.py" line="283"/>
         <source>
         The algorithm performs a gravity indicator of accessibility with spatial and modal competition based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -2153,6 +2153,11 @@ L&apos;algorithme produit deux fichiers de résultats:
     <message>
         <location filename="multimodalgravity.py" line="38"/>
         <source>Musliw nodes file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="44"/>
+        <source>remove initial/Final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

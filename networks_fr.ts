@@ -676,7 +676,7 @@
     <message>
         <location filename="connecteurs_geo.py" line="194"/>
         <source>Connectors file</source>
-        <translation type="unfinished">Connecteurs de longeuur nulle</translation>
+        <translation>Connecteurs de longueur nulle</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="248"/>
@@ -2995,25 +2995,25 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
     <message>
         <location filename="multimodalgravity.py" line="43"/>
         <source>Number of time periods</source>
-        <translation>Nombre de périodes</translation>
+        <translation type="obsolete">Nombre de périodes</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="44"/>
+        <location filename="multimodalgravity.py" line="45"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="252"/>
+        <location filename="multimodalgravity.py" line="271"/>
         <source>Multimodal Gravity Indicators</source>
         <translation>Indicateurs d&apos;accessibilité gravitaire multimodale</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="255"/>
+        <location filename="multimodalgravity.py" line="274"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="264"/>
+        <location filename="multimodalgravity.py" line="283"/>
         <source>
         The algorithm performs a gravity indicator of accessibility with spatial and modal competition based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -3078,6 +3078,11 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <location filename="multimodalgravity.py" line="38"/>
         <source>Musliw nodes file</source>
         <translation>Fichier noeuds Musliw</translation>
+    </message>
+    <message>
+        <location filename="multimodalgravity.py" line="44"/>
+        <source>remove initial/Final waiting time?</source>
+        <translation>retrancher le temps d&apos;attente initial/final?</translation>
     </message>
 </context>
 <context>

@@ -40,7 +40,8 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         self.addParameter(QgsProcessingParameterFeatureSource('Socioeconomicdata', self.tr('Socioeconomic data'), types=[QgsProcessing.TypeVectorPolygon], defaultValue=None))
         self.addParameter(QgsProcessingParameterField('ZoneId', self.tr('Zone Id'), type=QgsProcessingParameterField.Any, parentLayerParameterName='Socioeconomicdata', allowMultiple=False, defaultValue=None))
         self.addParameter(QgsProcessingParameterField('Popfield', self.tr('Population'), type=QgsProcessingParameterField.Numeric, parentLayerParameterName='Socioeconomicdata', allowMultiple=True, defaultValue=None))
-        self.addParameter(QgsProcessingParameterNumber('Numberoftimeperiods', self.tr('Number of time periods'), type=QgsProcessingParameterNumber.Double, defaultValue=1))
+        #self.addParameter(QgsProcessingParameterNumber('Numberoftimeperiods', self.tr('Number of time periods'), type=QgsProcessingParameterNumber.Double, defaultValue=1))
+        self.addParameter(QgsProcessingParameterBoolean('InitialWaitingTime', self.tr('remove initial/Final waiting time?'), defaultValue=True))
         self.addParameter(QgsProcessingParameterFileDestination('Output', self.tr('Output'), fileFilter='*.txt', createByDefault=True, defaultValue=None))
 
     def processAlgorithm(self, parameters, context, model_feedback):
@@ -55,11 +56,12 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         amenity= self.parameterAsString(parameters, 'AmenityField', context)
         resultat=self.parameterAsFileOutput(parameters,'Output',context)
         liste_modes=self.parameterAsMatrix(parameters,'Modes',context)
-        nb_horaires=self.parameterAsInt(parameters,'Numberoftimeperiods',context)
+        #nb_horaires=self.parameterAsInt(parameters,'Numberoftimeperiods',context)
+        nb_horaires=1
         pop_table=self.parameterAsSource(parameters,'Socioeconomicdata',context)
         zone=self.parameterAsFields(parameters,'ZoneId',context)[0]
         pop_fields=self.parameterAsFields(parameters,'Popfield',context)
-
+        init_wait=self.parameterAsBool(parameters,'InitialWaitingTime',context)
         #lecture des modes
         modes={} 
         nb=len(liste_modes)//4
@@ -72,7 +74,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
 
         
             
-            
+
         
         '''modes={'marche':{'t0':22,'pct':{'pvp0':1.0,'pvp1':0.88,'pvp2':0.74},'fichier':"res_sytral_marche_colleges_noeuds.txt"}
                 ,'velo':{'t0':9, 'pct':{'pvp0':0,'pvp1':0.01,'pvp2':0.02}, 'fichier':"res_sytral_velo_colleges_noeuds.txt"}
@@ -99,7 +101,9 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                 p=i[pop]
                 if z not in carres:
                     carres[z]={}
+                    carres[z]['pop']=0
                 carres[z][pop]=float(p)
+                carres[z]['pop']+=float(p)
 
 
 
@@ -124,7 +128,10 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                         e=od.strip('\n').strip('\r').split(";")
                         zone=e[cols['numero']]
                         equip=e[cols['o']]
-                        tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        if init_wait==True:
+                            tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        else:
+                            tmsum=1/float(e[cols['temps']])
                         if equip not in equipements:
                                 equipements[equip]={}
                                 for k in modes[fich]['pct']:
@@ -166,7 +173,11 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                         e=od.strip('\n').strip('\r').split(";")
                         zone=e[cols['numero']]
                         equip=e[cols['o']]
-                        tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        if init_wait==True:
+                            tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        else:
+                            tmsum=1/float(e[cols['temps']])
+
                         if zone not in zones:
                             zones[zone]={}
                             zones[zone]['nb']=1
@@ -181,10 +192,15 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                         
                         for k in modes[fich]['pct']:
                             p=modes[fich]['pct'][k]
-                            if equipements[equip][k]>0 and equipements[equip]['pop_'+k]:
-                                zones[zone][k]+=(equipements[equip]['pop']/equipements[equip]['pop_'+k])*equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
+                            if equipements[equip][k]>0 and equipements[equip]['pop_'+k]>0:
+                                #zones[zone][k]+=(equipements[equip]['pop']/equipements[equip]['pop_'+k])*equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
+                                zones[zone][k]+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
                             zones[zone]['nb']+=1
-                            zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
+                            if carres[zone]['pop']>0:
+                                zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids*(carres[zone][k]/carres[zone]['pop'])/equipements[equip]['w_pop']
+                            else:
+                                zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids*(equipements[equip]['pop_'+k]/equipements[equip]['pop'])/equipements[equip]['w_pop']
+                                
 
         feedback.setCurrentStep(3)
         if feedback.isCanceled():
@@ -203,7 +219,10 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                         e=od.strip('\n').strip('\r').split(";")
                         zone=e[cols['numero']]
                         equip=e[cols['o']]
-                        tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        if init_wait==True:
+                            tmsum=1/(float(e[cols['temps']])-float(e[cols['tatt1']]))
+                        else:
+                            tmsum=1/float(e[cols['temps']])
                         poids=(2**(-((1/(tmsum/nb_horaires))/t0)**2))
                         for k in modes[fich]['pct']:
                             p=modes[fich]['pct'][k]
