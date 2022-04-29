@@ -3502,7 +3502,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="227"/>
+        <location filename="networks_provider.py" line="229"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -3644,6 +3644,99 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     </message>
 </context>
 <context>
+    <name>NodesFileCustom</name>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="84"/>
+        <source>Nodes times output file</source>
+        <translation>Fichier noeuds Musliw</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="96"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="104"/>
+        <source>Grouping key</source>
+        <translation>Clé de regroupement</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="112"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="120"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="129"/>
+        <source>Nodes indicators file</source>
+        <translation>Fichier résultat des indicateurs par noeud</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="230"/>
+        <source>ignored element</source>
+        <translation>élément ignoré</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="251"/>
+        <source>indicators by node customized</source>
+        <translation>Indicateurs par noeuds personnalisés</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="258"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="274"/>
+        <source>
+        Produce customized indicators from node file
+		
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            grouping key: A set of variables separated by a &apos;;&apos; as grouping key ex: o;numero
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            volau: volume od of the o/d
+            
+            
+        </source>
+        <translation>
+        Produit des indicateurs personnalisés à partir du fichier de résultat sur les noeuds (_noeuds.txt)
+		
+        Paramètres:
+            Fichier noeuds Musliw: Le fichier de résultats Musliw sur les noeuds (&lt;FILENAME&gt;_noeuds.txt)
+			variable:Le nom de la varible de l&apos;indicateur à calculer  (temps par défaut)
+            Clé de regroupement: Une suite de variables séparées par &apos;;&apos;
+            Filtre: expression pour filtrer les noeuds dans le fichier noeuds.txt (ex: temps&lt;60)
+            retrancher le temps d&apos;attente initial/final:  Si sélectionné les temps d&apos;attente intiaux/finaux seront retranchés du temps total
+           Fichier résultat des indicateurs par noeud: nom du fichier résultat( texte délimité avec  &quot;;&quot; comme séparateur)qui contient les attributs suivants
+            numero:identifiant de numéro de noeud
+            avg: valeur moyenne
+            nb: nombre de lignes dans la matrice
+            min: valeur mini de l&apos;indicateur
+            max: valeur maxi de l&apos;indicateur
+            sdev: écart type de l&apos;indicateur
+            o_min: noeud origine de la  valeur minimale
+            o_max: noeud origine de la valeur maximale
+            volau: volume sur l&apos;O/D</translation>
+    </message>
+</context>
+<context>
     <name>NodesFileDay</name>
     <message>
         <location filename="fichier_noeud_jour.py" line="83"/>
@@ -3678,7 +3771,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     <message>
         <location filename="fichier_noeud_jour.py" line="237"/>
         <source>indicators by node and day</source>
-        <translation>Indicateurs for noeuds et jour</translation>
+        <translation>Indicateurs par noeud et jour</translation>
     </message>
     <message>
         <location filename="fichier_noeud_jour.py" line="244"/>

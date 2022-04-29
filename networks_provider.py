@@ -76,6 +76,7 @@ from .path_indicators import PathIndicators
 from .gravityindicator import GravityIndicators
 from .multimodalgravity import MultimodalGravityIndicators
 from .fichier_temps_multi import FichierTempsMulti
+from .fichier_noeuds_custom import NodesFileCustom
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -128,7 +129,8 @@ class NetworksProvider(QgsProcessingProvider):
                         PathIndicators(),
                         GravityIndicators(),
                         MultimodalGravityIndicators(),
-                        FichierTempsMulti()]
+                        FichierTempsMulti(),
+                        NodesFileCustom()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -204,7 +206,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(GravityIndicators())
         self.addAlgorithm(MultimodalGravityIndicators())
         self.addAlgorithm(FichierTempsMulti())
-
+        self.addAlgorithm(NodesFileCustom())
 
     def id(self):
         """

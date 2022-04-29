@@ -2476,7 +2476,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="227"/>
+        <location filename="networks_provider.py" line="229"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2547,6 +2547,81 @@ L&apos;algorithme produit deux fichiers de résultats:
             sdev: standard deviation value
             o_min: origin with minimum value
             o_max: origin with maximum value
+            
+            
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NodesFileCustom</name>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="84"/>
+        <source>Nodes times output file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="96"/>
+        <source>Variable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="104"/>
+        <source>Grouping key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="112"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="120"/>
+        <source>Remove initial/final waiting time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="129"/>
+        <source>Nodes indicators file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="230"/>
+        <source>ignored element</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="251"/>
+        <source>indicators by node customized</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="258"/>
+        <source>Analysis</source>
+        <translation type="unfinished">Analyses</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="274"/>
+        <source>
+        Produce customized indicators from node file
+<byte value="x9"/><byte value="x9"/>
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+            grouping key: A set of variables separated by a &apos;;&apos; as grouping key ex: o;numero
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            volau: volume od of the o/d
             
             
         </source>
