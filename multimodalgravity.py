@@ -138,6 +138,10 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                                     equipements[equip][k]=0
                                     equipements[equip]['pop_'+k]=0
                                     equipements[equip]['w_pop_'+k]=0
+                                for f in modes:
+                                    equipements[equip]['pop_'+f]=0
+                                    equipements[equip]['w_pop_'+f]=0
+                                    equipements[equip]['w_pop2_'+f]=0
                                 equipements[equip]['nb']=0
                                 equipements[equip]['pop']=0
                                 equipements[equip]['w_pop']=0
@@ -148,9 +152,11 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                             equipements[equip]['nb']+=1
                             equipements[equip]['pop']+=p*carres[zone][k]
                             equipements[equip]['pop_'+k]+=p*carres[zone][k]
+                            equipements[equip]['pop_'+fich]+=p*carres[zone][k]
                             poids=(2**(-((1/(tmsum/nb_horaires))/t0)**2))
                             #equipements[k2]['tc']['w_n']=2**(-(((v2['tc']['tsum']/v2['tc']['n'])/t0)**2))
                             equipements[equip]['w_pop']+=p*carres[zone][k]*poids
+                            equipements[equip]['w_pop_'+fich]+=p*carres[zone][k]*poids
                             equipements[equip][k]+=p*carres[zone][k]*poids
                             #equipements[k2]['tc']['w_pop2']=0
 
@@ -184,8 +190,11 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                             #zones[zone]['pop']=carres[zone]['pop']
                             zones[zone]['n_tot']=0
                             zones[zone]['w_pop']=0
+                            for f in modes:
+                                zones[zone]['w_pop_'+f]=0
                             for k in modes[fich]['pct']:
                                 zones[zone][k]=0
+                                
             
                         poids=(2**(-((1/(tmsum/nb_horaires))/t0)**2))
                         zones[zone]['n_tot']+=p*poids*equipements[equip]['vol']
@@ -195,6 +204,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                             if equipements[equip][k]>0 and equipements[equip]['pop_'+k]>0:
                                 #zones[zone][k]+=(equipements[equip]['pop']/equipements[equip]['pop_'+k])*equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
                                 zones[zone][k]+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
+                                zones[zone]['w_pop_'+fich]+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
                             zones[zone]['nb']+=1
                             if carres[zone]['pop']>0:
                                 zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids*(carres[zone][k]/carres[zone]['pop'])/equipements[equip]['w_pop']
@@ -227,6 +237,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                         for k in modes[fich]['pct']:
                             p=modes[fich]['pct'][k]
                             equipements[equip]['w_pop_'+k]+=p*poids*carres[zone][k]/zones[zone]['n_tot']
+                            equipements[equip]['w_pop2_'+fich]+=p*poids*carres[zone][k]/zones[zone]['n_tot']
                             equipements[equip]['w_pop2']+=p*poids*carres[zone][k]/zones[zone]['n_tot']
 
 

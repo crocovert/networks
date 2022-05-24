@@ -3668,7 +3668,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     <message>
         <location filename="fichier_noeuds_custom.py" line="120"/>
         <source>Remove initial/final waiting time?</source>
-        <translation></translation>
+        <translation type="unfinished">Retrancher le temps d&apos;attente initial/final</translation>
     </message>
     <message>
         <location filename="fichier_noeuds_custom.py" line="129"/>
@@ -3704,7 +3704,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             and the real one is substracted from the total travel time
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             numero: node id
-            avg: average value 
+            temps: average value 
             nb: number of od rows in the matrix file 
             min: minimum value indicator
             max: maximum value indicator
