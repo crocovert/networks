@@ -167,7 +167,7 @@ class CreateUpdateLinks(QgsProcessingAlgorithm):
         fichier=codecs.open(fichier_temps,"r","utf-8")
         simple=QgsSimplifyMethod()
         simple.setMethodType(QgsSimplifyMethod.PreserveTopology)
-        simple.setThreshold(1)
+        simple.setThreshold(5)
         
         src=QgsProject.instance().crs()
         dest=QgsCoordinateReferenceSystem(reseau.crs())

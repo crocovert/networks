@@ -454,7 +454,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'prepare GTFS'
+        return 'preparegtfs'
 
     def displayName(self):
         """

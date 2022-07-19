@@ -122,12 +122,8 @@ class ConnectNodes2Lines(QgsProcessingAlgorithm):
         # Compute the number of steps to display within the progress bar and
         # get features from source
         delta=float(radius)
-        index=QgsSpatialIndex()
-        lines=couche_lines.getFeatures()
-        for i in lines:
-            if i.geometry().isMultipart():
-                i.setGeometry(QgsGeometry.fromPolylineXY(i.geometry().asMultiPolyline()[0]))
-            index.insertFeature(i)
+        index=QgsSpatialIndex(couche_lines.getFeatures())
+
 
         couche_lines.startEditing()
         couche_lines.beginEditCommand(self.tr("Split polylines at connections"))
@@ -137,48 +133,59 @@ class ConnectNodes2Lines(QgsProcessingAlgorithm):
         for pos,pt in enumerate(points):
             feedback.setProgress(pos*100.0/nb)
             ptg=pt.geometry()
-            if ptg.isMultipart():
-                ptg=QgsGeometry.fromPoint(ptg.asMultiPoint()[0])
+            ptg.convertToSingleType()
+
             coor=ptg.asPoint()
             nearest=index.intersects(QgsRectangle(coor.x()-delta,coor.y()-delta,coor.x()+delta,coor.y()+delta))
             dmin=1e38
             if len(nearest)>0:
                 for n in nearest:
                     f=couche_lines.getFeatures(request=QgsFeatureRequest(n))
-                    for g in f:
-                        d=g.geometry().distance(pt.geometry())
+                    for gg in f:
+                        d=pt.geometry().distance(gg.geometry())
                         if d<=dmin:
                             dmin=d
-                            gmin=g
-                            gid=g.id()
+                            gmin=gg
+                            gid=gg.id()
                 g=gmin
                 if g.geometry().distance(pt.geometry())<delta:
                     a=g.geometry().closestSegmentWithContext(ptg.asPoint())
-                    if not(a[2]==0):
+                    if a[2]>=0:
                         geom=g.geometry()
                         geom.convertToSingleType()
                         geom_id=g.id()
                         att=g.attributes()
                         connexion=QgsFeature()
+
                         connexion.setGeometry(QgsGeometry.fromPolylineXY([ptg.asPoint(),a[1]]))
+                        connexion.geometry().convertToMultiType()
                         connexion.setAttributes(att)
-                        couche_lines.addFeature(connexion)
+                        if connexion.geometry().length()>0:
+                            couche_lines.dataProvider().addFeatures([connexion])
+                        
                         geom.insertVertex(a[1][0],a[1][1],a[2])
                         geoma=geom.asPolyline()[:a[2]+1]
                         geomb=geom.asPolyline()[a[2]:]
-                        feedback.setProgressText(unicode(geomb))
+                        #feedback.setProgressText(unicode(geomb))
                         fa=QgsFeature()
                         fa.setGeometry(QgsGeometry.fromPolylineXY(geoma))
+                        fa.geometry().convertToMultiType()
                         fa.setAttributes(att)
-                        couche_lines.addFeature(fa)
-                        index.insertFeature(fa)
+                        if fa.geometry().length()>0:
+                            couche_lines.dataProvider().addFeatures([fa])
+                        
                         fb=QgsFeature()
                         fb.setGeometry(QgsGeometry.fromPolylineXY(geomb))
+                        fb.geometry().convertToMultiType()
                         fb.setAttributes(att)
-                        couche_lines.addFeature(fb)
-                        index.insertFeature(fb)
-                        couche_lines.deleteFeature(g.id())
+                        if fb.geometry().length()>0:
+                            couche_lines.dataProvider().addFeatures([fb])
+                        
+                        
+                        couche_lines.dataProvider().deleteFeatures([g.id()])
+                        
                         index.deleteFeature(g)
+                        index=QgsSpatialIndex(couche_lines.getFeatures())
         couche_lines.commitChanges()
         couche_lines.endEditCommand()
         return {self.LINES: 'OK'}
