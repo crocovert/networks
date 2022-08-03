@@ -234,9 +234,12 @@ class ImportGTFS(QgsProcessingAlgorithm):
             t_arcs.append(QgsField("i",QVariant.String))
             t_arcs.append(QgsField("j",QVariant.String))
             t_arcs.append(QgsField("ij",QVariant.String))
-            l_noeuds=QgsVectorFileWriter(rep_sortie+"/"+lname+"_stops.shp","UTF-8",t_noeuds,QgsWkbTypes.Point,dest,"ESRI Shapefile")
-            l_arcs=QgsVectorFileWriter(rep_sortie+"/"+lname+"_arcs.shp","UTF-8",t_arcs,QgsWkbTypes.MultiLineString,dest,"ESRI Shapefile")
-            l_links=QgsVectorFileWriter(rep_sortie+"/"+lname+"_lines.shp","UTF-8",t_links,QgsWkbTypes.MultiLineString,dest,"ESRI Shapefile")
+            save_options = QgsVectorFileWriter.SaveVectorOptions()
+            save_options.fileEncoding = "UTF-8"
+            transform_context = QgsProject.instance().transformContext()
+            l_noeuds=QgsVectorFileWriter.create(rep_sortie+"/"+lname+"_stops.gpkg",t_noeuds,QgsWkbTypes.Point,dest,transform_context,save_options)
+            l_arcs=QgsVectorFileWriter.create(rep_sortie+"/"+lname+"_arcs.gpkg",t_arcs,QgsWkbTypes.MultiLineString,dest,transform_context,save_options)
+            l_links=QgsVectorFileWriter.create(rep_sortie+"/"+lname+"_lines.gpkg",t_links,QgsWkbTypes.MultiLineString,dest,transform_context,save_options)
             
             
             arrets={}
@@ -326,11 +329,12 @@ class ImportGTFS(QgsProcessingAlgorithm):
                     elements=calendar_date.strip().split(",")
                     vdate=elements[idate].replace('"','').replace("'",'')
                     vdate=QDate(int(vdate[0:4]),int(vdate[4:6]),int(vdate[6:8]))
-                    calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex].replace('"','').replace("'",'')]
-                    if elements[iex]=="1":
-                        if elements[iid] not in calendar_dates2:
-                            calendar_dates2[elements[iid]]=[]
-                        calendar_dates2[elements[iid]].append([elements[iid],vdate])
+                    if debut_periode.date()<=vdate<=fin_periode.date():
+                        calendar_dates[(elements[iid],vdate,elements[iex])]=[elements[iid],vdate,elements[iex].replace('"','').replace("'",'')]
+                        if elements[iex]=="1":
+                            if elements[iid] not in calendar_dates2:
+                                calendar_dates2[elements[iid]]=[]
+                            calendar_dates2[elements[iid]].append([elements[iid],vdate])
 
 
         routes={}
@@ -574,7 +578,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
         del(l_noeuds)
         del(l_links)
         del(l_arcs)
-        return {self.REP_SORTIE: rep_sortie+"/"+lname+"_stops.shp"}
+        return {self.REP_SORTIE: rep_sortie+"/"+lname+"_stops.gpkg"}
 
 
     def name(self):

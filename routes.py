@@ -145,7 +145,7 @@ class Routes(QgsProcessingAlgorithm):
         (sortie,dest_id) = self.parameterAsSink(parameters, self.OUTPUT,context,champs, QgsWkbTypes.MultiLineString, links.crs()) 
 
         for i,j in enumerate(fic_temps):
-            elem=j.split(";")
+            elem=j.replace('"',"_").split(";")
             if i==0:
                 for k,l in enumerate(elem):
                     col_temps[l]=k
@@ -169,22 +169,23 @@ class Routes(QgsProcessingAlgorithm):
                 for feat in feats:
                     d=feat['ij']
                     id_iti=d
-                    while int(tij[d][col_temps['precedent']])>0:
-                        f=QgsFeature(champs)
-                        liste=[id_iti]
-                        liste.extend(tij[d][i] for i in [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,20,21,22])
-                        for t in [3,4,5,6,7,8,9,10,11,12,13,14,15,18,19]:
-                            liste[t]=float(liste[t].replace(',','.'))
-                        liste=liste[0:22]
-                        f.setAttributes(liste)
-                        
-                        if tij[d][col_temps['ij']] in features:
-                            f.setGeometry(features[d].geometry())
-                            sortie.addFeature(f)
-                        try:
-                            d=temps[tij[d][col_temps['precedent']]][col_temps['ij']]
-                        except:
-                            break
+                    if d in tij:
+                        while int(tij[d][col_temps['precedent']])>0:
+                            f=QgsFeature(champs)
+                            liste=[id_iti]
+                            liste.extend(tij[d][i] for i in [1,2,3,4,5,6,7,8,9,10,11,13,14,15,16,17,20,21,22])
+                            for t in [3,4,5,6,7,8,9,10,11,12,13,14,15,18,19]:
+                                liste[t]=float(liste[t].replace(',','.'))
+                            liste=liste[0:22]
+                            f.setAttributes(liste)
+                            
+                            if tij[d][col_temps['ij']] in features:
+                                f.setGeometry(features[d].geometry())
+                                sortie.addFeature(f)
+                            try:
+                                d=temps[tij[d][col_temps['precedent']]][col_temps['ij']]
+                            except:
+                                break
 
 
 
