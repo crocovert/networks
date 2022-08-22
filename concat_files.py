@@ -52,6 +52,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterMultipleLayers)
 import codecs
 import os
+import io
 
 class ConcatNetworkFiles(QgsProcessingAlgorithm):
     """
@@ -73,6 +74,7 @@ class ConcatNetworkFiles(QgsProcessingAlgorithm):
     
     INPUT = 'INPUT'
     DESTINATION='DESTINATION'
+    HEADER='HEADER'
 
     def initAlgorithm(self, config):
         """
@@ -87,6 +89,13 @@ class ConcatNetworkFiles(QgsProcessingAlgorithm):
                 layerType= QgsProcessing.TypeFile
             )
         )
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.HEADER,
+                self.tr('Column names on first row?'),
+                defaultValue=False
+            )
+        )        
         self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.DESTINATION,
@@ -113,11 +122,14 @@ class ConcatNetworkFiles(QgsProcessingAlgorithm):
 
         source = self.parameterAsFileList(parameters, self.INPUT, context)
         fichier_musliw=self.parameterAsFileOutput(parameters, self.DESTINATION, context)
+        header=self.parameterAsBool(parameters, self.HEADER,context)
         sortie=open(fichier_musliw,"w")
-        for nom_fichier in source:
+        for k,nom_fichier in enumerate(source):
 
 
-            fichier=open(nom_fichier)
+            fichier=io.open(nom_fichier,encoding="utf-8")
+            if header==True and k>0:
+                fichier.readline()
             for fiche in fichier:
                 sortie.write(fiche)
             fichier.close()
@@ -170,6 +182,7 @@ class ConcatNetworkFiles(QgsProcessingAlgorithm):
         Parameters:
             network elements files : Musliw networks elements files
 			global network: name of the global network file (txt)
+            column names on first row?: Must be checked if column names are on first row
         """)
 
     def createInstance(self):

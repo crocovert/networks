@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+import subprocess
+import os,sys,stat
+import processing
 
 """
 /***************************************************************************
@@ -50,10 +53,8 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterFileDestination,
                        QgsProcessingParameterFile)
 import codecs
-import os
-import io
 
-class ConcatFolder(QgsProcessingAlgorithm):
+class CalculMint(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -71,10 +72,14 @@ class ConcatFolder(QgsProcessingAlgorithm):
     # used when calling the algorithm from another algorithm, or when
     # calling from the QGIS console.
     
-    INPUT = 'INPUT'
-    DESTINATION='DESTINATION'
-    HEADER='HEADER'
-
+    RESEAU = 'RESEAU'
+    MATRICE='MATRICE'
+    PARAMETRES='PARAMETRES'
+    PENALITES='PENALTIES'
+    SORTIE='SORTIE'
+    DOWNLOAD='DOWNLOAD'
+    
+    
     def initAlgorithm(self, config):
         """
         Here we define the inputs and output of the algorithm, along
@@ -83,24 +88,37 @@ class ConcatFolder(QgsProcessingAlgorithm):
         
         self.addParameter(
             QgsProcessingParameterFile(
-                self.INPUT,
-                self.tr('Network elements folder'),
-                behavior= QgsProcessingParameterFile.Folder
+                self.RESEAU,
+                self.tr('Mint network')
             )
         )
         self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.HEADER,
-                self.tr('Column names on first row?'),
-                defaultValue=False
+            QgsProcessingParameterFile(
+                self.MATRICE,
+                self.tr('Mint matrix')
             )
         )
+        self.addParameter(
+            QgsProcessingParameterFile(
+                self.PARAMETRES,
+                self.tr('Mint parameters')
+            )
+        )
+
         self.addParameter(
             QgsProcessingParameterFileDestination(
-                self.DESTINATION,
-                self.tr('Global network'),
-                fileFilter='*.txt',
-                defaultValue='*.txt'
+                self.SORTIE,
+                self.tr('Output'),
+                "*.txt"
+                
+            )
+        )
+        
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.DOWNLOAD,
+                self.tr('Accept to download Mint binary from Github'),
+                False
             )
         )
 
@@ -118,24 +136,35 @@ class ConcatFolder(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         #couche = self.parameterAsSource(parameters, self.INPUT, context)
-
-        source = self.parameterAsFile(parameters, self.INPUT, context)
-        fichier_musliw=self.parameterAsFileOutput(parameters, self.DESTINATION, context)
-        header=self.parameterAsBool(parameters,self.HEADER, context)
+        reseau = self.parameterAsFile(parameters, self.RESEAU, context)
+        matrice = self.parameterAsFile(parameters, self.MATRICE, context)
+        parametres = self.parameterAsFile(parameters, self.PARAMETRES, context)
+        sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
+        download=self.parameterAsBool(parameters,self.DOWNLOAD,context)
         
-        os.chdir(source)        
-        fichiers=source.split(";")
-        sortie=io.open(fichier_musliw,"w",encoding="utf-8")
-        for k,nom_fichier in enumerate(os.listdir(source)):
+        if download==True:
+            feedback.setProgressText(self.tr("Downloading Mint_console binaries"))
+            processing.run("native:filedownloader", {'URL':'https://github.com/crocovert/Mintc/raw/main/bin/x64/Release/Mintc.exe','OUTPUT':os.path.dirname(__file__)+"/Mint_console.exe"})
+            feedback.setProgressText(self.tr("Mint_console downloaded succesfully"))
+        
+        
+        if sys.platform.startswith('win'):
+            prog=os.path.dirname(__file__)+"/Mint_console.exe"
+            cmd=[prog,reseau,matrice,sortie,parametres]
 
-            fichier=open(nom_fichier)
-            if header==True and k>0:
-                fichier.readline()
-            for fiche in fichier:
-                sortie.write(fiche)
-            fichier.close()
-        sortie.close()
-        return {self.INPUT:self.INPUT}
+        elif sys.platform.startswith('linux'):
+            prog=os.path.join(os.path.dirname(__file__),"Mint_console.exe")
+            st = os.stat(prog)
+            os.chmod(prog, st.st_mode | stat.S_IEXEC)
+            cmd=["mono",prog,reseau,matrice,sortie,parametres]
+
+
+      
+        CREATE_NO_WINDOW = 0x08000000
+        DETACHED_PROCESS = 0x00000008
+        feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
+        musliw_test=subprocess.Popen(cmd)
+        return {'SORTIE': sortie}
 
 
     def name(self):
@@ -146,21 +175,21 @@ class ConcatFolder(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'concatenate_networks_folder'
+        return 'mint_calculation'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr('Concatenate networks folder')
+        return self.tr('Mint computation')
 
     def group(self):
         """
         Returns the name of the group this algorithm belongs to. This string
         should be localised.
         """
-        return self.tr('Network')
+        return self.tr('Computations')
 
     def groupId(self):
         """
@@ -170,21 +199,27 @@ class ConcatFolder(QgsProcessingAlgorithm):
         contain lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'Network'
+        return 'Computations'
 
     def tr(self, string):
-        return QCoreApplication.translate('ConcatFolder', string)
-	
+        return QCoreApplication.translate('CalculMint', string)
+
     def shortHelpString(self):
         return self.tr("""
-        Concatenate Musliw networks elements,
-		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
-        
+        Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
+        Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
+        Produce output files (semi-column separated files (if selected in parameters):
+        . Origin destination results file "_od.txt"
+        . Cumulative times on arcs "_times.txt" (usefull for isochron maps)
+        . Assignment results file on links "_aff.txt"
+        . Detailed strategies file (optional)
         Parameters:
-            network elements folder : Musliw networks elements folder
-			global network: name of the global network file (txt)
-            column names on first row?: Must be checked if column names are on first row
+            Mint network : Mint network
+            Mint matrix: Mint matrix
+            Mint parameters: Mint parameters
+            Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
+            output : Mint results file (without extension)
         """)
 
     def createInstance(self):
-        return ConcatFolder()
+        return CalculMint()

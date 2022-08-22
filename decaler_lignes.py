@@ -184,7 +184,7 @@ class ShiftLines(QgsProcessingAlgorithm):
 
         resultat={}
         for j1 in decalages:
-            tri=sorted(decalages[j1].items(),key=lambda x:x[1],reverse=True)
+            tri=sorted(decalages[j1].items(),key=lambda x:x[0],reverse=False)
             res={}
             tot=0
             for j2 in tri:

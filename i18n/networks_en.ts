@@ -204,6 +204,78 @@
     </message>
 </context>
 <context>
+    <name>CalculMint</name>
+    <message>
+        <location filename="calcul_mint.py" line="89"/>
+        <source>Mint network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="95"/>
+        <source>Mint matrix</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="101"/>
+        <source>Mint parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="108"/>
+        <source>Output</source>
+        <translation type="unfinished">Sortie</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="117"/>
+        <source>Accept to download Mint binary from Github</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="148"/>
+        <source>Mint_console downloaded succesfully</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="165"/>
+        <source>Multimodal calculations... That could take some time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="185"/>
+        <source>Mint computation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="192"/>
+        <source>Computations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="208"/>
+        <source>
+        Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
+        Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
+        Produce output files (semi-column separated files (if selected in parameters):
+        . Origin destination results file &quot;_od.txt&quot;
+        . Cumulative times on arcs &quot;_times.txt&quot; (usefull for isochron maps)
+        . Assignment results file on links &quot;_aff.txt&quot;
+        . Detailed strategies file (optional)
+        Parameters:
+            Mint network&#xa0;: Mint network
+            Mint matrix: Mint matrix
+            Mint parameters: Mint parameters
+            Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
+            output : Mint results file (without extension)
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="146"/>
+        <source>Downloading Mint_console binaries</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CalculMusliw</name>
     <message>
         <location filename="calcul_musliw.py" line="89"/>
@@ -289,27 +361,32 @@
 <context>
     <name>ConcatFolder</name>
     <message>
-        <location filename="concat_reseaux.py" line="82"/>
+        <location filename="concat_reseaux.py" line="83"/>
         <source>Network elements folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="89"/>
+        <location filename="concat_reseaux.py" line="97"/>
         <source>Global network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="143"/>
+        <location filename="concat_reseaux.py" line="155"/>
         <source>Concatenate networks folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="150"/>
+        <location filename="concat_reseaux.py" line="162"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="166"/>
+        <location filename="concat_reseaux.py" line="90"/>
+        <source>Column names on first row?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_reseaux.py" line="178"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -317,6 +394,7 @@
         Parameters:
             network elements folder&#xa0;: Musliw networks elements folder
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>global network: name of the global network file (txt)
+            column names on first row?: Must be checked if column names are on first row
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -324,27 +402,27 @@
 <context>
     <name>ConcatNetworkFiles</name>
     <message>
-        <location filename="concat_files.py" line="83"/>
+        <location filename="concat_files.py" line="84"/>
         <source>Network files to concatenate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="90"/>
+        <location filename="concat_files.py" line="98"/>
         <source>Global network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="143"/>
+        <location filename="concat_files.py" line="153"/>
         <source>Concatenate network files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="150"/>
+        <location filename="concat_files.py" line="160"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="166"/>
+        <location filename="concat_files.py" line="176"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -352,14 +430,20 @@
         Parameters:
             network elements files&#xa0;: Musliw networks elements files
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>global network: name of the global network file (txt)
+            column names on first row?: Must be checked if column names are on first row
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="concat_files.py" line="91"/>
+        <source>Column names on first row?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ConnectNodes2Lines</name>
     <message>
-        <location filename="connect_nodes2lines.py" line="209"/>
+        <location filename="connect_nodes2lines.py" line="216"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -374,22 +458,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="133"/>
+        <location filename="connect_nodes2lines.py" line="129"/>
         <source>Split polylines at connections</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="136"/>
+        <location filename="connect_nodes2lines.py" line="132"/>
         <source>Connecting points to lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="202"/>
+        <location filename="connect_nodes2lines.py" line="209"/>
         <source>Connect nodes to lines</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="connect_nodes2lines.py" line="222"/>
+        <location filename="connect_nodes2lines.py" line="229"/>
         <source>
         Connect points to a a linear objetcs layers within a search radius. Points are conencted to the closest line. 
         The closest line is splitted at the shorstest distance point in two lines, and a line is generated between the point and the closest point
@@ -1212,47 +1296,47 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="284"/>
+        <location filename="import_gtfs.py" line="287"/>
         <source>Reading calendars...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="314"/>
+        <location filename="import_gtfs.py" line="317"/>
         <source>reading calendar dates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="341"/>
+        <location filename="import_gtfs.py" line="344"/>
         <source>Reading routes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="366"/>
+        <location filename="import_gtfs.py" line="369"/>
         <source>Reading trips...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="390"/>
+        <location filename="import_gtfs.py" line="393"/>
         <source>Reading stop times...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="501"/>
+        <location filename="import_gtfs.py" line="504"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="596"/>
+        <location filename="import_gtfs.py" line="599"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="603"/>
+        <location filename="import_gtfs.py" line="606"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="616"/>
+        <location filename="import_gtfs.py" line="619"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -2065,6 +2149,144 @@ L&apos;algorithme produit deux fichiers de résultats:
     </message>
 </context>
 <context>
+    <name>MintNetwork</name>
+    <message>
+        <location filename="mint_network.py" line="93"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="24"/>
+        <source>Mint network file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="25"/>
+        <source>allow alighting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="26"/>
+        <source>allow boarding</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="27"/>
+        <source>vehicle capacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="28"/>
+        <source>headway</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="29"/>
+        <source>travel time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="30"/>
+        <source>i</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="31"/>
+        <source>j</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="32"/>
+        <source>line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="102"/>
+        <source>
+        Write a Mint network file (text file with &quot;;&quot; as delimiter) required for a Mint assignment
+        Required 
+        network: Layer that contains information about i,j line, travel times and headway information
+        i: initial node Id
+        j: final node Id
+        line: line Id
+        travel time: arc travel time
+        headway: Interval between two consecutive vehicles 
+        capacity: number of seats of the vehicle
+        allowboarding: 1 if boarding is allowed, 0 otherwise
+        alowalighting; 1 if alighting is allowed, 0 otherwise
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="90"/>
+        <source>Mint network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MintParameters</name>
+    <message>
+        <location filename="param_mint.py" line="23"/>
+        <source>waiting weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="24"/>
+        <source>boarding time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="25"/>
+        <source>boarding weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="26"/>
+        <source>walking weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="27"/>
+        <source>output strategies?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="28"/>
+        <source>algorithm parameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="29"/>
+        <source>Mint parameters file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="54"/>
+        <source>Mint parameters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="57"/>
+        <source>Computations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_mint.py" line="66"/>
+        <source>
+        Write a Mint parameters file required for a Mint assignment
+        Parameters:
+            Waiting weight&#xa0;: waiting time weight
+            Boarding time: boarding time
+            Boarding weight; boarding weight
+            Walking weight: auxiliary transit weight
+            Output strategies: If checked, Mint will print detailed strategies
+            Algorithm parameter: Algorithm parameter 
+            Mint parameter file : the result Mint parameter file that will be written
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MultimodalGravityIndicators</name>
     <message>
         <location filename="multimodalgravity.py" line="39"/>
@@ -2097,17 +2319,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="271"/>
+        <location filename="multimodalgravity.py" line="287"/>
         <source>Multimodal Gravity Indicators</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="274"/>
+        <location filename="multimodalgravity.py" line="290"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="multimodalgravity.py" line="283"/>
+        <location filename="multimodalgravity.py" line="299"/>
         <source>
         The algorithm performs a gravity indicator of accessibility with spatial and modal competition based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -2476,7 +2698,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="229"/>
+        <location filename="networks_provider.py" line="238"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2614,7 +2836,7 @@ L&apos;algorithme produit deux fichiers de résultats:
             and the real one is substracted from the total travel time
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             numero: node id
-            avg: average value 
+            temps: average value 
             nb: number of od rows in the matrix file 
             min: minimum value indicator
             max: maximum value indicator
@@ -3105,17 +3327,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="routes.py" line="213"/>
+        <location filename="routes.py" line="214"/>
         <source>Routes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="routes.py" line="220"/>
+        <location filename="routes.py" line="221"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="routes.py" line="235"/>
+        <location filename="routes.py" line="236"/>
         <source>
         Display shortest paths from a selection of starting or ending arcs and a 
         a Musliw travel times files

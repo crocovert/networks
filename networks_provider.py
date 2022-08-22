@@ -77,6 +77,9 @@ from .gravityindicator import GravityIndicators
 from .multimodalgravity import MultimodalGravityIndicators
 from .fichier_temps_multi import FichierTempsMulti
 from .fichier_noeuds_custom import NodesFileCustom
+from .calcul_mint import CalculMint
+from .param_mint import MintParameters
+from .mint_network import MintNetwork
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -130,7 +133,10 @@ class NetworksProvider(QgsProcessingProvider):
                         GravityIndicators(),
                         MultimodalGravityIndicators(),
                         FichierTempsMulti(),
-                        NodesFileCustom()]
+                        NodesFileCustom(),
+                        CalculMint(),
+                        MintParameters(),
+                        MintNetwork()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -207,7 +213,10 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(MultimodalGravityIndicators())
         self.addAlgorithm(FichierTempsMulti())
         self.addAlgorithm(NodesFileCustom())
-
+        self.addAlgorithm(CalculMint())
+        self.addAlgorithm(MintParameters())
+        self.addAlgorithm(MintNetwork())
+        
     def id(self):
         """
         Returns the unique provider id, used for identifying the provider. This
