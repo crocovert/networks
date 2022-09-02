@@ -46,7 +46,8 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterField,
                        QgsProcessingParameterExpression,
                        QgsProcessingParameterFileDestination,
-                       QgsProcessingParameterVectorLayer)
+                       QgsProcessingParameterVectorLayer,
+                       QgsVectorLayer)
 import codecs
 
 class AjoutChamp(QgsProcessingAlgorithm):
@@ -168,7 +169,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         #couche = self.parameterAsSource(parameters, self.INPUT, context)
-        tableau = self.parameterAsVectorLayer(parameters, self.INPUT, context)
+        couche = self.parameterAsVectorLayer(parameters, self.INPUT, context)
         champ_existant=self.parameterAsExpression(parameters,self.EXISTANT,context)
         typo=self.types_data[self.parameterAsEnum(parameters,self.TYPE,context)]
         taille=self.parameterAsInt(parameters,self.TAILLE,context)
@@ -180,11 +181,14 @@ class AjoutChamp(QgsProcessingAlgorithm):
         # get features from source
         ##a=fenetre.split(",")
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
+        tableau=couche
         champ_existant=champ_existant.strip('"')
         champs=tableau.fields()
         chaine="QVariant."+str(typo)
         noms_champs=[c.name() for c in champs]
+        tableau.startEditing()
         if len(champ_existant)>0: 
+
             if  champ_existant not in noms_champs:
                 tableau.dataProvider().addAttributes([QgsField(champ_existant,eval('QVariant.'+unicode(typo)),len=taille,prec=precision)])
                 tableau.updateFields()
@@ -213,14 +217,14 @@ class AjoutChamp(QgsProcessingAlgorithm):
             tableau.beginEditCommand(self.tr("updating field"))
             for p,f in enumerate(features):
                 num=f.id()
-                formuleContexte.setFeature(f)
+                test1=formuleContexte.setFeature(f)
                 valeur=formule.evaluate(formuleContexte)
                 valid={id_champ: valeur}
-                tableau.changeAttributeValues(num, valid)
+                test2=tableau.changeAttributeValues(num,valid)
                 feedback.setProgress(p*100/n)
 
-            tableau.commitChanges()
             tableau.endEditCommand()    
+            tableau.commitChanges()
         return {self.INPUT:self.INPUT}
 
 

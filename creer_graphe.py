@@ -192,16 +192,16 @@ class CreerGraphe(QgsProcessingAlgorithm):
                 if gligne.wkbType() in [QgsWkbTypes.MultiLineString,QgsWkbTypes.MultiLineStringZ]:
                     g=gligne.asMultiPolyline()
                     na=g[0][0]
-                    liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
+                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
                     nb=g[-1][-1]
-                    libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
+                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
                     
                 elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
                     g=gligne.asPolyline()
                     na=g[0]
-                    liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
+                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
                     nb=g[-1]
-                    libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
+                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
                 else:
                     continue
                 if (na not in noeuds):
@@ -252,16 +252,16 @@ class CreerGraphe(QgsProcessingAlgorithm):
 
                     na=g[0][0]
                     nb=g[-1][-1]
-                    liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
-                    libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
+                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
+                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
                 elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
 
                     g=gligne.asPolyline()
                     na=g[0]
                     nb=g[-1]
-                    liba=str(int(xtr.transform(na)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(na)[1]*1e6+180*1e6)).zfill(9)
+                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
 
-                    libb=str(int(xtr.transform(nb)[0]*1e6+180*1e6)).zfill(9)+str(int(xtr.transform(nb)[1]*1e6+180*1e6)).zfill(9)
+                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
                 else:
                     continue
 

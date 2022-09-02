@@ -78,6 +78,7 @@ class CalculMint(QgsProcessingAlgorithm):
     PENALITES='PENALTIES'
     SORTIE='SORTIE'
     DOWNLOAD='DOWNLOAD'
+    WAIT='WAIT'
     
     
     def initAlgorithm(self, config):
@@ -121,6 +122,14 @@ class CalculMint(QgsProcessingAlgorithm):
                 False
             )
         )
+        
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.WAIT,
+                self.tr('Force waiting the end of calculations'),
+                True
+            )
+        )
 
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
@@ -141,6 +150,7 @@ class CalculMint(QgsProcessingAlgorithm):
         parametres = self.parameterAsFile(parameters, self.PARAMETRES, context)
         sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
         download=self.parameterAsBool(parameters,self.DOWNLOAD,context)
+        wait=self.parameterAsBool(parameters,self.WAIT,context)
         
         if download==True:
             feedback.setProgressText(self.tr("Downloading Mint_console binaries"))
@@ -163,7 +173,8 @@ class CalculMint(QgsProcessingAlgorithm):
         CREATE_NO_WINDOW = 0x08000000
         DETACHED_PROCESS = 0x00000008
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
-        musliw_test=subprocess.Popen(cmd)
+        if wait==True:
+            musliw_test.wait()
         return {'SORTIE': sortie}
 
 

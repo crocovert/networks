@@ -31,7 +31,8 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 __revision__ = '$Format:%H$'
 from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication
 from qgis.PyQt.QtWidgets import QApplication,QMenu,QAction
-from qgis.core import QgsProcessingProvider,QgsApplication
+from qgis.core import QgsProcessingProvider,QgsApplication, QgsExpression
+from qgis.utils import qgsfunction
 from processing.core.Processing import Processing
 from processing.core.ProcessingConfig import ProcessingConfig, Setting
 from .reseau_ti import ReseauTi
@@ -80,6 +81,7 @@ from .fichier_noeuds_custom import NodesFileCustom
 from .calcul_mint import CalculMint
 from .param_mint import MintParameters
 from .mint_network import MintNetwork
+from .vitesse_velo import  vitesse_velo
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -164,7 +166,7 @@ class NetworksProvider(QgsProcessingProvider):
         Unloads the provider. Any tear-down steps required by the provider
         should be implemented here.
         """
-        pass
+        QgsExpression.unregisterFunction(vitesse_velo.name())
 
     def loadAlgorithms(self):
         """

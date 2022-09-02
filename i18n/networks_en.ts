@@ -3,47 +3,42 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="95"/>
+        <location filename="ajout_champ.py" line="96"/>
         <source>Field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="105"/>
+        <location filename="ajout_champ.py" line="106"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="113"/>
+        <location filename="ajout_champ.py" line="114"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="124"/>
+        <location filename="ajout_champ.py" line="125"/>
         <source>Precision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="136"/>
+        <location filename="ajout_champ.py" line="137"/>
         <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="150"/>
+        <location filename="ajout_champ.py" line="151"/>
         <source>Formula</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="211"/>
+        <location filename="ajout_champ.py" line="215"/>
         <source>updating field...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="213"/>
-        <source>updating field</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="ajout_champ.py" line="273"/>
+        <location filename="ajout_champ.py" line="277"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -60,17 +55,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="86"/>
+        <location filename="ajout_champ.py" line="87"/>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="242"/>
+        <location filename="ajout_champ.py" line="246"/>
         <source>Update field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="249"/>
+        <location filename="ajout_champ.py" line="253"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -231,27 +226,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="148"/>
+        <location filename="calcul_mint.py" line="157"/>
         <source>Mint_console downloaded succesfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="165"/>
+        <location filename="calcul_mint.py" line="174"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="185"/>
+        <location filename="calcul_mint.py" line="195"/>
         <source>Mint computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="192"/>
+        <location filename="calcul_mint.py" line="202"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="208"/>
+        <location filename="calcul_mint.py" line="218"/>
         <source>
         Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
         Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
@@ -270,70 +265,75 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="146"/>
+        <location filename="calcul_mint.py" line="155"/>
         <source>Downloading Mint_console binaries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="125"/>
+        <source>Force waiting the end of calculations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CalculMusliw</name>
     <message>
-        <location filename="calcul_musliw.py" line="89"/>
+        <location filename="calcul_musliw.py" line="90"/>
         <source>Musliw network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="95"/>
+        <location filename="calcul_musliw.py" line="96"/>
         <source>Musliw matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="101"/>
+        <location filename="calcul_musliw.py" line="102"/>
         <source>Musliw parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="107"/>
+        <location filename="calcul_musliw.py" line="108"/>
         <source>Musliw penalties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="114"/>
+        <location filename="calcul_musliw.py" line="115"/>
         <source>Output</source>
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="172"/>
+        <location filename="calcul_musliw.py" line="181"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="197"/>
+        <location filename="calcul_musliw.py" line="208"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="204"/>
+        <location filename="calcul_musliw.py" line="215"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="123"/>
+        <location filename="calcul_musliw.py" line="124"/>
         <source>Accept to download Musliw binary from Github</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="153"/>
+        <location filename="calcul_musliw.py" line="162"/>
         <source>Downloading Muslic binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="155"/>
+        <location filename="calcul_musliw.py" line="164"/>
         <source>Muslic downloaded succesfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="220"/>
+        <location filename="calcul_musliw.py" line="231"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 <byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -357,36 +357,41 @@
         </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="calcul_musliw.py" line="132"/>
+        <source>Force waiting the end of calculations</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ConcatFolder</name>
     <message>
-        <location filename="concat_reseaux.py" line="83"/>
+        <location filename="concat_reseaux.py" line="84"/>
         <source>Network elements folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="97"/>
+        <location filename="concat_reseaux.py" line="98"/>
         <source>Global network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="155"/>
+        <location filename="concat_reseaux.py" line="156"/>
         <source>Concatenate networks folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="162"/>
+        <location filename="concat_reseaux.py" line="163"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="90"/>
+        <location filename="concat_reseaux.py" line="91"/>
         <source>Column names on first row?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="178"/>
+        <location filename="concat_reseaux.py" line="179"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -402,27 +407,27 @@
 <context>
     <name>ConcatNetworkFiles</name>
     <message>
-        <location filename="concat_files.py" line="84"/>
+        <location filename="concat_files.py" line="85"/>
         <source>Network files to concatenate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="98"/>
+        <location filename="concat_files.py" line="99"/>
         <source>Global network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="153"/>
+        <location filename="concat_files.py" line="155"/>
         <source>Concatenate network files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="160"/>
+        <location filename="concat_files.py" line="162"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="176"/>
+        <location filename="concat_files.py" line="178"/>
         <source>
         Concatenate Musliw networks elements,
 <byte value="x9"/><byte value="x9"/>timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -435,7 +440,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="91"/>
+        <location filename="concat_files.py" line="92"/>
         <source>Column names on first row?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2698,7 +2703,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="238"/>
+        <location filename="networks_provider.py" line="240"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>

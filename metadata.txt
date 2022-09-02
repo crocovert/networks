@@ -25,7 +25,8 @@ repository=https://github.com/crocovert/networks/
 hasProcessingProvider=yes
 
 # Uncomment the following line and add your changelog:
-changelog=2.7.0 add multimodal assignment with frequency based networks with Mint algorithm
+changelog=2.7.1 some bug fixes
+		2.7.0 add multimodal assignment with frequency based networks with Mint algorithm
 		2.6.10 some bug fixes
 		2.6.9 some bug fixes
 		2.6.8 add mode indicator for multimodal gravity indicator

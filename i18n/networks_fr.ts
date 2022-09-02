@@ -4,47 +4,47 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="95"/>
+        <location filename="ajout_champ.py" line="96"/>
         <source>Field</source>
         <translation>Champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="105"/>
+        <location filename="ajout_champ.py" line="106"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="113"/>
+        <location filename="ajout_champ.py" line="114"/>
         <source>Size</source>
         <translation>Taille</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="124"/>
+        <location filename="ajout_champ.py" line="125"/>
         <source>Precision</source>
         <translation>Précision</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="136"/>
+        <location filename="ajout_champ.py" line="137"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="150"/>
+        <location filename="ajout_champ.py" line="151"/>
         <source>Formula</source>
         <translation>Formule</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="211"/>
+        <location filename="ajout_champ.py" line="215"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
         <location filename="ajout_champ.py" line="213"/>
         <source>updating field</source>
-        <translation>mise à jour du champ</translation>
+        <translation type="obsolete">mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="273"/>
+        <location filename="ajout_champ.py" line="277"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -72,17 +72,17 @@
         </translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="86"/>
+        <location filename="ajout_champ.py" line="87"/>
         <source>Layer</source>
         <translation>Couche</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="242"/>
+        <location filename="ajout_champ.py" line="246"/>
         <source>Update field</source>
         <translation>Mise à jour champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="249"/>
+        <location filename="ajout_champ.py" line="253"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -314,27 +314,27 @@
         <translation type="obsolete">Téléchargement de Mint_Console</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="148"/>
+        <location filename="calcul_mint.py" line="157"/>
         <source>Mint_console downloaded succesfully</source>
         <translation>Mint_console téléchargé avec succès</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="165"/>
+        <location filename="calcul_mint.py" line="174"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="185"/>
+        <location filename="calcul_mint.py" line="195"/>
         <source>Mint computation</source>
         <translation>Calcul Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="192"/>
+        <location filename="calcul_mint.py" line="202"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="208"/>
+        <location filename="calcul_mint.py" line="218"/>
         <source>
         Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
         Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
@@ -365,50 +365,55 @@
             Sortie :Fichiers de résultats Mint (sans extension)</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="146"/>
+        <location filename="calcul_mint.py" line="155"/>
         <source>Downloading Mint_console binaries</source>
         <translation>Téléchargement des exécutables Mint</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="125"/>
+        <source>Force waiting the end of calculations</source>
+        <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
     </message>
 </context>
 <context>
     <name>CalculMusliw</name>
     <message>
-        <location filename="calcul_musliw.py" line="89"/>
+        <location filename="calcul_musliw.py" line="90"/>
         <source>Musliw network</source>
         <translation>Réseau Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="95"/>
+        <location filename="calcul_musliw.py" line="96"/>
         <source>Musliw matrix</source>
         <translation>Matrice Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="101"/>
+        <location filename="calcul_musliw.py" line="102"/>
         <source>Musliw parameters</source>
         <translation>Paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="107"/>
+        <location filename="calcul_musliw.py" line="108"/>
         <source>Musliw penalties</source>
         <translation>Pénalités Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="114"/>
+        <location filename="calcul_musliw.py" line="115"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="172"/>
+        <location filename="calcul_musliw.py" line="181"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="197"/>
+        <location filename="calcul_musliw.py" line="208"/>
         <source>Musliw computation</source>
         <translation>Calcul Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="204"/>
+        <location filename="calcul_musliw.py" line="215"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -453,22 +458,22 @@
         </translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="123"/>
+        <location filename="calcul_musliw.py" line="124"/>
         <source>Accept to download Musliw binary from Github</source>
         <translation>Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="153"/>
+        <location filename="calcul_musliw.py" line="162"/>
         <source>Downloading Muslic binary</source>
         <translation>Téléchargement de Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="155"/>
+        <location filename="calcul_musliw.py" line="164"/>
         <source>Muslic downloaded succesfully</source>
         <translation>Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="220"/>
+        <location filename="calcul_musliw.py" line="231"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 		Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -508,26 +513,31 @@
             Pénalités Musliw
 			sortie : Fichier de resultats Musliw (sans extension)</translation>
     </message>
+    <message>
+        <location filename="calcul_musliw.py" line="132"/>
+        <source>Force waiting the end of calculations</source>
+        <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
+    </message>
 </context>
 <context>
     <name>ConcatFolder</name>
     <message>
-        <location filename="concat_reseaux.py" line="83"/>
+        <location filename="concat_reseaux.py" line="84"/>
         <source>Network elements folder</source>
         <translation>Répertoire source</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="97"/>
+        <location filename="concat_reseaux.py" line="98"/>
         <source>Global network</source>
         <translation>Réseau multimodal</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="155"/>
+        <location filename="concat_reseaux.py" line="156"/>
         <source>Concatenate networks folder</source>
         <translation>Répertoire des réseaux à concantener</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="162"/>
+        <location filename="concat_reseaux.py" line="163"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -549,12 +559,12 @@
         </translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="90"/>
+        <location filename="concat_reseaux.py" line="91"/>
         <source>Column names on first row?</source>
         <translation>Noms de colonnes sur la première ligne?</translation>
     </message>
     <message>
-        <location filename="concat_reseaux.py" line="178"/>
+        <location filename="concat_reseaux.py" line="179"/>
         <source>
         Concatenate Musliw networks elements,
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -575,27 +585,27 @@
 <context>
     <name>ConcatNetworkFiles</name>
     <message>
-        <location filename="concat_files.py" line="84"/>
+        <location filename="concat_files.py" line="85"/>
         <source>Network files to concatenate</source>
         <translation>Fichiers réseaux à concaténer</translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="98"/>
+        <location filename="concat_files.py" line="99"/>
         <source>Global network</source>
         <translation>Réseau multimodal</translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="153"/>
+        <location filename="concat_files.py" line="155"/>
         <source>Concatenate network files</source>
         <translation>Réseaux à concaténer</translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="160"/>
+        <location filename="concat_files.py" line="162"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="176"/>
+        <location filename="concat_files.py" line="178"/>
         <source>
         Concatenate Musliw networks elements,
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
@@ -613,7 +623,7 @@
             Noms de colonnes sur la première ligne? Cocher sir les noms de colonne sont sur la première ligne des fichiers texte</translation>
     </message>
     <message>
-        <location filename="concat_files.py" line="91"/>
+        <location filename="concat_files.py" line="92"/>
         <source>Column names on first row?</source>
         <translation>Noms de colonnes sur la première lignes</translation>
     </message>
@@ -795,7 +805,7 @@
     <message>
         <location filename="connecteurs_geo.py" line="194"/>
         <source>Connectors file</source>
-        <translation>Connecteurs de longueur nulle</translation>
+        <translation>Fichier des connecteurs</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="248"/>
@@ -3777,7 +3787,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="238"/>
+        <location filename="networks_provider.py" line="240"/>
         <source>Networks</source>
         <translation></translation>
     </message>

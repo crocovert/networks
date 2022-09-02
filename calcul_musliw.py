@@ -78,6 +78,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
     PENALITES='PENALTIES'
     SORTIE='SORTIE'
     DOWNLOAD='DOWNLOAD'
+    WAIT='WAIT'
     
     
     def initAlgorithm(self, config):
@@ -128,6 +129,13 @@ class CalculMusliw(QgsProcessingAlgorithm):
             )
         )
 
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.WAIT,
+                self.tr('Force waiting the end of calculations'),
+                True
+            )
+        )
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
 
@@ -148,6 +156,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
         penalites = self.parameterAsFile(parameters, self.PENALITES, context)
         sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
         download=self.parameterAsBool(parameters,self.DOWNLOAD,context)
+        wait=self.parameterAsBool(parameters,self.WAIT,context)
         
         if download==True:
             feedback.setProgressText(self.tr("Downloading Muslic binary"))
@@ -160,7 +169,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
             cmd=[prog,reseau,matrice,sortie,parametres]
 
         elif sys.platform.startswith('linux'):
-            prog=os.path.join(os.path.dirname(__file__),"/Muslic.exe")
+            prog=os.path.join(os.path.dirname(__file__),"Muslic.exe")
             st = os.stat(prog)
             os.chmod(prog, st.st_mode | stat.S_IEXEC)
             cmd=["mono",prog,reseau,matrice,sortie,parametres]
@@ -174,8 +183,10 @@ class CalculMusliw(QgsProcessingAlgorithm):
             musliw_test=subprocess.Popen(cmd)
         else:
             cmd.append(penalites)
+            feedback.setProgressText(str(cmd))
             musliw_test=subprocess.Popen(cmd)
-        #musliw_test.wait()
+        if wait==True:
+            musliw_test.wait()
         return {'SORTIE': sortie}
 
 
