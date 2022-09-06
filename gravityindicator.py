@@ -228,11 +228,12 @@ class GravityIndicators(QgsProcessingAlgorithm):
         fich_equip.close()
                     
 
-        del(zones)
+        gc.collect()
+        '''del(zones)
         del(carres)
         del(equip)
         del(cols)
-        del(equipements)
+        del(equipements)'''
 
             
     

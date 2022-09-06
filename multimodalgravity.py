@@ -111,7 +111,12 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
         if feedback.isCanceled():
             return {}
 
-
+        wmodes={}
+        for fich in modes:
+            if fich not in wmodes:
+                wmodes[fich]=0
+            for k in modes[fich]['pct']:
+                wmodes[fich]+=modes[fich]['pct'][k]
 
         'lit fichier temps TC'
 
@@ -204,7 +209,7 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
                             if equipements[equip][k]>0 and equipements[equip]['pop_'+k]>0:
                                 #zones[zone][k]+=(equipements[equip]['pop']/equipements[equip]['pop_'+k])*equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
                                 zones[zone][k]+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
-                                zones[zone]['w_pop_'+fich]+=equipements[equip]['vol']*p*poids/equipements[equip]['w_pop']
+                                zones[zone]['w_pop_'+fich]+=equipements[equip]['vol']*poids*(p/wmodes[fich])/equipements[equip]['w_pop']
                             zones[zone]['nb']+=1
                             if carres[zone]['pop']>0:
                                 zones[zone]['w_pop']+=equipements[equip]['vol']*p*poids*(carres[zone][k]/carres[zone]['pop'])/equipements[equip]['w_pop']
@@ -262,12 +267,12 @@ class MultimodalGravityIndicators(QgsProcessingAlgorithm):
             fich_equip.write(i[0]+";"+";".join([str(k) for k in i[1].values()])+"\n")
         fich_equip.close()
                     
-
-        del(zones)
+        gc.collect()
+        '''del(zones)
         del(carres)
         del(equip)
         del(cols)
-        del(equipements)
+        del(equipements)'''
 
             
     

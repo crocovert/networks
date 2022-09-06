@@ -49,6 +49,7 @@ import io
 import statistics
 import pandas
 import numpy
+import gc
 
 class PathIndicators(QgsProcessingAlgorithm):
     """
@@ -189,6 +190,7 @@ class PathIndicators(QgsProcessingAlgorithm):
                 feedback.setProgress(u*100/nb)
                 sortie.write(";".join([str(k) for k in resultat])+"\n")
         sortie.close()
+        gc.collect()
         return {self.FICHIER_RESULTAT: fichier_resultat}
 
 

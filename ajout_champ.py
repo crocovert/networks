@@ -49,6 +49,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterVectorLayer,
                        QgsVectorLayer)
 import codecs
+import gc
 
 class AjoutChamp(QgsProcessingAlgorithm):
     """
@@ -225,6 +226,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
 
             tableau.endEditCommand()    
             tableau.commitChanges()
+        gc.collect()
         return {self.INPUT:self.INPUT}
 
 
