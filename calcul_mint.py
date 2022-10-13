@@ -2,6 +2,7 @@
 import subprocess
 import os,sys,stat
 import processing
+import gc
 
 """
 /***************************************************************************
@@ -173,8 +174,10 @@ class CalculMint(QgsProcessingAlgorithm):
         CREATE_NO_WINDOW = 0x08000000
         DETACHED_PROCESS = 0x00000008
         feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
+        musliw_test=subprocess.Popen(cmd)
         if wait==True:
             musliw_test.wait()
+        gc.collect()
         return {'SORTIE': sortie}
 
 

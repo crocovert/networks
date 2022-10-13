@@ -84,6 +84,7 @@ class Trafic(QgsProcessingAlgorithm):
     DIST_MIN='DIST_MIN'
     DOUBLE_SENS='DOUBLE_SENS'
     POLYGONES='POLYGONES'
+    ACCROCHAGE='ACCROCHAGE'
     
 
     def initAlgorithm(self, config):
@@ -130,6 +131,15 @@ class Trafic(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterNumber(
+                self.ACCROCHAGE,
+                self.tr('Snap distance(m)'),
+                QgsProcessingParameterNumber.Double,
+                defaultValue=10.0
+            )
+        )
+
+        self.addParameter(
             QgsProcessingParameterBoolean(
                 self.DOUBLE_SENS,
                 self.tr('Both directions?'),
@@ -147,7 +157,7 @@ class Trafic(QgsProcessingAlgorithm):
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
-    def traf(self,geometry,trafic,spatial,lines,echelle,angle_max,dist_min,double_sens):
+    def traf(self,geometry,trafic,spatial,lines,echelle,angle_max,dist_min,double_sens,snap_dist):
         lignes=lines
         conn = db.connect(':memory:')
         conn.enable_load_extension(True)
@@ -184,7 +194,7 @@ class Trafic(QgsProcessingAlgorithm):
         pt1=QgsGeometry(l2.startPoint())
         pt2=QgsGeometry(l2.endPoint())
         ###point debut
-        debut=spatial.intersects(QgsGeometry.buffer(pt1,10,3).boundingBox())
+        debut=spatial.intersects(QgsGeometry.buffer(pt1,snap_dist,3).boundingBox())
         fe= [f for f in debut]
 
         feats=[]
@@ -196,10 +206,10 @@ class Trafic(QgsProcessingAlgorithm):
             ff.fromWkt(geom.asWkt())
             #QgsMessageLog.logMessage(ff.asWkt())
             #print(pt1.distance(QgsGeometry(ff.startPoint())))
-            if pt1.distance(QgsGeometry(ff.startPoint()))<10:
+            if pt1.distance(QgsGeometry(ff.startPoint()))<snap_dist:
                 if lignes[f] not in feats:
                     feats.append(f)
-            elif pt1.distance(QgsGeometry(ff.endPoint()))<10:
+            elif pt1.distance(QgsGeometry(ff.endPoint()))<snap_dist:
                 if lignes[f] not in feats:
                     feats.append(f)
         #QgsMessageLog.logMessage(str(fe))
@@ -282,17 +292,17 @@ class Trafic(QgsProcessingAlgorithm):
         ###point fin
 
             
-        debut=spatial.intersects(QgsGeometry.buffer(pt2,10,3).boundingBox())
+        debut=spatial.intersects(QgsGeometry.buffer(pt2,snap_dist,3).boundingBox())
         fe= [f for f in debut]
         for f in fe:
             ff=QgsLineString()
             geom=lignes[f].geometry()
             geom.convertToSingleType()
             ff.fromWkt(geom.asWkt())
-            if pt2.distance(QgsGeometry(ff.startPoint()))<10:
+            if pt2.distance(QgsGeometry(ff.startPoint()))<snap_dist:
                 if lignes[f] not in feats:
                     feats.append(f)
-            elif pt2.distance(QgsGeometry(ff.endPoint()))<10:
+            elif pt2.distance(QgsGeometry(ff.endPoint()))<snap_dist:
                 if lignes[f] not in feats:
                     feats.append(f)
         distances={}
@@ -632,6 +642,7 @@ class Trafic(QgsProcessingAlgorithm):
         trafic=self.parameterAsFields(parameters,self.TRAFIC,context)[0]
         echelle=self.parameterAsDouble(parameters,self.ECHELLE,context)
         dist_min=self.parameterAsDouble(parameters,self.DIST_MIN,context)
+        snap_dist=self.parameterAsDouble(parameters,self.ACCROCHAGE,context)
         angle_max=self.parameterAsDouble(parameters,self.ANGLE_MAX,context)
         double_sens=self.parameterAsBool(parameters,self.DOUBLE_SENS,context)
         self.lines=lignes
@@ -645,7 +656,7 @@ class Trafic(QgsProcessingAlgorithm):
         #table_tampons=QgsVectorFileWriter(tampons,"UTF-8",champs,QGis.WKBMultiLineString,lines.crs(),"ESRI Shapefile")
         for f in lignes.getFeatures():
             try:
-                g=self.traf(f,trafic,id,l,echelle,angle_max,dist_min,double_sens)
+                g=self.traf(f,trafic,id,l,echelle,angle_max,dist_min,double_sens,snap_dist)
                 #feedback.setProgressText(g.geometry().asWkt())
                 f.setGeometry(g)
                 table_tampons.addFeature(f)

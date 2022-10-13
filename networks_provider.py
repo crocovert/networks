@@ -82,6 +82,7 @@ from .calcul_mint import CalculMint
 from .param_mint import MintParameters
 from .mint_network import MintNetwork
 from .vitesse_velo import  vitesse_velo
+from .gtfs_mint import ImportGTFSv2
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -138,7 +139,8 @@ class NetworksProvider(QgsProcessingProvider):
                         NodesFileCustom(),
                         CalculMint(),
                         MintParameters(),
-                        MintNetwork()]
+                        MintNetwork(),
+                        ImportGTFSv2()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -218,6 +220,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(CalculMint())
         self.addAlgorithm(MintParameters())
         self.addAlgorithm(MintNetwork())
+        self.addAlgorithm(ImportGTFSv2())
         
     def id(self):
         """

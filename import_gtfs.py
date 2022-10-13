@@ -139,7 +139,7 @@ class ImportGTFS(QgsProcessingAlgorithm):
             QgsProcessingParameterCrs(
                 self.PROJ,
                 self.tr('CRS'),
-                QgsCoordinateReferenceSystem('EPSG:2154'),
+                QgsProject.instance().crs(),
                 
             )
         )

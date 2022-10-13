@@ -183,13 +183,12 @@ class IsolatedNodes(QgsProcessingAlgorithm):
         for i in nodes:
             if i[node_id] in reseaux[num_reseau]:
                 sortie.addFeature(i)
-        del sortie
         feedback.setProgressText("Au total il y a {0} réseaux disjoints".format(len(reseau)))
         for k,i in enumerate(reseaux):
             feedback.setProgressText("Réseau {0}: {1} noeuds connectés".format(k,len(i)))
             res.write(str(k)+" "+str(len(i))+"\n"+str(i)+"\n")
         res.close()
-            
+        del sortie            
 
         return {self.NOEUDS:self.NOEUDS_UTILES}
 

@@ -2,6 +2,7 @@
 import subprocess
 import os,sys,stat
 import processing
+import gc
 
 """
 /***************************************************************************
@@ -187,6 +188,7 @@ class CalculMusliw(QgsProcessingAlgorithm):
             musliw_test=subprocess.Popen(cmd)
         if wait==True:
             musliw_test.wait()
+        gc.collect()
         return {'SORTIE': sortie}
 
 

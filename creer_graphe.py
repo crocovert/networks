@@ -76,6 +76,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
     SENS = 'SENS'
     NOEUDS = 'NOEUDS'
     PREFIXE='PREFIXE'
+    DECIMALES='DECIMALES'
 
     def initAlgorithm(self, config):
         """
@@ -120,6 +121,16 @@ class CreerGraphe(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
+            QgsProcessingParameterNumber(
+                self.DECIMALES,
+                self.tr('Nb of decimals'),
+                defaultValue=9
+                
+                
+            )
+        
+        )        
+        self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.NOEUDS,
                 self.tr('Nodes layer'),
@@ -145,6 +156,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         sens=self.parameterAsFields(parameters,self.SENS,context)
         ident=self.parameterAsFields(parameters,self.IDENT,context)
         prefixe = self.parameterAsString(parameters, self.PREFIXE, context)
+        dec = self.parameterAsInt(parameters, self.DECIMALES, context)
         if len(sens)>0:
             sens=sens[0]
         
@@ -192,16 +204,16 @@ class CreerGraphe(QgsProcessingAlgorithm):
                 if gligne.wkbType() in [QgsWkbTypes.MultiLineString,QgsWkbTypes.MultiLineStringZ]:
                     g=gligne.asMultiPolyline()
                     na=g[0][0]
-                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
+                    liba=str(int(xtr.transform(na)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(na)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                     nb=g[-1][-1]
-                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
+                    libb=str(int(xtr.transform(nb)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(nb)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                     
                 elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
                     g=gligne.asPolyline()
                     na=g[0]
-                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
+                    liba=str(int(xtr.transform(na)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(na)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                     nb=g[-1]
-                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
+                    libb=str(int(xtr.transform(nb)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(nb)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                 else:
                     continue
                 if (na not in noeuds):
@@ -245,23 +257,23 @@ class CreerGraphe(QgsProcessingAlgorithm):
             feedback.setProgress(i*100/nbl)
             if test_sens=='1':
                 gligne=ligne.geometry()
-                print(gligne.wkbType())
+                #print(gligne.wkbType())
                 if gligne.wkbType() in [QgsWkbTypes.MultiLineString,QgsWkbTypes.MultiLineStringZ]:
                     
                     g=gligne.asMultiPolyline()
 
                     na=g[0][0]
                     nb=g[-1][-1]
-                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
-                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
+                    liba=str(int(xtr.transform(na)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(na)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
+                    libb=str(int(xtr.transform(nb)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(nb)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                 elif gligne.wkbType() in [QgsWkbTypes.LineString,QgsWkbTypes.LineStringZ]:
 
                     g=gligne.asPolyline()
                     na=g[0]
                     nb=g[-1]
-                    liba=str(int(xtr.transform(na)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(na)[1]*1e7+180*1e7)).zfill(10)
+                    liba=str(int(xtr.transform(na)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(na)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
 
-                    libb=str(int(xtr.transform(nb)[0]*1e7+180*1e7)).zfill(10)+str(int(xtr.transform(nb)[1]*1e7+180*1e7)).zfill(10)
+                    libb=str(int(xtr.transform(nb)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(nb)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                 else:
                     continue
 

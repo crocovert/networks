@@ -3,42 +3,42 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="96"/>
+        <location filename="ajout_champ.py" line="97"/>
         <source>Field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="106"/>
+        <location filename="ajout_champ.py" line="107"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="114"/>
+        <location filename="ajout_champ.py" line="115"/>
         <source>Size</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="125"/>
+        <location filename="ajout_champ.py" line="126"/>
         <source>Precision</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="137"/>
+        <location filename="ajout_champ.py" line="138"/>
         <source>Filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="151"/>
+        <location filename="ajout_champ.py" line="152"/>
         <source>Formula</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="215"/>
+        <location filename="ajout_champ.py" line="216"/>
         <source>updating field...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="277"/>
+        <location filename="ajout_champ.py" line="279"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -55,18 +55,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="87"/>
+        <location filename="ajout_champ.py" line="88"/>
         <source>Layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="246"/>
+        <location filename="ajout_champ.py" line="248"/>
         <source>Update field</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="253"/>
+        <location filename="ajout_champ.py" line="255"/>
         <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="218"/>
+        <source>updating field</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -193,7 +198,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="235"/>
+        <location filename="creer_graphe.py" line="247"/>
         <source>Building graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -201,52 +206,52 @@
 <context>
     <name>CalculMint</name>
     <message>
-        <location filename="calcul_mint.py" line="89"/>
+        <location filename="calcul_mint.py" line="91"/>
         <source>Mint network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="95"/>
+        <location filename="calcul_mint.py" line="97"/>
         <source>Mint matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="101"/>
+        <location filename="calcul_mint.py" line="103"/>
         <source>Mint parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="108"/>
+        <location filename="calcul_mint.py" line="110"/>
         <source>Output</source>
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="117"/>
+        <location filename="calcul_mint.py" line="119"/>
         <source>Accept to download Mint binary from Github</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="157"/>
+        <location filename="calcul_mint.py" line="159"/>
         <source>Mint_console downloaded succesfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="174"/>
+        <location filename="calcul_mint.py" line="176"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="195"/>
+        <location filename="calcul_mint.py" line="199"/>
         <source>Mint computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="202"/>
+        <location filename="calcul_mint.py" line="206"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="218"/>
+        <location filename="calcul_mint.py" line="222"/>
         <source>
         Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
         Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
@@ -265,12 +270,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="155"/>
+        <location filename="calcul_mint.py" line="157"/>
         <source>Downloading Mint_console binaries</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="125"/>
+        <location filename="calcul_mint.py" line="127"/>
         <source>Force waiting the end of calculations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -278,62 +283,62 @@
 <context>
     <name>CalculMusliw</name>
     <message>
-        <location filename="calcul_musliw.py" line="90"/>
+        <location filename="calcul_musliw.py" line="91"/>
         <source>Musliw network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="96"/>
+        <location filename="calcul_musliw.py" line="97"/>
         <source>Musliw matrix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="102"/>
+        <location filename="calcul_musliw.py" line="103"/>
         <source>Musliw parameters</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="108"/>
+        <location filename="calcul_musliw.py" line="109"/>
         <source>Musliw penalties</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="115"/>
+        <location filename="calcul_musliw.py" line="116"/>
         <source>Output</source>
         <translation type="unfinished">Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="181"/>
+        <location filename="calcul_musliw.py" line="182"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="208"/>
+        <location filename="calcul_musliw.py" line="210"/>
         <source>Musliw computation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="215"/>
+        <location filename="calcul_musliw.py" line="217"/>
         <source>Computations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="124"/>
+        <location filename="calcul_musliw.py" line="125"/>
         <source>Accept to download Musliw binary from Github</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="162"/>
+        <location filename="calcul_musliw.py" line="163"/>
         <source>Downloading Muslic binary</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="164"/>
+        <location filename="calcul_musliw.py" line="165"/>
         <source>Muslic downloaded succesfully</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="231"/>
+        <location filename="calcul_musliw.py" line="233"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 <byte value="x9"/><byte value="x9"/>Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -358,7 +363,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="132"/>
+        <location filename="calcul_musliw.py" line="133"/>
         <source>Force waiting the end of calculations</source>
         <translation type="unfinished"></translation>
     </message>
@@ -749,37 +754,37 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="301"/>
+        <location filename="creer_graphe.py" line="313"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="93"/>
+        <location filename="creer_graphe.py" line="94"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="112"/>
+        <location filename="creer_graphe.py" line="113"/>
         <source>Prefix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="122"/>
+        <location filename="creer_graphe.py" line="133"/>
         <source>Nodes layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="294"/>
+        <location filename="creer_graphe.py" line="306"/>
         <source>Build graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="102"/>
+        <location filename="creer_graphe.py" line="103"/>
         <source>Node Id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="317"/>
+        <location filename="creer_graphe.py" line="329"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -793,13 +798,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="102"/>
+        <location filename="creer_graphe.py" line="103"/>
         <source>Number series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="102"/>
+        <location filename="creer_graphe.py" line="103"/>
         <source>Geographic string(unique)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="123"/>
+        <source>Nb of decimals</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1166,7 +1176,7 @@
 <context>
     <name>Generating nodes</name>
     <message>
-        <location filename="creer_graphe.py" line="218"/>
+        <location filename="creer_graphe.py" line="230"/>
         <source>Generating nodes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1209,17 +1219,17 @@
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="247"/>
+        <location filename="gravityindicator.py" line="248"/>
         <source>Gravity Indicators</source>
         <translation>Indicateurs gravitaires</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="250"/>
+        <location filename="gravityindicator.py" line="251"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="gravityindicator.py" line="259"/>
+        <location filename="gravityindicator.py" line="260"/>
         <source>
         The algorithm performs a gravity indicator of accessibility based on a decay function 
         (1 for travel time=0, 0.5 for travel time = t0, 0 for infinite travel time
@@ -1256,92 +1266,92 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>ImportGTFS</name>
     <message>
-        <location filename="import_gtfs.py" line="93"/>
+        <location filename="import_gtfs.py" line="94"/>
         <source>GTFS Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="100"/>
+        <location filename="import_gtfs.py" line="101"/>
         <source>Calendar start</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="108"/>
+        <location filename="import_gtfs.py" line="109"/>
         <source>Calendar end</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="115"/>
+        <location filename="import_gtfs.py" line="116"/>
         <source>Start time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="126"/>
+        <location filename="import_gtfs.py" line="123"/>
         <source>End time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="136"/>
+        <location filename="import_gtfs.py" line="131"/>
         <source>Table names</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="143"/>
+        <location filename="import_gtfs.py" line="138"/>
         <source>CRS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="151"/>
+        <location filename="import_gtfs.py" line="146"/>
         <source>Ouput folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="157"/>
+        <location filename="import_gtfs.py" line="152"/>
         <source>Encoding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="287"/>
+        <location filename="import_gtfs.py" line="284"/>
         <source>Reading calendars...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="317"/>
+        <location filename="import_gtfs.py" line="314"/>
         <source>reading calendar dates...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="344"/>
+        <location filename="import_gtfs.py" line="341"/>
         <source>Reading routes...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="369"/>
+        <location filename="import_gtfs.py" line="366"/>
         <source>Reading trips...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="393"/>
+        <location filename="import_gtfs.py" line="390"/>
         <source>Reading stop times...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="504"/>
+        <location filename="import_gtfs.py" line="506"/>
         <source>Generating arcs and lines...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="599"/>
+        <location filename="import_gtfs.py" line="600"/>
         <source>GTFS import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="606"/>
+        <location filename="import_gtfs.py" line="607"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="import_gtfs.py" line="619"/>
+        <location filename="import_gtfs.py" line="620"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 <byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -1358,6 +1368,111 @@ L&apos;algorithme produit deux fichiers de résultats:
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
 <byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportGTFSv2</name>
+    <message>
+        <location filename="gtfs_mint.py" line="148"/>
+        <source>GTFS folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="155"/>
+        <source>Calendar start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="162"/>
+        <source>Calendar end</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="183"/>
+        <source>output crs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="195"/>
+        <source>Mint network layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="693"/>
+        <source>Reading stops</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="695"/>
+        <source>Reading routes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="697"/>
+        <source>Reading trips</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="699"/>
+        <source>Reading calendars_dates</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="701"/>
+        <source>Reading calendars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="703"/>
+        <source>Reading stop_times</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="705"/>
+        <source>Generating lines</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="707"/>
+        <source>Generation Musliw file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="728"/>
+        <source>Import_GTFS_v2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="735"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="752"/>
+        <source>
+        Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
+<byte value="x9"/><byte value="x9"/>Computes the transport offer for the specified time period  and calendar (number of stops)
+        
+        Parameters:
+            GTFS_folder&#xa0;: GTFS folder path
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>calendar start: calendar date of the first day of the period (dd/mm/YYYY)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>start_time: start time of the period (hh:mm:ss)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>end_time: end time of the period (hh:mm:ss)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>CRS: generated tables CRS
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Mint network layer: name of the lines layer. Stops and links layers name and will be identical but with _stops and _links at the end
+        </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="169"/>
+        <source>Time period start</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="176"/>
+        <source>Time period end</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1580,12 +1695,12 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="noeuds_isoles.py" line="218"/>
+        <location filename="noeuds_isoles.py" line="217"/>
         <source>Isolated nodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="noeuds_isoles.py" line="225"/>
+        <location filename="noeuds_isoles.py" line="224"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1595,7 +1710,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="noeuds_isoles.py" line="241"/>
+        <location filename="noeuds_isoles.py" line="240"/>
         <source>
         Create a layer of connected nodes from a nodes layer (ex: generated by the build graph algorithm) and a Musliw network. The algorithm build the different graphs corresponding to the Musliw network 
         and create a node layer corresponding to the graph having the largest number of nodes. The interest of this algorithm is to analyse the connections of graph and 
@@ -1752,7 +1867,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="296"/>
+        <location filename="maj_titj.py" line="297"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1807,17 +1922,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="237"/>
+        <location filename="maj_titj.py" line="238"/>
         <source>updating ti and tj...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="289"/>
+        <location filename="maj_titj.py" line="290"/>
         <source>Update ti tj</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="312"/>
+        <location filename="maj_titj.py" line="313"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 <byte value="x9"/><byte value="x9"/>        
@@ -2156,57 +2271,57 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>MintNetwork</name>
     <message>
-        <location filename="mint_network.py" line="93"/>
+        <location filename="mint_network.py" line="102"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="24"/>
+        <location filename="mint_network.py" line="25"/>
         <source>Mint network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="25"/>
+        <location filename="mint_network.py" line="27"/>
         <source>allow alighting</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="26"/>
+        <location filename="mint_network.py" line="28"/>
         <source>allow boarding</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="27"/>
+        <location filename="mint_network.py" line="29"/>
         <source>vehicle capacity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="28"/>
+        <location filename="mint_network.py" line="30"/>
         <source>headway</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="29"/>
+        <location filename="mint_network.py" line="31"/>
         <source>travel time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="30"/>
+        <location filename="mint_network.py" line="32"/>
         <source>i</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="31"/>
+        <location filename="mint_network.py" line="33"/>
         <source>j</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="32"/>
+        <location filename="mint_network.py" line="34"/>
         <source>line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="102"/>
+        <location filename="mint_network.py" line="111"/>
         <source>
         Write a Mint network file (text file with &quot;;&quot; as delimiter) required for a Mint assignment
         Required 
@@ -2223,8 +2338,13 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="mint_network.py" line="90"/>
+        <location filename="mint_network.py" line="99"/>
         <source>Mint network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="26"/>
+        <source>direction</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2703,7 +2823,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="240"/>
+        <location filename="networks_provider.py" line="243"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3003,37 +3123,37 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>PathIndicators</name>
     <message>
-        <location filename="path_indicators.py" line="87"/>
+        <location filename="path_indicators.py" line="88"/>
         <source>Path output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="101"/>
+        <location filename="path_indicators.py" line="102"/>
         <source>Remove initial/final waiting time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="109"/>
+        <location filename="path_indicators.py" line="110"/>
         <source>Time based links only?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="119"/>
+        <location filename="path_indicators.py" line="120"/>
         <source>Path indicators file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="210"/>
+        <location filename="path_indicators.py" line="212"/>
         <source>indicators by path</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="217"/>
+        <location filename="path_indicators.py" line="219"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="path_indicators.py" line="233"/>
+        <location filename="path_indicators.py" line="235"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 <byte value="x9"/><byte value="x9"/>
@@ -3603,47 +3723,47 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>Trafic</name>
     <message>
-        <location filename="trafic.py" line="95"/>
+        <location filename="trafic.py" line="96"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="101"/>
+        <location filename="trafic.py" line="102"/>
         <source>Width</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="108"/>
+        <location filename="trafic.py" line="109"/>
         <source>Scale</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="116"/>
+        <location filename="trafic.py" line="117"/>
         <source>Max angle(degrees)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="124"/>
+        <location filename="trafic.py" line="125"/>
         <source>Min distance(m)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="132"/>
+        <location filename="trafic.py" line="142"/>
         <source>Both directions?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="677"/>
+        <location filename="trafic.py" line="688"/>
         <source>Variable buffer polygons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="trafic.py" line="684"/>
+        <location filename="trafic.py" line="695"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="700"/>
+        <location filename="trafic.py" line="711"/>
         <source>
         Generates variable buffer polygons from a linear layer and a field containing a width variable
 <byte value="x9"/><byte value="x9"/>        
@@ -3658,11 +3778,16 @@ L&apos;algorithme produit deux fichiers de résultats:
         </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="trafic.py" line="133"/>
+        <source>Snap distance(m)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Updating arcs</name>
     <message>
-        <location filename="creer_graphe.py" line="236"/>
+        <location filename="creer_graphe.py" line="248"/>
         <source>Updating arcs</source>
         <translation type="unfinished"></translation>
     </message>
