@@ -211,11 +211,12 @@ class Majtitj(QgsProcessingAlgorithm):
         colonnes={}
         links={}
         for k,i in enumerate(fichier):
-            elements=i.strip('\n').split(";")
+            elements=i.strip('\n').strip('\r').split(";")
             ncols=len(elements)
             if k==0:
                 for j in range(ncols):
                     colonnes[elements[j]]=j
+                #print(colonnes)
             else:
                 t=elements[colonnes[temps_musliw]].replace(",",".")
                 ij=elements[colonnes["ij"]]
@@ -238,7 +239,8 @@ class Majtitj(QgsProcessingAlgorithm):
         ida=reseau.fields().indexFromName(champ_ti)
         idb=reseau.fields().indexFromName(champ_tj)
         valid={}
-
+        
+        reseau.startEditing()
         for k,f in enumerate(reseau.getFeatures()):
             feedback.setProgress((k+1)*100/n)
             num=f.id()

@@ -231,7 +231,8 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         ida=reseau.fields().indexFromName(champ_ti)
         idb=reseau.fields().indexFromName(champ_tj)
         valid={}
-
+        
+        reseau.startEditing()
         for k,f in enumerate(reseau.getFeatures(request)):
             feedback.setProgress((k+1)*100/n)
             num=f.id()

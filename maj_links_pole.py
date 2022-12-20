@@ -227,7 +227,8 @@ class MajLinksPole(QgsProcessingAlgorithm):
         idt=reseau.fields().indexFromName(champ_texte)
         idu=reseau.fields().indexFromName(champ_textu)
         valid={}
-
+        
+        reseau.startEditing()
         for k,f in enumerate(reseau.getFeatures(request)):
             feedback.setProgress((k+1)*100/n)
             num=f.id()
