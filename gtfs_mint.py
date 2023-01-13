@@ -497,7 +497,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         return chainages;
 
 
-    def cree_musliw(self, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,heure_debut, heure_fin,iti,t_links ,proj, noeuds, liens):
+    def cree_musliw(self, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,heure_debut, heure_fin,iti,t_links ,proj, noeuds, liens,date_debut,date_fin):
         
       
         
@@ -551,11 +551,11 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                         #m2=hf.hour()*60+hf.minute()+hf.second()/60+hf.msec()/60000
                         if m1<=elements[k][1].heure_arr<=m2:
                             if elements[k][1].num_arret not in  nodes:
-                                nodes[elements[k][1].num_arret]={'i':elements[k][1].num_arret,'name':google_stops[elements[k][1].num_arret].nom,'dep':0,'arr':0}
+                                nodes[elements[k][1].num_arret]={'i':elements[k][1].num_arret,'name':google_stops[elements[k][1].num_arret].nom,'dep_monfri':0,'arr_monfri':0,'dep_sat':0,'arr_sat':0,'dep_sun':0,'arr_sun':0}
                                 pt1=xtr.transform(QgsPointXY(google_stops[elements[k][1].num_arret].x,google_stops[elements[k][1].num_arret].y))
                                 nodes[elements[k][1].num_arret]['geom']=QgsGeometry.fromPointXY(pt1)
                             if elements[k+1][1].num_arret not in  nodes:
-                                nodes[elements[k+1][1].num_arret]={'i':elements[k+1][1].num_arret,'name':google_stops[elements[k+1][1].num_arret].nom,'dep':0,'arr':0}
+                                nodes[elements[k+1][1].num_arret]={'i':elements[k+1][1].num_arret,'name':google_stops[elements[k+1][1].num_arret].nom,'dep_monfri':0,'arr_monfri':0,'dep_sat':0,'arr_sat':0,'dep_sun':0,'arr_sun':0}
                                 pt1=xtr.transform(QgsPointXY(google_stops[elements[k+1][1].num_arret].x,google_stops[elements[k+1][1].num_arret].y))
                                 nodes[elements[k+1][1].num_arret]['geom']=QgsGeometry.fromPointXY(pt1)
                             if id_link not in links:
@@ -565,7 +565,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                                 links[id_link]['geom']=QgsGeometry.fromPolylineXY([pt1,pt2])
                                 links[id_link]['longueur']=links[id_link]['geom'].length()
                             if ij not in arcs:
-                                arcs[ij]={'temps':0,'nb':0,'nb_monfri':0.0,'i':0,'j':0}
+                                arcs[ij]={'temps':0,'nb':0,'nb_monfri':0.0,'i':0,'j':0,'nb_sat':0.0,'nb_sun':0.0}
                                 arcs[ij]['texte']=google_routes[mission.route_id].nom + "|" + google_stops[elements[k][1].num_arret].nom + "-" + google_stops[elements[k + 1][1].num_arret].nom
                                 arcs[ij]['type']=google_routes[mission.route_id].type
                                 pt1=xtr.transform(QgsPointXY(google_stops[elements[k][1].num_arret].x,google_stops[elements[k][1].num_arret].y))
@@ -575,15 +575,46 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                                 arcs[ij]['mode']=google_routes[mission.route_id].nom
                             arcs[ij]['temps']+=elements[k + 1][1].heure_arr-elements[k][1].heure_arr
                             arcs[ij]['nb']+=1.0
-                            arcs[ij]['nb_monfri']+=(len(google_calendars[mission.service_id].calendrier.split('O'))-1.0)/len(google_calendars[mission.service_id].calendrier)
-                            nodes[elements[k][1].num_arret]['dep']+=1
-                            nodes[elements[k+1][1].num_arret]['arr']+=1
+                            
+                            calendrier=google_calendars[mission.service_id]
+                            nb_sem=nb_sat=nb_sun=0
+                            n_sem=n_sat=n_sun=0
+                            for kk in range(len(calendrier.calendrier)):
+                                if ((date_debut.addDays(kk)).dayOfWeek() in [1,2,3,4,5]):
+                                    nb_sem+=1
+                                    if calendrier.calendrier[kk]=='O':
+                                        n_sem+=1
+                                elif ((date_debut.addDays(kk)).dayOfWeek() in [6]):
+                                    nb_sat+=1
+                                    if calendrier.calendrier[kk]=='O':
+                                        n_sat+=1
+                                elif ((date_debut.addDays(kk)).dayOfWeek() in [7]):
+                                    nb_sun+=1
+                                    if calendrier.calendrier[kk]=='O':
+                                        n_sun+=1
+                            #print(calendrier.calendrier,calendrier.debut,calendrier.fin , n_sem,nb_sem,n_sat,nb_sat,n_sun,nb_sun)
+                            arcs[ij]['nb_monfri']+=n_sem/nb_sem
+                            arcs[ij]['nb_sat']+=n_sat/nb_sat
+                            arcs[ij]['nb_sun']+=n_sun/nb_sun
+                                
+                            
+                            #arcs[ij]['nb_monfri']+=(len(google_calendars[mission.service_id].calendrier.split('O'))-1.0)/len(google_calendars[mission.service_id].calendrier)
+                            nodes[elements[k][1].num_arret]['dep_monfri']+=n_sem/nb_sem
+                            nodes[elements[k+1][1].num_arret]['arr_monfri']+=n_sem/nb_sem
+                            nodes[elements[k][1].num_arret]['dep_sat']+=n_sat/nb_sat
+                            nodes[elements[k+1][1].num_arret]['arr_sat']+=n_sat/nb_sat
+                            nodes[elements[k][1].num_arret]['dep_sun']+=n_sun/nb_sun
+                            nodes[elements[k+1][1].num_arret]['arr_sun']+=n_sun/nb_sun
                         
             t_noeuds=QgsFields()
             t_noeuds.append(QgsField("i",QVariant.String))
             t_noeuds.append(QgsField("name",QVariant.String))
-            t_noeuds.append(QgsField("dep",QVariant.Int))
-            t_noeuds.append(QgsField("arr",QVariant.String))
+            t_noeuds.append(QgsField("dep_monfri",QVariant.Double))
+            t_noeuds.append(QgsField("arr_monfri",QVariant.Double))
+            t_noeuds.append(QgsField("dep_sat",QVariant.Double))
+            t_noeuds.append(QgsField("arr_sat",QVariant.Double))
+            t_noeuds.append(QgsField("dep_sun",QVariant.Double))
+            t_noeuds.append(QgsField("arr_sun",QVariant.Double))
             
             t_arcs=QgsFields()
             t_arcs.append(QgsField("i",QVariant.String))
@@ -600,19 +631,29 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                 segment['mode']=arcs[s]['mode']
                 segment['temps']=arcs[s]['temps']/arcs[s]['nb']
                 segment['longueur']=arcs[s]['longueur']/1000
-                segment['nb']=arcs[s]['nb_monfri']
+                segment['nb_monfri']=arcs[s]['nb_monfri']
                 segment['texte']=arcs[s]['texte']
                 segment['type']=arcs[s]['type']
-                if segment['nb']>0:
-                    segment['hdw']=(hd.secsTo(hf)/60)/segment['nb']
+                segment['nb_sat']=arcs[s]['nb_sat']
+                segment['nb_sun']=arcs[s]['nb_sun']
+                if segment['nb_monfri']>0:
+                    segment['hdw_monfri']=(hd.secsTo(hf)/60)/segment['nb_monfri']
+                if segment['nb_sat']>0:
+                    segment['hdw_sat']=(hd.secsTo(hf)/60)/segment['nb_sat']
+                if segment['nb_sun']>0:
+                    segment['hdw_sun']=(hd.secsTo(hf)/60)/segment['nb_sun']
                     iti.addFeature(segment)
         for n in nodes:
             noeud=QgsFeature(t_noeuds)
             noeud.setGeometry(nodes[n]['geom'])
             noeud['i']=n
             noeud['name']=nodes[n]['name']
-            noeud['dep']=nodes[n]['dep']
-            noeud['arr']=nodes[n]['arr']
+            noeud['dep_monfri']=nodes[n]['dep_monfri']
+            noeud['arr_monfri']=nodes[n]['arr_monfri']
+            noeud['dep_sat']=nodes[n]['dep_sat']
+            noeud['arr_sat']=nodes[n]['arr_sat']
+            noeud['dep_sun']=nodes[n]['dep_sun']
+            noeud['arr_sun']=nodes[n]['arr_sun']
             noeuds.addFeature(noeud)
 
         for l in links:
@@ -645,8 +686,12 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         t_noeuds=QgsFields()
         t_noeuds.append(QgsField("i",QVariant.String))
         t_noeuds.append(QgsField("name",QVariant.String))
-        t_noeuds.append(QgsField("dep",QVariant.Int))
-        t_noeuds.append(QgsField("arr",QVariant.String))
+        t_noeuds.append(QgsField("dep_monfri",QVariant.Double))
+        t_noeuds.append(QgsField("arr_monfri",QVariant.Double))
+        t_noeuds.append(QgsField("dep_sat",QVariant.Double))
+        t_noeuds.append(QgsField("arr_sat",QVariant.Double))
+        t_noeuds.append(QgsField("dep_sun",QVariant.Double))
+        t_noeuds.append(QgsField("arr_sun",QVariant.Double))
         
         t_arcs=QgsFields()
         t_arcs.append(QgsField("i",QVariant.String))
@@ -660,11 +705,15 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         t_links.append(QgsField("temps",QVariant.Double))
         t_links.append(QgsField("longueur",QVariant.Double))
         t_links.append(QgsField("line",QVariant.String))
-        t_links.append(QgsField("nb",QVariant.Double))
-        t_links.append(QgsField("hdw",QVariant.Double))
+        t_links.append(QgsField("hdw_monfri",QVariant.Double))
+        t_links.append(QgsField("hdw_sat",QVariant.Double))
+        t_links.append(QgsField("hdw_sun",QVariant.Double))
         t_links.append(QgsField("mode",QVariant.String))
         t_links.append(QgsField("texte",QVariant.String))
         t_links.append(QgsField("type",QVariant.String))
+        t_links.append(QgsField("nb_monfri",QVariant.Double))
+        t_links.append(QgsField("nb_sat",QVariant.Double))
+        t_links.append(QgsField("nb_sun",QVariant.Double))
 
         
         src=QgsCoordinateReferenceSystem("EPSG:4326")
@@ -705,7 +754,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr(u"Generating lines"))
         google_chainages=self.cree_chainages(google_routes, google_trips, google_calendars, google_stop_times,feedback)
         feedback.setProgressText(self.tr(u'Generation Musliw file'))
-        self.cree_musliw( google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,heure_debut,heure_fin,iti,t_links,proj,noeuds, links)
+        self.cree_musliw( google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,heure_debut,heure_fin,iti,t_links,proj,noeuds, links, date_debut, date_fin)
         gc.collect()
         return {'lines' :lines,'nodes': fich_noeuds,'links': fich_arcs}
 
