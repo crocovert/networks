@@ -249,9 +249,9 @@ class MatrixSimpleList(QgsProcessingAlgorithm):
                     for u,j in enumerate(liste_nodes):
                         if diagonale==False or i==j:
                             if label2==True:
-                                matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                                matrice.write(";".join([str(z) for z in [j,i,demande[i],jour,k,d,str(j)+"-"+str(i)]])+"\n")
                             else:
-                                matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d]])+"\n")
+                                matrice.write(";".join([str(z) for z in [j,i,demande[i],jour,k,d]])+"\n")
 
         matrice.close()
           

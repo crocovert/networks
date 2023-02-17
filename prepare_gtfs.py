@@ -77,6 +77,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
     PREFIXE_RESEAU = 'PREFIXE_RESEAU'
     UIC = 'UIC'
     SPLIT_FORMULA = 'SPLIT_FORMULA'
+    ENCODE='ENCODE'
 
     def initAlgorithm(self, config):
         """
@@ -120,6 +121,13 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 self.tr('Extract formula'),
                 "[-8:]"
             )
+        )
+        self.addParameter(
+            QgsProcessingParameterString(
+                self.ENCODE,
+                self.tr('Encoding'),
+                "utf_8_sig"
+            )
         )        
 
         # We add a feature sink in which to store our processed features (this
@@ -140,19 +148,20 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         prefixe_reseau=self.parameterAsString(parameters,self.PREFIXE_RESEAU,context)
         uic=self.parameterAsBool(parameters,self.UIC,context)
         split_formula=self.parameterAsString(parameters,self.SPLIT_FORMULA,context)
+        encodage=self.parameterAsString(parameters,self.ENCODE,context)
         
         #print(rep_resultat,self.REP_RESULTAT)
         if os.path.split(rep_resultat)[1]==self.REP_RESULTAT:
             rep_resultat=os.path.split(rep_resultat)[0]
-        self.importGTFS(rep_source,rep_resultat,prefixe_reseau,uic,split_formula)
+        self.importGTFS(rep_source,rep_resultat,prefixe_reseau,uic,split_formula,encodage)
 
 
         return {self.REP_SOURCE: self.REP_RESULTAT}
 
         
-    def importGTFS(self,rep,sortie,prefixe,uic,formula):
+    def importGTFS(self,rep,sortie,prefixe,uic,formula,encodage):
         arrets={}
-        stops=codecs.open(rep+"/stops.txt","r",encoding='utf_8_sig')
+        stops=io.open(rep+"/stops.txt","r",encoding=encodage)
         iparent=-1
         for i,ligne in enumerate(stops):
             try:
@@ -194,7 +203,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                          
                          
         lignes={}
-        routes=codecs.open(rep+'/routes.txt','r',encoding='utf_8_sig')
+        routes=io.open(rep+'/routes.txt','r',encoding=encodage)
         test_agency='ZZ'
         for i,ligne in enumerate(routes):
             try:
@@ -226,7 +235,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         routes.close()
         
         services={}        
-        trips=codecs.open(rep+'/trips.txt','r',encoding='utf_8_sig')
+        trips=io.open(rep+'/trips.txt','r',encoding=encodage)
         for i,ligne in enumerate(trips):
             try:
                 test=ligne.startswith(codecs.BOM_UTF8)
@@ -260,7 +269,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         trips.close()
         
         horaires={}
-        stop_times=codecs.open(rep+'/stop_times.txt','r',encoding='utf_8_sig')
+        stop_times=io.open(rep+'/stop_times.txt','r',encoding=encodage)
         for i,ligne in enumerate(stop_times):
             #ligne=ligne.decode('utf-8')
             try:
@@ -310,7 +319,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         
         formes={}
         if (os.path.isfile(rep+'/shapes.txt')==True):
-            shapes=codecs.open(rep+'/shapes.txt','r',encoding='utf_8_sig')
+            shapes=io.open(rep+'/shapes.txt','r',encoding=encodage)
             if not os.path.isdir(sortie+"/"+prefixe):
                 os.mkdir(sortie+"/"+prefixe)
 
@@ -330,7 +339,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
 
         calsem={}
         if ("calendar.txt" in os.listdir(rep)):
-            cal=codecs.open(rep+'/calendar.txt','r',encoding='utf_8_sig')
+            cal=io.open(rep+'/calendar.txt','r',encoding=encodage)
             for i,ligne in enumerate(cal):
                 try:
                     test=ligne.startswith(codecs.BOM_UTF8)
@@ -351,7 +360,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         
         caldates={}
         if ("calendar_dates.txt" in os.listdir(rep)):
-            cald=codecs.open(rep+'/calendar_dates.txt','r',encoding='utf_8_sig')
+            cald=io.open(rep+'/calendar_dates.txt','r',encoding=encodage)
             for i,ligne in enumerate(cald):
                 try:
                     test=ligne.startswith(codecs.BOM_UTF8)
