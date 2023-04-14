@@ -52,7 +52,7 @@ from qgis.core import (QgsProcessing,
                        QgsCoordinateReferenceSystem
                        )
 import io
-import datetime,re
+import datetime,re, gc
 
 class PrepareGTFS(QgsProcessingAlgorithm):
     """
@@ -154,7 +154,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         if os.path.split(rep_resultat)[1]==self.REP_RESULTAT:
             rep_resultat=os.path.split(rep_resultat)[0]
         self.importGTFS(rep_source,rep_resultat,prefixe_reseau,uic,split_formula,encodage)
-
+        gc.collect()
 
         return {self.REP_SOURCE: self.REP_RESULTAT}
 
@@ -270,6 +270,8 @@ class PrepareGTFS(QgsProcessingAlgorithm):
         
         horaires={}
         stop_times=io.open(rep+'/stop_times.txt','r',encoding=encodage)
+        montee_descente=False
+        test_ligne=True
         for i,ligne in enumerate(stop_times):
             #ligne=ligne.decode('utf-8')
             try:
@@ -283,27 +285,34 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                 elements[z]=e.strip('"').strip()
             if len(elements)>1:
                 if i>0:
-                    if elements[itrip] in services:
-                        elements[iarr]=elements[iarr].strip('"').zfill(8)
-                        elements[idep]=elements[idep].strip('"').zfill(8)
-                        if uic==True:
-                            elements[istop]=eval("elements[istop]"+formula)
-                            o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                    if montee_descente==True:
+                        if elements[boa]=='0' or elements[ali]=='0':
+                            test_ligne=True
+                        else:
+                            test_ligne=False
+                            
+                    if test_ligne==True:
+                        if elements[itrip] in services:
+                            elements[iarr]=elements[iarr].strip('"').zfill(8)
+                            elements[idep]=elements[idep].strip('"').zfill(8)
+                            if uic==True:
+                                elements[istop]=eval("elements[istop]"+formula)
+                                o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                            else:
+                                try:
+                                    o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                                except:
+                                    print(elements)
+                        o.extend(elements[5:])
+                        if elements[0] not in horaires:
+                            horaires[elements[0]]={}
+                        if len(elements)>5 and elements[itrip] in htrip:
+                            horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep],elements[5]]
                         else:
                             try:
-                                o=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
+                                horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep]]
                             except:
                                 print(elements)
-                    o.extend(elements[5:])
-                    if elements[0] not in horaires:
-                        horaires[elements[0]]={}
-                    if len(elements)>5 and elements[itrip] in htrip:
-                        horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep],elements[5]]
-                    else:
-                        try:
-                            horaires[elements[itrip]][int(elements[iseq])]=[int(elements[iseq]),elements[istop],elements[iarr],elements[idep]]
-                        except:
-                            print(elements)
                 else:
                     iarr=elements.index("arrival_time")
                     idep=elements.index("departure_time")
@@ -313,6 +322,12 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     hstop_times=[elements[itrip],elements[iarr],elements[idep],elements[istop],elements[iseq]]
                     #hstop_times.extend(elements[5:])
                     hstop_times=','.join(hstop_times)
+                    if ('pickup_type' in elements) and ('drop_off_type' in elements):
+                        boa=elements.index("pickup_type")
+                        ali=elements.index("drop_off_type")
+                        montee_descente=True
+
+
         stop_times.close()
         
         

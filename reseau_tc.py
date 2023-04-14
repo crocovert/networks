@@ -353,7 +353,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                         google_calendar.semaine = "".join([elements[headers[k]] for k in ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']])
                         google_calendar.debut = QDate(int(elements[headers["start_date"]][0:4]), int(elements[headers["start_date"]][4:6]), int(elements[headers["start_date"]][6:8])).toPyDate()
                         google_calendar.fin =  QDate(int(elements[headers["end_date"]][0:4]), int(elements[headers["end_date"]][4:6]), int(elements[headers["end_date"]][6:8])).toPyDate()
-                        duree_cal = max((debut_cal.daysTo(fin_cal)+1),1)
+                        duree_cal = max((debut_cal.daysTo(fin_cal)),1)
                         jour = debut_cal
 
                         calendrier=""

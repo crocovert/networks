@@ -139,6 +139,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
     OUTPUT='OUTPUT'
     LINE_BASED='LINE_BASED'
     PROJ='PROJ'
+    ENCODE='ENCODE'
 
     def initAlgorithm(self, config):
         """
@@ -188,6 +189,14 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
             )
         )
+        self.addParameter(
+            QgsProcessingParameterString(
+                self.ENCODE,
+                self.tr('Encoding'),
+                defaultValue='utf_8_sig'
+            )
+        )
+        
 
                 # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
@@ -200,7 +209,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             )
         )
         
-    def lit_google_stops(self,nom_stops):
+    def lit_google_stops(self,nom_stops,encodage):
         google_stops = {}
         fichier_stops = io.open(nom_stops,encoding="utf_8_sig")
         for  i,ligne in enumerate(fichier_stops):
@@ -237,10 +246,10 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         return google_stops
             
             
-    def lit_google_routes(self,nom_routes):
+    def lit_google_routes(self,nom_routes,encodage):
         google_routes = {}
         modes={'0':'tram','1':'metro','2':'train','3':'bus','4':'ferry','5':'cable','6':'gondole','7':'funi'}
-        fichier_routes = io.open(nom_routes,encoding="utf_8_sig")
+        fichier_routes = io.open(nom_routes,encoding=encodage)
         for i,ligne in enumerate(fichier_routes):
             if i==0:
                 header = ligne[:-1].split(',')
@@ -273,9 +282,9 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         return google_routes
 
 
-    def lit_google_trips(self,nom_trips):
+    def lit_google_trips(self,nom_trips,encodage):
         google_trips = {}
-        fichier_trips =io.open(nom_trips,encoding="utf_8_sig")
+        fichier_trips =io.open(nom_trips,encoding=encodage)
 
         for i,ligne in enumerate(fichier_trips):
             if i==0:
@@ -308,10 +317,10 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
         return google_trips
 
-    def  lit_google_calendar_dates(self,nom_calendar_dates):
+    def  lit_google_calendar_dates(self,nom_calendar_dates,encodage):
         google_calendar_dates= {}
         if os.path.isfile(nom_calendar_dates):
-            fichier_calendar_dates = io.open(nom_calendar_dates,encoding="utf_8_sig")
+            fichier_calendar_dates = io.open(nom_calendar_dates,encoding=encodage)
             for i,ligne in enumerate(fichier_calendar_dates):
                 if i==0:
                     header =ligne.strip('\n').strip('\r').split(',')
@@ -344,10 +353,10 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
 
 
-    def lit_google_calendars(self,nom_calendars,debut_cal, fin_cal, google_calendar_dates):
+    def lit_google_calendars(self,nom_calendars,debut_cal, fin_cal, google_calendar_dates,encodage):
         google_calendars ={}
         if os.path.isfile(nom_calendars):
-            fichier_calendars = io.open(nom_calendars,encoding="utf_8_sig")
+            fichier_calendars = io.open(nom_calendars,encoding=encodage)
             for i, ligne in enumerate(fichier_calendars):
 
                 
@@ -426,9 +435,9 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             
 
 
-    def lit_google_stop_times(self, nom_stop_times):
+    def lit_google_stop_times(self, nom_stop_times,encodage):
         google_stop_times = {}
-        fichier_stop_times = io.open(nom_stop_times,encoding="utf_8_sig")
+        fichier_stop_times = io.open(nom_stop_times,encoding=encodage)
         for i,ligne in enumerate(fichier_stop_times):
                 if i==0:
                     header = ligne.strip('\n').strip('\r').split(',')
@@ -680,6 +689,8 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         fin_calendrier=self.parameterAsDateTime(parameters,self.FIN_PERIODE,context)
         heure_debut=QTime.fromString(self.parameterAsString(parameters,self.HEURE_DEBUT,context))
         heure_fin=QTime.fromString(self.parameterAsString(parameters,self.HEURE_FIN,context))
+        encodage=self.parameterAsString(parameters,self.ENCODE,context)
+        
         proj=self.parameterAsCrs(parameters,self.PROJ,context)
         
 
@@ -740,17 +751,17 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         date_debut=debut_calendrier.date()#QDate.fromString(debut_calendrier, "d/M/yyyy").toPyDate()
         date_fin=fin_calendrier.date()#QDate.fromString(fin_calendrier, "d/M/yyyy").toPyDate()
         feedback.setProgressText(self.tr(u'Reading stops'))
-        google_stops = self.lit_google_stops("stops.txt")
+        google_stops = self.lit_google_stops("stops.txt",encodage)
         feedback.setProgressText(self.tr(u'Reading routes'))
-        google_routes = self.lit_google_routes("routes.txt")
+        google_routes = self.lit_google_routes("routes.txt",encodage)
         feedback.setProgressText(self.tr(u'Reading trips'))
-        google_trips = self.lit_google_trips("trips.txt")
+        google_trips = self.lit_google_trips("trips.txt",encodage)
         feedback.setProgressText(self.tr(u"Reading calendars_dates"))
-        google_calendar_dates = self.lit_google_calendar_dates( "calendar_dates.txt")
+        google_calendar_dates = self.lit_google_calendar_dates( "calendar_dates.txt",encodage)
         feedback.setProgressText(self.tr(u'Reading calendars'))
-        google_calendars = self.lit_google_calendars( "calendar.txt", date_debut, date_fin, google_calendar_dates)
+        google_calendars = self.lit_google_calendars( "calendar.txt", date_debut, date_fin, google_calendar_dates,encodage)
         feedback.setProgressText(self.tr(u"Reading stop_times"))
-        google_stop_times = self.lit_google_stop_times( "stop_times.txt")
+        google_stop_times = self.lit_google_stop_times( "stop_times.txt",encodage)
         feedback.setProgressText(self.tr(u"Generating lines"))
         google_chainages=self.cree_chainages(google_routes, google_trips, google_calendars, google_stop_times,feedback)
         feedback.setProgressText(self.tr(u'Generation Musliw file'))
