@@ -211,7 +211,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         
     def lit_google_stops(self,nom_stops,encodage):
         google_stops = {}
-        fichier_stops = io.open(nom_stops,encoding="utf_8_sig")
+        fichier_stops = io.open(nom_stops,encoding=encodage)
         for  i,ligne in enumerate(fichier_stops):
             if i==0:    
                 header =  ligne.split(',') 
