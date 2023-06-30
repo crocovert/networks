@@ -174,7 +174,8 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             elements= re.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)",ligne)
             #elements=ligne.strip().split(',')
             for z,e in enumerate(elements):
-                elements[z]=e.strip('"')
+                elements[z]=e.strip('"').strip()
+
             if len(elements)>1:
                 if i>0:
                     if uic==True:
@@ -232,11 +233,13 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     hroute=[elements[iroute],elements[iagency]]
                     hroute.extend(elements[2:])
                     hroute=','.join(hroute)+"\n"
+                
         routes.close()
         
         services={}        
         trips=io.open(rep+'/trips.txt','r',encoding=encodage)
         for i,ligne in enumerate(trips):
+
             try:
                 test=ligne.startswith(codecs.BOM_UTF8)
                 if test:
@@ -244,6 +247,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             except:
                 pass
             elements=ligne.strip().split(',')
+
             for i1,i2 in enumerate(elements):
                 elements[i1]=i2.strip('"').strip()
                 
@@ -267,6 +271,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     htrip=(','.join(htrip))
                     #htrip=htrip.encode('cp1252')+"\n"
         trips.close()
+
         
         horaires={}
         stop_times=io.open(rep+'/stop_times.txt','r',encoding=encodage)
@@ -283,10 +288,11 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             elements=ligne.strip().split(',')
             for z,e in enumerate(elements):
                 elements[z]=e.strip('"').strip()
+
             if len(elements)>1:
                 if i>0:
                     if montee_descente==True:
-                        if elements[boa]=='0' or elements[ali]=='0':
+                        if (elements[boa] in ['0',''] or elements[ali] in ['0','']):
                             test_ligne=True
                         else:
                             test_ligne=False
