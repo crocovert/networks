@@ -550,7 +550,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                             arret.y = 0
                             google_stops[elements[k + 1][1].num_arret] = arret
 
-                        ij=(elements[k][1].num_arret,elements[k + 1][1].num_arret,i)
+                        ij=(elements[k][1].num_arret,elements[k + 1][1].num_arret,inc+1)
                         id_link=(elements[k][1].num_arret,elements[k + 1][1].num_arret)
                         hd=heure_debut
                         hf=heure_fin
@@ -558,7 +558,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                         m2=QTime(0,0,0).secsTo(hf)/60
                         #m1=hd.hour()*60+hd.minute()+hd.second()/60+hd.msec()/60000
                         #m2=hf.hour()*60+hf.minute()+hf.second()/60+hf.msec()/60000
-                        if m1<=elements[k][1].heure_arr<=m2:
+                        if m1<=elements[k][1].heure_arr and elements[k][1].heure_arr<=m2:
                             if elements[k][1].num_arret not in  nodes:
                                 nodes[elements[k][1].num_arret]={'i':elements[k][1].num_arret,'name':google_stops[elements[k][1].num_arret].nom,'dep_monfri':0,'arr_monfri':0,'dep_sat':0,'arr_sat':0,'dep_sun':0,'arr_sun':0}
                                 pt1=xtr.transform(QgsPointXY(google_stops[elements[k][1].num_arret].x,google_stops[elements[k][1].num_arret].y))
@@ -586,22 +586,28 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                             arcs[ij]['nb']+=1.0
                             
                             calendrier=google_calendars[mission.service_id]
-                            nb_sem=nb_sat=nb_sun=0
-                            n_sem=n_sat=n_sun=0
+                            nb_sem=0.0
+                            nb_sat=0.0
+                            nb_sun=0.0
+                            n_sem=0.0
+                            n_sat=0.0
+                            n_sun=0.0
                             for kk in range(len(calendrier.calendrier)):
                                 if ((date_debut.addDays(kk)).dayOfWeek() in [1,2,3,4,5]):
-                                    nb_sem+=1
+                                    nb_sem+=1.0
                                     if calendrier.calendrier[kk]=='O':
-                                        n_sem+=1
+                                        n_sem+=1.0
                                 elif ((date_debut.addDays(kk)).dayOfWeek() in [6]):
-                                    nb_sat+=1
+                                    nb_sat+=1.0
                                     if calendrier.calendrier[kk]=='O':
-                                        n_sat+=1
+                                        n_sat+=1.0
                                 elif ((date_debut.addDays(kk)).dayOfWeek() in [7]):
-                                    nb_sun+=1
+                                    nb_sun+=1.0
                                     if calendrier.calendrier[kk]=='O':
-                                        n_sun+=1
-                            #print(calendrier.calendrier,calendrier.debut,calendrier.fin , n_sem,nb_sem,n_sat,nb_sat,n_sun,nb_sun)
+                                        n_sun+=1.0
+                                else:
+                                    print((date_debut.addDays(kk)).dayOfWeek())
+#                            ouput.write(";".join([str(s) for s in [calendrier.calendrier,calendrier.debut,calendrier.fin , n_sem,nb_sem,n_sat,nb_sat,n_sun,nb_sun]]))
                             arcs[ij]['nb_monfri']+=n_sem/nb_sem
                             arcs[ij]['nb_sat']+=n_sat/nb_sat
                             arcs[ij]['nb_sun']+=n_sun/nb_sun
@@ -648,9 +654,10 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                 if segment['nb_monfri']>0:
                     segment['hdw_monfri']=(hd.secsTo(hf)/60)/segment['nb_monfri']
                 if segment['nb_sat']>0:
-                    segment['hdw_sat']=(hd.secsTo(hf)/60)/segment['nb_sat']
+                    segment['hdw_sat'] =(hd.secsTo(hf)/60)/segment['nb_sat']
                 if segment['nb_sun']>0:
                     segment['hdw_sun']=(hd.secsTo(hf)/60)/segment['nb_sun']
+                if (segment['nb_monfri']+segment['nb_sun']+segment['nb_sun'])>0:
                     iti.addFeature(segment)
         for n in nodes:
             noeud=QgsFeature(t_noeuds)
@@ -673,7 +680,6 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             link['ij']=l[0]+'-'+l[1]
             link['longueur']=links[l]['geom'].length()/1000
             liens.addFeature(link)
-
 
 
     def processAlgorithm(self, parameters, context, feedback):

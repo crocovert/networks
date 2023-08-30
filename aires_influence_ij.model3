@@ -577,11 +577,20 @@
     <Option value="D:\utilisateurs\dternp.formation\Desktop\10-Formation\Formation_exo_utpas_isochrones\projet_reseaumarcheTCNord_utpas\lancementmusliw6dec\matrice_ut.txt" name="matricesimpleliste" type="QString"/>
   </Option>
   <Option name="groupBoxes"/>
-  <Option name="help"/>
+  <Option name="help" type="Map">
+    <Option value="Patrick Palmier - Cerema HdF" name="ALG_CREATOR" type="QString"/>
+    <Option value="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Réalise une carte de zone d'influence ou de chalandise à partir des résultats d'un calcul d'accessibilité multi-sites.  Il s'agit d'une variante qui au lieu d'utiliser directement les temps calculés par Musliw (ti et tj) nécessite un paramétrage du script &amp;quot;maj titj&amp;quot;&lt;/p>&lt;/body>&lt;/html>" name="ALG_DESC" type="QString"/>
+    <Option value="Patrick Palmier" name="ALG_HELP_CREATOR" type="QString"/>
+    <Option value="1.0.0" name="ALG_VERSION" type="QString"/>
+    <Option value="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&lt;/body>&lt;/html>" name="EXAMPLES" type="QString"/>
+    <Option value="Nom de la couche résultat (zones d'influence)" name="Networks:isovalues_polygons_1:resultat" type="QString"/>
+    <Option value="Diffère du script aire d'influence qu'il utilise le script maj_titj à la place de mise à jour du temps des arcs" name="SHORT_DESCRIPTION" type="QString"/>
+    <Option value="Matrice musliw pour le calcul de l'aceessinilité mutli-sites" name="matricesimpleliste" type="QString"/>
+  </Option>
   <Option value="Version1" name="internal_version" type="QString"/>
   <Option name="modelVariables"/>
-  <Option value="Analysis" name="model_group" type="QString"/>
-  <Option value="aires_influence_ij" name="model_name" type="QString"/>
+  <Option value="Cerema" name="model_group" type="QString"/>
+  <Option value="Aires_influence_ij" name="model_name" type="QString"/>
   <Option value="" name="outputGroup" type="QString"/>
   <Option name="outputOrder"/>
   <Option name="parameterDefinitions" type="Map">
@@ -611,7 +620,7 @@
       <Option value="" name="extension" type="QString"/>
       <Option value="Tous les fichiers (*.*)" name="filefilter" type="QString"/>
       <Option value="0" name="flags" type="int"/>
-      <Option value="" name="help" type="QString"/>
+      <Option value="Matrice musliw pour le calcul de l'aceessinilité mutli-sites" name="help" type="QString"/>
       <Option name="metadata"/>
       <Option value="matricesimpleliste" name="name" type="QString"/>
       <Option value="file" name="parameter_type" type="QString"/>

@@ -2052,77 +2052,77 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>ImportGTFSv2</name>
     <message>
-        <location filename="gtfs_mint.py" line="148"/>
+        <location filename="gtfs_mint.py" line="149"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="155"/>
+        <location filename="gtfs_mint.py" line="156"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="162"/>
+        <location filename="gtfs_mint.py" line="163"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="183"/>
+        <location filename="gtfs_mint.py" line="184"/>
         <source>output crs</source>
         <translation>Projection</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="195"/>
+        <location filename="gtfs_mint.py" line="204"/>
         <source>Mint network layer</source>
         <translation>Couche réseau Mint</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="693"/>
+        <location filename="gtfs_mint.py" line="759"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="695"/>
+        <location filename="gtfs_mint.py" line="761"/>
         <source>Reading routes</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="697"/>
+        <location filename="gtfs_mint.py" line="763"/>
         <source>Reading trips</source>
         <translation>Lecture des trips</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="699"/>
+        <location filename="gtfs_mint.py" line="765"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="701"/>
+        <location filename="gtfs_mint.py" line="767"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="703"/>
+        <location filename="gtfs_mint.py" line="769"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="705"/>
+        <location filename="gtfs_mint.py" line="771"/>
         <source>Generating lines</source>
         <translation>Génération des lignes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="707"/>
+        <location filename="gtfs_mint.py" line="773"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="728"/>
+        <location filename="gtfs_mint.py" line="794"/>
         <source>Import_GTFS_v2</source>
         <translation>Import_GTFS_v2</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="735"/>
+        <location filename="gtfs_mint.py" line="801"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2147,7 +2147,7 @@ L&apos;algorithme produit deux fichiers de résultats:
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="752"/>
+        <location filename="gtfs_mint.py" line="818"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -2174,14 +2174,19 @@ L&apos;algorithme produit deux fichiers de résultats:
 			Mint network layer : nom de la couche de lignes. Les noms des couches arrêts et liens seront identiques mais avec _stops et _links à la fin.</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="169"/>
+        <location filename="gtfs_mint.py" line="170"/>
         <source>Time period start</source>
         <translation>heure de début</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="176"/>
+        <location filename="gtfs_mint.py" line="177"/>
         <source>Time period end</source>
         <translation>Heure de fin</translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="192"/>
+        <source>Encoding</source>
+        <translation>Encodage</translation>
     </message>
 </context>
 <context>
@@ -2514,7 +2519,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksPole</name>
     <message>
-        <location filename="maj_links_pole.py" line="283"/>
+        <location filename="maj_links_pole.py" line="284"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2564,12 +2569,12 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>mise à jour du pôle...</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="276"/>
+        <location filename="maj_links_pole.py" line="277"/>
         <source>Update links pole</source>
         <translation>Mise à jour du pôle des arcs</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="299"/>
+        <location filename="maj_links_pole.py" line="300"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
 		        
@@ -2594,7 +2599,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="291"/>
+        <location filename="maj_links_times.py" line="292"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2644,7 +2649,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="284"/>
+        <location filename="maj_links_times.py" line="285"/>
         <source>Update links times</source>
         <translation>Mise à jour des temps des arcs</translation>
     </message>
@@ -2679,7 +2684,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="307"/>
+        <location filename="maj_links_times.py" line="308"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -2707,7 +2712,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="297"/>
+        <location filename="maj_titj.py" line="298"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2767,7 +2772,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="313"/>
+        <location filename="maj_titj.py" line="314"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -2796,7 +2801,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="290"/>
+        <location filename="maj_titj.py" line="291"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
     </message>
@@ -4134,7 +4139,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             and the real one is substracted from the total travel time
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             numero: node id
-            temps: average value 
+            avg: average value 
             nb: number of od rows in the matrix file 
             min: minimum value indicator
             max: maximum value indicator
@@ -4540,32 +4545,32 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>PrepareGTFS</name>
     <message>
-        <location filename="prepare_gtfs.py" line="87"/>
+        <location filename="prepare_gtfs.py" line="88"/>
         <source>GTFS source folder </source>
         <translation>Répertoire GTFS source</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="95"/>
+        <location filename="prepare_gtfs.py" line="96"/>
         <source>GTFS output folder</source>
         <translation>Répertoire GTFS destination</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="103"/>
+        <location filename="prepare_gtfs.py" line="104"/>
         <source>Network Id</source>
         <translation>Id réseau</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="110"/>
+        <location filename="prepare_gtfs.py" line="111"/>
         <source>Extract stop_id?</source>
         <translation>Extraire stop_id?</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="117"/>
+        <location filename="prepare_gtfs.py" line="118"/>
         <source>Extract formula</source>
         <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="487"/>
+        <location filename="prepare_gtfs.py" line="517"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -4588,80 +4593,85 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         </translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="464"/>
+        <location filename="prepare_gtfs.py" line="494"/>
         <source>Prepare GTFS</source>
         <translation>Préparer GTFS</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="471"/>
+        <location filename="prepare_gtfs.py" line="501"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="prepare_gtfs.py" line="125"/>
+        <source>Encoding</source>
+        <translation>Encodage</translation>
     </message>
 </context>
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="145"/>
+        <location filename="reseau_tc.py" line="146"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="152"/>
+        <location filename="reseau_tc.py" line="153"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="159"/>
+        <location filename="reseau_tc.py" line="160"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="590"/>
+        <location filename="reseau_tc.py" line="630"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="555"/>
+        <location filename="reseau_tc.py" line="595"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="557"/>
+        <location filename="reseau_tc.py" line="597"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="559"/>
+        <location filename="reseau_tc.py" line="599"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="561"/>
+        <location filename="reseau_tc.py" line="601"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="563"/>
+        <location filename="reseau_tc.py" line="603"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="565"/>
+        <location filename="reseau_tc.py" line="605"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="567"/>
+        <location filename="reseau_tc.py" line="607"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="609"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="614"/>
+        <location filename="reseau_tc.py" line="654"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -4681,14 +4691,19 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="597"/>
+        <location filename="reseau_tc.py" line="637"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="166"/>
+        <location filename="reseau_tc.py" line="167"/>
         <source>Line based network?</source>
         <translation>Réseau basé sur des lignes?</translation>
+    </message>
+    <message>
+        <location filename="reseau_tc.py" line="174"/>
+        <source>Output trip chainings?</source>
+        <translation>Export chainages?</translation>
     </message>
 </context>
 <context>
