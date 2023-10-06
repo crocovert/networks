@@ -161,14 +161,17 @@ class NetworksProvider(QgsProcessingProvider):
             self.translator.load(locale_path)
             QCoreApplication.installTranslator(self.translator)
 
-
+    def initGui(self):        
+        ### REGISTER ###
+        QgsExpression.registerFunction(vitesse_velo)
+        #####################
 
     def unload(self):
         """
         Unloads the provider. Any tear-down steps required by the provider
         should be implemented here.
         """
-        #QgsExpression.unregisterFunction(vitesse_velo.name())
+        QgsExpression.unregisterFunction('vitesse_velo')
 
     def loadAlgorithms(self):
         """
