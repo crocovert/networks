@@ -3,6 +3,10 @@ from qgis.gui import *
 
 @qgsfunction(args='auto', group='Custom', referenced_columns=[])
 def vitesse_velo(t0, feature, parent):
+    """
+    t0: average travel time field on flat road
+    Calculate the cycling travel time taking into account slopes (needs à PolylineXYZ
+    """
     points=feature.geometry().vertices()
     t_velo=0.0
     longueur=feature.geometry().length()
