@@ -171,7 +171,7 @@ class NetworksProvider(QgsProcessingProvider):
         Unloads the provider. Any tear-down steps required by the provider
         should be implemented here.
         """
-        QgsExpression.unregisterFunction('vitesse_velo')
+        #QgsExpression.unregisterFunction('vitesse_velo')
 
     def loadAlgorithms(self):
         """
