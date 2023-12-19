@@ -178,11 +178,12 @@ class ReseauTi(QgsProcessingAlgorithm):
             )
         )        
         self.addParameter(
-            QgsProcessingParameterField(
+            QgsProcessingParameterExpression(
                 self.TEXTE_ARC,
                 self.tr('Arc label'),
-                parentLayerParameterName=self.INPUT,
-                type=QgsProcessingParameterField.String
+                "'m'",
+                self.INPUT
+                
             )
         )
         self.addParameter(
@@ -228,7 +229,7 @@ class ReseauTi(QgsProcessingAlgorithm):
         debut_periode=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
         fin_periode=self.parameterAsString(parameters,self.FIN_PERIODE,context)
         calendrier=self.parameterAsString(parameters,self.CALENDRIER,context)
-        texte_arc=self.parameterAsFields(parameters,self.TEXTE_ARC,context)
+        texte_arc=QgsExpression(self.parameterAsExpression(parameters,self.TEXTE_ARC,context))
         mode=QgsExpression(self.parameterAsExpression(parameters,self.MODE,context))
         # Compute the number of steps to display within the progress bar and
         # get features from source
@@ -245,8 +246,12 @@ class ReseauTi(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr(u"Writing Musliw network file..."))
         features=[f for f in layer.getFeatures(request)]
         n=len(features)
-        modeContexte=self.createExpressionContext(parameters,context, reseau_routier)
+        modeContexte=self.createExpressionContext(parameters,context)
+        modeContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(reseau_source))
         mode.prepare(modeContexte)
+        texteContexte=self.createExpressionContext(parameters,context)
+        texteContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(reseau_source))
+        texte_arc.prepare(texteContexte)
         for p,f in enumerate(features):
             
             feedback.setProgress(p*100/n)
@@ -259,9 +264,11 @@ class ReseauTi(QgsProcessingAlgorithm):
                     s=f[sens[0]]
                 l=f[longueur[0]]
                 t=f[temps[0]]
-                te=f[texte_arc[0]]
+                #te=f[texte_arc[0]]
                 modeContexte.setFeature(f)
+                texteContexte.setFeature(f)
                 modex=mode.evaluate(modeContexte)
+                te=texte_arc.evaluate(texteContexte)
                 if s in ('1','3'):
                    sortie.write(str(i)+';'+str(j)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
                 if s in ('2','3'):

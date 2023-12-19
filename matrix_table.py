@@ -43,9 +43,12 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterBoolean,
                        QgsProcessingParameterString,
                        QgsProcessingParameterExtent,
+                       QgsProcessingParameterEnum,
                        QgsProcessingParameterField,
                        QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination)
+                       QgsProcessingParameterFileDestination,
+                       QgsExpressionContext,
+                       QgsExpression)
 import codecs
 import numpy
 
@@ -109,11 +112,12 @@ class MatrixTable(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
-            QgsProcessingParameterNumber(
-                self.NB_PASSAGERS,
-                self.tr('Demand'),
-                QgsProcessingParameterNumber.Double,
-                defaultValue=1.0,
+            QgsProcessingParameterExpression(
+                        self.NB_PASSAGERS,
+                        self.tr('Demand'),
+                        parentLayerParameterName=self.POLES,
+                        optional=False,
+                        defaultValue='demand'
             )
         )
         self.addParameter(
@@ -190,7 +194,7 @@ class MatrixTable(QgsProcessingAlgorithm):
         poles = self.parameterAsSource(parameters, self.POLES, context)
         origine = self.parameterAsFields(parameters, self.ORIGIN,context)[0]
         destination = self.parameterAsFields(parameters, self.DESTINATION,context)[0]
-        nb_passagers=self.parameterAsDouble(parameters,self.NB_PASSAGERS,context)
+        nb_passagers_exp=self.parameterAsExpression(parameters,self.NB_PASSAGERS,context)
         jour=self.parameterAsInt(parameters,self.JOUR,context)
         h1=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
         h2=self.parameterAsString(parameters,self.FIN_PERIODE,context)
@@ -218,28 +222,40 @@ class MatrixTable(QgsProcessingAlgorithm):
         nb=len(list(numpy.arange(debut_periode,fin_periode,intervalle)))
         feedback.setProgressText(self.tr("Writing Musliw matrix..."))
         if d=="d":
+            demands = {}
             for i in nodes.getFeatures():
-                liste_nodes.add((i[origine],i[destination]))
+                od_tuple = (i[origine],i[destination])
+                liste_nodes.add(od_tuple)
+                # Evaluation 
+                context = QgsExpressionContext()
+                context.setFeature(i)
+                demands[od_tuple] = QgsExpression(nb_passagers_exp).evaluate(context)
             liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
                 for n,(i,j) in enumerate(liste_nodes):
                     feedback.setProgress(100*n*kk/(len(liste_nodes)*nb))
                     if label2==True:
-                        matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d,str(j)+"-"+str(i)]])+"\n")
                     else:
-                        matrice.write(";".join([str(z) for z in [i,j,nb_passagers,jour,k,d]])+"\n")
+                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d]])+"\n")
 
         elif d=="a":
+            demands = {}
             for i in nodes.getFeatures():
-                liste_nodes.add((i[origine],i[destination]))
+                od_tuple = (i[origine],i[destination])
+                liste_nodes.add(od_tuple)
+                # Evaluation 
+                context = QgsExpressionContext()
+                context.setFeature(i)
+                demands[od_tuple] = QgsExpression(nb_passagers_exp).evaluate(context)
             liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
                 for n,(i,j) in enumerate(liste_nodes):
                     feedback.setProgress(100*n*kk/(len(liste_nodes)*nb))
                     if label2==True:
-                        matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d,str(j)+"-"+str(i)]])+"\n")
+                        matrice.write(";".join([str(z) for z in [j,i,demands[(i,j)],jour,k,d,str(j)+"-"+str(i)]])+"\n")
                     else:
-                        matrice.write(";".join([str(z) for z in [j,i,nb_passagers,jour,k,d]])+"\n")
+                        matrice.write(";".join([str(z) for z in [j,i,demands[(i,j)],jour,k,d]])+"\n")
 
         matrice.close()
           
