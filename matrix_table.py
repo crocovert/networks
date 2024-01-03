@@ -127,7 +127,7 @@ class MatrixTable(QgsProcessingAlgorithm):
                 QgsProcessingParameterNumber.Integer,
                 defaultValue=1,
             )
-        )       
+        )
         
         self.addParameter(
             QgsProcessingParameterString(
@@ -192,9 +192,10 @@ class MatrixTable(QgsProcessingAlgorithm):
         # to uniquely identify the feature sink, and must be included in the
         # dictionary returned by the processAlgorithm function.
         poles = self.parameterAsSource(parameters, self.POLES, context)
+        tableau = self.parameterAsVectorLayer(parameters, self.POLES, context)
         origine = self.parameterAsFields(parameters, self.ORIGIN,context)[0]
         destination = self.parameterAsFields(parameters, self.DESTINATION,context)[0]
-        nb_passagers_exp=self.parameterAsExpression(parameters,self.NB_PASSAGERS,context)
+        nb_passagers_exp=QgsExpression(self.parameterAsExpression(parameters,self.NB_PASSAGERS,context))
         jour=self.parameterAsInt(parameters,self.JOUR,context)
         h1=self.parameterAsString(parameters,self.DEBUT_PERIODE,context)
         h2=self.parameterAsString(parameters,self.FIN_PERIODE,context)
@@ -223,13 +224,17 @@ class MatrixTable(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr("Writing Musliw matrix..."))
         if d=="d":
             demands = {}
+            formuleContexte=self.createExpressionContext(parameters,context)
+            formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
+            nb_passagers_exp.prepare(formuleContexte)
             for i in nodes.getFeatures():
                 od_tuple = (i[origine],i[destination])
                 liste_nodes.add(od_tuple)
                 # Evaluation 
-                context = QgsExpressionContext()
-                context.setFeature(i)
-                demands[od_tuple] = QgsExpression(nb_passagers_exp).evaluate(context)
+                formuleContexte.setFeature(i)
+                if od_tuple not in demands:
+                    demands[od_tuple]=0
+                demands[od_tuple] += nb_passagers_exp.evaluate(formuleContexte)
             liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
                 for n,(i,j) in enumerate(liste_nodes):
@@ -241,14 +246,19 @@ class MatrixTable(QgsProcessingAlgorithm):
 
         elif d=="a":
             demands = {}
+            formuleContexte=self.createExpressionContext(parameters,context)
+            formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
+            nb_passagers_exp.prepare(formuleContexte)
+
             for i in nodes.getFeatures():
                 od_tuple = (i[origine],i[destination])
                 liste_nodes.add(od_tuple)
                 # Evaluation 
-                context = QgsExpressionContext()
-                context.setFeature(i)
-                demands[od_tuple] = QgsExpression(nb_passagers_exp).evaluate(context)
-            liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
+                formuleContexte.setFeature(i)
+                if od_tuple not in demands:
+                    demands[od_tuple]=0
+                demands[od_tuple] += nb_passagers_exp.evaluate(formuleContexte)
+            liste_nodes=sorted(liste_nodes,key=lambda x: x[1])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
                 for n,(i,j) in enumerate(liste_nodes):
                     feedback.setProgress(100*n*kk/(len(liste_nodes)*nb))
