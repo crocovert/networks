@@ -248,7 +248,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             
     def lit_google_routes(self,nom_routes,encodage):
         google_routes = {}
-        modes={'0':'tram','1':'metro','2':'train','3':'bus','4':'ferry','5':'cable','6':'gondole','7':'funi'}
+        modes={'0':'tram','1':'metro','2':'train','3':'bus','4':'ferry','5':'tram-cable','6':'telepherique','7':'funiculaire','11':'trolley','12':'monorail'}
         fichier_routes = io.open(nom_routes,encoding=encodage)
         for i,ligne in enumerate(fichier_routes):
             if i==0:
@@ -608,18 +608,45 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                                 else:
                                     print((date_debut.addDays(kk)).dayOfWeek())
 #                            ouput.write(";".join([str(s) for s in [calendrier.calendrier,calendrier.debut,calendrier.fin , n_sem,nb_sem,n_sat,nb_sat,n_sun,nb_sun]]))
-                            arcs[ij]['nb_monfri']+=n_sem/nb_sem
-                            arcs[ij]['nb_sat']+=n_sat/nb_sat
-                            arcs[ij]['nb_sun']+=n_sun/nb_sun
+                            try:
+                                arcs[ij]['nb_monfri']+=n_sem/nb_sem
+                            except:
+                                arcs[ij]['nb_monfri']+=0
+                            try:
+                                arcs[ij]['nb_sat']+=n_sat/nb_sat
+                            except:
+                                arcs[ij]['nb_sat']+=0
+                            try:
+                                arcs[ij]['nb_sun']+=n_sun/nb_sun
+                            except:
+                                arcs[ij]['nb_sun']+=0
                                 
                             
                             #arcs[ij]['nb_monfri']+=(len(google_calendars[mission.service_id].calendrier.split('O'))-1.0)/len(google_calendars[mission.service_id].calendrier)
-                            nodes[elements[k][1].num_arret]['dep_monfri']+=n_sem/nb_sem
-                            nodes[elements[k+1][1].num_arret]['arr_monfri']+=n_sem/nb_sem
-                            nodes[elements[k][1].num_arret]['dep_sat']+=n_sat/nb_sat
-                            nodes[elements[k+1][1].num_arret]['arr_sat']+=n_sat/nb_sat
-                            nodes[elements[k][1].num_arret]['dep_sun']+=n_sun/nb_sun
-                            nodes[elements[k+1][1].num_arret]['arr_sun']+=n_sun/nb_sun
+                            try:
+                                nodes[elements[k][1].num_arret]['dep_monfri']+=n_sem/nb_sem
+                            except:
+                                nodes[elements[k][1].num_arret]['dep_monfri']+=0
+                            try:
+                                nodes[elements[k+1][1].num_arret]['arr_monfri']+=n_sem/nb_sem
+                            except:
+                                nodes[elements[k+1][1].num_arret]['arr_monfri']+=0
+                            try:
+                                nodes[elements[k][1].num_arret]['dep_sat']+=n_sat/nb_sat
+                            except:
+                                nodes[elements[k][1].num_arret]['dep_sat']+=0
+                            try:
+                                nodes[elements[k+1][1].num_arret]['arr_sat']+=n_sat/nb_sat
+                            except:
+                                nodes[elements[k+1][1].num_arret]['arr_sat']+=0
+                            try:
+                                nodes[elements[k][1].num_arret]['dep_sun']+=n_sun/nb_sun
+                            except:
+                                nodes[elements[k][1].num_arret]['dep_sun']+=0
+                            try:
+                                nodes[elements[k+1][1].num_arret]['arr_sun']+=n_sun/nb_sun
+                            except:
+                                nodes[elements[k+1][1].num_arret]['arr_sun']+=0
                         
             t_noeuds=QgsFields()
             t_noeuds.append(QgsField("i",QVariant.String))

@@ -25,7 +25,8 @@ repository=https://github.com/crocovert/networks/
 hasProcessingProvider=yes
 
 # Uncomment the following line and add your changelog:
-changelog=2.7.14 fix bug in matrix_table script
+changelog=2.7.15 fix somes bugs in several scripts
+		2.7.14 fix bug in matrix_table script
 		2.7.13 fix some bugs in models
 		2.7.12 fix bug qgis_process segmentation fault (core dump) on Linux
 		2.7.11 add model (.model) to generate a road network from an existing polyline/multipolyline layer

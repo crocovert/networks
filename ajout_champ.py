@@ -47,7 +47,9 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExpression,
                        QgsProcessingParameterFileDestination,
                        QgsProcessingParameterVectorLayer,
-                       QgsVectorLayer)
+                       QgsVectorDataProvider,
+                       QgsVectorLayer,
+                       QgsFields)
 import codecs
 import gc
 
@@ -183,16 +185,19 @@ class AjoutChamp(QgsProcessingAlgorithm):
         ##a=fenetre.split(",")
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
         tableau=couche
-        champ_existant=champ_existant.strip('"')
+        champ_existant=champ_existant.strip('"').strip("'")
+        #print(couche)
         champs=tableau.fields()
         chaine="QVariant."+str(typo)
         noms_champs=[c.name() for c in champs]
-        tableau.startEditing()
         if len(champ_existant)>0: 
 
             if  champ_existant not in noms_champs:
+                #tableau.startEditing()
                 tableau.dataProvider().addAttributes([QgsField(champ_existant,eval('QVariant.'+unicode(typo)),len=taille,prec=precision)])
                 tableau.updateFields()
+                #tableau.commitChanges()
+                
                 lib_champ=champ_existant
             else:
                 lib_champ=champ_existant
@@ -203,29 +208,32 @@ class AjoutChamp(QgsProcessingAlgorithm):
                 expr= filtre
                 request = QgsFeatureRequest(expr)
             
+            tableau2=couche
             
             formuleContexte=self.createExpressionContext(parameters,context)
             formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
             formule.prepare(formuleContexte)
 
 
-            id_champ=tableau.fields().lookupField(lib_champ)
+            id_champ=tableau2.fields().lookupField(lib_champ)
+            #feedback.setProgressText(str(id_champ)+" "+lib_champ)
 
             features=tableau.getFeatures(request)
             n=tableau.featureCount()
             feedback.setProgressText(self.tr("updating field..."))
-            tableau.startEditing()
-            tableau.beginEditCommand(self.tr("updating field"))
+            #tableau.startEditing()
+            #tableau.beginEditCommand(self.tr("updating field"))
             for p,f in enumerate(features):
                 num=f.id()
-                test1=formuleContexte.setFeature(f)
+                formuleContexte.setFeature(f)
                 valeur=formule.evaluate(formuleContexte)
                 valid={id_champ: valeur}
-                test2=tableau.changeAttributeValues(num,valid)
+                #tableau.changeAttributeValues(num,valid)
+                tableau.dataProvider().changeAttributeValues({num:valid})
                 feedback.setProgress(p*100/n)
 
-            tableau.endEditCommand()    
-            tableau.commitChanges()
+            #tableau.endEditCommand()
+            #tableau.commitChanges()
         gc.collect()
         return {self.INPUT:self.INPUT}
 

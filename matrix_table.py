@@ -233,8 +233,11 @@ class MatrixTable(QgsProcessingAlgorithm):
                 # Evaluation 
                 formuleContexte.setFeature(i)
                 if od_tuple not in demands:
-                    demands[od_tuple]=0
-                demands[od_tuple] += nb_passagers_exp.evaluate(formuleContexte)
+                    demands[od_tuple]=float(0)
+                try:
+                    demands[od_tuple] += float(nb_passagers_exp.evaluate(formuleContexte))
+                except:
+                    test=True
             liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
                 for n,(i,j) in enumerate(liste_nodes):
