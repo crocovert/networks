@@ -190,12 +190,18 @@ class AjoutChamp(QgsProcessingAlgorithm):
         champs=tableau.fields()
         chaine="QVariant."+str(typo)
         noms_champs=[c.name() for c in champs]
+        #feedback.setProgressText(champ_existant+' '+ ":".join(noms_champs))
         if len(champ_existant)>0: 
+            
+            
 
             if  champ_existant not in noms_champs:
                 #tableau.startEditing()
-                tableau.dataProvider().addAttributes([QgsField(champ_existant,eval('QVariant.'+unicode(typo)),len=taille,prec=precision)])
-                tableau.updateFields()
+                if tableau.dataProvider().capabilities() & QgsVectorDataProvider.ChangeAttributeValues:
+                    tableau.dataProvider().addAttributes([QgsField(champ_existant,eval('QVariant.'+unicode(typo)),len=taille,prec=precision)])
+                    tableau.updateFields()
+                else:
+                    feedback.setProgressText(self.tr("Warning: The layer is not editable"))
                 #tableau.commitChanges()
                 
                 lib_champ=champ_existant
@@ -216,24 +222,31 @@ class AjoutChamp(QgsProcessingAlgorithm):
 
 
             id_champ=tableau2.fields().lookupField(lib_champ)
-            #feedback.setProgressText(str(id_champ)+" "+lib_champ)
+            feedback.setProgressText(lib_champ)
 
-            features=tableau.getFeatures(request)
-            n=tableau.featureCount()
+            features=list(tableau2.getFeatures(request))
+            nb=len(features)
+            #feedback.setProgressText(str(nb))
+            n=tableau2.featureCount()
             feedback.setProgressText(self.tr("updating field..."))
-            #tableau.startEditing()
-            #tableau.beginEditCommand(self.tr("updating field"))
-            for p,f in enumerate(features):
-                num=f.id()
-                formuleContexte.setFeature(f)
-                valeur=formule.evaluate(formuleContexte)
-                valid={id_champ: valeur}
-                #tableau.changeAttributeValues(num,valid)
-                tableau.dataProvider().changeAttributeValues({num:valid})
-                feedback.setProgress(p*100/n)
+            tableau.startEditing()
+            tableau.beginEditCommand(self.tr("updating field"))
+            
+            if tableau.dataProvider().capabilities() & QgsVectorDataProvider.ChangeAttributeValues:
+                for p,f in enumerate(features):
+                    num=f.id()
+                    formuleContexte.setFeature(f)
+                    valeur=formule.evaluate(formuleContexte)
+                    valid={id_champ: valeur}
+                    tableau.changeAttributeValues(num,valid)
+                    #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
+                    feedback.setProgress(p*100/n)
+            else:
+                feedback.setProgressText(self.tr("Warning: The layer is not editable"))
 
-            #tableau.endEditCommand()
-            #tableau.commitChanges()
+
+            tableau.endEditCommand()
+        tableau.commitChanges()
         gc.collect()
         return {self.INPUT:self.INPUT}
 

@@ -85,7 +85,7 @@ class FichierTempsJour(QgsProcessingAlgorithm):
             QgsProcessingParameterFile(
                 self.INPUT,
                 self.tr('Link times output file'),
-                0,
+                QgsProcessingParameterFile.File,
                 "txt"
 
             )

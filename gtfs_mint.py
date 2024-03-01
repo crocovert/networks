@@ -157,14 +157,14 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             QgsProcessingParameterDateTime(
                 self.DEBUT_PERIODE,
                 self.tr('Calendar start'),
-                type=1
+                type=QgsProcessingParameterDateTime.Date
             )
         )
         self.addParameter(
             QgsProcessingParameterDateTime(
                 self.FIN_PERIODE,
                 self.tr('Calendar end'),
-                type=1
+                type=QgsProcessingParameterDateTime.Date
             )
         )
         self.addParameter(

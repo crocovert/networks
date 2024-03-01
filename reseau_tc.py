@@ -136,7 +136,6 @@ class ReseauTC(QgsProcessingAlgorithm):
     FIN_PERIODE = 'END_PERIOD'
     OUTPUT='OUTPUT'
     LINE_BASED='LINE_BASED'
-    CHAINAGE='CHAINAGE'
 
     def initAlgorithm(self, config):
         """
@@ -154,14 +153,14 @@ class ReseauTC(QgsProcessingAlgorithm):
             QgsProcessingParameterDateTime(
                 self.DEBUT_PERIODE,
                 self.tr('Calendar start'),
-                type=1
+                type=QgsProcessingParameterDateTime.Date
             )
         )
         self.addParameter(
             QgsProcessingParameterDateTime(
                 self.FIN_PERIODE,
                 self.tr('Calendar end'),
-                type=1
+                type=QgsProcessingParameterDateTime.Date
             )
         )
         self.addParameter(
@@ -170,17 +169,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                 self.tr('Line based network?'),
                 True
             )
-        )
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.CHAINAGE,
-                self.tr('Output trip chainings?'),
-                False
-            )
-        )
-
-
-        # We add a feature sink in which to store our processed features (this
+        )        # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
         self.addParameter(
@@ -488,14 +477,9 @@ class ReseauTC(QgsProcessingAlgorithm):
         return chainages;
 
 
-    def cree_musliw(self,nom_musliw, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,line_based,sortie_chainage):
+    def cree_musliw(self,nom_musliw, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,line_based):
         i=0
         fichier_musliw = io.open(nom_musliw,"w",encoding="utf8")
-        if sortie_chainage==True:
-            chemin=os.path.split(nom_musliw)
-            nom_chainage=chemin[0]+'/'+os.path.splitext(chemin[1])[0]+'_chains.txt'
-            fichier_chainages=io.open(nom_chainage,'w',encoding='utf8')
-            fichier_chainages.write("num;line;service;idx;h;cal;route_name;stop_name;type\n")
 
         for inc,chaine in enumerate(google_chainages):
             feedback.setProgress(inc*100/len(google_chainages))
@@ -509,7 +493,6 @@ class ReseauTC(QgsProcessingAlgorithm):
                     n = len(elements)
                     j+=1
                     textel = ""
-                    kk=0
                     for  k in range(n-1):
                         if elements[k][1].heure_dep > elements[k + 1][1].heure_dep:
                             elements[k + 1][1].heure_dep+=1440.0
@@ -543,30 +526,8 @@ class ReseauTC(QgsProcessingAlgorithm):
                         textel += google_routes[mission.route_id].nom + "|" + google_stops[elements[k][1].num_arret].nom + "-" + google_stops[elements[k + 1][1].num_arret].nom + ";"+google_routes[mission.route_id].type+";0\n"
                         if len(google_calendars[mission.service_id].calendrier.split('O')) > 1:
                             fichier_musliw.write(textel)
-                            if sortie_chainage==True:
-                                kk+=1
-                                texte2=unicode(elements[k][1].num_arret)
-                                texte2+=";" + unicode(i) + ";" + unicode(j)
-                                texte2+=";"+str(kk)
-                                texte2+=";" + unicode(elements[k][1].heure_dep )
-                                texte2+=";" + google_calendars[mission.service_id].calendrier
-                                texte2+=';'+ google_routes[mission.route_id].nom
-                                texte2+=";" + google_stops[elements[k][1].num_arret].nom
-                                texte2+= ";"+google_routes[mission.route_id].type+"\n"
-                                fichier_chainages.write(texte2)
-                                kk+=1
-                                texte2=unicode(elements[k+1][1].num_arret)
-                                texte2+=";" + unicode(i) + ";" + unicode(j)
-                                texte2+=";"+str(kk)
-                                texte2+=";" + unicode(elements[k+1][1].heure_arr )
-                                texte2+=";" + google_calendars[mission.service_id].calendrier
-                                texte2+=';'+ google_routes[mission.route_id].nom
-                                texte2+=";" + google_stops[elements[k+1][1].num_arret].nom
-                                texte2+= ";"+google_routes[mission.route_id].type+"\n"
-                                fichier_chainages.write(texte2)
                             
-        if sortie_chainage==True:
-            fichier_chainages.close()
+
         fichier_musliw.close()
 
 
@@ -583,7 +544,6 @@ class ReseauTC(QgsProcessingAlgorithm):
         fin_calendrier=self.parameterAsDateTime(parameters,self.FIN_PERIODE,context)
         fichier_Musliw=self.parameterAsFileOutput(parameters, self.OUTPUT,context)
         line_based=self.parameterAsBool(parameters, self.LINE_BASED,context)
-        sortie_chainage=self.parameterAsBool(parameters, self.CHAINAGE, context)
         # Compute the number of steps to display within the progress bar and
         # get features from source
         ##a=fenetre.split(",")
@@ -607,7 +567,7 @@ class ReseauTC(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr(u"Generating lines"))
         google_chainages=self.cree_chainages(google_routes, google_trips, google_calendars, google_stop_times,feedback)
         feedback.setProgressText(self.tr(u'Generation Musliw file'))
-        self.cree_musliw(sortie, google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,line_based,sortie_chainage)
+        self.cree_musliw(sortie, google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,line_based)
         
         return {self.OUTPUT:self.OUTPUT}
 

@@ -90,7 +90,7 @@ class FichierOD(QgsProcessingAlgorithm):
             QgsProcessingParameterFile(
                 self.INPUT,
                 self.tr('OD output file'),
-                0,
+                QgsProcessingParameterFile.File,
                 "txt"
 
             )

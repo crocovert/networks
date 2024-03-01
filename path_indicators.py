@@ -89,7 +89,7 @@ class PathIndicators(QgsProcessingAlgorithm):
             QgsProcessingParameterFile(
                 self.INPUT,
                 self.tr('Path output file'),
-                0,
+                QgsProcessingParameterFile.File,
                 "txt"
 
             )

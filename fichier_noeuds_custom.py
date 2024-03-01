@@ -85,7 +85,7 @@ class NodesFileCustom(QgsProcessingAlgorithm):
             QgsProcessingParameterFile(
                 self.INPUT,
                 self.tr('Nodes times output file'),
-                0,
+                QgsProcessingParameterFile.File,
                 "txt"
 
             )
