@@ -83,6 +83,8 @@ from .param_mint import MintParameters
 from .mint_network import MintNetwork
 from .vitesse_velo import  vitesse_velo
 from .gtfs_mint import ImportGTFSv2
+from .list_dir import dirlist
+from .nodal_intensity import Intensite_nodale
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -140,7 +142,8 @@ class NetworksProvider(QgsProcessingProvider):
                         CalculMint(),
                         MintParameters(),
                         MintNetwork(),
-                        ImportGTFSv2()]
+                        ImportGTFSv2(),
+                        Intensite_nodale()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -224,6 +227,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(MintParameters())
         self.addAlgorithm(MintNetwork())
         self.addAlgorithm(ImportGTFSv2())
+        self.addAlgorithm(Intensite_nodale())
         
     def id(self):
         """

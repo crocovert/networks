@@ -104,12 +104,11 @@ class FichierAff(QgsProcessingAlgorithm):
         )
 
         self.addParameter(
-            QgsProcessingParameterField(
+            QgsProcessingParameterString(
                 self.LIGNE,
                 self.tr('Line'),
-                parentLayerParameterName=self.INPUT,
-                type=QgsProcessingParameterField.String,
                 optional=True
+                
             )
         )
         
@@ -169,7 +168,7 @@ class FichierAff(QgsProcessingAlgorithm):
         # dictionary returned by the processAlgorithm function.
         arcs= self.parameterAsSource(parameters, self.INPUT, context)
         ij_exp=QgsExpression(self.parameterAsExpression(parameters,self.IJ,context))
-        ligne=self.parameterAsFields(parameters,self.LIGNE,context)
+        ligne=self.parameterAsString(parameters,self.LIGNE,context)
         volume=self.parameterAsString(parameters,self.VOLAU,context)
         type_arc=self.parameterAsString(parameters,self.TYPE,context)
         fichier_aff=self.parameterAsFile(parameters,self.FICHIER_AFF,context)
@@ -225,7 +224,7 @@ class FichierAff(QgsProcessingAlgorithm):
                 if len(ligne)==0:
                     cle=tuple([elements[champs['i']],elements[champs['j']]])
                 else:
-                    cle=tuple([elements[champs['i']],elements[champs['j']],elements[champs[ligne[0]]].strip("\"")])
+                    cle=tuple([elements[champs['i']],elements[champs['j']],elements[champs[ligne]].strip("\"")])
 
                 volau=elements[champs[volume]].replace(",",".")
                 type2=elements[champs[type_arc]]

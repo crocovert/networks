@@ -4,47 +4,47 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="97"/>
+        <location filename="ajout_champ.py" line="99"/>
         <source>Field</source>
         <translation>Champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="107"/>
+        <location filename="ajout_champ.py" line="109"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="115"/>
+        <location filename="ajout_champ.py" line="117"/>
         <source>Size</source>
         <translation>Taille</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="126"/>
+        <location filename="ajout_champ.py" line="128"/>
         <source>Precision</source>
         <translation>Précision</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="138"/>
+        <location filename="ajout_champ.py" line="140"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="152"/>
+        <location filename="ajout_champ.py" line="154"/>
         <source>Formula</source>
         <translation>Formule</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="216"/>
+        <location filename="ajout_champ.py" line="231"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="218"/>
+        <location filename="ajout_champ.py" line="233"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="279"/>
+        <location filename="ajout_champ.py" line="300"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -72,19 +72,24 @@
         </translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="88"/>
+        <location filename="ajout_champ.py" line="90"/>
         <source>Layer</source>
         <translation>Couche</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="248"/>
+        <location filename="ajout_champ.py" line="269"/>
         <source>Update field</source>
         <translation>Mise à jour champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="255"/>
+        <location filename="ajout_champ.py" line="276"/>
         <source>Network</source>
         <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="245"/>
+        <source>Warning: The layer is not editable</source>
+        <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
 </context>
 <context>
@@ -276,7 +281,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="247"/>
+        <location filename="creer_graphe.py" line="249"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -1042,37 +1047,37 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="313"/>
+        <location filename="creer_graphe.py" line="315"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="94"/>
+        <location filename="creer_graphe.py" line="96"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="113"/>
+        <location filename="creer_graphe.py" line="115"/>
         <source>Prefix</source>
         <translation>Préfixe</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="133"/>
+        <location filename="creer_graphe.py" line="135"/>
         <source>Nodes layer</source>
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="306"/>
+        <location filename="creer_graphe.py" line="308"/>
         <source>Build graph</source>
         <translation>Créer graphe</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="103"/>
+        <location filename="creer_graphe.py" line="105"/>
         <source>Node Id</source>
         <translation>Node id</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="329"/>
+        <location filename="creer_graphe.py" line="331"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -1093,17 +1098,17 @@
 			fichier noeuds: couche des noeuds (extrémités des arcs)</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="103"/>
+        <location filename="creer_graphe.py" line="105"/>
         <source>Number series</source>
         <translation>Compteur</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="103"/>
+        <location filename="creer_graphe.py" line="105"/>
         <source>Geographic string(unique)</source>
         <translation>Chaîne géographique (unique)</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="123"/>
+        <location filename="creer_graphe.py" line="125"/>
         <source>Nb of decimals</source>
         <translation>Nb de décimales</translation>
     </message>
@@ -1126,42 +1131,42 @@
         <translation>Ligne</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="116"/>
+        <location filename="fichier_aff.py" line="115"/>
         <source>Flows</source>
         <translation>Volumes</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="123"/>
+        <location filename="fichier_aff.py" line="122"/>
         <source>Link type</source>
         <translation>Type de tronçon</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="133"/>
+        <location filename="fichier_aff.py" line="132"/>
         <source>aff output file</source>
         <translation>Fichier aff</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="143"/>
+        <location filename="fichier_aff.py" line="142"/>
         <source>Encoding</source>
         <translation>Encodage</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="150"/>
+        <location filename="fichier_aff.py" line="149"/>
         <source>Flows layer</source>
         <translation>Couche de flux</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="273"/>
+        <location filename="fichier_aff.py" line="272"/>
         <source>Get link flows data</source>
         <translation>Importer des données de flux</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="280"/>
+        <location filename="fichier_aff.py" line="279"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="fichier_aff.py" line="296"/>
+        <location filename="fichier_aff.py" line="295"/>
         <source>
         Generate a linear objects layer with the links used in assignment (with a volume of passengers&gt;0) in particular to produce flows maps.
 		
@@ -1800,7 +1805,7 @@
 <context>
     <name>Generating nodes</name>
     <message>
-        <location filename="creer_graphe.py" line="230"/>
+        <location filename="creer_graphe.py" line="232"/>
         <source>Generating nodes</source>
         <translation>Génération des noeuds</translation>
     </message>
@@ -2077,52 +2082,52 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation>Couche réseau Mint</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="759"/>
+        <location filename="gtfs_mint.py" line="786"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="761"/>
+        <location filename="gtfs_mint.py" line="788"/>
         <source>Reading routes</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="763"/>
+        <location filename="gtfs_mint.py" line="790"/>
         <source>Reading trips</source>
         <translation>Lecture des trips</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="765"/>
+        <location filename="gtfs_mint.py" line="792"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="767"/>
+        <location filename="gtfs_mint.py" line="794"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="769"/>
+        <location filename="gtfs_mint.py" line="796"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="771"/>
+        <location filename="gtfs_mint.py" line="798"/>
         <source>Generating lines</source>
         <translation>Génération des lignes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="773"/>
+        <location filename="gtfs_mint.py" line="800"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="794"/>
+        <location filename="gtfs_mint.py" line="821"/>
         <source>Import_GTFS_v2</source>
         <translation>Import_GTFS_v2</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="801"/>
+        <location filename="gtfs_mint.py" line="828"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2147,7 +2152,7 @@ L&apos;algorithme produit deux fichiers de résultats:
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="818"/>
+        <location filename="gtfs_mint.py" line="845"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -2187,6 +2192,143 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="gtfs_mint.py" line="192"/>
         <source>Encoding</source>
         <translation>Encodage</translation>
+    </message>
+</context>
+<context>
+    <name>Intensite_nodale</name>
+    <message>
+        <location filename="nodal_intensity.py" line="36"/>
+        <source>PT stops</source>
+        <translation>Arrêts TC</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="37"/>
+        <source>nodal points</source>
+        <translation>pôles nodaux</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="38"/>
+        <source>node id</source>
+        <translation>Id de noeud</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="39"/>
+        <source>node name</source>
+        <translation>nom de noeud</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="40"/>
+        <source>Musliw network file</source>
+        <translation>Fichier réseau Musliw</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="41"/>
+        <source>radius(m)</source>
+        <translation>rayon(m)</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="42"/>
+        <source>day</source>
+        <translation>jour</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="43"/>
+        <source>min transfer time(min)</source>
+        <translation>temps de correspondance mini</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="44"/>
+        <source>max transfer time(min)</source>
+        <translation>temps de correspondance maxi</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="45"/>
+        <source>start time</source>
+        <translation>début période</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="46"/>
+        <source>end time</source>
+        <translation>fin période</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="47"/>
+        <source>prohibited u-turns</source>
+        <translation>demi-tours interdits</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="48"/>
+        <source>walk speed(km/h)</source>
+        <translation>vitesse de marche(km/h)</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>output layer</source>
+        <translation>Table résultat</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="252"/>
+        <source>nodal intensity</source>
+        <translation>Intensité nodale</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="255"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="264"/>
+        <source>
+        This scripts generate indicators in order to evaluate the potential of intermodality
+        these indicators are:
+        - Nodal potential all modes
+        - Nodal potential train
+        - Nodal intensity all modes
+        - Nodal intensity train 
+        - Nodal potential rail scheduling all modes
+        - Nodal potential rail scheduling train
+        - Nodal intensity rail scheduling all modes
+        - Nodal intensity rail scheduling train
+        Parameters:
+            PT stops: a layer that contains all stops to be taken into account
+            nodal points: a layer of intermodality points to compute nodal potential and intensity
+            node id: nodal point id
+            node name: nodal point name
+            Musliw network file: Musliw multimodal network file (txt) which contains timetables to analyze
+            radius: the radius in meters that define which stops are talken into account (those inside the radius))
+            day: day of Musliw file calendar
+            min transfer time: the delay minimum to be at the stop to be able to board into the PT vehicule
+            max transfer time: the maximum delay of transfer
+            start time: beginning of the period of sudy
+            end time: end of the period of study
+            prohibited uturn: if checke uturn won&apos;t be taken into account
+            out put layer: name of the result layer
+</source>
+        <translation>
+        Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
+        Ces indicateurs sont:
+        - Potentiel nodal tous modes
+        - Potentiel nodal train
+        - Intensité nodale tous modes
+        - Intensité nodale train
+        - Potentiel nodal cadencement tous modes
+        - Potentiel nodal cadencement train
+        - Intensité nodale cadencement tous modes
+        - Intensité nodale cadencement traon
+        Paramètres:
+            Arrêts TC: Couche contenant les arrêts TC à prendre en compte
+            Points nodaux: Couche des pôles d&apos;intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
+            id noeud: identifiant de noeud
+            nom de noeud: libellé du noeud
+            fichier réseau Musliw: Nom du fichier réseau Musliw (txt) qui contient les horaires permettant le calcul des indicateurs
+            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l&apos;intérieur du réayon)
+            jour: jour du calendrier du fichier Musliw
+            temps de correspondance mini: le temps minimum à attendre à l&apos;arrêt pour pouvoir monter à bord du véhicule
+            temps de correspondance mini: le temps de correspondance maxi
+            début période: début de la plage horaire à étudier
+            fin période: fin de la plage horaire à étudier
+            demi-tours interdits: si sélectionné les demi-tours seront interdits
+            couche résultat: nom de la couche où seront produits les résultats</translation>
     </message>
 </context>
 <context>
@@ -3128,87 +3270,87 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MatrixTable</name>
     <message>
-        <location filename="matrix_table.py" line="89"/>
+        <location filename="matrix_table.py" line="92"/>
         <source>OD Table</source>
         <translation>Table OD</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="97"/>
+        <location filename="matrix_table.py" line="100"/>
         <source>Origin</source>
         <translation>Origine</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="104"/>
+        <location filename="matrix_table.py" line="107"/>
         <source>Destination</source>
         <translation>Destination</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="111"/>
+        <location filename="matrix_table.py" line="114"/>
         <source>Demand</source>
         <translation>Demande</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="119"/>
+        <location filename="matrix_table.py" line="123"/>
         <source>Day</source>
         <translation>Jour</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="128"/>
+        <location filename="matrix_table.py" line="132"/>
         <source>Start time</source>
         <translation>Heure début</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="136"/>
+        <location filename="matrix_table.py" line="140"/>
         <source>End time</source>
         <translation>Heure fin</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="144"/>
+        <location filename="matrix_table.py" line="148"/>
         <source>Step</source>
         <translation>Intervalle</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="152"/>
+        <location filename="matrix_table.py" line="156"/>
         <source>Departure/Arrival</source>
         <translation>Départ/Arrivée</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="152"/>
+        <location filename="matrix_table.py" line="156"/>
         <source>Departure</source>
         <translation>Départ</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="152"/>
+        <location filename="matrix_table.py" line="156"/>
         <source>Arrival</source>
         <translation>Arrivée</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="162"/>
+        <location filename="matrix_table.py" line="166"/>
         <source>OD label?</source>
         <translation>Texte OD?</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="173"/>
+        <location filename="matrix_table.py" line="177"/>
         <source>Musliw matrix</source>
         <translation>Matrice Musliw</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="219"/>
+        <location filename="matrix_table.py" line="224"/>
         <source>Writing Musliw matrix...</source>
         <translation>Ecriture de la matrice Musliw...</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="264"/>
+        <location filename="matrix_table.py" line="293"/>
         <source>Musliw matrix from table</source>
         <translation>Matrice à partir d&apos;une table</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="271"/>
+        <location filename="matrix_table.py" line="300"/>
         <source>Matrix</source>
         <translation>Matrice</translation>
     </message>
     <message>
-        <location filename="matrix_table.py" line="287"/>
+        <location filename="matrix_table.py" line="316"/>
         <source>
         Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
@@ -3937,7 +4079,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="243"/>
+        <location filename="networks_provider.py" line="250"/>
         <source>Networks</source>
         <translation></translation>
     </message>
@@ -4611,67 +4753,67 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>ReseauTC</name>
     <message>
-        <location filename="reseau_tc.py" line="146"/>
+        <location filename="reseau_tc.py" line="145"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="153"/>
+        <location filename="reseau_tc.py" line="152"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="160"/>
+        <location filename="reseau_tc.py" line="159"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="630"/>
+        <location filename="reseau_tc.py" line="590"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="595"/>
+        <location filename="reseau_tc.py" line="555"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="597"/>
+        <location filename="reseau_tc.py" line="557"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="599"/>
+        <location filename="reseau_tc.py" line="559"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="601"/>
+        <location filename="reseau_tc.py" line="561"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="603"/>
+        <location filename="reseau_tc.py" line="563"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="605"/>
+        <location filename="reseau_tc.py" line="565"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="607"/>
+        <location filename="reseau_tc.py" line="567"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="609"/>
+        <location filename="reseau_tc.py" line="569"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="654"/>
+        <location filename="reseau_tc.py" line="614"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -4691,19 +4833,14 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="637"/>
+        <location filename="reseau_tc.py" line="597"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="167"/>
+        <location filename="reseau_tc.py" line="166"/>
         <source>Line based network?</source>
         <translation>Réseau basé sur des lignes?</translation>
-    </message>
-    <message>
-        <location filename="reseau_tc.py" line="174"/>
-        <source>Output trip chainings?</source>
-        <translation>Export chainages?</translation>
     </message>
 </context>
 <context>
@@ -4774,22 +4911,22 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Texte arc</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="188"/>
+        <location filename="reseau_ti.py" line="189"/>
         <source>Mode</source>
         <translation>Mode</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="200"/>
+        <location filename="reseau_ti.py" line="201"/>
         <source>Musliw network</source>
         <translation>Réseau Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="245"/>
+        <location filename="reseau_ti.py" line="246"/>
         <source>Writing Musliw network file...</source>
         <translation>Ecriture du réseau Musliw...</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="311"/>
+        <location filename="reseau_ti.py" line="318"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
 		
@@ -4834,12 +4971,12 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             </translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="288"/>
+        <location filename="reseau_ti.py" line="295"/>
         <source>Musliw individual network</source>
         <translation>Réseau Musliw transport individuel</translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="295"/>
+        <location filename="reseau_ti.py" line="302"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -5343,7 +5480,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
 <context>
     <name>Updating arcs</name>
     <message>
-        <location filename="creer_graphe.py" line="248"/>
+        <location filename="creer_graphe.py" line="250"/>
         <source>Updating arcs</source>
         <translation>Mise à jour des arcs...</translation>
     </message>
