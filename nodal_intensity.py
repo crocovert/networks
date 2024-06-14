@@ -27,7 +27,7 @@ from qgis.core import QgsVectorLayer
 from qgis.core import QgsFeatureSource
 
 import processing
-import io
+import io,os 
 
 
 class Intensite_nodale(QgsProcessingAlgorithm):
@@ -68,6 +68,23 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         max_transfer=self.parameterAsInt(parameters,'maxtransfer',context)
         walkspeed=self.parameterAsDouble(parameters,'walkspeed',context)
         feedback = QgsProcessingMultiStepFeedback(4, model_feedback)
+
+
+        champs=QgsFields()
+        champs.append(QgsField("i",QVariant.String))
+        champs.append(QgsField("name",QVariant.String))
+        champs.append(QgsField("potentiel_tot",QVariant.Int))
+        champs.append(QgsField("potentiel_train",QVariant.Int))
+        champs.append(QgsField("intensite_tot",QVariant.Int))
+        champs.append(QgsField("intensite_train",QVariant.Int))
+        champs.append(QgsField("potentiel_cadence_tot",QVariant.Int))
+        champs.append(QgsField("potentiel_cadence_train",QVariant.Int))
+        champs.append(QgsField("intensite_cadence",QVariant.Int))
+        champs.append(QgsField("intensite_cadence_train",QVariant.Int))
+        (table_output,dest_id) = self.parameterAsSink(parameters,'output''',context,champs, QgsWkbTypes.Point, poles.sourceCrs())
+        nom_fichier_detail=os.path.splitext(dest_id)[0]+'_mat.txt'
+        output_matrix=io.open(nom_fichier_detail,"w")
+        
 
         gares={}
         fnoeuds=[]
@@ -147,6 +164,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         resultat_poles_entree={}
         resultat_poles_sortie={}
         #resultats entrée potentiel nodal
+        output_matrix.write('i;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;harr;duree\n')
         for i in poles_nodaux:
             resultat_poles_entree[i]=[0,0,0,0]
             if i in hentrees:
@@ -158,12 +176,16 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                     v2=0
                     v3=0
                     v4=0
+                    v5=1e38
+                    v6=0
                     for l1 in hentrees[i][lig]:
-                        v1=0
-                        v2=0
-                        v3=0
-                        v4=0
                         for col in hsorties[i]:
+                            v1=0
+                            v2=0
+                            v3=0
+                            v4=0
+                            v5=1e38
+                            v6=0
                             for c1 in hsorties[i][col]:
                                 if not(l1[0]==c1[0]) and (uturn==True):
                                     v1=1
@@ -171,17 +193,20 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                                         v2=1
                                     if l1[1]+min_transfer+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=max_transfer:
                                         v3=1
+                                        if c1[1]-l1[1]<v5:
+                                            v6=c1[1]
+                                            v5=c1[1]-l1[1]
                                         if (l1[2]=='train' or c1[2])=='train':
                                             v4=1
-                                        
-                        resultat_poles_entree[i][0]+=v1
-                        resultat_poles_entree[i][1]+=v2
-                        resultat_poles_entree[i][2]+=v3
-                        resultat_poles_entree[i][3]+=v4
+                            output_matrix.write(str(i)+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+'\n')
+                            resultat_poles_entree[i][0]+=v1
+                            resultat_poles_entree[i][1]+=v2
+                            resultat_poles_entree[i][2]+=v3
+                            resultat_poles_entree[i][3]+=v4
         
         
         #resultats sortie potentiel nodal
-        
+        output_matrix.close()
         feedback.setCurrentStep(4)
         for i in poles_nodaux:
             resultat_poles_sortie[i]=[0,0,0,0]
@@ -195,11 +220,11 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                     v3=0
                     v4=0
                     for c1 in hsorties[i][col]:
-                        v1=0
-                        v2=0
-                        v3=0
-                        v4=0
                         for lig in hentrees[i]:
+                            v1=0
+                            v2=0
+                            v3=0
+                            v4=0
                             for l1 in hentrees[i][lig]:
                                 if not(l1[0]==c1[0]) and (uturn==True):
                                     v1=1
@@ -210,26 +235,14 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                                         if (l1[2]=='train' or c1[2])=='train':
                                             v4=1
                                         
-                        resultat_poles_sortie[i][0]+=v1
-                        resultat_poles_sortie[i][1]+=v2
-                        resultat_poles_sortie[i][2]+=v3
-                        resultat_poles_sortie[i][3]+=v4
+                            resultat_poles_sortie[i][0]+=v1
+                            resultat_poles_sortie[i][1]+=v2
+                            resultat_poles_sortie[i][2]+=v3
+                            resultat_poles_sortie[i][3]+=v4
                     
             
 
         feedback.setCurrentStep(5)
-        champs=QgsFields()
-        champs.append(QgsField("i",QVariant.String))
-        champs.append(QgsField("name",QVariant.String))
-        champs.append(QgsField("potentiel_tot",QVariant.Int))
-        champs.append(QgsField("potentiel_train",QVariant.Int))
-        champs.append(QgsField("intensite_tot",QVariant.Int))
-        champs.append(QgsField("intensite_train",QVariant.Int))
-        champs.append(QgsField("potentiel_cadence_tot",QVariant.Int))
-        champs.append(QgsField("potentiel_cadence_train",QVariant.Int))
-        champs.append(QgsField("intensite_cadence",QVariant.Int))
-        champs.append(QgsField("intensite_cadence_train",QVariant.Int))
-        (table_output,dest_id) = self.parameterAsSink(parameters,'output''',context,champs, QgsWkbTypes.Point, poles.sourceCrs())
     
         for i in gares:
             pole=QgsFeature()
