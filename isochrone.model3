@@ -73,13 +73,13 @@
         <Option type="List" name="INTERVALLE">
           <Option type="Map">
             <Option type="int" value="2" name="source"/>
-            <Option type="double" value="10" name="static_value"/>
+            <Option type="double" value="5" name="static_value"/>
           </Option>
         </Option>
         <Option type="List" name="MAXI">
           <Option type="Map">
             <Option type="int" value="2" name="source"/>
-            <Option type="double" value="120" name="static_value"/>
+            <Option type="double" value="15" name="static_value"/>
           </Option>
         </Option>
         <Option type="List" name="MINI">
@@ -296,7 +296,7 @@
         <Option type="List" name="PENALTIES">
           <Option type="Map">
             <Option type="int" value="2" name="source"/>
-            <Option type="QString" value="" name="static_value"/>
+            <Option type="invalid" name="static_value"/>
           </Option>
         </Option>
         <Option type="List" name="RESEAU">
@@ -511,8 +511,8 @@
         </Option>
         <Option type="List" name="STYLE">
           <Option type="Map">
-            <Option type="int" value="2" name="source"/>
-            <Option type="QString" value="C:\Users\patrick.palmier\Desktop\10-Formation_prise_en_main\Reseaux\Hauts-de-France\TC_light\accessibilite_120.qml" name="static_value"/>
+            <Option type="QString" value="@musliw_path || 'accessibilite_120.qml'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
       </Option>
@@ -529,7 +529,7 @@
     <Option type="QString" value="Patrick Palmier - CeremaHdF" name="ALG_VERSION"/>
     <Option type="QString" value="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&lt;/body>&lt;/html>" name="EXAMPLES"/>
     <Option type="QString" value="Table des polygones iso-valeurs" name="Networks:isovalues_polygons_1:resultat"/>
-    <Option type="QString" value="" name="SHORT_DESCRIPTION"/>
+    <Option type="invalid" name="SHORT_DESCRIPTION"/>
     <Option type="QString" value="Origine de l'isochrone. Choisissez le centre de l'isochrone en sélectionnant le point de départ ou arrivée en cliquant sur la carte" name="origine"/>
   </Option>
   <Option type="QString" value="Version1" name="internal_version"/>

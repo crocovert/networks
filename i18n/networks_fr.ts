@@ -2197,87 +2197,87 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>Intensite_nodale</name>
     <message>
-        <location filename="nodal_intensity.py" line="36"/>
+        <location filename="nodal_intensity.py" line="37"/>
         <source>PT stops</source>
         <translation>Arrêts TC</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="37"/>
+        <location filename="nodal_intensity.py" line="38"/>
         <source>nodal points</source>
         <translation>pôles nodaux</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="38"/>
+        <location filename="nodal_intensity.py" line="39"/>
         <source>node id</source>
         <translation>Id de noeud</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="39"/>
+        <location filename="nodal_intensity.py" line="40"/>
         <source>node name</source>
         <translation>nom de noeud</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="40"/>
+        <location filename="nodal_intensity.py" line="41"/>
         <source>Musliw network file</source>
         <translation>Fichier réseau Musliw</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="41"/>
+        <location filename="nodal_intensity.py" line="42"/>
         <source>radius(m)</source>
         <translation>rayon(m)</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="42"/>
+        <location filename="nodal_intensity.py" line="43"/>
         <source>day</source>
         <translation>jour</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="43"/>
+        <location filename="nodal_intensity.py" line="44"/>
         <source>min transfer time(min)</source>
         <translation>temps de correspondance mini</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="44"/>
+        <location filename="nodal_intensity.py" line="45"/>
         <source>max transfer time(min)</source>
         <translation>temps de correspondance maxi</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="45"/>
+        <location filename="nodal_intensity.py" line="46"/>
         <source>start time</source>
         <translation>début période</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="46"/>
+        <location filename="nodal_intensity.py" line="47"/>
         <source>end time</source>
         <translation>fin période</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="47"/>
+        <location filename="nodal_intensity.py" line="48"/>
         <source>prohibited u-turns</source>
         <translation>demi-tours interdits</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="48"/>
+        <location filename="nodal_intensity.py" line="50"/>
         <source>walk speed(km/h)</source>
         <translation>vitesse de marche(km/h)</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="49"/>
+        <location filename="nodal_intensity.py" line="51"/>
         <source>output layer</source>
         <translation>Table résultat</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="252"/>
+        <location filename="nodal_intensity.py" line="282"/>
         <source>nodal intensity</source>
         <translation>Intensité nodale</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="255"/>
+        <location filename="nodal_intensity.py" line="285"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="264"/>
+        <location filename="nodal_intensity.py" line="294"/>
         <source>
         This scripts generate indicators in order to evaluate the potential of intermodality
         these indicators are:
@@ -2329,6 +2329,21 @@ L&apos;algorithme produit deux fichiers de résultats:
             fin période: fin de la plage horaire à étudier
             demi-tours interdits: si sélectionné les demi-tours seront interdits
             couche résultat: nom de la couche où seront produits les résultats</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>type of analysis by:</source>
+        <translation>type d&apos;analyse par:</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>commercial line name</source>
+        <translation>nom de ligne commercial</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>PT mission</source>
+        <translation>mission TC</translation>
     </message>
 </context>
 <context>
@@ -3953,7 +3968,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     <message>
         <location filename="param_musliw.py" line="323"/>
         <source>;number of days</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="324"/>

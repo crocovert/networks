@@ -20,6 +20,7 @@ from qgis.core import QgsProcessingParameterFeatureSource
 from qgis.core import QgsProcessingParameterDateTime
 from qgis.core import QgsProcessingParameterFeatureSink
 from qgis.core import QgsProcessingParameterBoolean
+from qgis.core import QgsProcessingParameterEnum
 from qgis.core import QgsSpatialIndexKDBush
 from qgis.core import QgsFeature,QgsFields,QgsField
 from qgis.core import QgsFeatureIterator
@@ -45,6 +46,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         self.addParameter(QgsProcessingParameterString('start_time', self.tr('start time'),defaultValue='00:00:00'))
         self.addParameter(QgsProcessingParameterString('end_time', self.tr('end time'),defaultValue='23:59:59'))
         self.addParameter(QgsProcessingParameterBoolean('uturn', self.tr('prohibited u-turns'),defaultValue=True))
+        self.addParameter(QgsProcessingParameterEnum('analysistype', self.tr('type of analysis by:'), options=[self.tr('commercial line name'),self.tr('PT mission')], defaultValue=0))
         self.addParameter(QgsProcessingParameterNumber('walkspeed', self.tr('walk speed(km/h)'), type=QgsProcessingParameterNumber.Double, defaultValue=3.6))
         self.addParameter(QgsProcessingParameterFeatureSink('output', self.tr('output layer'),QgsProcessing.TypeVectorPoint))
         
@@ -66,6 +68,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         uturn=self.parameterAsBool(parameters,'uturn',context)
         min_transfer=self.parameterAsInt(parameters,'mintransfer',context)
         max_transfer=self.parameterAsInt(parameters,'maxtransfer',context)
+        analysistype=self.parameterAsEnum(parameters, 'analysistype',context)
         walkspeed=self.parameterAsDouble(parameters,'walkspeed',context)
         feedback = QgsProcessingMultiStepFeedback(4, model_feedback)
 
@@ -124,7 +127,10 @@ class Intensite_nodale(QgsProcessingAlgorithm):
             e=ligne.split(';')
             if e[0] in points_nodaux:
                 if float(e[4])>0:
-                    line=e[9].split('|')[0]
+                    if analysistype==0:
+                        line=e[9].split('|')[0]
+                    elif analysistype==1:
+                        line=e[4]
                     arret=e[1]
                     hdep=float(e[6])
                     harr=float(e[7])
@@ -143,7 +149,10 @@ class Intensite_nodale(QgsProcessingAlgorithm):
             if e[1] in points_nodaux:
                 if float(e[4])>0:
                     arret=e[0]
-                    line=e[9].split('|')[0]
+                    if analysistype==0:
+                        line=e[9].split('|')[0]
+                    elif analysistype==1:
+                        line=e[4]
                     hdep=float(e[6])
                     harr=float(e[7])
                     cal=list(e[8])[jour]
@@ -164,7 +173,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         resultat_poles_entree={}
         resultat_poles_sortie={}
         #resultats entrée potentiel nodal
-        output_matrix.write('i;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;harr;duree\n')
+        output_matrix.write('i;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;harr;duree;hprec,duree_prec\n')
         for i in poles_nodaux:
             resultat_poles_entree[i]=[0,0,0,0]
             if i in hentrees:
@@ -186,6 +195,8 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             v4=0
                             v5=1e38
                             v6=0
+                            v7=1e38
+                            v8=0
                             for c1 in hsorties[i][col]:
                                 if not(l1[0]==c1[0]) and (uturn==True):
                                     v1=1
@@ -198,7 +209,13 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                                             v5=c1[1]-l1[1]
                                         if (l1[2]=='train' or c1[2])=='train':
                                             v4=1
-                            output_matrix.write(str(i)+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+'\n')
+                                    if l1[1]>c1[1] and l1[1]-c1[1]<=max_transfer:
+                                        if l1[1]-c1[1]<v7:
+                                            v8=c1[1]
+                                            v7=l1[1]-c1[1]
+                                        
+                                        
+                            output_matrix.write(str(i)+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+'\n')
                             resultat_poles_entree[i][0]+=v1
                             resultat_poles_entree[i][1]+=v2
                             resultat_poles_entree[i][2]+=v3

@@ -1490,87 +1490,87 @@ L'algorithme produit deux fichiers de résultats:
 <context>
     <name>Intensite_nodale</name>
     <message>
-        <location filename="nodal_intensity.py" line="36"/>
+        <location filename="nodal_intensity.py" line="37"/>
         <source>PT stops</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="37"/>
+        <location filename="nodal_intensity.py" line="38"/>
         <source>nodal points</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="38"/>
+        <location filename="nodal_intensity.py" line="39"/>
         <source>node id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="39"/>
+        <location filename="nodal_intensity.py" line="40"/>
         <source>node name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="40"/>
+        <location filename="nodal_intensity.py" line="41"/>
         <source>Musliw network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="41"/>
+        <location filename="nodal_intensity.py" line="42"/>
         <source>radius(m)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="42"/>
+        <location filename="nodal_intensity.py" line="43"/>
         <source>day</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="43"/>
+        <location filename="nodal_intensity.py" line="44"/>
         <source>min transfer time(min)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="44"/>
+        <location filename="nodal_intensity.py" line="45"/>
         <source>max transfer time(min)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="45"/>
+        <location filename="nodal_intensity.py" line="46"/>
         <source>start time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="46"/>
+        <location filename="nodal_intensity.py" line="47"/>
         <source>end time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="47"/>
+        <location filename="nodal_intensity.py" line="48"/>
         <source>prohibited u-turns</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="48"/>
+        <location filename="nodal_intensity.py" line="50"/>
         <source>walk speed(km/h)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="49"/>
+        <location filename="nodal_intensity.py" line="51"/>
         <source>output layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="252"/>
+        <location filename="nodal_intensity.py" line="282"/>
         <source>nodal intensity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="255"/>
+        <location filename="nodal_intensity.py" line="285"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="264"/>
+        <location filename="nodal_intensity.py" line="294"/>
         <source>
         This scripts generate indicators in order to evaluate the potential of intermodality
         these indicators are:
@@ -1597,6 +1597,21 @@ L'algorithme produit deux fichiers de résultats:
             prohibited uturn: if checke uturn won&apos;t be taken into account
             out put layer: name of the result layer
 </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>type of analysis by:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>commercial line name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="49"/>
+        <source>PT mission</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -48,6 +48,8 @@ from qgis.core import (QgsProcessing,
                        QgsSpatialIndex,
                        QgsGeometry,
                        QgsFeature,
+                       QgsField,
+                       QgsFields,
                        QgsCoordinateTransform,
                        QgsCoordinateReferenceSystem
                        )
