@@ -1,0 +1,817 @@
+<!DOCTYPE model>
+<Option type="Map">
+  <Option type="Map" name="children">
+    <Option type="Map" name="Networks:build_connectors_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:build_connectors" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="320" name="component_pos_x"/>
+        <Option type="double" value="115" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Créer connecteurs" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="120" name="component_pos_x"/>
+      <Option type="double" value="160" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="Networks:build_connectors_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="CONNECTEURS">
+          <Option type="Map">
+            <Option type="QString" value=" file_path( @pt_stops ) || '/connecteurs_trace.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LONG_0">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MAX_NB">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MODE_DES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="m" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MODE_ORI">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="t" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NODE_ID">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="num" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NOEUDS">
+          <Option type="Map">
+            <Option type="QString" value="road_nodes" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="RAYON">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="1000" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="STOPS">
+          <Option type="Map">
+            <Option type="QString" value="pt_stops" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="STOP_ID">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="i" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEXTE_DES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="m" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEXTE_ORI">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="t" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="VITESSE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="4" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:concatenate_network_files_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:concatenate_network_files" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="847" name="component_pos_x"/>
+        <Option type="double" value="497" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Réseaux à concaténer" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="689" name="component_pos_x"/>
+      <Option type="double" value="303" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:build_connectors_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:concatenate_network_files_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="DESTINATION">
+          <Option type="Map">
+            <Option type="QString" value="file_path( @pt_stops ) ||  '/' || 'reseau_multi_trace.txt' " name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="HEADER">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value="array(@musliw_network_of_the_shapes_layer ,   file_path( @pt_stops ) || '/connecteurs_trace.txt' )&#xd;&#xa;&#xd;&#xa; " name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:get_link_flows_data_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:get_link_flows_data" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1109" name="component_pos_x"/>
+        <Option type="double" value="497" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Importer des données de flux" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="478" name="component_pos_x"/>
+      <Option type="double" value="553" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:musliw_calculation_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:build_connectors_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:concatenate_network_files_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:musliw_parameters_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:musliw_matrix_table_detailed_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:get_link_flows_data_1" name="id"/>
+      <Option type="Map" name="outputs">
+        <Option type="Map" name="Flows output">
+          <Option type="QString" value="Networks:get_link_flows_data_1" name="child_id"/>
+          <Option type="QString" value="" name="color"/>
+          <Option type="Map" name="comment">
+            <Option type="QString" value="" name="color"/>
+            <Option type="QString" value="" name="component_description"/>
+            <Option type="double" value="60" name="component_height"/>
+            <Option type="double" value="0" name="component_pos_x"/>
+            <Option type="double" value="0" name="component_pos_y"/>
+            <Option type="double" value="100" name="component_width"/>
+            <Option type="bool" value="true" name="outputs_collapsed"/>
+            <Option type="bool" value="true" name="parameters_collapsed"/>
+          </Option>
+          <Option type="QString" value="Flows output" name="component_description"/>
+          <Option type="double" value="30" name="component_height"/>
+          <Option type="double" value="678" name="component_pos_x"/>
+          <Option type="double" value="598" name="component_pos_y"/>
+          <Option type="double" value="200" name="component_width"/>
+          <Option type="Map" name="default_value">
+            <Option type="QString" value="QgsProcessingOutputLayerDefinition" name="class"/>
+            <Option type="Map" name="create_options">
+              <Option type="QString" value="UTF-8" name="fileEncoding"/>
+            </Option>
+            <Option type="Map" name="sink">
+              <Option type="bool" value="true" name="active"/>
+              <Option type="int" value="1" name="type"/>
+              <Option type="QString" value="TEMPORARY_OUTPUT" name="val"/>
+            </Option>
+          </Option>
+          <Option type="bool" value="true" name="mandatory"/>
+          <Option type="QString" value="Flows output" name="name"/>
+          <Option type="QString" value="OUTPUT" name="output_name"/>
+          <Option type="bool" value="true" name="outputs_collapsed"/>
+          <Option type="bool" value="true" name="parameters_collapsed"/>
+        </Option>
+      </Option>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ENCODAGE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="utf_8_sig" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FICHIER_AFF">
+          <Option type="Map">
+            <Option type="QString" value="file_path(  layer_property(  @pt_stops  ,'path')) || '/res_trace_chemins.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="IJ">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="ij" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value="links_layer" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LIGNE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="id" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TYPE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="type" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="VOLAU">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="volau" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:musliw_calculation_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:musliw_calculation" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="571" name="component_pos_x"/>
+        <Option type="double" value="397" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Calcul Musliw" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="457" name="component_pos_x"/>
+      <Option type="double" value="427" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:concatenate_network_files_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:musliw_parameters_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:build_connectors_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+        <Option type="Map">
+          <Option type="QString" value="Networks:musliw_matrix_table_detailed_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:musliw_calculation_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="DOWNLOAD">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="true" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MATRICE">
+          <Option type="Map">
+            <Option type="QString" value="file_path(@pt_stops) ||'/matrice.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PARAMETRES">
+          <Option type="Map">
+            <Option type="QString" value="file_path(@pt_stops) ||'/parametres_trace.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PENALTIES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="RESEAU">
+          <Option type="Map">
+            <Option type="QString" value="file_path(@pt_stops) ||'/reseau_multi_trace.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE">
+          <Option type="Map">
+            <Option type="QString" value="file_path(@pt_stops) || '/res_trace.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="WAIT">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="true" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:musliw_matrix_table_detailed_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:musliw_matrix_table_detailed" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1109" name="component_pos_x"/>
+        <Option type="double" value="608" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Musliw matrix from table detailed" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="109" name="component_pos_x"/>
+      <Option type="double" value="325" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:build_connectors_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:musliw_matrix_table_detailed_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="DEBUT_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="00:00:00" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DEPART">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="0" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DESTINATION">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="j" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FIN_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="00:01:00" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INTERVALLE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="15" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="JOUR">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LABEL">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value=" string_to_array(texte,'|')[0]" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NB_PASSAGERS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="nb_monfri" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="ORIGIN">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="i" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="POLES">
+          <Option type="Map">
+            <Option type="QString" value=" file_path( @pt_stops ) || '/' || left(  base_file_name( @pt_stops ) , length(  base_file_name(  @pt_stops  ))-6) || '.gpkg'  " name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE">
+          <Option type="Map">
+            <Option type="QString" value=" file_path( @pt_stops) || '/' || '/matrice.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:musliw_parameters_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:musliw_parameters" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="791" name="component_pos_x"/>
+        <Option type="double" value="497" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Paramètres Musliw" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="427" name="component_pos_x"/>
+      <Option type="double" value="299" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="Networks:musliw_parameters_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="CATT">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CBOA">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="3" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CMAP">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="COUT_MAX">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="6000" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CTC">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="CTMAP">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DEMI_TOURS_INTERDITS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="true" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="ECHELLE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="20" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FILTRE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MAX_CLASSES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="10000" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NBJOURS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="0" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PU">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="2" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE">
+          <Option type="Map">
+            <Option type="QString" value=" file_path( @pt_stops ) || '/parametres_trace.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE_CHEMINS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="true" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE_NOEUDS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE_SERVICES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SORTIE_TRANSFERTS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TBOA_MAX">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="60" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TBOA_MIN">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="2" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEMPS_DETAILLES">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="0" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TMAP_MAX">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="6000" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TOLL">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="0" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+  </Option>
+  <Option name="designerParameterValues"/>
+  <Option name="groupBoxes"/>
+  <Option type="Map" name="help">
+    <Option type="QString" value="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.3pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&lt;/body>&lt;/html>" name="ALG_DESC"/>
+    <Option type="QString" value="" name="SHORT_DESCRIPTION"/>
+  </Option>
+  <Option type="QString" value="Version2" name="internal_version"/>
+  <Option name="modelVariables"/>
+  <Option type="QString" value="Cerema" name="model_group"/>
+  <Option type="QString" value="PT_shapes" name="model_name"/>
+  <Option type="QString" value="" name="outputGroup"/>
+  <Option name="outputOrder"/>
+  <Option type="Map" name="parameterDefinitions">
+    <Option type="Map" name="flows_output">
+      <Option type="bool" value="true" name="create_by_default"/>
+      <Option type="int" value="-1" name="data_type"/>
+      <Option type="QgsProcessingOutputLayerDefinition" name="default">
+        <Option type="Map">
+          <Option type="Map" name="create_options">
+            <Option type="QString" value="UTF-8" name="fileEncoding"/>
+          </Option>
+          <Option type="Map" name="sink">
+            <Option type="bool" value="true" name="active"/>
+            <Option type="int" value="1" name="type"/>
+            <Option type="QString" value="TEMPORARY_OUTPUT" name="val"/>
+          </Option>
+        </Option>
+      </Option>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Flows output" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option type="Map" name="metadata">
+        <Option type="QString" value="Networks:get_link_flows_data_1" name="_modelChildId"/>
+        <Option type="QString" value="Flows output" name="_modelChildOutputName"/>
+        <Option type="QString" value="Networks" name="_modelChildProvider"/>
+      </Option>
+      <Option type="QString" value="flows_output" name="name"/>
+      <Option type="QString" value="sink" name="parameter_type"/>
+      <Option type="bool" value="false" name="supports_append"/>
+      <Option type="bool" value="true" name="supports_non_file_outputs"/>
+    </Option>
+    <Option type="Map" name="links_layer">
+      <Option type="List" name="data_types">
+        <Option type="int" value="1"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Links layer" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="links_layer" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="musliw_network_of_the_shapes_layer">
+      <Option type="int" value="0" name="behavior"/>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Musliw network of the shapes layer" name="description"/>
+      <Option type="QString" value="" name="extension"/>
+      <Option type="QString" value="Fichier texte (*.txt)" name="filefilter"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="musliw_network_of_the_shapes_layer" name="name"/>
+      <Option type="QString" value="file" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="pt_stops">
+      <Option type="List" name="data_types">
+        <Option type="int" value="0"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="PT stops" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="pt_stops" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="road_nodes">
+      <Option type="List" name="data_types">
+        <Option type="int" value="0"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Road nodes" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="road_nodes" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+  </Option>
+  <Option name="parameterOrder"/>
+  <Option type="Map" name="parameters">
+    <Option type="Map" name="links_layer">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1159" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="links_layer" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="959" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="links_layer" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="musliw_network_of_the_shapes_layer">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="939" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="musliw_network_of_the_shapes_layer" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="739" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="musliw_network_of_the_shapes_layer" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="pt_stops">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="540" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="pt_stops" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="519" name="component_pos_x"/>
+      <Option type="double" value="75" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="pt_stops" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="road_nodes">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="320" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="road_nodes" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="204" name="component_pos_x"/>
+      <Option type="double" value="51" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="road_nodes" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+  </Option>
+</Option>

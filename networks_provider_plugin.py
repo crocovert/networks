@@ -33,13 +33,13 @@ __revision__ = '$Format:%H$'
 import os
 import sys
 import inspect
+import shutil
 
-from qgis.core import QgsProcessingAlgorithm, QgsApplication
-from qgis.PyQt.QtCore import QCoreApplication
+from qgis.core import QgsProcessingAlgorithm, QgsApplication, QgsSettings
+from qgis.PyQt.QtCore import QCoreApplication, QSettings
 from qgis.PyQt.QtWidgets import QApplication,QMenu,QAction
 from qgis.PyQt.QtGui import QIcon
 from .networks_provider import NetworksProvider
-
 cmd_folder = os.path.split(inspect.getfile(inspect.currentframe()))[0]
 
 if cmd_folder not in sys.path:
@@ -52,6 +52,31 @@ class NetworksPlugin(object):
         self.provider = None
 
     def initProcessing(self):
+        locale = QSettings().value('locale/userLocale')
+        
+        if locale==None:
+            locale='en'
+        else: 
+            locale=locale[-2:].lower()
+        
+        os.chdir(os.path.dirname(__file__))
+        
+        rep=QgsApplication.qgisSettingsDirPath()
+        if rep is not None:
+            rep=rep+'/processing/models/'
+            os.chdir(rep+'/../../python/plugins/networks')
+            test_langue=False
+            for i in os.listdir():
+                if i.endswith('_{0}.model3'.format(locale)):
+                    test_langue=True
+            for i in os.listdir():
+                if test_langue==True:
+                    if i.endswith('_{0}.model3'.format(locale)):
+                        shutil.copy(i,rep)
+                else:
+                    if i.endswith('_en.model3'.format(locale)):
+                        shutil.copy(i,rep)
+                    
         self.provider=NetworksProvider()
         QgsApplication.processingRegistry().addProvider(self.provider)
     

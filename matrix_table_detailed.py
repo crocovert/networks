@@ -52,7 +52,7 @@ from qgis.core import (QgsProcessing,
 import codecs
 import numpy
 
-class MatrixTable(QgsProcessingAlgorithm):
+class MatrixTableDetailed(QgsProcessingAlgorithm):
     """
     This is an example algorithm that takes a vector layer and
     creates a new identical one.
@@ -117,7 +117,7 @@ class MatrixTable(QgsProcessingAlgorithm):
                         self.tr('Demand'),
                         parentLayerParameterName=self.POLES,
                         optional=False,
-                        defaultValue='demand'
+                        defaultValue='1'
             )
         )
         self.addParameter(
@@ -164,10 +164,12 @@ class MatrixTable(QgsProcessingAlgorithm):
 
 
         self.addParameter(
-            QgsProcessingParameterBoolean(
+            QgsProcessingParameterExpression(
                 self.LABEL,
-                self.tr("OD label?"),
-                False
+                self.tr("OD label"),
+                parentLayerParameterName=self.POLES,
+                optional=False,
+                defaultValue='i+\'-\'+j+\'-\'+line'
             )
         )          
 
@@ -201,7 +203,7 @@ class MatrixTable(QgsProcessingAlgorithm):
         h2=self.parameterAsString(parameters,self.FIN_PERIODE,context)
         intervalle=self.parameterAsDouble(parameters,self.INTERVALLE,context)
         depart=self.parameterAsEnum(parameters,self.DEPART,context)
-        label2=self.parameterAsBool(parameters,self.LABEL,context)
+        label2=QgsExpression(self.parameterAsExpression(parameters,self.LABEL,context))
         fichier_matrice = self.parameterAsFileOutput(parameters, self.SORTIE,context)
         
         # Compute the number of steps to display within the progress bar and
@@ -218,56 +220,44 @@ class MatrixTable(QgsProcessingAlgorithm):
         debut_periode=int(h1[0])*60.0+int(h1[1])+int(h1[2])/60.0
         fin_periode=int(h2[0])*60.0+int(h2[1])+int(h2[2])/60.0
         nodes=poles
-        liste_nodes=set()
+        liste_nodes=[]
         nb=len(list(numpy.arange(debut_periode,fin_periode,intervalle)))
         feedback.setProgressText(self.tr("Writing Musliw matrix..."))
         if d=="d":
-            demands = {}
+            demands = []
             formuleContexte=self.createExpressionContext(parameters,context)
             formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
             nb_passagers_exp.prepare(formuleContexte)
+            label2.prepare(formuleContexte)
             for i in nodes.getFeatures():
-                od_tuple = (i[origine],i[destination])
-                liste_nodes.add(od_tuple)
                 # Evaluation 
                 formuleContexte.setFeature(i)
-                if od_tuple not in demands:
-                    demands[od_tuple]=float(0)
-                try:
-                    demands[od_tuple] += float(nb_passagers_exp.evaluate(formuleContexte))
-                except:
-                    test=True
+                demands= float(nb_passagers_exp.evaluate(formuleContexte))
+                lab=label2.evaluate(formuleContexte)
+                liste_nodes.append((i[origine],i[destination],demands,jour,lab))
             liste_nodes=sorted(liste_nodes,key=lambda x: x[0])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
-                for n,(i,j) in enumerate(liste_nodes):
+                for n,i in enumerate(liste_nodes):
                     feedback.setProgress(100*n*kk/(len(liste_nodes)*nb))
-                    if label2==True:
-                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d,str(j)+"-"+str(i)]])+"\n")
-                    else:
-                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d]])+"\n")
+                    matrice.write(";".join([str(z) for z in [i[0],i[1],i[2],i[3],k,d,i[4]]])+"\n")
 
         elif d=="a":
-            demands = {}
+            demands = []
             formuleContexte=self.createExpressionContext(parameters,context)
             formuleContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(tableau))
             nb_passagers_exp.prepare(formuleContexte)
-
+            label2.prepare(formuleContexte)
             for i in nodes.getFeatures():
-                od_tuple = (i[origine],i[destination])
-                liste_nodes.add(od_tuple)
                 # Evaluation 
                 formuleContexte.setFeature(i)
-                if od_tuple not in demands:
-                    demands[od_tuple]=0
-                demands[od_tuple] += nb_passagers_exp.evaluate(formuleContexte)
+                demands= float(nb_passagers_exp.evaluate(formuleContexte))
+                lab=label2.evaluate(formuleContexte)
+                liste_nodes.append((i[origine],i[destination],demands,jour,lab))
             liste_nodes=sorted(liste_nodes,key=lambda x: x[1])
             for kk,k in enumerate(numpy.arange(debut_periode,fin_periode,intervalle)) :
-                for n,(i,j) in enumerate(liste_nodes):
+                for n,i in enumerate(liste_nodes):
                     feedback.setProgress(100*n*kk/(len(liste_nodes)*nb))
-                    if label2==True:
-                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d,str(j)+"-"+str(i)]])+"\n")
-                    else:
-                        matrice.write(";".join([str(z) for z in [i,j,demands[(i,j)],jour,k,d]])+"\n")
+                    matrice.write(";".join([str(z) for z in [i[0],i[1],i[2],i[3],k,d,i[4]]])+"\n")
 
         matrice.close()
           
@@ -282,14 +272,14 @@ class MatrixTable(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'musliw_matrix_table'
+        return 'musliw_matrix_table_detailed'
 
     def displayName(self):
         """
         Returns the translated algorithm name, which should be used for any
         user-visible display of the algorithm name.
         """
-        return self.tr('Musliw matrix from table')
+        return self.tr('Musliw matrix from table detailed')
 
     def group(self):
         """
@@ -309,11 +299,11 @@ class MatrixTable(QgsProcessingAlgorithm):
         return 'Matrix'
 
     def tr(self, string):
-        return QCoreApplication.translate('MatrixTable', string)
+        return QCoreApplication.translate('MatrixTableDetailed', string)
         
     def shortHelpString(self):
         return self.tr("""
-        Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
+        Generates a detailed Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
 		
         Parameters:
@@ -325,11 +315,11 @@ class MatrixTable(QgsProcessingAlgorithm):
             Start time: Beginning of the time period
             Step: Step time in minutes
             Departure/Arrival: Departure (from Start point to end point forward) - Arrival (from end point to start point backward)
-            OD label: If True an origin-destination ID will be written combining o and d IDs separated by a '-'
+            OD label: Expression to put in the matrix file for each OD line
             Musliw matrix: Musliw matrix name (text file with ";" separator
             
             
         """)
 
     def createInstance(self):
-        return MatrixTable()
+        return MatrixTableDetailed()

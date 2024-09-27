@@ -71,6 +71,7 @@ from .fichier_noeuds import NodesFile
 from .fichier_noeud_jour import NodesFileDay
 from .autoconnectors import AutoConnecteurs
 from .matrix_table import MatrixTable
+from .matrix_table_detailed import MatrixTableDetailed
 from .maj_links_pole import MajLinksPole
 from .create_update_links import CreateUpdateLinks
 from .path_indicators import PathIndicators
@@ -216,6 +217,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(NodesFileDay())
         self.addAlgorithm(AutoConnecteurs())
         self.addAlgorithm(MatrixTable())
+        self.addAlgorithm(MatrixTableDetailed())
         self.addAlgorithm(MajLinksPole())
         self.addAlgorithm(CreateUpdateLinks())
         self.addAlgorithm(PathIndicators())

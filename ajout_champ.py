@@ -120,7 +120,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
                 self.tr('Size'),
                 QgsProcessingParameterNumber.Integer,
                 defaultValue=20,
-                minValue=1,
+                minValue=0,
                 maxValue=255
                 
             )

@@ -125,6 +125,7 @@ class ConcatNetworkFiles(QgsProcessingAlgorithm):
         header=self.parameterAsBool(parameters, self.HEADER,context)
         sortie=open(fichier_musliw,"w")
         for k,nom_fichier in enumerate(source):
+            #print(nom_fichier)
 
 
             fichier=io.open(nom_fichier,encoding="utf-8")

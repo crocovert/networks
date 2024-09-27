@@ -41,8 +41,8 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         self.addParameter(QgsProcessingParameterFile('musliw_network_file', self.tr('Musliw network file'), behavior=QgsProcessingParameterFile.File, fileFilter='Fichier texte (*.txt)', defaultValue=None))
         self.addParameter(QgsProcessingParameterNumber('radius', self.tr('radius(m)'), type=QgsProcessingParameterNumber.Double, defaultValue=150.0))
         self.addParameter(QgsProcessingParameterNumber('day', self.tr('day'), type=QgsProcessingParameterNumber.Integer, defaultValue=1))
-        self.addParameter(QgsProcessingParameterNumber('mintransfer', self.tr('min transfer time(min)'), type=QgsProcessingParameterNumber.Double, defaultValue=2.0))
-        self.addParameter(QgsProcessingParameterNumber('maxtransfer', self.tr('max transfer time(min)'), type=QgsProcessingParameterNumber.Double, defaultValue=30.0))
+        self.addParameter(QgsProcessingParameterString('mintransfer', self.tr('min transfer time(min)'), defaultValue='2.0'))
+        self.addParameter(QgsProcessingParameterString('maxtransfer', self.tr('max transfer time(min)'), defaultValue='30.0'))
         self.addParameter(QgsProcessingParameterString('start_time', self.tr('start time'),defaultValue='00:00:00'))
         self.addParameter(QgsProcessingParameterString('end_time', self.tr('end time'),defaultValue='23:59:59'))
         self.addParameter(QgsProcessingParameterBoolean('uturn', self.tr('prohibited u-turns'),defaultValue=True))
@@ -66,8 +66,8 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         start_time=QTime.fromString(self.parameterAsString(parameters,'start_time',context))
         end_time=QTime.fromString(self.parameterAsString(parameters,'end_time',context))
         uturn=self.parameterAsBool(parameters,'uturn',context)
-        min_transfer=self.parameterAsInt(parameters,'mintransfer',context)
-        max_transfer=self.parameterAsInt(parameters,'maxtransfer',context)
+        min_transfer=self.parameterAsString(parameters,'mintransfer',context)
+        max_transfer=self.parameterAsString(parameters,'maxtransfer',context)
         analysistype=self.parameterAsEnum(parameters, 'analysistype',context)
         walkspeed=self.parameterAsDouble(parameters,'walkspeed',context)
         feedback = QgsProcessingMultiStepFeedback(4, model_feedback)
@@ -88,11 +88,28 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         nom_fichier_detail=os.path.splitext(dest_id)[0]+'_mat.txt'
         output_matrix=io.open(nom_fichier_detail,"w")
         
-
+        corr_min={}
+        corr_max={}
         gares={}
         fnoeuds=[]
         points={}
         arrets={}
+
+        elem=min_transfer.split('|')
+        for k,i in enumerate(elem):
+            d=i.split(':')
+            if len(d)==1:
+                corr_min['default']=float(i)
+            else:
+                corr_min[d[0]]= float(d[1])
+        elem=max_transfer.split('|')
+        for k,i in enumerate(elem):
+            d=i.split(':')
+            if len(d)==1:
+                corr_max['default']=float(i)
+            else:
+                corr_max[d[0]]= float(d[1])
+
         feedback.setCurrentStep(1)
         for f in noeuds.getFeatures():
             points[f.id()]=f
@@ -173,7 +190,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         resultat_poles_entree={}
         resultat_poles_sortie={}
         #resultats entrée potentiel nodal
-        output_matrix.write('i;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;harr;duree;hprec,duree_prec\n')
+        output_matrix.write('i;name;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;duree;harr;duree_prec;hprec;corr_min;corr_max\n')
         for i in poles_nodaux:
             resultat_poles_entree[i]=[0,0,0,0]
             if i in hentrees:
@@ -198,24 +215,26 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             v7=1e38
                             v8=0
                             for c1 in hsorties[i][col]:
-                                if not(l1[0]==c1[0]) and (uturn==True):
+                                cmin=corr_min.get(c1[2],corr_min['default'])
+                                cmax=corr_max.get(c1[2],corr_max['default'])
+                                if not((l1[0]==c1[0]) and (uturn==True)):
                                     v1=1
-                                    if (l1[2]=='train' or c1[2])=='train':
+                                    if (l1[2]=='train' or c1[2]=='train'):
                                         v2=1
-                                    if l1[1]+min_transfer+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=max_transfer:
+                                    if l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
                                         v3=1
                                         if c1[1]-l1[1]<v5:
                                             v6=c1[1]
                                             v5=c1[1]-l1[1]
-                                        if (l1[2]=='train' or c1[2])=='train':
+                                        if (l1[2]=='train' or c1[2]=='train'):
                                             v4=1
-                                    if l1[1]>c1[1] and l1[1]-c1[1]<=max_transfer:
+                                    if l1[1]>c1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60) and l1[1]-c1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
                                         if l1[1]-c1[1]<v7:
                                             v8=c1[1]
                                             v7=l1[1]-c1[1]
                                         
                                         
-                            output_matrix.write(str(i)+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+'\n')
+                            output_matrix.write(str(i)+';'+gares[i][nom]+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+';'+str(cmin)+';'+str(cmax)+'\n')
                             resultat_poles_entree[i][0]+=v1
                             resultat_poles_entree[i][1]+=v2
                             resultat_poles_entree[i][2]+=v3
@@ -243,11 +262,11 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             v3=0
                             v4=0
                             for l1 in hentrees[i][lig]:
-                                if not(l1[0]==c1[0]) and (uturn==True):
+                                if not((l1[0]==c1[0]) and (uturn==True)):
                                     v1=1
                                     if (l1[2]=='train' or c1[2])=='train':
                                         v2=1
-                                    if l1[1]+min_transfer+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=max_transfer:
+                                    if l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
                                         v3=1
                                         if (l1[2]=='train' or c1[2])=='train':
                                             v4=1
@@ -315,7 +334,8 @@ class Intensite_nodale(QgsProcessingAlgorithm):
             start time: beginning of the period of sudy
             end time: end of the period of study
             prohibited uturn: if checke uturn won't be taken into account
-            out put layer: name of the result layer
+            output layer: name of the result layer
+        The script generates a detailed txt file named <out_put layer>_mat.txt to be able to analyze in detail transfers and intermodality
 """)
 
     def createInstance(self):
