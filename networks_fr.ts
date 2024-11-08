@@ -3856,137 +3856,137 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>MusliwParam</name>
     <message>
-        <location filename="param_musliw.py" line="106"/>
+        <location filename="param_musliw.py" line="107"/>
         <source>In vehicle weight</source>
         <translation>Pondération temps à bord du véhicule</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="114"/>
+        <location filename="param_musliw.py" line="115"/>
         <source>Waiting weight</source>
         <translation>Pondération temps attente</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="121"/>
+        <location filename="param_musliw.py" line="122"/>
         <source>Individual modes weight</source>
         <translation>Pondération temps mode individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="129"/>
+        <location filename="param_musliw.py" line="130"/>
         <source>Boarding weight</source>
         <translation>Pondération correspondance</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="136"/>
+        <location filename="param_musliw.py" line="137"/>
         <source>Individual mode speed factor</source>
         <translation>Facteurd&apos;échelle temps individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="143"/>
+        <location filename="param_musliw.py" line="144"/>
         <source>Minimum transfer delay</source>
         <translation>Temps de correspondance mini</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="150"/>
+        <location filename="param_musliw.py" line="151"/>
         <source>Maximum transfer delay</source>
         <translation>Temps de correspondance maxi</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="157"/>
+        <location filename="param_musliw.py" line="158"/>
         <source>Extra day duration</source>
         <translation>Nombre de jours supplémentaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="166"/>
+        <location filename="param_musliw.py" line="167"/>
         <source>Max. individual time budget</source>
         <translation>Temps individuel maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="175"/>
+        <location filename="param_musliw.py" line="176"/>
         <source>Maximum generalized time</source>
         <translation>Temps généralisé maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="184"/>
+        <location filename="param_musliw.py" line="185"/>
         <source>Toll weight</source>
         <translation>Pondération péage</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="191"/>
+        <location filename="param_musliw.py" line="192"/>
         <source>Output filter</source>
         <translation>Filtre sortie</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="199"/>
         <source>Output links times?</source>
         <translation>Temps détaillés?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="199"/>
         <source>No output</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="199"/>
         <source>Without timetable links</source>
         <translation>Sans les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="199"/>
         <source>With timetable links</source>
         <translation>Avec les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="206"/>
+        <location filename="param_musliw.py" line="207"/>
         <source>Prohibited U-turns?</source>
         <translation>Demi-tours interdits?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="213"/>
+        <location filename="param_musliw.py" line="214"/>
         <source>Output paths?</source>
         <translation>Sortie chemins?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="221"/>
+        <location filename="param_musliw.py" line="222"/>
         <source>Output services?</source>
         <translation>Sortie services?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="228"/>
+        <location filename="param_musliw.py" line="229"/>
         <source>Output transfers?</source>
         <translation>Sortie correspondances?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="235"/>
+        <location filename="param_musliw.py" line="236"/>
         <source>Output node times?</source>
         <translation>Sortie noeud?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="243"/>
+        <location filename="param_musliw.py" line="251"/>
         <source>Algorithm scale?</source>
         <translation>Echelle de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="252"/>
+        <location filename="param_musliw.py" line="260"/>
         <source>Algorithm exponent?</source>
         <translation>Exposant de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="261"/>
+        <location filename="param_musliw.py" line="269"/>
         <source>nb classes?</source>
         <translation>Nombrede classes</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="270"/>
+        <location filename="param_musliw.py" line="278"/>
         <source>Parameters file</source>
         <translation>Fichier paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="368"/>
+        <location filename="param_musliw.py" line="379"/>
         <source>Musliw parameters</source>
         <translation>Paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="375"/>
+        <location filename="param_musliw.py" line="386"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -4067,7 +4067,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation type="obsolete">Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="391"/>
+        <location filename="param_musliw.py" line="402"/>
         <source>
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
         Produce a parameter file (to be selected in musliw computation):
@@ -4127,152 +4127,228 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             </translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="320"/>
+        <location filename="param_musliw.py" line="331"/>
         <source>;algorithm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="321"/>
+        <location filename="param_musliw.py" line="332"/>
         <source>;prohibited U-turns</source>
         <translation>;demi-tours interdits</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="322"/>
+        <location filename="param_musliw.py" line="333"/>
         <source>;max buckets</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="323"/>
+        <location filename="param_musliw.py" line="334"/>
         <source>;number of days</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="324"/>
+        <location filename="param_musliw.py" line="335"/>
         <source>;matrix file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="325"/>
+        <location filename="param_musliw.py" line="336"/>
         <source>;turns and transfers files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="326"/>
+        <location filename="param_musliw.py" line="337"/>
         <source>;network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="327"/>
+        <location filename="param_musliw.py" line="338"/>
         <source>;generic output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="328"/>
+        <location filename="param_musliw.py" line="339"/>
         <source>;algorithm parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="329"/>
+        <location filename="param_musliw.py" line="340"/>
         <source>;algorithm power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="330"/>
+        <location filename="param_musliw.py" line="341"/>
         <source>;output paths</source>
         <translation type="unfinished">;sortie chemins</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="331"/>
+        <location filename="param_musliw.py" line="342"/>
         <source>;output services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="332"/>
+        <location filename="param_musliw.py" line="343"/>
         <source>;output travel times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="333"/>
+        <location filename="param_musliw.py" line="344"/>
         <source>;output turns and transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="334"/>
+        <location filename="param_musliw.py" line="345"/>
         <source>;boarding weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="335"/>
+        <location filename="param_musliw.py" line="346"/>
         <source>;individual mode weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="336"/>
+        <location filename="param_musliw.py" line="347"/>
         <source>;individual travel time factor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="337"/>
+        <location filename="param_musliw.py" line="348"/>
         <source>;in-vehicle time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="338"/>
+        <location filename="param_musliw.py" line="349"/>
         <source>;wait time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="339"/>
+        <location filename="param_musliw.py" line="350"/>
         <source>;min transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="340"/>
+        <location filename="param_musliw.py" line="351"/>
         <source>;max transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="341"/>
+        <location filename="param_musliw.py" line="352"/>
         <source>;max individual travel time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="342"/>
+        <location filename="param_musliw.py" line="353"/>
         <source>;toll weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="343"/>
+        <location filename="param_musliw.py" line="354"/>
         <source>;output types filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="344"/>
+        <location filename="param_musliw.py" line="355"/>
         <source>;max travel cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="345"/>
+        <location filename="param_musliw.py" line="356"/>
         <source>;output nodes</source>
         <translation type="unfinished">;sortie noeuds</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="346"/>
+        <location filename="param_musliw.py" line="357"/>
         <source>;output isolated links</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="199"/>
         <source>Compact mode</source>
         <translation>mode compact</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="243"/>
+        <source>Output stops?</source>
+        <translation>Sortie arrêts de montée/descente?</translation>
+    </message>
+</context>
+<context>
+    <name>Musliw_update</name>
+    <message>
+        <location filename="musliw_network_update.py" line="25"/>
+        <source>Musliw network file</source>
+        <translation>Fichier réseau Musliw</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="26"/>
+        <source>Network field</source>
+        <translation>Champ réseau</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="27"/>
+        <source>Network selection</source>
+        <translation>Sélection du réseau</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="28"/>
+        <source>Selection filter?</source>
+        <translation>Filtrer la sélection?</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="29"/>
+        <source>Expression</source>
+        <translation>Expression</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="30"/>
+        <source>Updated network file</source>
+        <translation>Réseau Musliw mis à jour</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="72"/>
+        <source>Syntax error</source>
+        <translation>Erreur de syntaxe</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="88"/>
+        <source>Musliw network update</source>
+        <translation>Mise à jour d&apos;un Réseau Musliw</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="91"/>
+        <source>Network</source>
+        <translation>Réseau</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="100"/>
+        <source>
+        The script allow to update a Musliw network file with a expression and to apply simultenaously a filter 
+        
+        Parameters:
+        Musliw network file: the Musliw network file to update
+        Network Field: The field to be updated
+        Network selection: Expression to select the records to update
+        Selection filter: If true, the script will generate an updated Musliw network file on selected records only, if false it will generate a updated Musliw network file with all records
+        Expression: the update expression (formula)
+        Update network file: the output network file
+        </source>
+        <translation>        Le script permet de mettre à jour un fichier de réseau au format Musliw avec une expression et de lui appliquer simultanément un filtre
+        
+        Paramètres:
+        Fichier réseau Musliw: le fichier réseau au format Musliw à mettre à jour
+        Champ réseau: Le champ à mettre à jour
+        Sélection réseau: Expression pour sélectionner les enregistrement de réseau à mettre à jour
+        Filtre de sélection: si oui, le script générera un fichie réseau Musliw mis à jour sur les enregistrements sélectionnés uniquement, si non il générera un fichier réseau Musliw avec tous les enregistrements
+        Expression: L&apos;expression de mise à jour (formule)
+        Réseau Musliw mise à jour: Le réseau au format Musliw mis à jour</translation>
     </message>
 </context>
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="252"/>
+        <location filename="networks_provider.py" line="255"/>
         <source>Networks</source>
-        <translation></translation>
+        <translation>Networks</translation>
     </message>
 </context>
 <context>
@@ -4903,7 +4979,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="517"/>
+        <location filename="prepare_gtfs.py" line="519"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -4926,12 +5002,12 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         </translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="494"/>
+        <location filename="prepare_gtfs.py" line="496"/>
         <source>Prepare GTFS</source>
         <translation>Préparer GTFS</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="501"/>
+        <location filename="prepare_gtfs.py" line="503"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -4959,52 +5035,52 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="590"/>
+        <location filename="reseau_tc.py" line="591"/>
         <source>Musliw timetable network</source>
         <translation>Réseau Musliw à horaires </translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="555"/>
+        <location filename="reseau_tc.py" line="556"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="557"/>
+        <location filename="reseau_tc.py" line="558"/>
         <source>Reading routes</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="559"/>
+        <location filename="reseau_tc.py" line="560"/>
         <source>Reading trips</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="561"/>
+        <location filename="reseau_tc.py" line="562"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="563"/>
+        <location filename="reseau_tc.py" line="564"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="565"/>
+        <location filename="reseau_tc.py" line="566"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="567"/>
+        <location filename="reseau_tc.py" line="568"/>
         <source>Generating lines</source>
         <translation>Génration des lignes</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="569"/>
+        <location filename="reseau_tc.py" line="570"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="614"/>
+        <location filename="reseau_tc.py" line="615"/>
         <source>
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
@@ -5024,7 +5100,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="reseau_tc.py" line="597"/>
+        <location filename="reseau_tc.py" line="598"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>

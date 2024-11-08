@@ -229,6 +229,7 @@ class ReseauTC(QgsProcessingAlgorithm):
                 for j,ii in enumerate(header):
                     headers[ii.strip('"')] = j
 
+
         
             else:
                 h = []
@@ -238,7 +239,7 @@ class ReseauTC(QgsProcessingAlgorithm):
 
                 google_route = Google_Route()
                 google_route.numero = elements[headers["route_id"]]
-                if "route_short_name" in headers:
+                if 'route_short_name' in headers:
                     google_route.nom = elements[headers["route_short_name"]]
                 elif "route_long_name" in headers:
                     google_route.nom = elements[headers["route_long_name"]]

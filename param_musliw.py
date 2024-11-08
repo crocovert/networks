@@ -95,6 +95,7 @@ class MusliwParam(QgsProcessingAlgorithm):
     PU='PU'
     MAX_CLASSES='MAX_CLASSES'
     SORTIE='SORTIE'
+    OUTPUT_STOPS='OUTPUT_STOPS'
 
 
     def initAlgorithm(self, config):
@@ -238,7 +239,14 @@ class MusliwParam(QgsProcessingAlgorithm):
                 self.tr('Output node times?'),
                 False
             )
-        )           
+        )
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.OUTPUT_STOPS,
+                self.tr('Output stops?'),
+                False
+            )
+        )        
         
         self.addParameter(
             QgsProcessingParameterNumber(
@@ -307,6 +315,7 @@ class MusliwParam(QgsProcessingAlgorithm):
         sortie_chemins=self.parameterAsString(parameters, self.SORTIE_CHEMINS, context)
         sortie_services=self.parameterAsString(parameters, self.SORTIE_SERVICES, context)
         sortie_noeuds=self.parameterAsString(parameters, self.SORTIE_NOEUDS, context)
+        sortie_stops=self.parameterAsBool(parameters, self.OUTPUT_STOPS, context)
         temps_detailles=self.parameterAsEnum(parameters, self.TEMPS_DETAILLES, context)
         echelle=self.parameterAsInt(parameters, self.ECHELLE, context)
         pu=self.parameterAsInt(parameters, self.PU, context)
@@ -315,6 +324,8 @@ class MusliwParam(QgsProcessingAlgorithm):
         nb_classes=self.parameterAsInt(parameters, self.MAX_CLASSES, context)
         sortie=self.parameterAsFileOutput(parameters, self.SORTIE, context)
 
+        if sortie_stops==True:
+            temps_detailles=temps_detailles+10
         
         fich_param=io.open(sortie,"w",encoding="utf-8")
         fich_param.write('0'+self.tr(';algorithm')+'\n')

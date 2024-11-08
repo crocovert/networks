@@ -222,7 +222,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                     if not test_agency=='ZZ':
                         elements=elements+[prefixe]
                     l=[elements[iroute],elements[iagency]]
-                    l.extend(elements[2:])
+                    l.extend([elements[k] for k in set_route])
                     lignes[elements[iroute]]=l
                 else:
                     if ("agency_id") not in elements:
@@ -230,8 +230,10 @@ class PrepareGTFS(QgsProcessingAlgorithm):
                         elements=elements+["agency_id"]
                     iroute=elements.index("route_id")
                     iagency=elements.index("agency_id")
+                    set_route=set([k for k in range(len(elements))])-set([iroute,iagency])
                     hroute=[elements[iroute],elements[iagency]]
-                    hroute.extend(elements[2:])
+                    
+                    hroute.extend([elements[k] for k in set_route])
                     hroute=','.join(hroute)+"\n"
                 
         routes.close()
@@ -440,7 +442,7 @@ class PrepareGTFS(QgsProcessingAlgorithm):
             trip=services[s]
             route=lignes[services[s][0]]
             if not test_agency=='ZZ':
-                route=route[:-1]
+                route=route
             routes2.write((prefixe+str(i)+","+",".join(route[1:])+"\n"))
             for j,service in enumerate(chainages[chaine]):
                 trip=services[service]
