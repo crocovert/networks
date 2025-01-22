@@ -54,6 +54,7 @@ from qgis.core import (QgsProcessing,
                        QgsCoordinateReferenceSystem
                        )
 import codecs
+import gc
 
 class CreerGraphe(QgsProcessingAlgorithm):
     """
@@ -170,6 +171,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         ##fichier_noeuds=output vector
         layer=reseau
         nom_champs=[]
+        layer.startEditing()
         for i in layer.fields():
             nom_champs.append(i.name())
         if ("i" not in nom_champs):
@@ -180,9 +182,13 @@ class CreerGraphe(QgsProcessingAlgorithm):
             layer.dataProvider().addAttributes([QgsField("ij",QVariant.String)])
         layer.updateFields()
         #layer.commitChanges()
-        ida=layer.fields().indexFromName("i")
-        idb=layer.fields().indexFromName("j")
-        idij=layer.fields().indexFromName("ij")
+        #ida=layer.fields().indexFromName("i")
+        ida = layer.fields().lookupField('i')
+        #idb=layer.fields().indexFromName("j")
+        idb = layer.fields().lookupField('j')
+        #idij=layer.fields().indexFromName("ij")
+        idij = layer.fields().lookupField('ij')
+        #feedback.setProgressText(str(idij))
         lines=layer.getFeatures()
         noeuds={}
         #nom_fichier=fichier_noeuds
@@ -247,7 +253,8 @@ class CreerGraphe(QgsProcessingAlgorithm):
         lines=layer.getFeatures()
         layer.startEditing()
         layer.beginEditCommand(QCoreApplication.translate("Building graph","Building graph"))
-        feedback.setProgressText(QCoreApplication.translate("Updating arcs","Updating arcs"))            
+        feedback.setProgressText(QCoreApplication.translate("Updating arcs","Updating arcs"))
+        #feedback.setProgressText(QCoreApplication.translate(str(len(sens)),str(len(sens))))
         for i,ligne in enumerate(lines):
             if len(sens)==0:
                 test_sens='1'
@@ -277,16 +284,17 @@ class CreerGraphe(QgsProcessingAlgorithm):
 
                     libb=str(int(xtr.transform(nb)[0]*10**(dec-3)+180*10**(dec-3))).zfill(dec)+str(int(xtr.transform(nb)[1]*10**(dec-3)+180*10**(dec-3))).zfill(dec)
                 else:
-                    continue
+                    feedback.setProgressText(QCoreApplication.translate("Erreur","Erreur"))
 
                 id=ligne.id()
                 valid={ida : unicode(noeuds[na][0]), idb: unicode(noeuds[nb][0]), idij: unicode(noeuds[na][0]+"-"+noeuds[nb][0])}
-                layer.changeAttributeValues(id,  valid)
+                layer.changeAttributeValues(id, valid)
                 #layer.changeAttributeValue(id,ida, unicode(noeuds[na][0]))
                 #layer.changeAttributeValue(id,idb, unicode(noeuds[nb][0]))
                 #layer.changeAttributeValue(id,idij, unicode(noeuds[na][0]+"-"+noeuds[nb][0]))
-        layer.commitChanges()
         layer.endEditCommand()
+        layer.commitChanges()
+        gc.collect()
         return {self.NOEUDS: dest_id}
 
 

@@ -281,7 +281,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="249"/>
+        <location filename="creer_graphe.py" line="255"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -1047,37 +1047,37 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="315"/>
+        <location filename="creer_graphe.py" line="323"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="96"/>
+        <location filename="creer_graphe.py" line="97"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="115"/>
+        <location filename="creer_graphe.py" line="116"/>
         <source>Prefix</source>
         <translation>Préfixe</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="135"/>
+        <location filename="creer_graphe.py" line="136"/>
         <source>Nodes layer</source>
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="308"/>
+        <location filename="creer_graphe.py" line="316"/>
         <source>Build graph</source>
         <translation>Créer graphe</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Node Id</source>
         <translation>Node id</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="331"/>
+        <location filename="creer_graphe.py" line="339"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -1098,19 +1098,27 @@
 			fichier noeuds: couche des noeuds (extrémités des arcs)</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Number series</source>
         <translation>Compteur</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Geographic string(unique)</source>
         <translation>Chaîne géographique (unique)</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="125"/>
+        <location filename="creer_graphe.py" line="126"/>
         <source>Nb of decimals</source>
         <translation>Nb de décimales</translation>
+    </message>
+</context>
+<context>
+    <name>Erreur</name>
+    <message>
+        <location filename="creer_graphe.py" line="287"/>
+        <source>Erreur</source>
+        <translation>Error</translation>
     </message>
 </context>
 <context>
@@ -1805,7 +1813,7 @@
 <context>
     <name>Generating nodes</name>
     <message>
-        <location filename="creer_graphe.py" line="232"/>
+        <location filename="creer_graphe.py" line="238"/>
         <source>Generating nodes</source>
         <translation>Génération des noeuds</translation>
     </message>
@@ -2267,12 +2275,12 @@ L&apos;algorithme produit deux fichiers de résultats:
         <translation>Table résultat</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="301"/>
+        <location filename="nodal_intensity.py" line="329"/>
         <source>nodal intensity</source>
         <translation>Intensité nodale</translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="304"/>
+        <location filename="nodal_intensity.py" line="332"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -2374,7 +2382,7 @@ L&apos;algorithme produit deux fichiers de résultats:
             output layer: name of the result layer
         The script generates a detailed txt file named &lt;out_put layer&gt;_mat.txt to be able to analyze in detail transfers and intermodality
 </source>
-        <translation>
+        <translation type="obsolete">
         Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
         Ces indicateurs sont:
         - Potentiel nodal tous modes
@@ -2401,6 +2409,63 @@ L&apos;algorithme produit deux fichiers de résultats:
             couche résultat: nom de la couche où seront produits les résultats
 
 Le script génère également un fichier détaillée &lt;couche_résultat&gt;_mat.TXT pour analyser  les correspondances et l&apos;intermodalité</translation>
+    </message>
+    <message>
+        <location filename="nodal_intensity.py" line="341"/>
+        <source>
+        This scripts generate indicators in order to evaluate the potential of intermodality
+        these indicators are:
+        - Nodal potential all modes
+        - Nodal potential train
+        - Nodal intensity all modes
+        - Nodal intensity train 
+        - Nodal potential rail scheduling all modes
+        - Nodal potential rail scheduling train
+        - Nodal intensity rail scheduling all modes
+        - Nodal intensity rail scheduling train
+        Parameters:
+            PT stops: a layer that contains all stops to be taken into account
+            nodal points: a layer of intermodality points to compute nodal potential and intensity
+            node id: nodal point id
+            node name: nodal point name
+            Musliw network file: Musliw multimodal network file (txt) which contains timetables to analyze
+            radius: the radius in meters that define which stops are talken into account (those inside the radius))
+            day: day of Musliw file calendar
+            min transfer time: the delay minimum to be at the stop to be able to board into the PT vehicule
+            max transfer time: the maximum delay of transfer
+            start time: beginning of the period of sudy
+            end time: end of the period of study
+            prohibited uturn: if checke uturn won&apos;t be taken into account
+            output layer: name of the result layer
+        The script generates two detailed txt files named &lt;out_put layer&gt;origin_mat.txt and &lt;out_put layer&gt;destination_mat.txt to be able to analyze in detail transfers and intermodality either you want to analyse transfers from the incoming or outgoing modes
+</source>
+        <translation>
+        Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
+        Ces indicateurs sont:
+        - Potentiel nodal tous modes
+        - Potentiel nodal train
+        - Intensité nodale tous modes
+        - Intensité nodale train
+        - Potentiel nodal cadencement tous modes
+        - Potentiel nodal cadencement train
+        - Intensité nodale cadencement tous modes
+        - Intensité nodale cadencement train
+        Paramètres:
+            Arrêts TC: Couche contenant les arrêts TC à prendre en compte
+            Points nodaux: Couche des pôles d&apos;intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
+            id noeud: identifiant de noeud
+            nom de noeud: libellé du noeud
+            fichier réseau Musliw: Nom du fichier réseau Musliw (txt) qui contient les horaires permettant le calcul des indicateurs
+            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l&apos;intérieur du réayon)
+            jour: jour du calendrier du fichier Musliw
+            temps de correspondance mini: le temps minimum à attendre à l&apos;arrêt pour pouvoir monter à bord du véhicule
+            temps de correspondance mini: le temps de correspondance maxi
+            début période: début de la plage horaire à étudier
+            fin période: fin de la plage horaire à étudier
+            demi-tours interdits: si sélectionné les demi-tours seront interdits
+            couche résultat: nom de la couche où seront produits les résultats
+
+Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_origin_mat.txt et &lt;couche_résultat&gt;_destination_mat.txt pour analyser  les correspondances et l&apos;intermodalité soit du point de vue du mode entrant soit du mode sortant</translation>
     </message>
 </context>
 <context>
@@ -5747,7 +5812,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
 <context>
     <name>Updating arcs</name>
     <message>
-        <location filename="creer_graphe.py" line="250"/>
+        <location filename="creer_graphe.py" line="256"/>
         <source>Updating arcs</source>
         <translation>Mise à jour des arcs...</translation>
     </message>

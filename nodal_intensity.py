@@ -28,7 +28,7 @@ from qgis.core import QgsVectorLayer
 from qgis.core import QgsFeatureSource
 
 import processing
-import io,os 
+import io,os,json
 
 
 class Intensite_nodale(QgsProcessingAlgorithm):
@@ -85,8 +85,10 @@ class Intensite_nodale(QgsProcessingAlgorithm):
         champs.append(QgsField("intensite_cadence",QVariant.Int))
         champs.append(QgsField("intensite_cadence_train",QVariant.Int))
         (table_output,dest_id) = self.parameterAsSink(parameters,'output''',context,champs, QgsWkbTypes.Point, poles.sourceCrs())
-        nom_fichier_detail=os.path.splitext(dest_id)[0]+'_mat.txt'
-        output_matrix=io.open(nom_fichier_detail,"w")
+        nom_fichier_detail_depart=os.path.splitext(dest_id)[0]+'_departure_mat.txt'
+        nom_fichier_detail_arrivee=os.path.splitext(dest_id)[0]+'_arrival_mat.txt'
+        output_matrix_d=io.open(nom_fichier_detail_depart,"w")
+        output_matrix_a=io.open(nom_fichier_detail_arrivee,"w")
         
         corr_min={}
         corr_max={}
@@ -146,8 +148,10 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                 if float(e[4])>0:
                     if analysistype==0:
                         line=e[9].split('|')[0]
+                        id_line=e[9].split('|')[0]
                     elif analysistype==1:
                         line=e[4]
+                        id_line=e[9].split('|')[0]
                     arret=e[1]
                     hdep=float(e[6])
                     harr=float(e[7])
@@ -158,18 +162,20 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             if i[pole_id] not in sorties:
                                 sorties[i[pole_id]]={}
                                 hsorties[i[pole_id]]={}
-                            if line not in sorties[i[pole_id]]:
-                                sorties[i[pole_id]][line]=0
-                                hsorties[i[pole_id]][line]=[]
-                            sorties[i[pole_id]][line]+=1
-                            hsorties[i[pole_id]][line].append((arret,hdep,mode,e[0]))
+                            if (e[0],line) not in sorties[i[pole_id]]:
+                                sorties[i[pole_id]][(e[0],line)]=0
+                                hsorties[i[pole_id]][(e[0],line)]=[]
+                            sorties[i[pole_id]][(e[0],line)]+=1
+                            hsorties[i[pole_id]][(e[0],line)].append((arret,hdep,mode,e[0],id_line))
             if e[1] in points_nodaux:
                 if float(e[4])>0:
                     arret=e[0]
                     if analysistype==0:
                         line=e[9].split('|')[0]
+                        id_line=e[9].split('|')[0]
                     elif analysistype==1:
                         line=e[4]
+                        id_line=e[9].split('|')[0]
                     hdep=float(e[6])
                     harr=float(e[7])
                     cal=list(e[8])[jour]
@@ -179,24 +185,80 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             if i[pole_id] not in entrees:
                                 entrees[i[pole_id]]={}
                                 hentrees[i[pole_id]]={}
-                            if line not in entrees[i[pole_id]]:
-                                entrees[i[pole_id]][line]=0
-                                hentrees[i[pole_id]][line]=[]
-                            entrees[i[pole_id]][line]+=1
-                            hentrees[i[pole_id]][line].append((arret,harr,mode,e[1]))
+                            if (e[1],line) not in entrees[i[pole_id]]:
+                                entrees[i[pole_id]][(e[1],line)]=0
+                                hentrees[i[pole_id]][(e[1],line)]=[]
+                            entrees[i[pole_id]][(e[1],line)]+=1
+                            hentrees[i[pole_id]][(e[1],line)].append((arret,harr,mode,e[1],id_line))
         
         feedback.setCurrentStep(3)
         #calcul des indicateurs et matrices de correspondance
         resultat_poles_entree={}
         resultat_poles_sortie={}
         #resultats entrée potentiel nodal
-        output_matrix.write('i;name;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;duree;harr;duree_prec;hprec;corr_min;corr_max\n')
+        output_matrix_d.write('i;name;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;duree;harr;duree_prec;hprec;corr_min;corr_max;id_line1;id_line2\n')
+        output_matrix_a.write('i;name;line1;line2;j1;hdep;mode1;i1;j2;mode2;i2;v1;v1_train;v2;v2_train;duree;harr;duree_prec;hprec;corr_min;corr_max;id_line1;id_line2\n')
+
         for i in poles_nodaux:
             resultat_poles_entree[i]=[0,0,0,0]
             if i in hentrees:
                 test_demi_tour=0
                 bus=0
-                for lig in hentrees[i]:
+                for (arro,lig) in hentrees[i]:
+                    
+                    #resultat_poles[i][lig]=[0,0,0,0]
+                    v1=0
+                    v9=0
+                    v3=0
+                    v4=0
+                    v5=1e38
+                    v6=0
+                    for l1 in hentrees[i][(arro,lig)]:
+                        for (arrd,col) in hsorties[i]:
+                            v1=0
+                            v9=0
+                            v3=0
+                            v4=0
+                            v5=1e38
+                            v6=0
+                            v7=1e38
+                            v8=0
+                            for c1 in hsorties[i][(arrd,col)]:
+                                cmin=corr_min.get(c1[2],corr_min['default'])
+                                cmax=corr_max.get(c1[2],corr_max['default'])
+                                if not((l1[0]==c1[0]) and (uturn==True)):
+                                    v1=1
+                                    if (l1[2]=='train' or c1[2]=='train'):
+                                        v9=1
+                                    if l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
+                                        v3=1
+                                        if c1[1]-l1[1]<v5:
+                                            v6=c1[1]
+                                            v5=c1[1]-l1[1]
+                                        if (l1[2]=='train' or c1[2]=='train'):
+                                            v4=1
+                                    if c1[1]<l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60) and l1[1]-c1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
+                                        if l1[1]-c1[1]<v7:
+                                            v8=c1[1]
+                                            v7=l1[1]-c1[1]
+                                        
+                                        
+                            output_matrix_d.write(str(i)+';'+str(gares[i][nom])+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v9)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+';'+str(cmin)+';'+str(cmax)+";"+str(l1[4])+";"+str(c1[4])+'\n')
+                            resultat_poles_entree[i][0]+=v1
+                            resultat_poles_entree[i][1]+=v9
+                            resultat_poles_entree[i][2]+=v3
+                            resultat_poles_entree[i][3]+=v4
+        
+        
+        #resultats sortie potentiel nodal
+
+        feedback.setCurrentStep(4)
+        for i in poles_nodaux:
+            resultat_poles_sortie[i]=[0,0,0,0]
+            if i in hsorties:
+                test_demi_tour=0
+                bus=0
+                for (arrd,col) in hsorties[i]:
                     #resultat_poles[i][lig]=[0,0,0,0]
                     v1=0
                     v2=0
@@ -204,8 +266,8 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                     v4=0
                     v5=1e38
                     v6=0
-                    for l1 in hentrees[i][lig]:
-                        for col in hsorties[i]:
+                    for c1 in hsorties[i][(arrd,col)]:
+                        for (arro,lig) in hentrees[i]:
                             v1=0
                             v2=0
                             v3=0
@@ -214,63 +276,26 @@ class Intensite_nodale(QgsProcessingAlgorithm):
                             v6=0
                             v7=1e38
                             v8=0
-                            for c1 in hsorties[i][col]:
+                            for l1 in hentrees[i][(arro,lig)]:
                                 cmin=corr_min.get(c1[2],corr_min['default'])
                                 cmax=corr_max.get(c1[2],corr_max['default'])
                                 if not((l1[0]==c1[0]) and (uturn==True)):
                                     v1=1
                                     if (l1[2]=='train' or c1[2]=='train'):
                                         v2=1
-                                    if l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
+                                    if c1[1]-corr_min.get(c1[2],corr_min['default'])-points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)>=l1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
                                         v3=1
                                         if c1[1]-l1[1]<v5:
-                                            v6=c1[1]
+                                            v6=l1[1]
                                             v5=c1[1]-l1[1]
                                         if (l1[2]=='train' or c1[2]=='train'):
                                             v4=1
-                                    if l1[1]>c1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60) and l1[1]-c1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
+                                    if l1[1]>c1[1]-corr_min.get(c1[2],corr_min['default'])-points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60) and l1[1]-c1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
                                         if l1[1]-c1[1]<v7:
-                                            v8=c1[1]
+                                            v8=l1[1]
                                             v7=l1[1]-c1[1]
-                                        
-                                        
-                            output_matrix.write(str(i)+';'+gares[i][nom]+';'+str(lig)+';'+str(col)+';'+str(l1[0])+';'+str(l1[1])+';'+str(l1[2])+';'+str(l1[3])+';'+str(c1[0])+';'+str(c1[2])+';'+str(c1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+';'+str(cmin)+';'+str(cmax)+'\n')
-                            resultat_poles_entree[i][0]+=v1
-                            resultat_poles_entree[i][1]+=v2
-                            resultat_poles_entree[i][2]+=v3
-                            resultat_poles_entree[i][3]+=v4
-        
-        
-        #resultats sortie potentiel nodal
-        output_matrix.close()
-        feedback.setCurrentStep(4)
-        for i in poles_nodaux:
-            resultat_poles_sortie[i]=[0,0,0,0]
-            if i in sorties:
-                test_demi_tour=0
-                bus=0
-                for col in hsorties[i]:
-                    #resultat_poles[i][lig]=[0,0,0,0]
-                    v1=0
-                    v2=0
-                    v3=0
-                    v4=0
-                    for c1 in hsorties[i][col]:
-                        for lig in hentrees[i]:
-                            v1=0
-                            v2=0
-                            v3=0
-                            v4=0
-                            for l1 in hentrees[i][lig]:
-                                if not((l1[0]==c1[0]) and (uturn==True)):
-                                    v1=1
-                                    if (l1[2]=='train' or c1[2])=='train':
-                                        v2=1
-                                    if l1[1]+corr_min.get(c1[2],corr_min['default'])+points[arrets[c1[3]]].geometry().distance(points[arrets[l1[3]]].geometry())/(walkspeed*1000/60)<=c1[1] and c1[1]-l1[1]<=corr_max.get(c1[2],corr_max['default'])+corr_min.get(c1[2],corr_min['default']):
-                                        v3=1
-                                        if (l1[2]=='train' or c1[2])=='train':
-                                            v4=1
-                                        
+
+                            output_matrix_a.write(str(i)+';'+str(gares[i][nom])+';'+str(lig)+';'+str(col)+';'+str(c1[0])+';'+str(c1[1])+';'+str(c1[2])+';'+str(c1[3])+';'+str(l1[0])+';'+str(l1[2])+';'+str(l1[3])+';'+str(v1)+';'+str(v2)+';'+str(v3)+';'+str(v4)+';'+str(v5)+';'+str(v6)+';'+str(v7)+';'+str(v8)+';'+str(cmin)+';'+str(cmax)+";"+str(l1[4])+";"+str(c1[4])+'\n')
                             resultat_poles_sortie[i][0]+=v1
                             resultat_poles_sortie[i][1]+=v2
                             resultat_poles_sortie[i][2]+=v3
@@ -289,6 +314,9 @@ class Intensite_nodale(QgsProcessingAlgorithm):
             table_output.addFeature(pole)
         del table_output
         
+        output_matrix_a.close()
+        output_matrix_d.close()
+
         
         
         feedback = QgsProcessingMultiStepFeedback(1, model_feedback)
@@ -335,7 +363,7 @@ class Intensite_nodale(QgsProcessingAlgorithm):
             end time: end of the period of study
             prohibited uturn: if checke uturn won't be taken into account
             output layer: name of the result layer
-        The script generates a detailed txt file named <out_put layer>_mat.txt to be able to analyze in detail transfers and intermodality
+        The script generates two detailed txt files named <out_put layer>origin_mat.txt and <out_put layer>destination_mat.txt to be able to analyze in detail transfers and intermodality either you want to analyse transfers from the incoming or outgoing modes
 """)
 
     def createInstance(self):

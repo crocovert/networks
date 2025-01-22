@@ -246,7 +246,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
 
 
             tableau.endEditCommand()
-        tableau.commitChanges()
+            tableau.commitChanges()
         gc.collect()
         return {self.INPUT:self.INPUT}
 

@@ -24,8 +24,12 @@ def vitesse_velo(t0, feature, parent):
                 t=(dist/longueur)*t0/2
             elif (-5)<=h<(-2.5):
                 t=(dist/longueur)*t0/1.5
-            elif (-2.5)<=h<(2.5):
-                t=(dist/longueur)*t0
+            elif (-2.5)<=h<(-1):
+                t=(dist/longueur)*t0/1.2
+            elif (-1)<=h<(1):
+                t=(dist/longueur)*t0*1
+            elif (1)<=h<(2.5):
+                t=(dist/longueur)*t0*1.2
             elif 2.5<=h<5:
                 t=(dist/longueur)*t0*1.5
             elif 5<=h<10:

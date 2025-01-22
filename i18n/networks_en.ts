@@ -204,7 +204,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="249"/>
+        <location filename="creer_graphe.py" line="255"/>
         <source>Building graph</source>
         <translation type="unfinished"></translation>
     </message>
@@ -760,37 +760,37 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="315"/>
+        <location filename="creer_graphe.py" line="323"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="96"/>
+        <location filename="creer_graphe.py" line="97"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="115"/>
+        <location filename="creer_graphe.py" line="116"/>
         <source>Prefix</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="135"/>
+        <location filename="creer_graphe.py" line="136"/>
         <source>Nodes layer</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="308"/>
+        <location filename="creer_graphe.py" line="316"/>
         <source>Build graph</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Node Id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="331"/>
+        <location filename="creer_graphe.py" line="339"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -804,18 +804,26 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Number series</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="105"/>
+        <location filename="creer_graphe.py" line="106"/>
         <source>Geographic string(unique)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="125"/>
+        <location filename="creer_graphe.py" line="126"/>
         <source>Nb of decimals</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Erreur</name>
+    <message>
+        <location filename="creer_graphe.py" line="287"/>
+        <source>Erreur</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1182,7 +1190,7 @@
 <context>
     <name>Generating nodes</name>
     <message>
-        <location filename="creer_graphe.py" line="232"/>
+        <location filename="creer_graphe.py" line="238"/>
         <source>Generating nodes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1560,12 +1568,12 @@ L'algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="301"/>
+        <location filename="nodal_intensity.py" line="329"/>
         <source>nodal intensity</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="304"/>
+        <location filename="nodal_intensity.py" line="332"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
@@ -1585,7 +1593,7 @@ L'algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="nodal_intensity.py" line="313"/>
+        <location filename="nodal_intensity.py" line="341"/>
         <source>
         This scripts generate indicators in order to evaluate the potential of intermodality
         these indicators are:
@@ -1611,7 +1619,7 @@ L'algorithme produit deux fichiers de résultats:
             end time: end of the period of study
             prohibited uturn: if checke uturn won&apos;t be taken into account
             output layer: name of the result layer
-        The script generates a detailed txt file named &lt;out_put layer&gt;_mat.txt to be able to analyze in detail transfers and intermodality
+        The script generates two detailed txt files named &lt;out_put layer&gt;origin_mat.txt and &lt;out_put layer&gt;destination_mat.txt to be able to analyze in detail transfers and intermodality either you want to analyse transfers from the incoming or outgoing modes
 </source>
         <translation type="unfinished"></translation>
     </message>
@@ -4105,7 +4113,7 @@ L'algorithme produit deux fichiers de résultats:
 <context>
     <name>Updating arcs</name>
     <message>
-        <location filename="creer_graphe.py" line="250"/>
+        <location filename="creer_graphe.py" line="256"/>
         <source>Updating arcs</source>
         <translation type="unfinished"></translation>
     </message>
