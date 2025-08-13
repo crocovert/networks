@@ -1,0 +1,868 @@
+<!DOCTYPE model>
+<Option type="Map">
+  <Option type="Map" name="children">
+    <Option type="Map" name="Networks:isolated_nodes_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:isolated_nodes" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1603.0256069413717" name="component_pos_x"/>
+        <Option type="double" value="911.101402373247" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Noeuds isolés" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="926.0256069413717" name="component_pos_x"/>
+      <Option type="double" value="564.101402373247" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:update_field_3" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:isolated_nodes_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="NODE_ID">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="num" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NOEUDS">
+          <Option type="Map">
+            <Option type="QString" value="@rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'_noeuds_complets.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NOEUDS_UTILES">
+          <Option type="Map">
+            <Option type="QString" value="@rpertoire_sortie +'/'+'total_egm_noeuds_connectes.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NUM_RESEAU">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="0" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="RESEAU">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:musliw_individual_network_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:musliw_individual_network" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1346.0256069413717" name="component_pos_x"/>
+        <Option type="double" value="626.9934937217794" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Réseau Musliw transport individuel HC" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1305.176360710216" name="component_pos_x"/>
+      <Option type="double" value="527.835202264493" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:isolated_nodes_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:musliw_individual_network_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="CALENDRIER">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DEBUT_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FIN_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="I">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="i" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="J">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="j" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LONGUEUR">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="longueur" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="'v'" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NUM_PLAGE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OUTPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'_hc.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="RECTANGLE">
+          <Option type="Map">
+            <Option type="QString" value=" layer_property(  @rseau_routier_egmerm ,'extent')" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SENS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="Sens" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEMPS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="t_hc" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEXTE_ARC">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="'v'" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:musliw_individual_network_2">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:musliw_individual_network" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="-67.891959798995" name="component_pos_x"/>
+        <Option type="double" value="226.02512562814064" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Réseau Musliw transport individuel HP" name="component_description"/>
+      <Option type="double" value="34.660153783995355" name="component_height"/>
+      <Option type="double" value="1316.1472790399303" name="component_pos_x"/>
+      <Option type="double" value="611.3370324112221" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="Networks:isolated_nodes_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:musliw_individual_network_2" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="CALENDRIER">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="DEBUT_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FIN_PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="I">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="i" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="J">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="j" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="LONGUEUR">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="longueur" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="MODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="'v'" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="NUM_PLAGE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OUTPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'_hp.txt'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PERIODE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="-1" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="RECTANGLE">
+          <Option type="Map">
+            <Option type="QString" value=" layer_property(  @rseau_routier_egmerm ,'extent')" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="SENS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="Sens" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEMPS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="t_hp" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TEXTE_ARC">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="'v'" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="Networks:update_field_3">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:update_field" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1340" name="component_pos_x"/>
+        <Option type="double" value="798" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Mise à jour sens initial" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="223.05081702540508" name="component_pos_x"/>
+      <Option type="double" value="571.9934937217794" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="model:Réseau individuel couche existante_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:update_field_3" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="EXISTANT">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="Sens" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FILTRE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="invalid" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="FORMULE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="'1'" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/links_'+base_file_name(  @rseau_routier_egmerm )+'.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="PRECISION">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="15" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TAILLE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="20" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="TYPE">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="int" value="1" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="model:Réseau individuel couche existante_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="model:Réseau individuel couche existante" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1362.2686084142397" name="component_pos_x"/>
+        <Option type="double" value="908.5846817691478" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Réseau individuel couche existante" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="200.87122950799915" name="component_pos_x"/>
+      <Option type="double" value="465.62269378259475" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="script:UpdateSpeedEgm_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="model:Réseau individuel couche existante_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="prefixe">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="m" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="repertoirersultat">
+          <Option type="Map">
+            <Option type="QString" value="rpertoire_sortie" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="rfrentiel_routier">
+          <Option type="Map">
+            <Option type="QString" value=" @rseau_routier_egmerm " name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="vitessemarche">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="4" name="static_value"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="native:centroids_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="native:centroids" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1823.0256069413717" name="component_pos_x"/>
+        <Option type="double" value="1011.1014023732469" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Centroïdes" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="173.33967729313053" name="component_pos_x"/>
+      <Option type="double" value="219.4104475993775" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option name="dependencies"/>
+      <Option type="QString" value="native:centroids_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="ALL_PARTS">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="bool" value="false" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="INPUT">
+          <Option type="Map">
+            <Option type="QString" value="dcoupage_en_zones_fines" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="OUTPUT">
+          <Option type="Map">
+            <Option type="QString" value=" @rpertoire_sortie +'/'+'centrodes_zf'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option type="Map" name="script:UpdateSpeedEgm_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="script:UpdateSpeedEgm" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1823.0256069413717" name="component_pos_x"/>
+        <Option type="double" value="1011.1014023732469" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Mise à jour des vitesses EGM/ERM" name="component_description"/>
+      <Option type="double" value="31.182417909787773" name="component_height"/>
+      <Option type="double" value="199.93309988063027" name="component_pos_x"/>
+      <Option type="double" value="382.5781638929909" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="native:centroids_1" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="script:UpdateSpeedEgm_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="nature">
+          <Option type="Map">
+            <Option type="QString" value="nature_de_la_route_rtt" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="nb_chau">
+          <Option type="Map">
+            <Option type="QString" value="chausse_spare_med" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="pointe">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="double" value="0.5" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="routes_bdtopo">
+          <Option type="Map">
+            <Option type="QString" value="@rseau_routier_egmerm " name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="table_des_vitesses">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="List" name="static_value">
+              <Option type="QString" value="16"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="16"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="14"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="14"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="110"/>
+              <Option type="QString" value="70"/>
+              <Option type="QString" value="15"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="80"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="15"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="984"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="70"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="984"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="80"/>
+              <Option type="QString" value="25"/>
+            </Option>
+          </Option>
+        </Option>
+        <Option type="List" name="urbain">
+          <Option type="Map">
+            <Option type="QString" value="catgorie_cor" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+  </Option>
+  <Option type="Map" name="designerParameterValues">
+    <Option type="QString" value="COR" name="catgorie"/>
+    <Option type="QString" value="MED" name="chausse_spare"/>
+    <Option type="QString" value="C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/links_reseau_local_complet_1_4_noeuds_connectes.gpkg" name="dcoupage_en_zones_fines"/>
+    <Option type="QString" value="num" name="id_zone_fine"/>
+    <Option type="QString" value="RTT" name="nature_de_la_route"/>
+    <Option type="QString" value="C:/Users/patrick.palmier/Desktop/Calcul_distances/EMC2_Artois_Gohelle_2024/AG_total_noeuds_connectes.gpkg" name="noeuds_rseau_externe"/>
+    <Option type="QString" value="C:\Users\patrick.palmier\Desktop\Calcul_distances\output_egm" name="rpertoire_sortie"/>
+    <Option type="QString" value="C:/Users/patrick.palmier/Desktop/Calcul_distances/EGM/links_egm_frontaliers93.gpkg|layername=links_egm_frontaliers93" name="rseau_routier_egmerm"/>
+    <Option type="QString" value="C:/Users/patrick.palmier/Desktop/Calcul_distances/Aires_urbaines/n_aire_attraction_ville_com_s_000.shp" name="zonage_en_aires_urbaines"/>
+  </Option>
+  <Option name="groupBoxes"/>
+  <Option name="help"/>
+  <Option type="QString" value="Version2" name="internal_version"/>
+  <Option name="modelVariables"/>
+  <Option type="QString" value="Cerema" name="model_group"/>
+  <Option type="QString" value="Réseau local EMC² EGM/ERM" name="model_name"/>
+  <Option type="QString" value="" name="outputGroup"/>
+  <Option name="outputOrder"/>
+  <Option type="Map" name="parameterDefinitions">
+    <Option type="Map" name="catgorie_cor">
+      <Option type="bool" value="false" name="allow_multiple"/>
+      <Option type="int" value="-1" name="data_type"/>
+      <Option type="QString" value="COR" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="bool" value="false" name="default_to_all_fields"/>
+      <Option type="QString" value="Catégorie (COR)" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="catgorie_cor" name="name"/>
+      <Option type="QString" value="field" name="parameter_type"/>
+      <Option type="QString" value="rseau_routier_egmerm" name="parent_layer"/>
+    </Option>
+    <Option type="Map" name="chausse_spare_med">
+      <Option type="bool" value="false" name="allow_multiple"/>
+      <Option type="int" value="-1" name="data_type"/>
+      <Option type="QString" value="MED" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="bool" value="false" name="default_to_all_fields"/>
+      <Option type="QString" value="Chaussée séparée (MED)" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="chausse_spare_med" name="name"/>
+      <Option type="QString" value="field" name="parameter_type"/>
+      <Option type="QString" value="rseau_routier_egmerm" name="parent_layer"/>
+    </Option>
+    <Option type="Map" name="dcoupage_en_zones_fines">
+      <Option type="List" name="data_types">
+        <Option type="int" value="-1"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Découpage en Zones fines" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="dcoupage_en_zones_fines" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="id_zone_fine">
+      <Option type="bool" value="false" name="allow_multiple"/>
+      <Option type="int" value="-1" name="data_type"/>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="bool" value="false" name="default_to_all_fields"/>
+      <Option type="QString" value="Id Zone fine" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="id_zone_fine" name="name"/>
+      <Option type="QString" value="field" name="parameter_type"/>
+      <Option type="QString" value="dcoupage_en_zones_fines" name="parent_layer"/>
+    </Option>
+    <Option type="Map" name="nature_de_la_route_rtt">
+      <Option type="bool" value="false" name="allow_multiple"/>
+      <Option type="int" value="-1" name="data_type"/>
+      <Option type="QString" value="RTT" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="bool" value="false" name="default_to_all_fields"/>
+      <Option type="QString" value="Nature de la route (RTT)" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="nature_de_la_route_rtt" name="name"/>
+      <Option type="QString" value="field" name="parameter_type"/>
+      <Option type="QString" value="rseau_routier_egmerm" name="parent_layer"/>
+    </Option>
+    <Option type="Map" name="rpertoire_sortie">
+      <Option type="int" value="1" name="behavior"/>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="répertoire sortie" name="description"/>
+      <Option type="QString" value="" name="extension"/>
+      <Option type="QString" value="Tous les fichiers (*.*)" name="filefilter"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="rpertoire_sortie" name="name"/>
+      <Option type="QString" value="file" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="rseau_routier_egmerm">
+      <Option type="List" name="data_types">
+        <Option type="int" value="1"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="Réseau routier EGM/ERM" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="rseau_routier_egmerm" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+  </Option>
+  <Option type="StringList" name="parameterOrder">
+    <Option type="QString" value="rseau_routier_egmerm"/>
+    <Option type="QString" value="nature_de_la_route_rtt"/>
+    <Option type="QString" value="catgorie_cor"/>
+    <Option type="QString" value="chausse_spare_med"/>
+    <Option type="QString" value="dcoupage_en_zones_fines"/>
+    <Option type="QString" value="id_zone_fine"/>
+    <Option type="QString" value="rpertoire_sortie"/>
+  </Option>
+  <Option type="Map" name="parameters">
+    <Option type="Map" name="catgorie_cor">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1640" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="catgorie_cor" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1066" name="component_pos_x"/>
+      <Option type="double" value="156" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="catgorie_cor" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="chausse_spare_med">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1691" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="chausse_spare_med" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="803" name="component_pos_x"/>
+      <Option type="double" value="189" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="chausse_spare_med" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="dcoupage_en_zones_fines">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="320" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="dcoupage_en_zones_fines" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="120" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="dcoupage_en_zones_fines" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="id_zone_fine">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="760" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="id_zone_fine" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="562.3065326633166" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="id_zone_fine" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="nature_de_la_route_rtt">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1200" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="nature_de_la_route_rtt" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1000" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="nature_de_la_route_rtt" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="rpertoire_sortie">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1691" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="rpertoire_sortie" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1491" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="rpertoire_sortie" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="rseau_routier_egmerm">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="980" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="rseau_routier_egmerm" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="780" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="rseau_routier_egmerm" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+  </Option>
+</Option>

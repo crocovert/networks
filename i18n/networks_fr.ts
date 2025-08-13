@@ -1114,6 +1114,44 @@
     </message>
 </context>
 <context>
+    <name>DeleteFile</name>
+    <message>
+        <location filename="deletefile.py" line="21"/>
+        <source>File</source>
+        <translation>Fichier</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="21"/>
+        <source>All files (*.*)</source>
+        <translation>Tous les fichiers (*.*)</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source>The file </source>
+        <translation>le fichier</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="32"/>
+        <source>File </source>
+        <translation>Fichier</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source> doesn&apos;t exist</source>
+        <translation> n&apos;existe pas</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source>Delete file</source>
+        <translation>Supprimer fichier</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
+    </message>
+</context>
+<context>
     <name>Erreur</name>
     <message>
         <location filename="creer_graphe.py" line="287"/>
@@ -4411,7 +4449,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="255"/>
+        <location filename="networks_provider.py" line="257"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>

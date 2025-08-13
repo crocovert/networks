@@ -5,7 +5,7 @@ Group : Cerema
 With QGIS : 33603
 """
 
-from PyQt5.QtCore import QCoreApplication, QVariant, QDateTime, QTime, QDate
+from qgis.PyQt.QtCore import QCoreApplication, QVariant, QDateTime, QTime, QDate
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import QgsProcessing

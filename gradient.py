@@ -110,57 +110,12 @@ class Contours(QgsProcessingAlgorithm):
         )
         self.addParameter(
             QgsProcessingParameterNumber(
-                self.MINI,
-                self.tr('Min'),
-                QgsProcessingParameterNumber.Double,
-                defaultValue=0
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.MAXI,
-                self.tr('Max'),
-                QgsProcessingParameterNumber.Double,
-                defaultValue=60
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterNumber(
-                self.INTERVALLE,
-                self.tr('Interval'),
-                QgsProcessingParameterNumber.Double,
-                defaultValue=10
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterNumber(
                 self.NOVALUE,
                 self.tr('No Value'),
                 QgsProcessingParameterNumber.Double,
                 defaultValue=-9999
             )
         )
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.POLYGONS,
-                self.tr('Polygons'),
-                True
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterBoolean(
-                self.IND_VALUES,
-                self.tr('Individual Values'),
-                False
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterFeatureSink(
-                self.CONTOURS,
-                self.tr('Isovalue polygons'),
-              
-            )
-        )            
 
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
@@ -194,21 +149,9 @@ class Contours(QgsProcessingAlgorithm):
                 provider = layer.dataProvider()
                 filePath = str(provider.dataSourceUri())
                 dict_path= str(pathlib.PurePath(filePath).parent / pathlib.PurePath(filePath).stem) + '_dist.dic'
-                if val_ind==True:
-                    json_dict=open(dict_path)
-                    poles_dict=dict(json.load(json_dict))
-                    json_dict.close()
-                    raster_or = gdal.Open(str(pathlib.PurePath(filePath).parent / pathlib.PurePath(filePath).stem) + '_dist.tif')
-                    poles_dict['0']='0'
-                else:
-                    raster_or = gdal.Open(filePath)
+                raster_or = gdal.Open(filePath)
                 nb_bands=layer.bandCount()
-                champs2=QgsFields()
-                champs2.append(QgsField("id",QVariant.String,len=50))
-                if polygones==True:
-                    (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.MultiPolygon, raster.crs())        # Compute the number of steps to display within the progress bar and
-                else:
-                    (resultat,dest_id) = self.parameterAsSink(parameters, self.CONTOURS,context,champs2, QgsWkbTypes.LineString, raster.crs())        # Compute the number of steps to display within the progress bar and
+
                 sortie=os.path.splitext(dest_id)
                 nom_sortie=os.path.basename(sortie[0])
                 rep_sortie=os.path.dirname(sortie[0])
@@ -232,8 +175,9 @@ class Contours(QgsProcessingAlgorithm):
                 ny=int(layer.height())
                 pixel_size_x=float(largeur/nx)
                 pixel_size_y=float(hauteur/ny)
-
-                feedback.setProgressText(self.tr('Grid interpolation...'))
+                #grille_gradient==numpy.array([[-9999.0]*(nb_pixels_y-1)]*(nb_pixels_x-1))
+                grille_gradient.QgsRasterBlock(Qgis.Float32,nb_pixels_y-1,nb_pixels_x-1)
+                feedback.setProgressText(self.tr('Caompute accessibility gradient...'))
                 for p in range(nx-1):
                     feedback.setProgress(50*p/nx)
                     for q in range(ny-1):

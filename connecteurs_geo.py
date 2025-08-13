@@ -30,7 +30,7 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 
 __revision__ = '$Format:%H$'
 
-from PyQt5.QtCore import QCoreApplication,QVariant
+from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import (QgsProcessing,
@@ -301,7 +301,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                                         sortie.write(id_stop+';'+id_node+';'+str(0.0)+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+moda+';'+moda+'\n')
         feedback.setProgressText(unicode(nbc)+"/"+unicode(nb)+self.tr(" connected nodes"))
         sortie.close()
-        return {self.OUTPUT: dest_id}
+        return {'output': dest_id}
 
 
     def name(self):

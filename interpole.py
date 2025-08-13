@@ -30,7 +30,7 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 
 __revision__ = '$Format:%H$'
 
-from PyQt5.QtCore import QCoreApplication,QVariant
+from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import (QgsProcessing,
@@ -244,6 +244,29 @@ class Interpole(QgsProcessingAlgorithm):
         # We add a feature sink in which to store our processed features (this
         # usually takes the form of a newly created vector layer when the
         # algorithm is run in QGIS).
+    
+    
+    def to_2d(self, geom):
+        """
+        Convertit une LineString ou MultiLineString (2D ou Z) en géométrie 2D
+        compatible avec asPolyline() / asMultiPolyline().
+        """
+        g = geom.constGet()
+
+        if isinstance(g, QgsLineString):
+            pts_2d = [QgsPointXY(pt.x(), pt.y()) for pt in g]
+            return QgsGeometry.fromPolylineXY(pts_2d)
+
+        elif isinstance(g, QgsMultiLineString):
+            parts_2d = []
+            for i in range(g.numGeometries()):
+                ls = g.geometryN(i)
+                pts_2d = [QgsPointXY(pt.x(), pt.y()) for pt in ls]
+                parts_2d.append(pts_2d)
+            return QgsGeometry.fromMultiPolylineXY(parts_2d)
+
+        else:
+            raise TypeError("La géométrie n'est pas une LineString ou MultiLineString.")
         
 
     def processAlgorithm(self, parameters, context, feedback):
@@ -367,6 +390,8 @@ class Interpole(QgsProcessingAlgorithm):
                             dx=int(zone.width()/taille_pixel_x)
                             dy=int(zone.height()/taille_pixel_y)
                             l1=geom.length()
+                            # Créer une nouvelle géométrie en 2D à partir des coordonnées XY
+                            geom=self.to_2d(geom)
                             if geom.wkbType()==QgsWkbTypes.MultiLineString:
                                 geom_l=geom.asMultiPolyline()
                             else:

@@ -87,6 +87,7 @@ from .gtfs_mint import ImportGTFSv2
 from .list_dir import dirlist
 from .nodal_intensity import Intensite_nodale
 from .musliw_network_update import Musliw_update
+from .deletefile import DeleteFile
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -233,6 +234,7 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(ImportGTFSv2())
         self.addAlgorithm(Intensite_nodale())
         self.addAlgorithm(Musliw_update())
+        self.addAlgorithm(DeleteFile())
         
     def id(self):
         """

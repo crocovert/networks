@@ -5,7 +5,7 @@ Group : Computations
 With QGIS : 32602
 """
 
-from PyQt5.QtCore import QCoreApplication,QVariant
+from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import QgsProcessing

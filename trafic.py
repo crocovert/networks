@@ -36,7 +36,7 @@ import math
 import sqlite3 as db
 
 
-from PyQt5.QtCore import QCoreApplication,QVariant
+from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import (QgsProcessing,

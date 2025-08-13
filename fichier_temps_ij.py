@@ -30,7 +30,7 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 
 __revision__ = '$Format:%H$'
 
-from PyQt5.QtCore import QCoreApplication, QVariant
+from qgis.PyQt.QtCore import QCoreApplication, QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import (QgsProcessing,

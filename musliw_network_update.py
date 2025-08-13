@@ -13,7 +13,7 @@ from qgis.core import QgsProcessingParameterString
 from qgis.core import QgsProcessingParameterBoolean
 from qgis.core import QgsProcessingParameterFileDestination
 from qgis.core import QgsProcessingParameterEnum
-from PyQt5.QtCore import QCoreApplication
+from qgis.PyQt.QtCore import QCoreApplication
 import processing
 import io
 import os

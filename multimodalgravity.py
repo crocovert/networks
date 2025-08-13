@@ -5,7 +5,7 @@ Group : Analysis
 With QGIS : 32003
 """
 
-from PyQt5.QtCore import QCoreApplication,QVariant
+from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import QgsProcessing
