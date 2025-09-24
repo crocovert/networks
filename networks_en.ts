@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="fr_FR">
 <context>
+    <name>AddLayer</name>
+    <message>
+        <location filename="add_layer.py" line="21"/>
+        <source>Vector layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="add_layer.py" line="33"/>
+        <source>Error : the layer can&apos;t be loaded&apos;.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="add_layer.py" line="46"/>
+        <source>Utilities</source>
+        <translation type="unfinished">Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="add_layer.py" line="43"/>
+        <source>Add layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AjoutChamp</name>
     <message>
         <location filename="ajout_champ.py" line="99"/>
@@ -817,6 +840,44 @@
         <location filename="creer_graphe.py" line="126"/>
         <source>Nb of decimals</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DeleteFile</name>
+    <message>
+        <location filename="deletefile.py" line="21"/>
+        <source>File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="21"/>
+        <source>All files (*.*)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source>The file </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="32"/>
+        <source>File </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="34"/>
+        <source> doesn&apos;t exist</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="47"/>
+        <source>Delete file</source>
+        <translation>Supprimer fichier</translation>
+    </message>
+    <message>
+        <location filename="deletefile.py" line="50"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
     </message>
 </context>
 <context>
@@ -1707,17 +1768,17 @@ L'algorithme produit deux fichiers de résultats:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="484"/>
+        <location filename="interpole.py" line="509"/>
         <source>Linear interpolation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="interpole.py" line="491"/>
+        <location filename="interpole.py" line="516"/>
         <source>Analysis</source>
         <translation type="unfinished">Analyses</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="507"/>
+        <location filename="interpole.py" line="532"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -3144,7 +3205,7 @@ L'algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="255"/>
+        <location filename="networks_provider.py" line="267"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3561,6 +3622,24 @@ L'algorithme produit deux fichiers de résultats:
     </message>
 </context>
 <context>
+    <name>RemoveLayer</name>
+    <message>
+        <location filename="remove_layer.py" line="22"/>
+        <source>Vector layer</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="remove_layer.py" line="50"/>
+        <source>Utilities</source>
+        <translation type="unfinished">Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="remove_layer.py" line="47"/>
+        <source>Remove layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ReseauTC</name>
     <message>
         <location filename="reseau_tc.py" line="145"/>
@@ -3649,97 +3728,97 @@ L'algorithme produit deux fichiers de résultats:
 <context>
     <name>ReseauTi</name>
     <message>
-        <location filename="reseau_ti.py" line="90"/>
+        <location filename="reseau_ti.py" line="91"/>
         <source>Road network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="98"/>
+        <location filename="reseau_ti.py" line="99"/>
         <source>Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="104"/>
+        <location filename="reseau_ti.py" line="105"/>
         <source>Direction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="113"/>
+        <location filename="reseau_ti.py" line="114"/>
         <source>Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="121"/>
+        <location filename="reseau_ti.py" line="122"/>
         <source>Length</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="129"/>
+        <location filename="reseau_ti.py" line="130"/>
         <source>i-node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="137"/>
+        <location filename="reseau_ti.py" line="138"/>
         <source>j-node</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="145"/>
+        <location filename="reseau_ti.py" line="146"/>
         <source>Time category id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="152"/>
+        <location filename="reseau_ti.py" line="157"/>
         <source>Time period id</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="159"/>
+        <location filename="reseau_ti.py" line="170"/>
         <source>Start time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="166"/>
+        <location filename="reseau_ti.py" line="180"/>
         <source>End time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="173"/>
+        <location filename="reseau_ti.py" line="192"/>
         <source>Calendar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="180"/>
+        <location filename="reseau_ti.py" line="200"/>
         <source>Arc label</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="189"/>
+        <location filename="reseau_ti.py" line="209"/>
         <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="201"/>
+        <location filename="reseau_ti.py" line="231"/>
         <source>Musliw network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="246"/>
+        <location filename="reseau_ti.py" line="280"/>
         <source>Writing Musliw network file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="295"/>
+        <location filename="reseau_ti.py" line="335"/>
         <source>Musliw individual network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="302"/>
+        <location filename="reseau_ti.py" line="342"/>
         <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="reseau_ti.py" line="318"/>
+        <location filename="reseau_ti.py" line="358"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
 <byte value="x9"/><byte value="x9"/>
@@ -3762,6 +3841,11 @@ L'algorithme produit deux fichiers de résultats:
             
             
         </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="reseau_ti.py" line="218"/>
+        <source>Toll</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4111,10 +4195,174 @@ L'algorithme produit deux fichiers de résultats:
     </message>
 </context>
 <context>
+    <name>UpdateSpeedBdTopo</name>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="21"/>
+        <source>BDTOPO road layer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="22"/>
+        <source>Nature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="23"/>
+        <source>Number of lanes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="24"/>
+        <source>Urban</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="25"/>
+        <source>Urban area size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="26"/>
+        <source>Municipality category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="27"/>
+        <source>Car speed table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="37"/>
+        <source>Peak hour factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="188"/>
+        <source>Warning: The layer is not editable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="135"/>
+        <source>update car speed peak hour and off-peak hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="144"/>
+        <source>updating field...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="146"/>
+        <source>updating field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="206"/>
+        <source>Update IGN BDTOPO car speeds</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateSpeedEgm</name>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="22"/>
+        <source>EGM/ERM roads</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="23"/>
+        <source>RTT</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="24"/>
+        <source>COR</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="25"/>
+        <source>MED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="26"/>
+        <source>Peak hour factor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="27"/>
+        <source>Car speed table</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="160"/>
+        <source>Warning: The layer is not editable</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="123"/>
+        <source>update car speed peak hour and off-peak hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="132"/>
+        <source>updating field...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="134"/>
+        <source>updating field</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="174"/>
+        <source>Update EGM/ERM car speed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_egm.py" line="185"/>
+        <source>Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Updating arcs</name>
     <message>
         <location filename="creer_graphe.py" line="256"/>
         <source>Updating arcs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Zones_objects_centroids</name>
+    <message>
+        <location filename="zones_objects_centroids.py" line="35"/>
+        <source>Zones</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="zones_objects_centroids.py" line="36"/>
+        <source>Zone_Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="zones_objects_centroids.py" line="37"/>
+        <source>Objects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="zones_objects_centroids.py" line="38"/>
+        <source>Output</source>
+        <translation type="unfinished">Sortie</translation>
+    </message>
+    <message>
+        <location filename="zones_objects_centroids.py" line="113"/>
+        <source>Zones/objects centroids</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="zones_objects_centroids.py" line="119"/>
+        <source>Network</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

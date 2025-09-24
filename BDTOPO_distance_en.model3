@@ -41,7 +41,7 @@
         </Option>
         <Option type="List" name="NOEUDS_UTILES">
           <Option type="Map">
-            <Option type="QString" value="@rpertoire_sortie + '/noeuds_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+ base_file_name( @dcoupage_en_zones_fines )+'_AU_connectes_total'" name="expression"/>
+            <Option type="QString" value="@output_folder + '/noeuds_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+ base_file_name( @subdivision_in_detailed_zones )+'_AU_connectes_total'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -53,7 +53,7 @@
         </Option>
         <Option type="List" name="RESEAU">
           <Option type="Map">
-            <Option type="QString" value="@rpertoire_sortie + '/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU__links.txt'" name="expression"/>
+            <Option type="QString" value="@output_folder + '/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU__links.txt'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -116,7 +116,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -146,7 +146,7 @@
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/reseau_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_hc.txt'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/reseau_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_hc.txt'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -158,7 +158,7 @@
         </Option>
         <Option type="List" name="RECTANGLE">
           <Option type="Map">
-            <Option type="QString" value=" layer_property(   @rseau_routier_bdtopo  ,'extent')" name="expression"/>
+            <Option type="QString" value=" layer_property(   @french_bdtopo_network  ,'extent')" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -239,7 +239,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -269,7 +269,7 @@
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/reseau_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_hp.txt'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/reseau_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_hp.txt'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -281,7 +281,7 @@
         </Option>
         <Option type="List" name="RECTANGLE">
           <Option type="Map">
-            <Option type="QString" value=" layer_property(   @rseau_routier_bdtopo  ,'extent')" name="expression"/>
+            <Option type="QString" value=" layer_property(   @french_bdtopo_network  ,'extent')" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -344,7 +344,7 @@
         </Option>
         <Option type="List" name="FILTRE">
           <Option type="Map">
-            <Option type="QString" value="'(' || @sens_de_circulation || ' in  ( \'Sens direct\' , \'Double sens\' ) )and  &quot;layer&quot; =  \'Champs non renseignés\''  " name="expression"/>
+            <Option type="QString" value="'(' || @traffic_direction || ' in  ( \'Sens direct\' , \'Double sens\' ) )and  &quot;layer&quot; =  \'Champs non renseignés\''  " name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -356,7 +356,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -419,7 +419,7 @@
         </Option>
         <Option type="List" name="FILTRE">
           <Option type="Map">
-            <Option type="QString" value="'(' || @sens_de_circulation || ' in  ( \'Sens inverse\' , \'Double sens\' ) )and  not(&quot;layer&quot; =  \'Champs non renseignés\'  )'" name="expression"/>
+            <Option type="QString" value="'(' || @traffic_direction || ' in  ( \'Sens inverse\' , \'Double sens\' ) )and  not(&quot;layer&quot; =  \'Champs non renseignés\'  )'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -431,7 +431,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -506,7 +506,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -569,7 +569,7 @@
         </Option>
         <Option type="List" name="FILTRE">
           <Option type="Map">
-            <Option type="QString" value=" @sens_de_circulation || '= \'Sans Objet\''" name="expression"/>
+            <Option type="QString" value=" @traffic_direction || '= \'Sans Objet\''" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -581,7 +581,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -656,7 +656,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -731,7 +731,7 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -794,13 +794,13 @@
         </Option>
         <Option type="List" name="repertoirersultat">
           <Option type="Map">
-            <Option type="QString" value="rpertoire_sortie" name="parameter_name"/>
+            <Option type="QString" value="output_folder" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="rfrentiel_routier">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -846,7 +846,7 @@
       <Option type="Map" name="params">
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value="rseau_routier_bdtopo" name="parameter_name"/>
+            <Option type="QString" value="french_bdtopo_network" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -880,7 +880,7 @@
       <Option type="Map" name="params">
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value="zonage_en_aires_urbaines" name="parameter_name"/>
+            <Option type="QString" value="urban_areas_subdivion" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -914,7 +914,7 @@
       <Option type="Map" name="params">
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value="bati" name="parameter_name"/>
+            <Option type="QString" value="buildings" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -963,13 +963,13 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_'+  base_file_name(@dcoupage_en_zones_fines )+'.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_'+  base_file_name(@subdivision_in_detailed_zones )+'.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines )" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones )" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -1014,13 +1014,13 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value="rseau_routier_bdtopo" name="parameter_name"/>
+            <Option type="QString" value="french_bdtopo_network" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="JOIN">
           <Option type="Map">
-            <Option type="QString" value="dcoupage_en_zones_fines" name="parameter_name"/>
+            <Option type="QString" value="subdivision_in_detailed_zones" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -1040,7 +1040,7 @@
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_'+ base_file_name(@dcoupage_en_zones_fines)" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_'+ base_file_name(@subdivision_in_detailed_zones)" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -1099,13 +1099,13 @@
         </Option>
         <Option type="List" name="INPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines )+'.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones )+'.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="JOIN">
           <Option type="Map">
-            <Option type="QString" value="zonage_en_aires_urbaines" name="parameter_name"/>
+            <Option type="QString" value="urban_areas_subdivion" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -1125,7 +1125,7 @@
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -1190,13 +1190,13 @@
         </Option>
         <Option type="List" name="LAYERS">
           <Option type="Map">
-            <Option type="QString" value=" array(@noeuds_rseau_externe , @rpertoire_sortie + '/links_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU__noeuds_complets.gpkg')" name="expression"/>
+            <Option type="QString" value=" array(@external_road_nodes , @output_folder + '/links_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU__noeuds_complets.gpkg')" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="OUTPUT">
           <Option type="Map">
-            <Option type="QString" value="@rpertoire_sortie + '/noeuds_'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_complets_total'" name="expression"/>
+            <Option type="QString" value="@output_folder + '/noeuds_'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_complets_total'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -1289,13 +1289,13 @@
         </Option>
         <Option type="List" name="nb_voies">
           <Option type="Map">
-            <Option type="QString" value="nombre_de_voies" name="parameter_name"/>
+            <Option type="QString" value="number_of_lanes" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="routes_bdtopo">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+ base_file_name( @rseau_routier_bdtopo )+'_3_6_'+  base_file_name(@dcoupage_en_zones_fines) +'_AU_.gpkg'" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @french_bdtopo_network )+'_3_6_'+  base_file_name(@subdivision_in_detailed_zones) +'_AU_.gpkg'" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
@@ -1426,7 +1426,7 @@
         </Option>
         <Option type="List" name="urbain">
           <Option type="Map">
-            <Option type="QString" value="urbain" name="parameter_name"/>
+            <Option type="QString" value="urban" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -1473,25 +1473,25 @@
       <Option type="Map" name="params">
         <Option type="List" name="objects">
           <Option type="Map">
-            <Option type="QString" value="bati" name="parameter_name"/>
+            <Option type="QString" value="buildings" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="output">
           <Option type="Map">
-            <Option type="QString" value=" @rpertoire_sortie +'/'+'centroids_'+ base_file_name(  @dcoupage_en_zones_fines )+ '_' + base_file_name( @rseau_routier_bdtopo )" name="expression"/>
+            <Option type="QString" value=" @output_folder +'/'+'centroids_'+ base_file_name(  @subdivision_in_detailed_zones )+ '_' + base_file_name( @french_bdtopo_network )" name="expression"/>
             <Option type="int" value="3" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="zone_id">
           <Option type="Map">
-            <Option type="QString" value="id_zone_fine" name="parameter_name"/>
+            <Option type="QString" value="detailed_zone_id" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
         <Option type="List" name="zones2">
           <Option type="Map">
-            <Option type="QString" value="dcoupage_en_zones_fines" name="parameter_name"/>
+            <Option type="QString" value="subdivision_in_detailed_zones" name="parameter_name"/>
             <Option type="int" value="0" name="source"/>
           </Option>
         </Option>
@@ -1515,49 +1515,60 @@
   <Option type="QString" value="Version2" name="internal_version"/>
   <Option name="modelVariables"/>
   <Option type="QString" value="Cerema" name="model_group"/>
-  <Option type="QString" value="Réseau local EMC² BDTOPO" name="model_name"/>
+  <Option type="QString" value="Local network french BD topo" name="model_name"/>
   <Option type="QString" value="" name="outputGroup"/>
   <Option name="outputOrder"/>
   <Option type="Map" name="parameterDefinitions">
-    <Option type="Map" name="bati">
+    <Option type="Map" name="buildings">
       <Option type="List" name="data_types">
         <Option type="int" value="-1"/>
       </Option>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="bati" name="description"/>
+      <Option type="QString" value="buildings" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="bati" name="name"/>
+      <Option type="QString" value="buildings" name="name"/>
       <Option type="QString" value="vector" name="parameter_type"/>
     </Option>
-    <Option type="Map" name="dcoupage_en_zones_fines">
-      <Option type="List" name="data_types">
-        <Option type="int" value="-1"/>
-      </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="Découpage en Zones fines" name="description"/>
-      <Option type="int" value="0" name="flags"/>
-      <Option type="QString" value="" name="help"/>
-      <Option name="metadata"/>
-      <Option type="QString" value="dcoupage_en_zones_fines" name="name"/>
-      <Option type="QString" value="vector" name="parameter_type"/>
-    </Option>
-    <Option type="Map" name="id_zone_fine">
+    <Option type="Map" name="detailed_zone_id">
       <Option type="bool" value="false" name="allow_multiple"/>
       <Option type="int" value="-1" name="data_type"/>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
       <Option type="bool" value="false" name="default_to_all_fields"/>
-      <Option type="QString" value="Id Zone fine" name="description"/>
+      <Option type="QString" value="Detailed zone ID" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="id_zone_fine" name="name"/>
+      <Option type="QString" value="detailed_zone_id" name="name"/>
       <Option type="QString" value="field" name="parameter_type"/>
-      <Option type="QString" value="dcoupage_en_zones_fines" name="parent_layer"/>
+      <Option type="QString" value="buildings" name="parent_layer"/>
+    </Option>
+    <Option type="Map" name="external_road_nodes">
+      <Option type="List" name="data_types">
+        <Option type="int" value="0"/>
+      </Option>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="External road nodes" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="external_road_nodes" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
+    </Option>
+    <Option type="Map" name="french_bdtopo_network">
+      <Option name="data_types"/>
+      <Option type="invalid" name="default"/>
+      <Option type="invalid" name="defaultGui"/>
+      <Option type="QString" value="french BDTOPO network" name="description"/>
+      <Option type="int" value="0" name="flags"/>
+      <Option type="QString" value="" name="help"/>
+      <Option name="metadata"/>
+      <Option type="QString" value="french_bdtopo_network" name="name"/>
+      <Option type="QString" value="vector" name="parameter_type"/>
     </Option>
     <Option type="Map" name="nature">
       <Option type="bool" value="false" name="allow_multiple"/>
@@ -1571,116 +1582,105 @@
       <Option name="metadata"/>
       <Option type="QString" value="nature" name="name"/>
       <Option type="QString" value="field" name="parameter_type"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="parent_layer"/>
+      <Option type="QString" value="french_bdtopo_network" name="parent_layer"/>
     </Option>
-    <Option type="Map" name="noeuds_rseau_externe">
-      <Option type="List" name="data_types">
-        <Option type="int" value="0"/>
-      </Option>
-      <Option type="invalid" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="Noeuds réseau externe" name="description"/>
-      <Option type="int" value="0" name="flags"/>
-      <Option type="QString" value="" name="help"/>
-      <Option name="metadata"/>
-      <Option type="QString" value="noeuds_rseau_externe" name="name"/>
-      <Option type="QString" value="vector" name="parameter_type"/>
-    </Option>
-    <Option type="Map" name="nombre_de_voies">
+    <Option type="Map" name="number_of_lanes">
       <Option type="bool" value="false" name="allow_multiple"/>
       <Option type="int" value="-1" name="data_type"/>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
       <Option type="bool" value="false" name="default_to_all_fields"/>
-      <Option type="QString" value="nombre de voies" name="description"/>
+      <Option type="QString" value="number of lanes" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="nombre_de_voies" name="name"/>
+      <Option type="QString" value="number_of_lanes" name="name"/>
       <Option type="QString" value="field" name="parameter_type"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="parent_layer"/>
+      <Option type="QString" value="french_bdtopo_network" name="parent_layer"/>
     </Option>
-    <Option type="Map" name="rpertoire_sortie">
+    <Option type="Map" name="output_folder">
       <Option type="int" value="1" name="behavior"/>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="répertoire sortie" name="description"/>
+      <Option type="QString" value="output folder" name="description"/>
       <Option type="QString" value="" name="extension"/>
       <Option type="QString" value="Tous les fichiers (*.*)" name="filefilter"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="rpertoire_sortie" name="name"/>
+      <Option type="QString" value="output_folder" name="name"/>
       <Option type="QString" value="file" name="parameter_type"/>
     </Option>
-    <Option type="Map" name="rseau_routier_bdtopo">
-      <Option name="data_types"/>
+    <Option type="Map" name="subdivision_in_detailed_zones">
+      <Option type="List" name="data_types">
+        <Option type="int" value="-1"/>
+      </Option>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="Réseau routier BDTOPO" name="description"/>
+      <Option type="QString" value="subdivision in detailed zones" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="name"/>
+      <Option type="QString" value="subdivision_in_detailed_zones" name="name"/>
       <Option type="QString" value="vector" name="parameter_type"/>
     </Option>
-    <Option type="Map" name="sens_de_circulation">
+    <Option type="Map" name="traffic_direction">
       <Option type="bool" value="false" name="allow_multiple"/>
       <Option type="int" value="-1" name="data_type"/>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
       <Option type="bool" value="false" name="default_to_all_fields"/>
-      <Option type="QString" value="sens de circulation" name="description"/>
+      <Option type="QString" value="traffic direction" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="sens_de_circulation" name="name"/>
+      <Option type="QString" value="traffic_direction" name="name"/>
       <Option type="QString" value="field" name="parameter_type"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="parent_layer"/>
+      <Option type="QString" value="french_bdtopo_network" name="parent_layer"/>
     </Option>
-    <Option type="Map" name="urbain">
+    <Option type="Map" name="urban">
       <Option type="bool" value="false" name="allow_multiple"/>
       <Option type="int" value="-1" name="data_type"/>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
       <Option type="bool" value="false" name="default_to_all_fields"/>
-      <Option type="QString" value="urbain" name="description"/>
+      <Option type="QString" value="urban" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="urbain" name="name"/>
+      <Option type="QString" value="urban" name="name"/>
       <Option type="QString" value="field" name="parameter_type"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="parent_layer"/>
+      <Option type="QString" value="french_bdtopo_network" name="parent_layer"/>
     </Option>
-    <Option type="Map" name="zonage_en_aires_urbaines">
+    <Option type="Map" name="urban_areas_subdivion">
       <Option type="List" name="data_types">
         <Option type="int" value="2"/>
       </Option>
       <Option type="invalid" name="default"/>
       <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="zonage en aires urbaines" name="description"/>
+      <Option type="QString" value="urban areas subdivion" name="description"/>
       <Option type="int" value="0" name="flags"/>
       <Option type="QString" value="" name="help"/>
       <Option name="metadata"/>
-      <Option type="QString" value="zonage_en_aires_urbaines" name="name"/>
+      <Option type="QString" value="urban_areas_subdivion" name="name"/>
       <Option type="QString" value="vector" name="parameter_type"/>
     </Option>
   </Option>
   <Option type="StringList" name="parameterOrder">
-    <Option type="QString" value="dcoupage_en_zones_fines"/>
-    <Option type="QString" value="id_zone_fine"/>
-    <Option type="QString" value="bati"/>
-    <Option type="QString" value="rseau_routier_bdtopo"/>
+    <Option type="QString" value="buildings"/>
+    <Option type="QString" value="detailed_zone_id"/>
+    <Option type="QString" value="french_bdtopo_network"/>
     <Option type="QString" value="nature"/>
-    <Option type="QString" value="nombre_de_voies"/>
-    <Option type="QString" value="urbain"/>
-    <Option type="QString" value="sens_de_circulation"/>
-    <Option type="QString" value="zonage_en_aires_urbaines"/>
-    <Option type="QString" value="noeuds_rseau_externe"/>
-    <Option type="QString" value="rpertoire_sortie"/>
+    <Option type="QString" value="number_of_lanes"/>
+    <Option type="QString" value="urban"/>
+    <Option type="QString" value="traffic_direction"/>
+    <Option type="QString" value="subdivision_in_detailed_zones"/>
+    <Option type="QString" value="urban_areas_subdivion"/>
+    <Option type="QString" value="external_road_nodes"/>
+    <Option type="QString" value="output_folder"/>
   </Option>
   <Option type="Map" name="parameters">
-    <Option type="Map" name="bati">
+    <Option type="Map" name="buildings">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1692,37 +1692,16 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="bati" name="component_description"/>
+      <Option type="QString" value="buildings" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="340" name="component_pos_x"/>
       <Option type="double" value="60" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="bati" name="name"/>
+      <Option type="QString" value="buildings" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="dcoupage_en_zones_fines">
-      <Option type="QString" value="" name="color"/>
-      <Option type="Map" name="comment">
-        <Option type="QString" value="" name="color"/>
-        <Option type="QString" value="" name="component_description"/>
-        <Option type="double" value="60" name="component_height"/>
-        <Option type="double" value="320" name="component_pos_x"/>
-        <Option type="double" value="15" name="component_pos_y"/>
-        <Option type="double" value="100" name="component_width"/>
-        <Option type="bool" value="true" name="outputs_collapsed"/>
-        <Option type="bool" value="true" name="parameters_collapsed"/>
-      </Option>
-      <Option type="QString" value="dcoupage_en_zones_fines" name="component_description"/>
-      <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="120" name="component_pos_x"/>
-      <Option type="double" value="60" name="component_pos_y"/>
-      <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="dcoupage_en_zones_fines" name="name"/>
-      <Option type="bool" value="true" name="outputs_collapsed"/>
-      <Option type="bool" value="true" name="parameters_collapsed"/>
-    </Option>
-    <Option type="Map" name="id_zone_fine">
+    <Option type="Map" name="detailed_zone_id">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1734,12 +1713,54 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="id_zone_fine" name="component_description"/>
+      <Option type="QString" value="detailed_zone_id" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="560" name="component_pos_x"/>
       <Option type="double" value="60" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="id_zone_fine" name="name"/>
+      <Option type="QString" value="detailed_zone_id" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="external_road_nodes">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1911" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="external_road_nodes" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="1711" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="external_road_nodes" name="name"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+    </Option>
+    <Option type="Map" name="french_bdtopo_network">
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="980" name="component_pos_x"/>
+        <Option type="double" value="15" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="french_bdtopo_network" name="component_description"/>
+      <Option type="double" value="30" name="component_height"/>
+      <Option type="double" value="780" name="component_pos_x"/>
+      <Option type="double" value="60" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="QString" value="french_bdtopo_network" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
@@ -1764,28 +1785,7 @@
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="noeuds_rseau_externe">
-      <Option type="QString" value="" name="color"/>
-      <Option type="Map" name="comment">
-        <Option type="QString" value="" name="color"/>
-        <Option type="QString" value="" name="component_description"/>
-        <Option type="double" value="60" name="component_height"/>
-        <Option type="double" value="1911" name="component_pos_x"/>
-        <Option type="double" value="15" name="component_pos_y"/>
-        <Option type="double" value="100" name="component_width"/>
-        <Option type="bool" value="true" name="outputs_collapsed"/>
-        <Option type="bool" value="true" name="parameters_collapsed"/>
-      </Option>
-      <Option type="QString" value="noeuds_rseau_externe" name="component_description"/>
-      <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="1711" name="component_pos_x"/>
-      <Option type="double" value="60" name="component_pos_y"/>
-      <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="noeuds_rseau_externe" name="name"/>
-      <Option type="bool" value="true" name="outputs_collapsed"/>
-      <Option type="bool" value="true" name="parameters_collapsed"/>
-    </Option>
-    <Option type="Map" name="nombre_de_voies">
+    <Option type="Map" name="number_of_lanes">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1797,16 +1797,16 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="nombre_de_voies" name="component_description"/>
+      <Option type="QString" value="number_of_lanes" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="1011" name="component_pos_x"/>
       <Option type="double" value="135" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="nombre_de_voies" name="name"/>
+      <Option type="QString" value="number_of_lanes" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="rpertoire_sortie">
+    <Option type="Map" name="output_folder">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1818,37 +1818,37 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="rpertoire_sortie" name="component_description"/>
+      <Option type="QString" value="output_folder" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="1491" name="component_pos_x"/>
       <Option type="double" value="60" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="rpertoire_sortie" name="name"/>
+      <Option type="QString" value="output_folder" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="rseau_routier_bdtopo">
+    <Option type="Map" name="subdivision_in_detailed_zones">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
         <Option type="QString" value="" name="component_description"/>
         <Option type="double" value="60" name="component_height"/>
-        <Option type="double" value="980" name="component_pos_x"/>
+        <Option type="double" value="320" name="component_pos_x"/>
         <Option type="double" value="15" name="component_pos_y"/>
         <Option type="double" value="100" name="component_width"/>
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="rseau_routier_bdtopo" name="component_description"/>
+      <Option type="QString" value="subdivision_in_detailed_zones" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
-      <Option type="double" value="780" name="component_pos_x"/>
+      <Option type="double" value="120" name="component_pos_x"/>
       <Option type="double" value="60" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="name"/>
+      <Option type="QString" value="subdivision_in_detailed_zones" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="sens_de_circulation">
+    <Option type="Map" name="traffic_direction">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1860,16 +1860,16 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="sens_de_circulation" name="component_description"/>
+      <Option type="QString" value="traffic_direction" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="1034" name="component_pos_x"/>
       <Option type="double" value="263" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="sens_de_circulation" name="name"/>
+      <Option type="QString" value="traffic_direction" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="urbain">
+    <Option type="Map" name="urban">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1881,16 +1881,16 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="urbain" name="component_description"/>
+      <Option type="QString" value="urban" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="1021" name="component_pos_x"/>
       <Option type="double" value="207" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="urbain" name="name"/>
+      <Option type="QString" value="urban" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>
-    <Option type="Map" name="zonage_en_aires_urbaines">
+    <Option type="Map" name="urban_areas_subdivion">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
         <Option type="QString" value="" name="color"/>
@@ -1902,12 +1902,12 @@
         <Option type="bool" value="true" name="outputs_collapsed"/>
         <Option type="bool" value="true" name="parameters_collapsed"/>
       </Option>
-      <Option type="QString" value="zonage_en_aires_urbaines" name="component_description"/>
+      <Option type="QString" value="urban_areas_subdivion" name="component_description"/>
       <Option type="double" value="30" name="component_height"/>
       <Option type="double" value="1271" name="component_pos_x"/>
       <Option type="double" value="54" name="component_pos_y"/>
       <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="zonage_en_aires_urbaines" name="name"/>
+      <Option type="QString" value="urban_areas_subdivion" name="name"/>
       <Option type="bool" value="true" name="outputs_collapsed"/>
       <Option type="bool" value="true" name="parameters_collapsed"/>
     </Option>

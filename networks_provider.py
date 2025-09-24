@@ -88,6 +88,11 @@ from .list_dir import dirlist
 from .nodal_intensity import Intensite_nodale
 from .musliw_network_update import Musliw_update
 from .deletefile import DeleteFile
+from .add_layer import AddLayer
+from .remove_layer import RemoveLayer
+from .zones_objects_centroids import Zones_objects_centroids
+from .maj_vitesses_bd_topo import UpdateSpeedBdTopo
+from .maj_vitesses_bd_egm import UpdateSpeedEgm
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -235,6 +240,11 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(Intensite_nodale())
         self.addAlgorithm(Musliw_update())
         self.addAlgorithm(DeleteFile())
+        self.addAlgorithm(AddLayer())
+        self.addAlgorithm(RemoveLayer())
+        self.addAlgorithm(Zones_objects_centroids())
+        self.addAlgorithm(UpdateSpeedBdTopo())
+        self.addAlgorithm(UpdateSpeedEgm())
         
     def id(self):
         """

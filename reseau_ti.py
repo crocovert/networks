@@ -80,6 +80,7 @@ class ReseauTi(QgsProcessingAlgorithm):
     CALENDRIER='CALENDRIER'
     TEXTE_ARC='TEXTE_ARC'
     MODE='MODE'
+    TOLL='TOLL'
 
     def initAlgorithm(self, config):
         """
@@ -142,39 +143,58 @@ class ReseauTi(QgsProcessingAlgorithm):
                 type=QgsProcessingParameterField.String
             )
         )
-        self.addParameter(
-            QgsProcessingParameterString(
+        p_periode=QgsProcessingParameterString(
                 self.PERIODE,
                 self.tr('Time category id'),
                 "-1"
+
             )
-        )
-        self.addParameter(
-            QgsProcessingParameterString(
+        
+        
+        p_periode.setFlags(p_periode.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(p_periode)
+
+        n_num_plage=QgsProcessingParameterString(
                 self.NUM_PLAGE,
                 self.tr('Time period id'),
                 "-1"
+
             )
-        )
-        self.addParameter(
-            QgsProcessingParameterString(
+        
+
+        n_num_plage.setFlags(n_num_plage.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(n_num_plage)
+
+
+
+        d_debut_periode=QgsProcessingParameterString(
                 self.DEBUT_PERIODE,
                 self.tr('Start time'),
                 "-1"
+
             )
-        )
-        self.addParameter(
-            QgsProcessingParameterString(
+        
+        d_debut_periode.setFlags(d_debut_periode.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(d_debut_periode)
+        
+        f_fin_periode=QgsProcessingParameterString(
                 self.FIN_PERIODE,
                 self.tr('End time'),
                 "-1"
+
             )
-        )
+        
+        
+        f_fin_periode.setFlags(f_fin_periode.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(f_fin_periode)
+
+
         self.addParameter(
             QgsProcessingParameterString(
                 self.CALENDRIER,
                 self.tr('Calendar'),
                 "-1"
+
             )
         )        
         self.addParameter(
@@ -192,6 +212,16 @@ class ReseauTi(QgsProcessingAlgorithm):
                 self.tr('Mode'),
                 "'m'",
                 self.INPUT
+                
+            )
+        )
+        self.addParameter(
+            QgsProcessingParameterExpression(
+                self.TOLL,
+                self.tr('Toll'),
+                "0",
+                self.INPUT
+
                 
             )
         )
@@ -231,11 +261,15 @@ class ReseauTi(QgsProcessingAlgorithm):
         calendrier=self.parameterAsString(parameters,self.CALENDRIER,context)
         texte_arc=QgsExpression(self.parameterAsExpression(parameters,self.TEXTE_ARC,context))
         mode=QgsExpression(self.parameterAsExpression(parameters,self.MODE,context))
+        toll=QgsExpression(self.parameterAsExpression(parameters,self.TOLL,context))
+
         # Compute the number of steps to display within the progress bar and
         # get features from source
         ##a=fenetre.split(",")
         ##fenetre2=QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
         src=QgsProject.instance().crs()
+        feedback.setProgressText(reseau_source.name())
+        
         dest=QgsCoordinateReferenceSystem(reseau_source.crs())
         xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
         fenetre=xtr.transformBoundingBox(fenetre_source)
@@ -252,6 +286,10 @@ class ReseauTi(QgsProcessingAlgorithm):
         texteContexte=self.createExpressionContext(parameters,context)
         texteContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(reseau_source))
         texte_arc.prepare(texteContexte)
+        tollContexte=self.createExpressionContext(parameters,context)
+        tollContexte.appendScopes(QgsExpressionContextUtils.globalProjectLayerScopes(reseau_source))
+        toll.prepare(tollContexte)
+
         for p,f in enumerate(features):
             
             feedback.setProgress(p*100/n)
@@ -267,12 +305,14 @@ class ReseauTi(QgsProcessingAlgorithm):
                 #te=f[texte_arc[0]]
                 modeContexte.setFeature(f)
                 texteContexte.setFeature(f)
+                tollContexte.setFeature(f)
                 modex=mode.evaluate(modeContexte)
                 te=texte_arc.evaluate(texteContexte)
+                tollex=toll.evaluate(tollContexte)
                 if s in ('1','3'):
-                   sortie.write(str(i)+';'+str(j)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
+                   sortie.write(str(i)+';'+str(j)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+';'+str(tollex)+'\n')
                 if s in ('2','3'):
-                   sortie.write(str(j)+';'+str(i)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+'\n')
+                   sortie.write(str(j)+';'+str(i)+';'+str(t)+';'+str(l)+';'+periode+';'+num_plage+';'+debut_periode+';'+fin_periode+';'+calendrier+';'+str(te)+';'+str(modex)+';'+str(tollex)+'\n')
         sortie.close()
         return {self.INPUT:self.INPUT}
 

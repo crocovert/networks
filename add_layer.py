@@ -18,7 +18,7 @@ from qgis.PyQt.QtCore import QCoreApplication,QVariant
 class AddLayer(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config: Optional[dict[str, Any]] = None):
-        self.addParameter(QgsProcessingParameterVectorLayer('vector_layer', 'Vector layer', types=[QgsProcessing.TypeVectorAnyGeometry], defaultValue=None))
+        self.addParameter(QgsProcessingParameterVectorLayer('vector_layer', self.tr('Vector layer'), types=[QgsProcessing.TypeVectorAnyGeometry], defaultValue=None))
 
     def processAlgorithm(self, parameters: dict[str, Any], context: QgsProcessingContext, model_feedback: QgsProcessingFeedback) -> dict[str, Any]:
         # Use a multi-step feedback, so that individual child algorithm progress reports are adjusted for the
@@ -30,23 +30,23 @@ class AddLayer(QgsProcessingAlgorithm):
         
         
         if not layer.isValid():
-            raise Exception("Erreur : la couche n'a pas pu être chargée.")
+            raise Exception(self.tr("Error : the layer can't be loaded'."))
 
         QgsProject.instance().addMapLayer(layer)
 
-        return 'vector_layer':layer
+        return {'vector_layer':layer}
 
     def name(self) -> str:
-        return 'Networks'
+        return 'AddLayer'
 
     def displayName(self) -> str:
-        return 'Networks'
+        return self.tr('Add layer')
 
     def group(self) -> str:
-        return 'Miscellaneous'
+        return self.tr('Utilities')
 
     def groupId(self) -> str:
-        return ''
+        return 'Utilities'
 
     def tr(self, string):
         return QCoreApplication.translate('AddLayer', string)

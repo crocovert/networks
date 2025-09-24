@@ -11,7 +11,7 @@ from qgis.core import QgsProcessing,QgsVectorLayer, QgsProject
 from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingContext
 from qgis.core import QgsProcessingFeedback, QgsProcessingMultiStepFeedback
-from qgis.core import QgsProcessingParameterVectorLayer
+from qgis.core import QgsProcessingParameterVectorLayer, QgsProcessingParameterString
 from qgis import processing
 from qgis.PyQt.QtCore import QCoreApplication,QVariant
 
@@ -26,7 +26,7 @@ class RemoveLayer(QgsProcessingAlgorithm):
         feedback = QgsProcessingMultiStepFeedback(0, model_feedback)
         results = {}
         outputs = {}
-        layer_name=self.parameterAsString('vecor_layer')
+        layer_name=self.parameterAsString('vector_layer')
         
         
         layers = QgsProject.instance().mapLayersByName(layer_name)
@@ -38,19 +38,19 @@ class RemoveLayer(QgsProcessingAlgorithm):
         for layer in layers:
             QgsProject.instance().removeMapLayer(layer.id())
 
-        return 'vector_layer':layer
+        return {'vector_layer':layer}
 
     def name(self) -> str:
-        return 'Networks'
+        return 'RemoveLayer'
 
     def displayName(self) -> str:
-        return 'Networks'
+        return self.tr('Remove layer')
 
     def group(self) -> str:
-        return self.tr('Miscellaneous')
+        return self.tr('Utilities')
 
     def groupId(self) -> str:
-        return 'Miscellaneous'
+        return 'Utilities'
     
     def tr(self, string):
         return QCoreApplication.translate('RemoveLayer', string)
