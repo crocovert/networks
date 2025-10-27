@@ -496,9 +496,9 @@ class ReseauTC(QgsProcessingAlgorithm):
                     textel = ""
                     for  k in range(n-1):
                         if elements[k][1].heure_dep > elements[k + 1][1].heure_dep:
-                            elements[k + 1][1].heure_dep+=1440.0
+                            elements[k + 1][1].heure_dep+=0.0
                         if elements[k][1].heure_arr > elements[k + 1][1].heure_arr:
-                            elements[k + 1][1].heure_arr += 1440.0
+                            elements[k + 1][1].heure_arr += 0.0
                         if elements[k][1].num_arret not in google_stops:
                             arret = Google_Stop()
                             arret.nom = elements[k][1].num_arret

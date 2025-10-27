@@ -72,16 +72,16 @@
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
         Parameters:
-            layer : a vector layer
-            field : name of the field to update or name of the new field
-            type : field data type (if new field)
-            size : field size (if new field)
-            precision : field precision (if new field and real type)
+            layer&#xa0;: a vector layer
+            field&#xa0;: name of the field to update or name of the new field
+            type&#xa0;: field data type (if new field)
+            size&#xa0;: field size (if new field)
+            precision&#xa0;: field precision (if new field and real type)
             filter: expression determining which rows will be updated
-            formula : expression that will be written in the field( for filtered rows only)
+            formula&#xa0;: expression that will be written in the field( for filtered rows only)
             
         </source>
-        <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d'une expression sur une sélection d'enregistrements
+        <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
         
         Paramètres:
             couche : une couche vectorielle
@@ -97,7 +97,7 @@
     <message>
         <location filename="ajout_champ.py" line="90"/>
         <source>Layer</source>
-        <translation>Couche</translation>
+        <translation>Couche (qgis)</translation>
     </message>
     <message>
         <location filename="ajout_champ.py" line="269"/>
@@ -112,7 +112,7 @@
     <message>
         <location filename="ajout_champ.py" line="245"/>
         <source>Warning: The layer is not editable</source>
-        <translation>Attention: la couche n'est pas éditable</translation>
+        <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
 </context>
 <context>
@@ -120,7 +120,7 @@
     <message>
         <location filename="create_ti_arcs.py" line="80"/>
         <source>Road network</source>
-        <translation>Réseau routier</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="create_ti_arcs.py" line="88"/>
@@ -156,10 +156,10 @@
         <location filename="create_ti_arcs.py" line="192"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             road network: road network layer (linear objects)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>window: area of the generated network (could be a sub area from the whole network layer)
+			window: area of the generated network (could be a sub area from the whole network layer)
             direction: flow direction (&apos;0&apos; proxhibited, &apos;1&apos; one way same direction as object, &apos;2&apos; one way reverse direction of object, &apos;3&apos; both directions
             time: arc travel time field
             length: arc length field
@@ -176,21 +176,21 @@
             
             
         </source>
-        <translation type="obsolete">        Généère un réseau Musliw de mode individuel (voiture, marche, vélo,...)à partir d'une couche réseau (objets linéaires)
+        <translation type="obsolete">        Généère un réseau Musliw de mode individuel (voiture, marche, vélo,...)à partir d&apos;une couche réseau (objets linéaires)
 		
         Paramètres:
             réseau routier: couche réseau routier( objets linéaires)
 			fenêtre: aire de génération (peut être une sous partie du réseau global)
-            sens: sens de circulation ('0' interdit, '1' sen sunique sens de la géométrie, '2'sens unique sens inverse de la géométrie, '3'double sens
-            temps: temps de parcours sur l'arc
-            longueur: longueur de l'arc
+            sens: sens de circulation (&apos;0&apos; interdit, &apos;1&apos; sen sunique sens de la géométrie, &apos;2&apos;sens unique sens inverse de la géométrie, &apos;3&apos;double sens
+            temps: temps de parcours sur l&apos;arc
+            longueur: longueur de l&apos;arc
             i-node: identifiant noeud i
             j-node: identifiant noeud j
             id période: identifiant de la période
             id palge horaire: identifiant de la plage horaire
             heure début:heure de début de la plage horaire
             heure fin: heure fin de la plage horaire
-            calendrier: calendrier de la plage horaire (ex: 'OOOOONN' tous les jours sauf samedi et dimanche
+            calendrier: calendrier de la plage horaire (ex: &apos;OOOOONN&apos; tous les jours sauf samedi et dimanche
             texte arc: libellé arc
             mode: identifiant de mode pour le calcul de plus courts chemins multimodal
             réseau Musliw: Nom du réseau Musliw généré (txt file)
@@ -202,10 +202,10 @@
         <source>
         Generates a arcs layer for individual transport mode similarly to arcs layers from GTFS Import
         in order to concatenate every netwrok element for multimodal routing visualization
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             road network: road network layer (linear objects)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>i-node: i_node id field
+			i-node: i_node id field
             j-node: j-node id field
             Node id concatenator: a character or a string to build ij field by concatenating i-node and j-node field 
             output layer: name of teh result output layer
@@ -213,7 +213,7 @@
             
         </source>
         <translation>
-        Génère un couche arcs similaire à celle générée lors d'un import GTFS.
+        Génère un couche arcs similaire à celle générée lors d&apos;un import GTFS.
  Cela permet de fusionner les différents réseaux pour visualiser les itinéraires multimodaux
 
 		
@@ -221,7 +221,7 @@
             réseau: réseau de transport individuel (objets linéaires)
 			i-node: noeud i
             j-node:noeud j
-            Node id concatenator: caractère pour concaténer les identifiant de noeud i et j pour générer l'identifiant d'arc ij
+            Node id concatenator: caractère pour concaténer les identifiant de noeud i et j pour générer l&apos;identifiant d&apos;arc ij
             couche résultat: nom de la couches arcs générée</translation>
     </message>
 </context>
@@ -230,7 +230,7 @@
     <message>
         <location filename="autoconnectors.py" line="86"/>
         <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
         <location filename="autoconnectors.py" line="93"/>
@@ -255,7 +255,7 @@
     <message>
         <location filename="autoconnectors.py" line="129"/>
         <source>Connectors file</source>
-        <translation>Fichier connecteurs</translation>
+        <translation>Sortie connecteurs (Qgis)</translation>
     </message>
     <message>
         <location filename="autoconnectors.py" line="210"/>
@@ -278,7 +278,7 @@
         Generate a layer of linear objects corresponding to connections between points closest within a layer (e.g. PT stops)
         
         Parameters:
-            nodes : nodes layer
+            nodes&#xa0;: nodes layer
 			node_id: node id
 			radius: search radius(m)
 			mode: mode at node
@@ -288,7 +288,7 @@
 			
         </source>
         <translation>
-        Génère une couche d'objets linéaires correspondant aux correspondants aux connexions entre les points les plus proches à l'intérieur d'unje couche (ex: les arrêts TC)
+        Génère une couche d&apos;objets linéaires correspondant aux correspondants aux connexions entre les points les plus proches à l&apos;intérieur d&apos;unje couche (ex: les arrêts TC)
         
         Parametères:
             noeuds : couche des noeuds
@@ -297,7 +297,7 @@
 			mode: mode au noeud spécifié
 			speed: vitesse sur les connecteurs (0= vitesse infinie)
 			fichier connecteurs: nom de la couche des conecteurs
-			NB: L'outil crée également en même temps le fichier txt au format Musliw format (même nom que le fichier connecteurs mais avec une extention txt)
+			NB: L&apos;outil crée également en même temps le fichier txt au format Musliw format (même nom que le fichier connecteurs mais avec une extention txt)
 			</translation>
     </message>
 </context>
@@ -334,7 +334,7 @@
     <message>
         <location filename="calcul_mint.py" line="119"/>
         <source>Accept to download Mint binary from Github</source>
-        <translation>Accepter de télécharger l'exécutable Mint de Github</translation>
+        <translation>Accepter de télécharger l&apos;exécutable Mint de Github</translation>
     </message>
     <message>
         <location filename="calcul_mint.py" line="147"/>
@@ -349,7 +349,7 @@
     <message>
         <location filename="calcul_mint.py" line="176"/>
         <source>Multimodal calculations... That could take some time</source>
-        <translation>Calcul d'accessibilité multimodale...Cela peut prendre un certains temps</translation>
+        <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
         <location filename="calcul_mint.py" line="199"/>
@@ -372,7 +372,7 @@
         . Assignment results file on links &quot;_aff.txt&quot;
         . Detailed strategies file (optional)
         Parameters:
-            Mint network : Mint network
+            Mint network&#xa0;: Mint network
             Mint matrix: Mint matrix
             Mint parameters: Mint parameters
             Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
@@ -383,13 +383,13 @@
          Produit les fichiers en sortie (ficheirs texte séparés par des &quot;;&quot; (si sélectionnées dans les paramètres):
         .Fichier résultats origine-destinations  &quot;_od.txt&quot;
         .Temps de parcours cumulés sur les arcs &quot;_times.txt&quot; (utile pour les cartes isochrones)
-        . Résultats d'affectation sur les arcs &quot;_aff.txt&quot;
+        . Résultats d&apos;affectation sur les arcs &quot;_aff.txt&quot;
         . Stratégies détaillées (optionel)
         Parameters:
             Réseau Mint : Réseau Mint
             Matrice Mint: Matrice Mint 
             Paramètres: Mint Paramètres Mint
-            Accepter de télécharger l'exécutable Mint : Si sélectionné, le script téélcharge l'exécutable  Mint_console.exe du répertoire Github
+            Accepter de télécharger l&apos;exécutable Mint : Si sélectionné, le script téélcharge l&apos;exécutable  Mint_console.exe du répertoire Github
             Sortie :Fichiers de résultats Mint (sans extension)</translation>
     </message>
     <message>
@@ -400,7 +400,7 @@
     <message>
         <location filename="calcul_mint.py" line="127"/>
         <source>Force waiting the end of calculations</source>
-        <translation>Forcer l'attente de la fin du calcul avant de continuer</translation>
+        <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
     </message>
 </context>
 <context>
@@ -408,32 +408,32 @@
     <message>
         <location filename="calcul_musliw.py" line="91"/>
         <source>Musliw network</source>
-        <translation>Réseau Musliw</translation>
+        <translation>Réseau Musliw (txt)</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="97"/>
         <source>Musliw matrix</source>
-        <translation>Matrice Musliw</translation>
+        <translation>Matrice Musliw (txt)</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="103"/>
         <source>Musliw parameters</source>
-        <translation>Paramètres Musliw</translation>
+        <translation>Paramètres Musliw (txt)</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="109"/>
         <source>Musliw penalties</source>
-        <translation>Pénalités Musliw</translation>
+        <translation>Pénalités Musliw (txt)</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="116"/>
         <source>Output</source>
-        <translation>Sortie</translation>
+        <translation>Sortie (txt)</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="182"/>
         <source>Multimodal calculations... That could take some time</source>
-        <translation>Calcul d'accessibilité multimodale...Cela peut prendre un certains temps</translation>
+        <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="210"/>
@@ -460,22 +460,22 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
 			output : Mulsiw results file (without extension)
         </source>
-        <translation type="obsolete">        Effectue un calcul d'itinéraires et d'accessibilité multimodale
+        <translation type="obsolete">        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
 		Génère des fichiers résultat (format texte séparateur &quot;;&quot;  (si sélectionné dans les paramtères):
         .Fichier origine destination  &quot;_od.txt&quot; (résultats par origine destination
-        .Temps d'accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
+        .Temps d&apos;accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
         .Chemins détaillés &quot;_chemins.txt&quot; 
-        . Résultats d'affectation sur les arcs &quot;_aff.txt&quot;
+        . Résultats d&apos;affectation sur les arcs &quot;_aff.txt&quot;
         . fichier Log &quot;_log.txt&quot;
         . Fichier pramètres &quot;_param.txt&quot;
         .Résultats par services &quot;_services.txt&quot;
-        . Temps d'accès par noeuds &quot;_noeuds.txt&quot;
+        . Temps d&apos;accès par noeuds &quot;_noeuds.txt&quot;
         
         Paramètres:
            Réseau Musliw 
@@ -488,7 +488,7 @@
     <message>
         <location filename="calcul_musliw.py" line="125"/>
         <source>Accept to download Musliw binary from Github</source>
-        <translation>Accepter de télécharger l'exécutable Musliw de Github</translation>
+        <translation>Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="163"/>
@@ -516,23 +516,23 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network : Musliw network
+            network&#xa0;: Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
 			output : Mulsiw results file (without extension)
             Accept to download Muslic binary: If checked, the algorithm will download Muslic.exe on the github repository
         </source>
-        <translation>        Effectue un calcul d'itinéraires et d'accessibilité multimodale
+        <translation>        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
 		Génère des fichiers résultat (format texte séparateur &quot;;&quot;  (si sélectionné dans les paramtères):
         .Fichier origine destination  &quot;_od.txt&quot; (résultats par origine destination
-        .Temps d'accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
+        .Temps d&apos;accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
         .Chemins détaillés &quot;_chemins.txt&quot; 
-        . Résultats d'affectation sur les arcs &quot;_aff.txt&quot;
+        . Résultats d&apos;affectation sur les arcs &quot;_aff.txt&quot;
         . fichier Log &quot;_log.txt&quot;
         . Fichier pramètres &quot;_param.txt&quot;
         .Résultats par services &quot;_services.txt&quot;
-        . Temps d'accès par noeuds &quot;_noeuds.txt&quot;
+        . Temps d&apos;accès par noeuds &quot;_noeuds.txt&quot;
         
         Paramètres:
            Réseau Musliw 
@@ -544,7 +544,7 @@
     <message>
         <location filename="calcul_musliw.py" line="133"/>
         <source>Force waiting the end of calculations</source>
-        <translation>Forcer l'attente de la fin du calcul avant de continuer</translation>
+        <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
     </message>
 </context>
 <context>
@@ -557,7 +557,7 @@
     <message>
         <location filename="concat_reseaux.py" line="98"/>
         <source>Global network</source>
-        <translation>Réseau multimodal</translation>
+        <translation>Réseau multimodal (txt)</translation>
     </message>
     <message>
         <location filename="concat_reseaux.py" line="156"/>
@@ -576,7 +576,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder : Musliw networks elements folder
+            network elements folder&#xa0;: Musliw networks elements folder
 			global network: name of the global network file (txt)
         </source>
         <translation type="obsolete">        Concatène différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -598,7 +598,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder : Musliw networks elements folder
+            network elements folder&#xa0;: Musliw networks elements folder
 			global network: name of the global network file (txt)
             column names on first row?: Must be checked if column names are on first row
         </source>
@@ -615,12 +615,12 @@
     <message>
         <location filename="concat_files.py" line="85"/>
         <source>Network files to concatenate</source>
-        <translation>Fichiers réseaux à concaténer</translation>
+        <translation>Fichiers réseaux à concaténer (txt)</translation>
     </message>
     <message>
         <location filename="concat_files.py" line="99"/>
         <source>Global network</source>
-        <translation>Réseau multimodal</translation>
+        <translation>Réseau multimodal (txt)</translation>
     </message>
     <message>
         <location filename="concat_files.py" line="156"/>
@@ -639,7 +639,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements files : Musliw networks elements files
+            network elements files&#xa0;: Musliw networks elements files
 			global network: name of the global network file (txt)
             column names on first row?: Must be checked if column names are on first row
         </source>
@@ -675,7 +675,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            sources : Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
+            sources&#xa0;: Musliw networks elements (use &lt;shift&gt; and &lt;ctrl&gt; in order to select several files)
 			musliw_file: name of the global network file (txt)
         </source>
         <translation type="obsolete">        Concatene différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -707,7 +707,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder : Musliw networks elements folder
+            network elements folder&#xa0;: Musliw networks elements folder
 			global network: name of the global network file (txt)
         </source>
         <translation type="obsolete">        Concatène différents réseaux Musliw,réseaux à horaires,de transport individuel, des connecteurspour générer un réseau multimodal utilisable en entrée pour le logiciel Musliw
@@ -728,7 +728,7 @@
     <message>
         <location filename="connect_nodes2lines.py" line="89"/>
         <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
         <location filename="connect_nodes2lines.py" line="96"/>
@@ -758,17 +758,17 @@
         The lines layer is in editable mode in order to be alble to cancel the connections.
         
         Parameters:
-            lines : lines layer (linear objects)
+            lines&#xa0;: lines layer (linear objects)
 			nodes: points layer
             radius: search radius (m)
         </source>
-        <translation>        Connecte des points à des objets linéaires à l'intérieur d'un certain rayon de recherche. Les points sont connectés à la polyligne la plus proche. La polyligne la plus proche est alors scindée en deux parties et une ligne est générée entre le point et la polyligne la plus proche
-        La couche des lignes est alors placé en mode édition pour permettre à l'utilisateur d'annuler les modifications
+        <translation>        Connecte des points à des objets linéaires à l&apos;intérieur d&apos;un certain rayon de recherche. Les points sont connectés à la polyligne la plus proche. La polyligne la plus proche est alors scindée en deux parties et une ligne est générée entre le point et la polyligne la plus proche
+        La couche des lignes est alors placé en mode édition pour permettre à l&apos;utilisateur d&apos;annuler les modifications
  line is generated between the point and the closest point
         
         Paramètres:
-            réseau : couche d'objets linéaires
-			noeuds: couche d'objets ponctuels
+            réseau : couche d&apos;objets linéaires
+			noeuds: couche d&apos;objets ponctuels
             rayons: rayon de recherche (m)
         </translation>
     </message>
@@ -778,7 +778,7 @@
     <message>
         <location filename="connecteurs_geo.py" line="95"/>
         <source>Stops</source>
-        <translation>Arrêts</translation>
+        <translation>Arrêts (Qgis)</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="102"/>
@@ -798,7 +798,7 @@
     <message>
         <location filename="connecteurs_geo.py" line="124"/>
         <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="131"/>
@@ -833,7 +833,7 @@
     <message>
         <location filename="connecteurs_geo.py" line="194"/>
         <source>Connectors file</source>
-        <translation>Fichier des connecteurs</translation>
+        <translation>Fichier des connecteurs (Qgis)</translation>
     </message>
     <message>
         <location filename="connecteurs_geo.py" line="248"/>
@@ -861,7 +861,7 @@
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
         Parameters:
-            stops : stops layer
+            stops&#xa0;: stops layer
 			stop_id: stop id
 			nodes: nodes layer
 			node_id: node id
@@ -875,7 +875,7 @@
 			NB: the tool generates in the same time a txt file in Musliw format (same name as connectors file with txt extension)
 			
         </source>
-        <translation>        Crée un couche d'objets linéaires correspondant aux connecteurs entre deux couches d'objets ponctuels (ex: les arrêts TC et les noeuds routiers)
+        <translation>        Crée un couche d&apos;objets linéaires correspondant aux connecteurs entre deux couches d&apos;objets ponctuels (ex: les arrêts TC et les noeuds routiers)
         
         Paramètres:
             stops : couche des arrêtsr
@@ -889,7 +889,7 @@
 			mode au noeud j: mode au noeud j (noeud fin)
 			vitesse:vitesse sur les connecteurs (0= vitesse infinie =temps nul)
 			fichier connecteurs: nom de la table des connecteurs
-			NB: L'outil génère en même temps un fichier txt au format Musliw (même nom que la table connecteurs mais avec l'extension txt)
+			NB: L&apos;outil génère en même temps un fichier txt au format Musliw (même nom que la table connecteurs mais avec l&apos;extension txt)
 			
         </translation>
     </message>
@@ -919,7 +919,7 @@
     <message>
         <location filename="contours.py" line="97"/>
         <source>Raster</source>
-        <translation>Raster</translation>
+        <translation>Raster (Qgis)</translation>
     </message>
     <message>
         <location filename="contours.py" line="103"/>
@@ -970,19 +970,19 @@
         <location filename="contours.py" line="740"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             raster: input raster layer name
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>band: band to compute
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>min: minimum isovalue area to generate
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>max: maximum isovalue area to generate
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>interval: step between each isovalue
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>no_value: value corresponding to the raster no_value
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>polygons: True= genarates polygons: False generates Polylines
+			band: band to compute
+			min: minimum isovalue area to generate
+			max: maximum isovalue area to generate
+			interval: step between each isovalue
+			no_value: value corresponding to the raster no_value
+			polygons: True= genarates polygons: False generates Polylines
             individual values: if checked generate a polygon for each individual raster value (no interpolation)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>result: name of the resulted isovalue polygons layer
+			result: name of the resulted isovalue polygons layer
         </source>
-        <translation>        Généère des polygones iso-valeurs à partir d'une couche Rasterr (ex: pour générer des surfaces isochrones)
+        <translation>        Généère des polygones iso-valeurs à partir d&apos;une couche Rasterr (ex: pour générer des surfaces isochrones)
 		        
         Parameters:
             raster:nom de la couche raster
@@ -990,9 +990,9 @@
 			min: valeur minimum du polygone isovaleur à générer
 			max: valeur maximum du polygone isovaleur à générer
 			interval: intervalle entre chaque polygone iso-valeur
-			valeur absente: valeur correspondant à l'absence de données dans le raster
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
 			polygones: True=Génère des polygones: False génère des polylignes
-			valeurs individuelles : True=Génèreun polygone pour chaque valeur de pixel du raster (pas d'interpolation)
+			valeurs individuelles : True=Génèreun polygone pour chaque valeur de pixel du raster (pas d&apos;interpolation)
 			contours iso-valeurs: nom de la couche iso_valeurs en sortie
         </translation>
     </message>
@@ -1027,7 +1027,7 @@
     <message>
         <location filename="create_update_links.py" line="111"/>
         <source>Initial/final waiting time?</source>
-        <translation>temps d'attente initial/final?</translation>
+        <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="create_update_links.py" line="120"/>
@@ -1050,20 +1050,20 @@
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window that defines the updated links  (only those inside the window)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
             result network: name of the network layer subset with updated travel times (ti &amp; tj)
         </source>
-        <translation>        Lit le fichier temps de parcours  &quot;.._temps.txt&quot; calculé par Musliw et généère une couche réseau d'objets linéaires avec les temps de parcours en i et en j (ti et tj) mis à jour avec le fichier temps
+        <translation>        Lit le fichier temps de parcours  &quot;.._temps.txt&quot; calculé par Musliw et généère une couche réseau d&apos;objets linéaires avec les temps de parcours en i et en j (ti et tj) mis à jour avec le fichier temps
 		        
         Paramètres:
             reseau : couche du réseaur (objets linéaires)
 			Fichier temps de parcours Musliw: Fichier temps ..._temps.txt généré par Musliw
-            fenêtre: fenêtre qui sélectionne les arcs à mettre à jour  (ceux à l'intérieur de la fenêtre)
-            temps d'attente intial/final: pour prendre en compte ou non le temps initial/final (tatt1)
+            fenêtre: fenêtre qui sélectionne les arcs à mettre à jour  (ceux à l&apos;intérieur de la fenêtre)
+            temps d&apos;attente intial/final: pour prendre en compte ou non le temps initial/final (tatt1)
             réseau résultat: nom de la couche réseau générée avec les temps mis à jour du fichier temps (ti &amp; tj)</translation>
     </message>
 </context>
@@ -1105,19 +1105,19 @@
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
-            network : Network layer (linear objects)
-			prefix: prefix for node ids (ex: 'MAP' and n° 12563 =&gt; MAP12563)
+            network&#xa0;: Network layer (linear objects)
+			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
             node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
-			direction: flow direction ('0' prohibited, '1' one way objet direction, '2', one way inverse object direction, '3' both directions
+			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
 			nodes_file: nodes layer (arcs ends)
         </source>
-        <translation>        Crée un graphe à partir d'une couche d'objets linéaires (crée une couche de noeuds, crée et met à jour les champs i, j et ij avec les identifiants de noeuds) en tenant compte du sens de circulation.Génération des identifiants de noeuds soit par un compteur ou une chaîne géographique (unique) qui permet de fusionner des réseaux contigüs
+        <translation>        Crée un graphe à partir d&apos;une couche d&apos;objets linéaires (crée une couche de noeuds, crée et met à jour les champs i, j et ij avec les identifiants de noeuds) en tenant compte du sens de circulation.Génération des identifiants de noeuds soit par un compteur ou une chaîne géographique (unique) qui permet de fusionner des réseaux contigüs
         
         Paramètres:
             réseau : Couche réseau (objets linéaires)
-			préfixe: préfixepour les identifiants de noeuds (ex: 'MAP'; et n° 12563 =&gt; MAP12563)
+			préfixe: préfixepour les identifiants de noeuds (ex: &apos;MAP&apos;; et n° 12563 =&gt; MAP12563)
 			node_id: format des identifiants de noeuds: competeur ou chaine géographique (unique)
-			sens: sens de circulation ('0':interdit,'1': sens unique sens de a géométrie, '2': sens unique sens inverse de la géométrie , '3': double sens
+			sens: sens de circulation (&apos;0&apos;:interdit,&apos;1&apos;: sens unique sens de a géométrie, &apos;2&apos;: sens unique sens inverse de la géométrie , &apos;3&apos;: double sens
 			fichier noeuds: couche des noeuds (extrémités des arcs)</translation>
     </message>
     <message>
@@ -1161,7 +1161,7 @@
     <message>
         <location filename="deletefile.py" line="34"/>
         <source> doesn&apos;t exist</source>
-        <translation> n'existe pas</translation>
+        <translation> n&apos;existe pas</translation>
     </message>
     <message>
         <location filename="deletefile.py" line="47"/>
@@ -1187,7 +1187,7 @@
     <message>
         <location filename="fichier_aff.py" line="86"/>
         <source>Network</source>
-        <translation>Réseau</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="fichier_aff.py" line="95"/>
@@ -1212,7 +1212,7 @@
     <message>
         <location filename="fichier_aff.py" line="132"/>
         <source>aff output file</source>
-        <translation>Fichier aff</translation>
+        <translation>Fichier aff (txt)</translation>
     </message>
     <message>
         <location filename="fichier_aff.py" line="142"/>
@@ -1238,12 +1238,12 @@
         <location filename="fichier_aff.py" line="295"/>
         <source>
         Generate a linear objects layer with the links used in assignment (with a volume of passengers&gt;0) in particular to produce flows maps.
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             network: the network links layer 
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: an expression do describe the link id (&quot;id&quot; attribute or expression)
+			ij: an expression do describe the link id (&quot;id&quot; attribute or expression)
             line (optonal): the line id. If line id is filled the layer will have as many superposed links as they have identical links but with a different transit line id (You should used &quot;shift lines&apos; alg to view flows maps in this case
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>link type: the type of link
+			link type: the type of link
             aff ouput file: Choose a network corresponding &lt;FILENAME&gt;_aff.txt output file
             enconding: text encoding
             flows layer: name of the flows layer generated
@@ -1252,12 +1252,12 @@
             
         </source>
         <translation>
-        Générer un couche d'objets linéaires à partir des tronçons parcourus dans l'affectation (ceux avec un volume&gt;0) en particulier pour pouvoir produire des cartes de flux ou detrafic
+        Générer un couche d&apos;objets linéaires à partir des tronçons parcourus dans l&apos;affectation (ceux avec un volume&gt;0) en particulier pour pouvoir produire des cartes de flux ou detrafic
 		
         Paramètres:
             réseau: La couche des tronçons
 			ij: identifiant de tronçon (attribut &quot;ij&quot;) ou expression
-            ligne (optonel): L'identifiant de ligne. Si l'identifiant de ligne est renseigné il y auara autant de tronçon superposés que de tronçons identiques mais avec un identifiant de ligne différent (Il faut utiliser l'agorithme décaler lignes dans ce cas vour produire des cartes de flux)
+            ligne (optonel): L&apos;identifiant de ligne. Si l&apos;identifiant de ligne est renseigné il y auara autant de tronçon superposés que de tronçons identiques mais avec un identifiant de ligne différent (Il faut utiliser l&apos;agorithme décaler lignes dans ce cas vour produire des cartes de flux)
 			type de tronçon: Le type de tronçon
             Fichier aff: nom du fichier  &lt;NOM_FICHIER&gt;_aff.txt 
             encodage: Encodage du texte
@@ -1272,7 +1272,7 @@
     <message>
         <location filename="fichier_od.py" line="89"/>
         <source>OD output file</source>
-        <translation>Fichier OD</translation>
+        <translation>Fichier OD (txt)</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="101"/>
@@ -1282,7 +1282,7 @@
     <message>
         <location filename="fichier_od.py" line="117"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher temps d'attente initial/final?</translation>
+        <translation>Retrancher temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="125"/>
@@ -1308,13 +1308,13 @@
         <location filename="fichier_od.py" line="274"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             OD indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             id: OD id
             avg: average value 
@@ -1329,24 +1329,24 @@
             
             
         </source>
-        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l'on souhaite étduier la variation des temps de parcours durant une période de temps
+        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
 			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente iitial ou final (entre le temps d'arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
-           Fichier d'incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
             id: OD id
             avg: valeur moyenne
             nb: nombre de lignes pour cette OD traitées
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier ou dernier noeud d'intermodalité correspondant à la valeur minimum
-            pole_max:premier ou dernier noeud d'intermodalité correspondant à la valeur maximum
-            departures: nombre d'heures de départ (nombre d'alternatives différentes) 
-            arrivals:number d'heures d'arrivée (nombre d'alternatives différentes) 
-            sdev: valeur d'écart type
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
             
             
         </translation>
@@ -1354,7 +1354,7 @@
     <message>
         <location filename="fichier_od.py" line="124"/>
         <source>Max wait time</source>
-        <translation type="obsolete">Temps d'attente maxi</translation>
+        <translation type="obsolete">Temps d&apos;attente maxi</translation>
     </message>
     <message>
         <location filename="fichier_od.py" line="132"/>
@@ -1370,13 +1370,13 @@
         <location filename="fichier_od.py" line="274"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             Max wait time: filter to select only OD with a lower total waiting time 
             Max number of boarding: filter to select only OD with a lower total number of boardings
             MAx individual modes times: filter to select only OD with a lower total individual modes travel times
@@ -1395,29 +1395,29 @@
             
             
         </source>
-        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l'on souhaite étduier la variation des temps de parcours durant une période de temps
+        <translation type="obsolete">        Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
 			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente iitial ou final (entre le temps d'arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
-			temps d'attente maxi: Filtre pour sélectionner les OD avec un temps d'attente total inférieur
+			temps d&apos;attente maxi: Filtre pour sélectionner les OD avec un temps d&apos;attente total inférieur
 			nombre de voyages maxi: Filtre pour sélectionner les OD avec un nombre de voyages inférieur
 			temps en modes individuels maxi: Filtre pour sélectionner les OD avec un temps total en modes individuel inférieur
 
 
-           Fichier d'incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
             id: OD id
             avg: valeur moyenne
             nb: nombre de lignes pour cette OD traitées
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier ou dernier noeud d'intermodalité correspondant à la valeur minimum
-            pole_max:premier ou dernier noeud d'intermodalité correspondant à la valeur maximum
-            departures: nombre d'heures de départ (nombre d'alternatives différentes) 
-            arrivals:number d'heures d'arrivée (nombre d'alternatives différentes) 
-            sdev: valeur d'écart type
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
             
             
         </translation>
@@ -1431,13 +1431,13 @@
         <location filename="fichier_od.py" line="285"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             filter: filter expression to select a subset of OD. Available variables are:
                 &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
                 and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
@@ -1456,29 +1456,29 @@
             
             
         </source>
-        <translation>       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l'on souhaite étduier la variation des temps de parcours durant une période de temps
+        <translation>       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
 			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente iitial ou final (entre le temps d'arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
 			filtre: expression filtre pour effectuer une sélection des OD. Les variables disponibles sont:
-                'jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','nbpop','toll' as numeric 
-                and 'id','origin','destination','pole','texte' as string
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
 
 
-           Fichier d'incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
             id: OD id
             avg: valeur moyenne
             nb: nombre de lignes pour cette OD traitées
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier ou dernier noeud d'intermodalité correspondant à la valeur minimum
-            pole_max:premier ou dernier noeud d'intermodalité correspondant à la valeur maximum
-            departures: nombre d'heures de départ (nombre d'alternatives différentes) 
-            arrivals:number d'heures d'arrivée (nombre d'alternatives différentes) 
-            sdev: valeur d'écart type
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
             
             
         </translation>
@@ -1489,7 +1489,7 @@
     <message>
         <location filename="fichier_temps.py" line="84"/>
         <source>Link times output file</source>
-        <translation>Fichier temps Musliw</translation>
+        <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_temps.py" line="96"/>
@@ -1499,7 +1499,7 @@
     <message>
         <location filename="fichier_temps.py" line="112"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher le temps d'attente initial/final?</translation>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="fichier_temps.py" line="120"/>
@@ -1530,13 +1530,13 @@
         <location filename="fichier_temps.py" line="245"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1554,23 +1554,23 @@
             
         </source>
         <translation type="obsolete">
-        Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l'on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             ij:  id tronçon
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum
             
@@ -1586,14 +1586,14 @@
         <location filename="fichier_temps.py" line="278"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1610,13 +1610,13 @@
             
             
         </source>
-        <translation>       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l'on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        <translation>       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
 
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
@@ -1624,11 +1624,11 @@
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum
             
@@ -1641,7 +1641,7 @@
     <message>
         <location filename="fichier_temps_jour.py" line="84"/>
         <source>Link times output file</source>
-        <translation>Fichier temps Musliw</translation>
+        <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_temps_jour.py" line="96"/>
@@ -1651,7 +1651,7 @@
     <message>
         <location filename="fichier_temps_jour.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher le temps d'attente initial/final?</translation>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="fichier_temps_jour.py" line="119"/>
@@ -1677,13 +1677,13 @@
         <location filename="fichier_temps_jour.py" line="246"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1700,23 +1700,23 @@
             
             
         </source>
-        <translation type="obsolete">       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l'on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        <translation type="obsolete">       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             ij:  id tronçon
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum
             
@@ -1732,14 +1732,14 @@
         <location filename="fichier_temps_jour.py" line="278"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1756,13 +1756,13 @@
             
             
         </source>
-        <translation>       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l'on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        <translation>       Produit des indicateurs aggrégés par tronçon et jour. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
 
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
@@ -1770,11 +1770,11 @@
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum
             
@@ -1787,7 +1787,7 @@
     <message>
         <location filename="fichier_temps_multi.py" line="84"/>
         <source>Link times output file</source>
-        <translation>Fichier temps Musliw</translation>
+        <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_temps_multi.py" line="98"/>
@@ -1797,7 +1797,7 @@
     <message>
         <location filename="fichier_temps_multi.py" line="106"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher le temps d'attente initial/final?</translation>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="fichier_temps_multi.py" line="114"/>
@@ -1823,14 +1823,14 @@
         <location filename="fichier_temps_multi.py" line="276"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1847,11 +1847,11 @@
             
             
         </source>
-        <translation>       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l'on souhaite étudier la variabilité des temps de parcours durant une période de temps
+        <translation>       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
            Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
@@ -1859,11 +1859,11 @@
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum
             
@@ -1884,7 +1884,7 @@
     <message>
         <location filename="gravityindicator.py" line="37"/>
         <source>Musliw Output Nodes File</source>
-        <translation>Fichier noeuds Musliw</translation>
+        <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
         <location filename="gravityindicator.py" line="38"/>
@@ -1894,7 +1894,7 @@
     <message>
         <location filename="gravityindicator.py" line="40"/>
         <source>Socioeconomic data</source>
-        <translation>Donénes socioéconomiques</translation>
+        <translation>Données socioéconomiques (Qgis)</translation>
     </message>
     <message>
         <location filename="gravityindicator.py" line="41"/>
@@ -1945,20 +1945,20 @@
         - ..._zones.txt (gravity indicator by zone), accessibility area
         
         </source>
-        <translation>L'algorithme effectue un calcul d'accessibilité gravitaire basé sur une fonction de résistance induisant un epondération:
+        <translation>L&apos;algorithme effectue un calcul d&apos;accessibilité gravitaire basé sur une fonction de résistance induisant un epondération:
 ( 1 pour un temps de parcours de 0, 0.5 pour un temps de parcours de T minutes et ,0 pour un temps de parcours infini)
 - Fichier Noeuds Musliw: chemin du fichier noleuds _noeuds.txt au format Musliw (la sortie doit être activée au prélable dans les paramètres)
 - Aménité: Champ aménité (en général volau)
 - T0: La valeur de T0 pour lequel la pondération de la fonction de résistance vaut 0.5
-- Données socioéconomiques: Table qui contient les données d'émission (zones ou grille qui contient les populations par exemple)Zone 
+- Données socioéconomiques: Table qui contient les données d&apos;émission (zones ou grille qui contient les populations par exemple)Zone 
 - Zone ID: Identifiant de zone
-- Population: Champ de population (nb d'habitants par exemple)
+- Population: Champ de population (nb d&apos;habitants par exemple)
 - Nombre de périodes: Nombre de période de calcul pour une même OD
 -Sortie: nom générique du fichier de sortie (txt)
 
-L'algorithme produit deux fichiers de résultats:
+L&apos;algorithme produit deux fichiers de résultats:
 - ..._equip.txt: (indicateur gravitaire par équiepement, zone de chalandise
-- ..._zones.txt (indicateur gravitaire par zone), zone d'accessibilité</translation>
+- ..._zones.txt (indicateur gravitaire par zone), zone d&apos;accessibilité</translation>
     </message>
 </context>
 <context>
@@ -2080,7 +2080,7 @@ L'algorithme produit deux fichiers de résultats:
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder : GTFS folder path
+            GTFS_folder&#xa0;: GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -2092,8 +2092,8 @@ L'algorithme produit deux fichiers de résultats:
 			
         </source>
         <translation>
-        Scanne un répertoire GTFS et généère une couche d'arrêts, d'arcs et de tronçons de lignes simplifés
-		Calcule d'offre de transport sur une période et une plage horaire définies (nombre de passages)
+        Scanne un répertoire GTFS et généère une couche d&apos;arrêts, d&apos;arcs et de tronçons de lignes simplifés
+		Calcule d&apos;offre de transport sur une période et une plage horaire définies (nombre de passages)
         
         Paramètres:
            Répertoire GTFS : Chemin du répertoire GTFS
@@ -2148,7 +2148,7 @@ L'algorithme produit deux fichiers de résultats:
     <message>
         <location filename="gtfs_mint.py" line="204"/>
         <source>Mint network layer</source>
-        <translation>Couche réseau Mint</translation>
+        <translation>Couche réseau Mint (qgis)</translation>
     </message>
     <message>
         <location filename="gtfs_mint.py" line="786"/>
@@ -2206,7 +2206,7 @@ L'algorithme produit deux fichiers de résultats:
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder : GTFS folder 
+            GTFs folder&#xa0;: GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
@@ -2227,7 +2227,7 @@ L'algorithme produit deux fichiers de résultats:
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder : GTFS folder path
+            GTFS_folder&#xa0;: GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -2236,7 +2236,7 @@ L'algorithme produit deux fichiers de résultats:
 			Mint network layer: name of the lines layer. Stops and links layers name and will be identical but with _stops and _links at the end
         </source>
         <translation>        Scanne un dossier GTFS et générer la couche des arrêts, et la couche des arcs et lignes simplifiés
-		Calcule l'offre de transport pour la période et le calendrier spécifiés (nombre d'arrêts)
+		Calcule l&apos;offre de transport pour la période et le calendrier spécifiés (nombre d&apos;arrêts)
         
         Paramètres :
             GTFS_folder : Chemin du dossier GTFS
@@ -2268,12 +2268,12 @@ L'algorithme produit deux fichiers de résultats:
     <message>
         <location filename="nodal_intensity.py" line="37"/>
         <source>PT stops</source>
-        <translation>Arrêts TC</translation>
+        <translation>Arrêts TC (Qgis)</translation>
     </message>
     <message>
         <location filename="nodal_intensity.py" line="38"/>
         <source>nodal points</source>
-        <translation>pôles nodaux</translation>
+        <translation>pôles nodaux (Qgis)</translation>
     </message>
     <message>
         <location filename="nodal_intensity.py" line="39"/>
@@ -2288,7 +2288,7 @@ L'algorithme produit deux fichiers de résultats:
     <message>
         <location filename="nodal_intensity.py" line="41"/>
         <source>Musliw network file</source>
-        <translation>Fichier réseau Musliw</translation>
+        <translation>Fichier réseau Musliw (txt)</translation>
     </message>
     <message>
         <location filename="nodal_intensity.py" line="42"/>
@@ -2374,7 +2374,7 @@ L'algorithme produit deux fichiers de résultats:
             out put layer: name of the result layer
 </source>
         <translation type="obsolete">
-        Le script généère des indicateurs destinés à évaluer le potentiel nodal d'intermodalité
+        Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
         Ces indicateurs sont:
         - Potentiel nodal tous modes
         - Potentiel nodal train
@@ -2386,13 +2386,13 @@ L'algorithme produit deux fichiers de résultats:
         - Intensité nodale cadencement traon
         Paramètres:
             Arrêts TC: Couche contenant les arrêts TC à prendre en compte
-            Points nodaux: Couche des pôles d'intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
+            Points nodaux: Couche des pôles d&apos;intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
             id noeud: identifiant de noeud
             nom de noeud: libellé du noeud
             fichier réseau Musliw: Nom du fichier réseau Musliw (txt) qui contient les horaires permettant le calcul des indicateurs
-            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l'intérieur du réayon)
+            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l&apos;intérieur du réayon)
             jour: jour du calendrier du fichier Musliw
-            temps de correspondance mini: le temps minimum à attendre à l'arrêt pour pouvoir monter à bord du véhicule
+            temps de correspondance mini: le temps minimum à attendre à l&apos;arrêt pour pouvoir monter à bord du véhicule
             temps de correspondance mini: le temps de correspondance maxi
             début période: début de la plage horaire à étudier
             fin période: fin de la plage horaire à étudier
@@ -2402,7 +2402,7 @@ L'algorithme produit deux fichiers de résultats:
     <message>
         <location filename="nodal_intensity.py" line="49"/>
         <source>type of analysis by:</source>
-        <translation>type d'analyse par:</translation>
+        <translation>type d&apos;analyse par:</translation>
     </message>
     <message>
         <location filename="nodal_intensity.py" line="49"/>
@@ -2444,7 +2444,7 @@ L'algorithme produit deux fichiers de résultats:
         The script generates a detailed txt file named &lt;out_put layer&gt;_mat.txt to be able to analyze in detail transfers and intermodality
 </source>
         <translation type="obsolete">
-        Le script généère des indicateurs destinés à évaluer le potentiel nodal d'intermodalité
+        Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
         Ces indicateurs sont:
         - Potentiel nodal tous modes
         - Potentiel nodal train
@@ -2456,20 +2456,20 @@ L'algorithme produit deux fichiers de résultats:
         - Intensité nodale cadencement traon
         Paramètres:
             Arrêts TC: Couche contenant les arrêts TC à prendre en compte
-            Points nodaux: Couche des pôles d'intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
+            Points nodaux: Couche des pôles d&apos;intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
             id noeud: identifiant de noeud
             nom de noeud: libellé du noeud
             fichier réseau Musliw: Nom du fichier réseau Musliw (txt) qui contient les horaires permettant le calcul des indicateurs
-            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l'intérieur du réayon)
+            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l&apos;intérieur du réayon)
             jour: jour du calendrier du fichier Musliw
-            temps de correspondance mini: le temps minimum à attendre à l'arrêt pour pouvoir monter à bord du véhicule
+            temps de correspondance mini: le temps minimum à attendre à l&apos;arrêt pour pouvoir monter à bord du véhicule
             temps de correspondance mini: le temps de correspondance maxi
             début période: début de la plage horaire à étudier
             fin période: fin de la plage horaire à étudier
             demi-tours interdits: si sélectionné les demi-tours seront interdits
             couche résultat: nom de la couche où seront produits les résultats
 
-Le script génère également un fichier détaillée &lt;couche_résultat&gt;_mat.TXT pour analyser  les correspondances et l'intermodalité</translation>
+Le script génère également un fichier détaillée &lt;couche_résultat&gt;_mat.TXT pour analyser  les correspondances et l&apos;intermodalité</translation>
     </message>
     <message>
         <location filename="nodal_intensity.py" line="341"/>
@@ -2501,7 +2501,7 @@ Le script génère également un fichier détaillée &lt;couche_résultat&gt;_ma
         The script generates two detailed txt files named &lt;out_put layer&gt;origin_mat.txt and &lt;out_put layer&gt;destination_mat.txt to be able to analyze in detail transfers and intermodality either you want to analyse transfers from the incoming or outgoing modes
 </source>
         <translation>
-        Le script généère des indicateurs destinés à évaluer le potentiel nodal d'intermodalité
+        Le script généère des indicateurs destinés à évaluer le potentiel nodal d&apos;intermodalité
         Ces indicateurs sont:
         - Potentiel nodal tous modes
         - Potentiel nodal train
@@ -2513,20 +2513,20 @@ Le script génère également un fichier détaillée &lt;couche_résultat&gt;_ma
         - Intensité nodale cadencement train
         Paramètres:
             Arrêts TC: Couche contenant les arrêts TC à prendre en compte
-            Points nodaux: Couche des pôles d'intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
+            Points nodaux: Couche des pôles d&apos;intermodalité pour lesquels seront calculés les indicateurs de potentiel et intensité nodale
             id noeud: identifiant de noeud
             nom de noeud: libellé du noeud
             fichier réseau Musliw: Nom du fichier réseau Musliw (txt) qui contient les horaires permettant le calcul des indicateurs
-            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l'intérieur du réayon)
+            rayon: Le rayon en mètres qui définit les arrêts à prendre en compte (ceux à l&apos;intérieur du réayon)
             jour: jour du calendrier du fichier Musliw
-            temps de correspondance mini: le temps minimum à attendre à l'arrêt pour pouvoir monter à bord du véhicule
+            temps de correspondance mini: le temps minimum à attendre à l&apos;arrêt pour pouvoir monter à bord du véhicule
             temps de correspondance mini: le temps de correspondance maxi
             début période: début de la plage horaire à étudier
             fin période: fin de la plage horaire à étudier
             demi-tours interdits: si sélectionné les demi-tours seront interdits
             couche résultat: nom de la couche où seront produits les résultats
 
-Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_origin_mat.txt et &lt;couche_résultat&gt;_destination_mat.txt pour analyser  les correspondances et l'intermodalité soit du point de vue du mode entrant soit du mode sortant</translation>
+Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_origin_mat.txt et &lt;couche_résultat&gt;_destination_mat.txt pour analyser  les correspondances et l&apos;intermodalité soit du point de vue du mode entrant soit du mode sortant</translation>
     </message>
 </context>
 <context>
@@ -2534,7 +2534,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
     <message>
         <location filename="interpole.py" line="105"/>
         <source>Network</source>
-        <translation>Réseau</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="interpole.py" line="112"/>
@@ -2641,28 +2641,28 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
             </source>
         <translation>
         Effectue une interpolatio nlinéaire pour générer un raster
-        représentant des contours iso-valeurs à partird'objets linéaires
+        représentant des contours iso-valeurs à partird&apos;objets linéaires
         et de temps de parcours aux noeud i et j
         
         Paramètres:
             réseau : couche de réseau
-            fenêtre : aire d'analyse
+            fenêtre : aire d&apos;analyse
             temps en i : temps/coût au noeud i
             temps en j : temps/coût au noeud j
-            sens : sens de circualation ('0','1','2','3'): '0'interdit, '1' sens unique sens de la géométrie,
-            '2' sens unique sens inverse de la géométrie, '3' double sens
-            diffusion :sens de diffusion ('0','1','2','3') ('0' interdit, '1' côté droit seulement,
-            '2' côté gauche seulement, '3' deux sens
-            Intraversabilité :Intraversable ('0','3') ('0'intraversable, '3' traversable)
+            sens : sens de circualation (&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;): &apos;0&apos;interdit, &apos;1&apos; sens unique sens de la géométrie,
+            &apos;2&apos; sens unique sens inverse de la géométrie, &apos;3&apos; double sens
+            diffusion :sens de diffusion (&apos;0&apos;,&apos;1&apos;,&apos;2&apos;,&apos;3&apos;) (&apos;0&apos; interdit, &apos;1&apos; côté droit seulement,
+            &apos;2&apos; côté gauche seulement, &apos;3&apos; deux sens
+            Intraversabilité :Intraversable (&apos;0&apos;,&apos;3&apos;) (&apos;0&apos;intraversable, &apos;3&apos; traversable)
             nb pixels x : nombre de pixels en x du raster
             nb pixels y : nombre de pixels en y du raster
             taille pixel x : taille du pixel en x(m)  (optional)
             taille pixel y : taille du pixel en y(m)  (optional)
             décimales :nombre de décimales pour approximation ( 6 correspond à 1e-6)
-            rayon(m) :rayon de recherche à l'intérieur des ilôts
-            vitesse de diffusion :vitesse de diffusion à l'intérieur des ilôts en km/h (60 pour les cartes  iso-distance)
-            intraversable : lorsque que le contrôle est sélectionné l'algorithme tient compte des emprises intraversables
-            valeurs individuelles : (optionnel) champ pour générer des polygones à base de valeurs individuelles (ex: aires d'influence des gares)
+            rayon(m) :rayon de recherche à l&apos;intérieur des ilôts
+            vitesse de diffusion :vitesse de diffusion à l&apos;intérieur des ilôts en km/h (60 pour les cartes  iso-distance)
+            intraversable : lorsque que le contrôle est sélectionné l&apos;algorithme tient compte des emprises intraversables
+            valeurs individuelles : (optionnel) champ pour générer des polygones à base de valeurs individuelles (ex: aires d&apos;influence des gares)
             fichier Raster : fichier Raster généré
             </translation>
     </message>
@@ -2711,7 +2711,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
         
         
         Parameters:
-            network : network layer (linear objects)
+            network&#xa0;: network layer (linear objects)
 			reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
@@ -2735,7 +2735,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
     <message>
         <location filename="inverser_selection.py" line="145"/>
         <source>Network</source>
-        <translation>Réseau</translation>
+        <translation>Reseau</translation>
     </message>
     <message>
         <location filename="inverser_selection.py" line="138"/>
@@ -2751,11 +2751,11 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
         
         
         Parameters:
-            network : network layer (linear objects) where the selected objects belong
+            network&#xa0;: network layer (linear objects) where the selected objects belong
 			
         </source>
         <translation>        Inverse la géométrie des objets de la sélection:
-        Le script modifie la géométrie d'une sélection d'objets linéiares
+        Le script modifie la géométrie d&apos;une sélection d&apos;objets linéiares
        Il ne crée pas une nouvelle table résultat (utiliser les scripts &quot;Inverser arcs&quot; pour cela)
         
         
@@ -2770,7 +2770,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
     <message>
         <location filename="noeuds_isoles.py" line="82"/>
         <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
         <location filename="noeuds_isoles.py" line="89"/>
@@ -2780,7 +2780,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
     <message>
         <location filename="noeuds_isoles.py" line="98"/>
         <source>Musliw network</source>
-        <translation>Réseau Musliw</translation>
+        <translation>Réseau Musliw (txt)</translation>
     </message>
     <message>
         <location filename="noeuds_isoles.py" line="114"/>
@@ -2803,22 +2803,22 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
         Create a layer of connected nodes from a nodes layer (ex: generated by the build graph algorithm) and a Musliw network. The algorithm build the different graphs corresponding to the Musliw network 
         and create a node layer corresponding to the graph having the largest number of nodes. The interest of this algorithm is to analyse the connections of graph and 
         to prevent a Musliw computation based on an isolated node
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (ex: generated by the build graph algorithm )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
+			Node id: Field that contains the node Id
             Musliw Network: A Musliw network with corresponding node id corresponding to the nodes layer id
             Connected nodes: Names of the output nodes layer generated from the graph with the largest number of nodes
             
             
         </source>
         <translation type="obsolete">
-        Génère une couche de noeuds connectés à partir d'une couche de noeuds existants (ex: générés par le script Créer graphe) et un réseau Musliw. L'algorithme reconstitue les différents graphes décrits dans le réseau Musliw et génère une couche de noeuds correspondant au graphe ayant le plus de noeuds connectés.
-L'intérêt de cet algorithme est d'analyser les connections de graphes et d'éviter de lancer un calcul Musliw basé sur un noeud isolé non connecté au reste du réseau
+        Génère une couche de noeuds connectés à partir d&apos;une couche de noeuds existants (ex: générés par le script Créer graphe) et un réseau Musliw. L&apos;algorithme reconstitue les différents graphes décrits dans le réseau Musliw et génère une couche de noeuds correspondant au graphe ayant le plus de noeuds connectés.
+L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphes et d&apos;éviter de lancer un calcul Musliw basé sur un noeud isolé non connecté au reste du réseau
 		
         Paramètres:
             Noeuds: Couche des noeuds (ex: générés avec le script créer graphe )
-			Id noeud: Champ contenant l'identifiant de noeud
+			Id noeud: Champ contenant l&apos;identifiant de noeud
             Réseau Musliw: Un réseau Musliw avec correspondance des identifiants de noeuds avec la couche des noeuds
            Noeuds connectéss: Nom de la couche générée qui contient les noeuds connectés entre eux du graphe ayant le plus de noeuds conenctés
         </translation>
@@ -2834,10 +2834,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         Create a layer of connected nodes from a nodes layer (ex: generated by the build graph algorithm) and a Musliw network. The algorithm build the different graphs corresponding to the Musliw network 
         and create a node layer corresponding to the graph having the largest number of nodes. The interest of this algorithm is to analyse the connections of graph and 
         to prevent a Musliw computation based on an isolated node
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (ex: generated by the build graph algorithm )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
+			Node id: Field that contains the node Id
             Musliw Network: A Musliw network with corresponding node id corresponding to the nodes layer id
             Network Id: Number of the network graph to select for conencted nodes (networks are sorted by the number of connected nodes. 0 (default value)  is the largest
             Connected nodes: Name of the output nodes layer generated from the graph with the largest number of nodes
@@ -2845,12 +2845,12 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             
         </source>
         <translation>
-        Génère une couche de noeuds connectés à partir d'une couche de noeuds existants (ex: générés par le script Créer graphe) et un réseau Musliw. L'algorithme reconstitue les différents graphes décrits dans le réseau Musliw et génère une couche de noeuds correspondant au graphe ayant le plus de noeuds connectés.
-L'intérêt de cet algorithme est d'analyser les connections de graphes et d'éviter de lancer un calcul Musliw basé sur un noeud isolé non connecté au reste du réseau
+        Génère une couche de noeuds connectés à partir d&apos;une couche de noeuds existants (ex: générés par le script Créer graphe) et un réseau Musliw. L&apos;algorithme reconstitue les différents graphes décrits dans le réseau Musliw et génère une couche de noeuds correspondant au graphe ayant le plus de noeuds connectés.
+L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphes et d&apos;éviter de lancer un calcul Musliw basé sur un noeud isolé non connecté au reste du réseau
 		
         Paramètres:
             Noeuds: Couche des noeuds (ex: générés avec le script créer graphe )
-			Id noeud: Champ contenant l'identifiant de noeud
+			Id noeud: Champ contenant l&apos;identifiant de noeud
             Réseau Musliw: Un réseau Musliw avec correspondance des identifiants de noeuds avec la couche des noeuds
            Noeuds connectéss: Nom de la couche générée qui contient les noeuds connectés entre eux du graphe ayant le plus de noeuds conenctés
         </translation>
@@ -2866,7 +2866,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_pole.py" line="97"/>
         <source>Travel times file</source>
-        <translation>Fichier temps de parcours</translation>
+        <translation>Fichier temps de parcours (txt)</translation>
     </message>
     <message>
         <location filename="maj_links_pole.py" line="103"/>
@@ -2891,7 +2891,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_pole.py" line="119"/>
         <source>Intermodality node</source>
-        <translation>Noeud d'intermodalité</translation>
+        <translation>Noeud d&apos;intermodalité</translation>
     </message>
     <message>
         <location filename="maj_links_pole.py" line="128"/>
@@ -2916,23 +2916,23 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_pole.py" line="300"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where intermodaly node and service area node are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
 		        
         Parameters:
-            network : network layer (linear objects)
+            network&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window for fields update (only links in the window will be updates)
             intermodality node; initial/ final node of intermodality (depends on arrival/departure choice)
             origin node: origin or destination node (depends on arrival/departure choice) in order to determine service areas
         </source>
-        <translation>      Lit le fichier temps détaillés &quot;.._temps.txt&quot; généré par Musliw et crée (s'ils n'existent pas) dans le réseau les champs noeud d'intermodalité et noeud origine ou seront sauvegardés les informations
+        <translation>      Lit le fichier temps détaillés &quot;.._temps.txt&quot; généré par Musliw et crée (s&apos;ils n&apos;existent pas) dans le réseau les champs noeud d&apos;intermodalité et noeud origine ou seront sauvegardés les informations
 		        
         Paramètres:
             Réseau : Couche réseau (objets liénaires)
 			Fichier temps détaillés : fichier temps de parcours  ..._temps.txt généré par Musliw
-            fenêtre: Fenêtre pour la mise à jours des arcs (seuls les arcs à l'intérieur de la fenêtre seront mis à jour)
-            noeud d'intermodalité: noeud  initial/ final d'intermodalité (dépend du choix arrivée/départ)
-            noeud origine: noeud d'origine ou de destination node (dépend du choix arrivée/départ)pour déterminer les zones de desserte
+            fenêtre: Fenêtre pour la mise à jours des arcs (seuls les arcs à l&apos;intérieur de la fenêtre seront mis à jour)
+            noeud d&apos;intermodalité: noeud  initial/ final d&apos;intermodalité (dépend du choix arrivée/départ)
+            noeud origine: noeud d&apos;origine ou de destination node (dépend du choix arrivée/départ)pour déterminer les zones de desserte
         </translation>
     </message>
 </context>
@@ -2946,7 +2946,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_times.py" line="98"/>
         <source>Travel times file</source>
-        <translation>Fichier temps de parcours</translation>
+        <translation>Fichier temps de parcours (txt)</translation>
     </message>
     <message>
         <location filename="maj_links_times.py" line="111"/>
@@ -2976,7 +2976,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_times.py" line="130"/>
         <source>Initial/final waiting time?</source>
-        <translation>temps d'attente initial/final?</translation>
+        <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="maj_links_times.py" line="182"/>
@@ -2996,18 +2996,18 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_times.py" line="301"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
-            fenêtre: fenêtre déterminants les arcs à mettre à jour (seuls ceux à l'intérieur seront mis à jour)
+            fenêtre: fenêtre déterminants les arcs à mettre à jour (seuls ceux à l&apos;intérieur seront mis à jour)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
             i_node time: travel time at i-node field
             j-node time; travel time at j-node field
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
         </source>
-        <translation type="obsolete">        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s'ils n'existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
+        <translation type="obsolete">        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s&apos;ils n&apos;existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
 		        
         Paramètres:
            coucher : couche réseau (objets linéaires)
@@ -3015,7 +3015,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             départ/arrivéel: départ si &quot;d&quot; dans la matrice Musliw, arrivée si &quot;a&quot;
             temps en i: colonne temps de parcours en i
             temps en j: colonne temps de parcours en j
-            temps d'attente initial/final :Prise en compte ou non du temps d'attnete inital/final (tatt1)
+            temps d&apos;attente initial/final :Prise en compte ou non du temps d&apos;attnete inital/final (tatt1)
         </translation>
     </message>
     <message>
@@ -3026,10 +3026,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_links_times.py" line="308"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window to select the subset of links (only those inside the window will be updated)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
@@ -3037,7 +3037,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             j-node time; travel time at j-node field
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
         </source>
-        <translation>        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s'ils n'existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
+        <translation>        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s&apos;ils n&apos;existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
 		        
         Paramètres:
            coucher : couche réseau (objets linéaires)
@@ -3045,7 +3045,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             départ/arrivéel: départ si &quot;d&quot; dans la matrice Musliw, arrivée si &quot;a&quot;
             temps en i: colonne temps de parcours en i
             temps en j: colonne temps de parcours en j
-            temps d'attente initial/final :Prise en compte ou non du temps d'attnete inital/final (tatt1)
+            temps d&apos;attente initial/final :Prise en compte ou non du temps d&apos;attnete inital/final (tatt1)
         </translation>
     </message>
 </context>
@@ -3059,7 +3059,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_titj.py" line="96"/>
         <source>Travel times file</source>
-        <translation>Fichier temps de parcours</translation>
+        <translation>Fichier temps de parcours (txt)</translation>
     </message>
     <message>
         <location filename="maj_titj.py" line="102"/>
@@ -3099,7 +3099,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_titj.py" line="145"/>
         <source>Initial/final waiting time?</source>
-        <translation>temps d'attente initial/final?</translation>
+        <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="maj_titj.py" line="189"/>
@@ -3114,12 +3114,12 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="maj_titj.py" line="314"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer : network layer (linear objects)
+            layer&#xa0;: network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
-            musliw time: Musliw travel time field where travel time is saved ('temps' in general)
+            musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
             arc time: arc travel time
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
             i_node time: travel time at i-node field
@@ -3127,17 +3127,17 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             initial/final waiting time: in order to take into account or not inital/final waiting time (tatt1)
         </source>
         <translation>
-        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s'ils n'existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
+        Lit le fichier temps &quot;.._temps.txt&quot; calculé par Musliw et génère(s&apos;ils n&apos;existent pas ) dans le réseau les champs ti et tjoù sont stockés les temps aux noeud i et j
 		        
         Paramètres:
            coucher : couche réseau (objets linéaires)
 			fichier temps Musliw: fichier temps ..._temps.txt généré par Musliw
-            temps Musliw: Temps de parcours dans le fichier Musliw ('temps' en general)
-            temps arc: temps de parcours de l'arc
+            temps Musliw: Temps de parcours dans le fichier Musliw (&apos;temps&apos; en general)
+            temps arc: temps de parcours de l&apos;arc
             départ/arrivéel: départ si &quot;d&quot; dans la matrice Musliw, arrivée si &quot;a&quot;
             temps en i: colonne temps de parcours en i
             temps en j: colonne temps de parcours en j
-            temps d'attente initial/final :Prise en compte ou non du temps d'attnete inital/final (tatt1)
+            temps d&apos;attente initial/final :Prise en compte ou non du temps d&apos;attnete inital/final (tatt1)
         </translation>
     </message>
     <message>
@@ -3233,12 +3233,12 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a Musliw matrix from two point layers and a period of time (from start time to end time with a step in minutes)
         the script generates a rectangular matrix (NxM od). The first layer (N records) corresponds to origins and the second layer (M records) to destinations
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Origins: origin nodes  (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origins node id: Field that contains the node Id of the origin nodes
+			Origins node id: Field that contains the node Id of the origin nodes
             Destinations: destination nodes  (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Destinations node id: Field that contains the node Id of the origin nodes
+			Destinations node id: Field that contains the node Id of the origin nodes
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -3252,16 +3252,16 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
 		
         Paramètres:
             Origines: Noeuds origines (correspond aux noeuds du graphe de cheminement)
-			Noeud id origine: Champ qui contient l'identifiant de noeud des origines
+			Noeud id origine: Champ qui contient l&apos;identifiant de noeud des origines
             Destinations: Noeuds destinations (correspond aux noeuds du graphe de cheminement)
 			Noeud id destination: Field that contains the node Id of the origin nodes
-            Demande: nombre de passagers pour l'affectation
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' )
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )
             </translation>
     </message>
     <message>
@@ -3274,12 +3274,12 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a Musliw matrix from two point layers and a period of time (from start time to end time with a step in minutes)
         the script generates a rectangular matrix (NxM od). The first layer (N records) corresponds to origins and the second layer (M records) to destinations
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Origins: origin nodes  (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origins node id: Field that contains the node Id of the origin nodes
+			Origins node id: Field that contains the node Id of the origin nodes
             Destinations: destination nodes  (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Destinations node id: Field that contains the node Id of the origin nodes
+			Destinations node id: Field that contains the node Id of the origin nodes
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -3293,17 +3293,17 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
 		
         Paramètres:
             Origines: Noeuds origines (correspond aux noeuds du graphe de cheminement)
-			Noeud id origine: Champ qui contient l'identifiant de noeud des origines
+			Noeud id origine: Champ qui contient l&apos;identifiant de noeud des origines
             Destinations: Noeuds destinations (correspond aux noeuds du graphe de cheminement)
 			Noeud id destination: Field that contains the node Id of the origin nodes
-            Demande: nombre de passagers pour l'affectation
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
-            Texte Od: Si coché un identifiant d'origine destination sera écrit (conbinant o et d séparés par un '-')
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' </translation>
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
+            Texte Od: Si coché un identifiant d&apos;origine destination sera écrit (conbinant o et d séparés par un &apos;-&apos;)
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; </translation>
     </message>
 </context>
 <context>
@@ -3311,7 +3311,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="matrix_simple_liste.py" line="89"/>
         <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
         <location filename="matrix_simple_liste.py" line="97"/>
@@ -3388,10 +3388,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a Musliw matrix from a point layer and a period of time (from start time to end time with a step in minutes)
         the script generates a full square matrix (NxN od) or a diagonal matrix (N od with same origin and same destination)
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
+			Node id: Field that contains the node Id
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -3402,20 +3402,20 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             
             
         </source>
-        <translation type="obsolete">        Génère une matrice Musliw à partir d'une couche de points et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
+        <translation type="obsolete">        Génère une matrice Musliw à partir d&apos;une couche de points et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
         Le script génère une matrice carrée  (NxN ods).ou une matrice diagonale (N ods avec la même origine et la même destination)
 		
         Paramètres:
             Noeuds : Couche des noeuds (correspond aux noeuds du graphe de cheminement)
-			Noeud id : Champ qui contient l'identifiant de noeud 
-            Demande: nombre de passagers pour l'affectation
+			Noeud id : Champ qui contient l&apos;identifiant de noeud 
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
             Matrice diagonale: Cocher pour obtenir une matrice diagonale
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' )
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )
             </translation>
     </message>
     <message>
@@ -3433,10 +3433,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a Musliw matrix from a point layer and a period of time (from start time to end time with a step in minutes)
         the script generates a full square matrix (NxN od) or a diagonal matrix (N od with same origin and same destination)
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
+			Node id: Field that contains the node Id
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -3448,21 +3448,21 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             
             
         </source>
-        <translation>        Génère une matrice Musliw à partir d'une couche de points et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
+        <translation>        Génère une matrice Musliw à partir d&apos;une couche de points et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
         Le script génère une matrice carrée  (NxN ods).ou une matrice diagonale (N ods avec la même origine et la même destination)
 		
         Paramètres:
             Noeuds : Couche des noeuds (correspond aux noeuds du graphe de cheminement)
-			Noeud id : Champ qui contient l'identifiant de noeud 
-            Demande: nombre de passagers pour l'affectation
+			Noeud id : Champ qui contient l&apos;identifiant de noeud 
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
             Matrice diagonale: Cocher pour obtenir une matrice diagonale
-            Texte Od: Si coché un identifiant d'origine destination sera écrit (conbinant o et d séparés par un '-')
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' )</translation>
+            Texte Od: Si coché un identifiant d&apos;origine destination sera écrit (conbinant o et d séparés par un &apos;-&apos;)
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )</translation>
     </message>
 </context>
 <context>
@@ -3470,7 +3470,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="matrix_table.py" line="92"/>
         <source>OD Table</source>
-        <translation>Table OD</translation>
+        <translation>Table OD (Qgis)</translation>
     </message>
     <message>
         <location filename="matrix_table.py" line="100"/>
@@ -3540,7 +3540,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="matrix_table.py" line="292"/>
         <source>Musliw matrix from table</source>
-        <translation>Matrice à partir d'une table</translation>
+        <translation>Matrice à partir d&apos;une table</translation>
     </message>
     <message>
         <location filename="matrix_table.py" line="299"/>
@@ -3552,10 +3552,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origin: Field that contains the node Id of the origin
+			Origin: Field that contains the node Id of the origin
             Destination: Field that contains the node Id of the destination
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
@@ -3567,20 +3567,20 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             
             
         </source>
-        <translation>        Génère une matrice Musliw à partir d'une table et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
+        <translation>        Génère une matrice Musliw à partir d&apos;une table et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
 		
         Paramètres:
             Noeuds : Couche des noeuds (correspond aux noeuds du graphe de cheminement)
-			Origine : Champ qui contient l'identifiant de noeud origine
-			Destination : Champ qui contient l'identifiant de noeud destination
-            Demande: nombre de passagers pour l'affectation
+			Origine : Champ qui contient l&apos;identifiant de noeud origine
+			Destination : Champ qui contient l&apos;identifiant de noeud destination
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
-            Texte Od: Si coché un identifiant d'origine destination sera écrit (conbinant o et d séparés par un '-')
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' )
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
+            Texte Od: Si coché un identifiant d&apos;origine destination sera écrit (conbinant o et d séparés par un &apos;-&apos;)
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )
 </translation>
     </message>
 </context>
@@ -3589,7 +3589,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="matrix_table_detailed.py" line="92"/>
         <source>OD Table</source>
-        <translation>Table OD</translation>
+        <translation>Table OD (Qgis)</translation>
     </message>
     <message>
         <location filename="matrix_table_detailed.py" line="100"/>
@@ -3659,7 +3659,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="matrix_table_detailed.py" line="282"/>
         <source>Musliw matrix from table detailed</source>
-        <translation>Matrice détaillée à partir d'une table</translation>
+        <translation>Matrice détaillée à partir d&apos;une table</translation>
     </message>
     <message>
         <location filename="matrix_table_detailed.py" line="289"/>
@@ -3671,10 +3671,10 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Generates a detailed Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origin: Field that contains the node Id of the origin
+			Origin: Field that contains the node Id of the origin
             Destination: Field that contains the node Id of the destination
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
@@ -3686,20 +3686,20 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
             
             
         </source>
-        <translation>        Génère une matrice Musliw à partir d'une table et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
+        <translation>        Génère une matrice Musliw à partir d&apos;une table et une période horaire définie par une heure de début, une heure de fin et un intervalle en minutes.
 		
         Paramètres:
             Noeuds : Couche des noeuds (correspond aux noeuds du graphe de cheminement)
-			Origine : Champ qui contient l'identifiant de noeud origine
-			Destination : Champ qui contient l'identifiant de noeud destination
-            Demande: nombre de passagers pour l'affectation
+			Origine : Champ qui contient l&apos;identifiant de noeud origine
+			Destination : Champ qui contient l&apos;identifiant de noeud destination
+            Demande: nombre de passagers pour l&apos;affectation
             Jour: numéro de jour du calendrier  (1 correspond au 1er jour du calendrier)
             Début période: heure de début de la période
             Fin période: heure de fin de la période
             Intervalle:Intervalle de temps en minutes
-            Départ/Arrivée: Depart (du point de départ vers le point d'arrivée en avant) - Arrivée (du point d'arrivée au point de retard à rebours)
+            Départ/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant) - Arrivée (du point d&apos;arrivée au point de retard à rebours)
             Texte Od: Expression exportée dans le fichier texte matrice pour chaque ligne OD de la matrice
-            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur ';' )
+            Matrice Musliw : Nom de fichier de la matrice Musliw (fichier texet avec separateur &apos;;&apos; )
 </translation>
     </message>
 </context>
@@ -3713,7 +3713,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="mint_network.py" line="25"/>
         <source>Mint network file</source>
-        <translation>Fichier réseau Mint</translation>
+        <translation>Fichier réseau Mint (txt)</translation>
     </message>
     <message>
         <location filename="mint_network.py" line="27"/>
@@ -3776,7 +3776,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         i: Id du noeud initial
         j: Id du noeud final
         ligne: Id de la ligne
-        travel time: temps de parcours de l'arc
+        travel time: temps de parcours de l&apos;arc
         temps de parcours: intervalle entre deux véhciules successifs
         capacité: capacité du véhicule
         montée autorisée: 1 si la montée est autorisée, 0 sinon
@@ -3823,7 +3823,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="param_mint.py" line="28"/>
         <source>algorithm parameter</source>
-        <translation>paramètre de l'agorithme</translation>
+        <translation>paramètre de l&apos;agorithme</translation>
     </message>
     <message>
         <location filename="param_mint.py" line="29"/>
@@ -3845,7 +3845,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         <source>
         Write a Mint parameters file required for a Mint assignment
         Parameters:
-            Waiting weight : waiting time weight
+            Waiting weight&#xa0;: waiting time weight
             Boarding time: boarding time
             Boarding weight; boarding weight
             Walking weight: auxiliary transit weight
@@ -3855,12 +3855,12 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         </source>
         <translation>        Ecrit un fichier de paramètres Mint requis pour une affectation Mint
         Parametères:
-            Poids attente : Poids temps d'attente
+            Poids attente : Poids temps d&apos;attente
             Temps de correspondance: temps de correspondance
             Poids correspondance; poids du temps de correspondance
             Poids mode individuel: Poids du temps de mode individuel 
             Output strategies: If checked, Mint will print detailed strategies
-            Paramètre d'algorithmer: Paramètre d'algorithme
+            Paramètre d&apos;algorithmer: Paramètre d&apos;algorithme
             Fichier de paramètres Mint : le fichier de paramètres Mint généré</translation>
     </message>
 </context>
@@ -3874,7 +3874,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="multimodalgravity.py" line="40"/>
         <source>Socioeconomic data</source>
-        <translation>Données socioéconomiques</translation>
+        <translation>Données socioéconomiques (Qgis)</translation>
     </message>
     <message>
         <location filename="multimodalgravity.py" line="41"/>
@@ -3899,7 +3899,7 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
     <message>
         <location filename="multimodalgravity.py" line="287"/>
         <source>Multimodal Gravity Indicators</source>
-        <translation>Indicateurs d'accessibilité gravitaire multimodale</translation>
+        <translation>Indicateurs d&apos;accessibilité gravitaire multimodale</translation>
     </message>
     <message>
         <location filename="multimodalgravity.py" line="290"/>
@@ -3928,24 +3928,24 @@ L'intérêt de cet algorithme est d'analyser les connections de graphes et d'év
         - ..._multi_zones.txt (gravity indicator by zone), accessibility area
         accessibility indicator with spatial and modal competition is in variable &apos;w_pop&apos;
         </source>
-        <translation>       L'algorithme calcul des indicateurs d'accessibilité gravitaire avec concurrence spatiale et modale à partir d'une fonction de résistance
+        <translation>       L&apos;algorithme calcul des indicateurs d&apos;accessibilité gravitaire avec concurrence spatiale et modale à partir d&apos;une fonction de résistance
         (1 pour un temps de parcours de=0, 0.5 pour un temps de parcours de = t0, 0 temps de parcours infini
         -  Modes:Une table constituée de 1 ligne par mode avec:
             - mode: nom du mode (ex voiture)
             - t0: la valeur de t0 pour lequel la fonction de résistance vaut 0.5 pour ce mode spécifique
-            - parts modales: un dictionnaire python où les clés doivent correpondre à des colonnes de table des donénes socio-économique et les valeurs aux parts modales des populations en question (ex {'pvp0':1.0,'pvp1':0.88,'pvp2':0.74})
+            - parts modales: un dictionnaire python où les clés doivent correpondre à des colonnes de table des donénes socio-économique et les valeurs aux parts modales des populations en question (ex {&apos;pvp0&apos;:1.0,&apos;pvp1&apos;:0.88,&apos;pvp2&apos;:0.74})
             - Fichier noeud Musliw: :Le nom du fichier de sortie noeuds de Musliw &quot;..._noeuds.txt&quot; (la sortie doit être activée dans les paramètres de calcul)
 - Aménité: Champ aménité (en général volau)
-- Données socioéconomiques: Table qui contient les données d'émission (zones ou grille qui contient les populations par exemple)Zone 
+- Données socioéconomiques: Table qui contient les données d&apos;émission (zones ou grille qui contient les populations par exemple)Zone 
 - Zone ID: Identifiant de zone
-- Population: Champ de population (nb d'habitants par exemple)
+- Population: Champ de population (nb d&apos;habitants par exemple)
 - Nombre de périodes: Nombre de période de calcul pour une même OD
 - Sortie: nom générique du fichier de sortie (txt)
 
-L'algorithme produit deux fichiers de résultats:
+L&apos;algorithme produit deux fichiers de résultats:
 - ..._multi_equip.txt: (indicateur gravitaire par équiepement, zone de chalandise
-- ..._multi_zones.txt (indicateur gravitaire par zone), zone d'accessibilité
-L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la variable w_pop
+- ..._multi_zones.txt (indicateur gravitaire par zone), zone d&apos;accessibilité
+L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est dans la variable w_pop
 </translation>
     </message>
     <message>
@@ -3976,7 +3976,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="multimodalgravity.py" line="44"/>
         <source>remove initial/Final waiting time?</source>
-        <translation>retrancher le temps d'attente initial/final?</translation>
+        <translation>retrancher le temps d&apos;attente initial/final?</translation>
     </message>
 </context>
 <context>
@@ -4004,7 +4004,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="param_musliw.py" line="137"/>
         <source>Individual mode speed factor</source>
-        <translation>Facteurd'échelle temps individuel</translation>
+        <translation>Facteurd&apos;échelle temps individuel</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="144"/>
@@ -4089,12 +4089,12 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="param_musliw.py" line="251"/>
         <source>Algorithm scale?</source>
-        <translation>Echelle de l'algorithme</translation>
+        <translation>Echelle de l&apos;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="260"/>
         <source>Algorithm exponent?</source>
-        <translation>Exposant de l'algorithme</translation>
+        <translation>Exposant de l&apos;algorithme</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="269"/>
@@ -4123,7 +4123,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
 		Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -4148,31 +4148,31 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
         </source>
         <translation type="obsolete">
-        Créer un jeu de paramètres utile pour le calcul d'itinéraires et d'accessibilité avec Musliw
+        Créer un jeu de paramètres utile pour le calcul d&apos;itinéraires et d&apos;accessibilité avec Musliw
 		Génère un fichier de paramètres (qui doit être sélectionné pour le calcul Musliw):
         
         Paramètres:
             Pondération temps à horaires : Fcateur de pondération pour les temps à bord des modes définis par des  horaires (ex:  bus, tram, train, métro, avion, ferry,...)
-            Pondération temps d'attente: Facteur de pondération des temps d'attente
+            Pondération temps d&apos;attente: Facteur de pondération des temps d&apos;attente
            Pondération temps individuel :Facteur de pondération pour les modes individuels (ex voiture, marche, vélo, ...)
             Pondération correspondance: Facteur de pondération des temps de correspondance
-            Facteur d'échelle mode individuel: facteur homothéitque qui s'applique aux temps de parcours des arcs des modes individuels
-			Temps de correspondance mini : Temps minimum de sécurité pour la correspondance (ex: 5 signifie que l'on doit être présent t 5 minutes à l'arrêt avant que le bus parte
-            Temps de correspondance maxi:Temps d'attente maximum pour une correspondance (ex: 60 signifie  que l'on ne peut pas prendre un train qui part plus de 60 minutes après que l'on soit arrivé)
-            Nombre de jours supplémentairesn: Par defaut Musliw ne prend en compte que les horaires du jour indiqué dans la matrice. Si l'on souhaite étendre la recherche avec les horaires des jours suivants (si départ) ou des jours précédents (si arrivée)il faut saisir le nombre de jours supplémentaires à prendre en compte (ex  1 pour le lendemain ou la veille)
-            Temps individuel maximum : L'algorithme n'explorera pas les chemins qui auront un budget temps individuel supérieur à cette valeur
-            Temps généralisé maximum: L'algorithme n'explorera pas les chemins qui auront auront un temps généralisé totalsupérieur à cette valeur
-            Pondération péage: Pondération de l'attribut péage des arcs
-            Filtre sortier: Indiquer les types d'arcs que l'on souhaite exporter dans les fichiers résultats (vide si l'on souhaite tous les liens ex: metro|bus|tram exportera seulement les arcs  metro , bus et tram 
-            Sortie temps détaillés: Sélectionnerles arcs que l'on souhaite obtenir (Aucun, avec ou sans les arcs définis par des horaires)
-            Demi-tours interdits: Activer si l'on souhaite que l'algorithm ne puisse pas prendre en compte les demi-tours
-            Sortie chemins: Activer si l'on souhaite le détail des chemins 
-            Sortie services: Activer si l'on souhaite les détail des calculs par service
-            Sortie correspondance: Activer si l'on souhaite de détail des sortie de mouvements tournants et correspondance
-            Sortie noeuds: Activer si l'on souhaite les temps détaillés par noeud
-            Echelle de l'agrithme: Paramètre d'échelle de l'agorithme de recherche de plus court chemin
-            Exposent de l'algorithme: Paramètre exposent de l'algorithme
-            Nb classes: Nombre d'intervalle pour l'algorithme de plus courts chemins
+            Facteur d&apos;échelle mode individuel: facteur homothéitque qui s&apos;applique aux temps de parcours des arcs des modes individuels
+			Temps de correspondance mini : Temps minimum de sécurité pour la correspondance (ex: 5 signifie que l&apos;on doit être présent t 5 minutes à l&apos;arrêt avant que le bus parte
+            Temps de correspondance maxi:Temps d&apos;attente maximum pour une correspondance (ex: 60 signifie  que l&apos;on ne peut pas prendre un train qui part plus de 60 minutes après que l&apos;on soit arrivé)
+            Nombre de jours supplémentairesn: Par defaut Musliw ne prend en compte que les horaires du jour indiqué dans la matrice. Si l&apos;on souhaite étendre la recherche avec les horaires des jours suivants (si départ) ou des jours précédents (si arrivée)il faut saisir le nombre de jours supplémentaires à prendre en compte (ex  1 pour le lendemain ou la veille)
+            Temps individuel maximum : L&apos;algorithme n&apos;explorera pas les chemins qui auront un budget temps individuel supérieur à cette valeur
+            Temps généralisé maximum: L&apos;algorithme n&apos;explorera pas les chemins qui auront auront un temps généralisé totalsupérieur à cette valeur
+            Pondération péage: Pondération de l&apos;attribut péage des arcs
+            Filtre sortier: Indiquer les types d&apos;arcs que l&apos;on souhaite exporter dans les fichiers résultats (vide si l&apos;on souhaite tous les liens ex: metro|bus|tram exportera seulement les arcs  metro , bus et tram 
+            Sortie temps détaillés: Sélectionnerles arcs que l&apos;on souhaite obtenir (Aucun, avec ou sans les arcs définis par des horaires)
+            Demi-tours interdits: Activer si l&apos;on souhaite que l&apos;algorithm ne puisse pas prendre en compte les demi-tours
+            Sortie chemins: Activer si l&apos;on souhaite le détail des chemins 
+            Sortie services: Activer si l&apos;on souhaite les détail des calculs par service
+            Sortie correspondance: Activer si l&apos;on souhaite de détail des sortie de mouvements tournants et correspondance
+            Sortie noeuds: Activer si l&apos;on souhaite les temps détaillés par noeud
+            Echelle de l&apos;agrithme: Paramètre d&apos;échelle de l&apos;agorithme de recherche de plus court chemin
+            Exposent de l&apos;algorithme: Paramètre exposent de l&apos;algorithme
+            Nb classes: Nombre d&apos;intervalle pour l&apos;algorithme de plus courts chemins
             Fichier paramètres: Nom du fichier de paramètre qui pourra être utilisé pour les calculs avec Musliw
             
         </translation>
@@ -4180,7 +4180,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="param_musliw.py" line="279"/>
         <source>Accept to download Musliw binary from Github</source>
-        <translation type="obsolete">Accepter de télécharger l'exécutable Musliw de Github</translation>
+        <translation type="obsolete">Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="356"/>
@@ -4199,7 +4199,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -4224,31 +4224,31 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
             
         </source>
-        <translation>Créer un jeu de paramètres utile pour le calcul d'itinéraires et d'accessibilité avec Musliw
+        <translation>Créer un jeu de paramètres utile pour le calcul d&apos;itinéraires et d&apos;accessibilité avec Musliw
 		Génère un fichier de paramètres (qui doit être sélectionné pour le calcul Musliw):
         
         Paramètres:
             Pondération temps à horaires : Fcateur de pondération pour les temps à bord des modes définis par des  horaires (ex:  bus, tram, train, métro, avion, ferry,...)
-            Pondération temps d'attente: Facteur de pondération des temps d'attente
+            Pondération temps d&apos;attente: Facteur de pondération des temps d&apos;attente
            Pondération temps individuel :Facteur de pondération pour les modes individuels (ex voiture, marche, vélo, ...)
             Pondération correspondance: Facteur de pondération des temps de correspondance
-            Facteur d'échelle mode individuel: facteur homothéitque qui s'applique aux temps de parcours des arcs des modes individuels
-			Temps de correspondance mini : Temps minimum de sécurité pour la correspondance (ex: 5 signifie que l'on doit être présent t 5 minutes à l'arrêt avant que le bus parte
-            Temps de correspondance maxi:Temps d'attente maximum pour une correspondance (ex: 60 signifie  que l'on ne peut pas prendre un train qui part plus de 60 minutes après que l'on soit arrivé)
-            Nombre de jours supplémentairesn: Par defaut Musliw ne prend en compte que les horaires du jour indiqué dans la matrice. Si l'on souhaite étendre la recherche avec les horaires des jours suivants (si départ) ou des jours précédents (si arrivée)il faut saisir le nombre de jours supplémentaires à prendre en compte (ex  1 pour le lendemain ou la veille)
-            Temps individuel maximum : L'algorithme n'explorera pas les chemins qui auront un budget temps individuel supérieur à cette valeur
-            Temps généralisé maximum: L'algorithme n'explorera pas les chemins qui auront auront un temps généralisé totalsupérieur à cette valeur
-            Pondération péage: Pondération de l'attribut péage des arcs
-            Filtre sortier: Indiquer les types d'arcs que l'on souhaite exporter dans les fichiers résultats (vide si l'on souhaite tous les liens ex: metro|bus|tram exportera seulement les arcs  metro , bus et tram 
-            Sortie temps détaillés: Sélectionnerles arcs que l'on souhaite obtenir (Aucun, avec ou sans les arcs définis par des horaires)
-            Demi-tours interdits: Activer si l'on souhaite que l'algorithm ne puisse pas prendre en compte les demi-tours
-            Sortie chemins: Activer si l'on souhaite le détail des chemins 
-            Sortie services: Activer si l'on souhaite les détail des calculs par service
-            Sortie correspondance: Activer si l'on souhaite de détail des sortie de mouvements tournants et correspondance
-            Sortie noeuds: Activer si l'on souhaite les temps détaillés par noeud
-            Echelle de l'agrithme: Paramètre d'échelle de l'agorithme de recherche de plus court chemin
-            Exposent de l'algorithme: Paramètre exposent de l'algorithme
-            Nb classes: Nombre d'intervalle pour l'algorithme de plus courts chemins
+            Facteur d&apos;échelle mode individuel: facteur homothéitque qui s&apos;applique aux temps de parcours des arcs des modes individuels
+			Temps de correspondance mini : Temps minimum de sécurité pour la correspondance (ex: 5 signifie que l&apos;on doit être présent t 5 minutes à l&apos;arrêt avant que le bus parte
+            Temps de correspondance maxi:Temps d&apos;attente maximum pour une correspondance (ex: 60 signifie  que l&apos;on ne peut pas prendre un train qui part plus de 60 minutes après que l&apos;on soit arrivé)
+            Nombre de jours supplémentairesn: Par defaut Musliw ne prend en compte que les horaires du jour indiqué dans la matrice. Si l&apos;on souhaite étendre la recherche avec les horaires des jours suivants (si départ) ou des jours précédents (si arrivée)il faut saisir le nombre de jours supplémentaires à prendre en compte (ex  1 pour le lendemain ou la veille)
+            Temps individuel maximum : L&apos;algorithme n&apos;explorera pas les chemins qui auront un budget temps individuel supérieur à cette valeur
+            Temps généralisé maximum: L&apos;algorithme n&apos;explorera pas les chemins qui auront auront un temps généralisé totalsupérieur à cette valeur
+            Pondération péage: Pondération de l&apos;attribut péage des arcs
+            Filtre sortier: Indiquer les types d&apos;arcs que l&apos;on souhaite exporter dans les fichiers résultats (vide si l&apos;on souhaite tous les liens ex: metro|bus|tram exportera seulement les arcs  metro , bus et tram 
+            Sortie temps détaillés: Sélectionnerles arcs que l&apos;on souhaite obtenir (Aucun, avec ou sans les arcs définis par des horaires)
+            Demi-tours interdits: Activer si l&apos;on souhaite que l&apos;algorithm ne puisse pas prendre en compte les demi-tours
+            Sortie chemins: Activer si l&apos;on souhaite le détail des chemins 
+            Sortie services: Activer si l&apos;on souhaite les détail des calculs par service
+            Sortie correspondance: Activer si l&apos;on souhaite de détail des sortie de mouvements tournants et correspondance
+            Sortie noeuds: Activer si l&apos;on souhaite les temps détaillés par noeud
+            Echelle de l&apos;agrithme: Paramètre d&apos;échelle de l&apos;agorithme de recherche de plus court chemin
+            Exposent de l&apos;algorithme: Paramètre exposent de l&apos;algorithme
+            Nb classes: Nombre d&apos;intervalle pour l&apos;algorithme de plus courts chemins
             Fichier paramètres: Nom du fichier de paramètre qui pourra être utilisé pour les calculs avec Musliw
             </translation>
     </message>
@@ -4280,7 +4280,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="param_musliw.py" line="336"/>
         <source>;turns and transfers files</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="337"/>
@@ -4403,7 +4403,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="musliw_network_update.py" line="25"/>
         <source>Musliw network file</source>
-        <translation>Fichier réseau Musliw</translation>
+        <translation>Fichier réseau Musliw (txt)</translation>
     </message>
     <message>
         <location filename="musliw_network_update.py" line="26"/>
@@ -4438,7 +4438,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="musliw_network_update.py" line="88"/>
         <source>Musliw network update</source>
-        <translation>Mise à jour d'un Réseau Musliw</translation>
+        <translation>Mise à jour d&apos;un Réseau Musliw</translation>
     </message>
     <message>
         <location filename="musliw_network_update.py" line="91"/>
@@ -4465,7 +4465,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Champ réseau: Le champ à mettre à jour
         Sélection réseau: Expression pour sélectionner les enregistrement de réseau à mettre à jour
         Filtre de sélection: si oui, le script générera un fichie réseau Musliw mis à jour sur les enregistrements sélectionnés uniquement, si non il générera un fichier réseau Musliw avec tous les enregistrements
-        Expression: L'expression de mise à jour (formule)
+        Expression: L&apos;expression de mise à jour (formule)
         Réseau Musliw mise à jour: Le réseau au format Musliw mis à jour</translation>
     </message>
 </context>
@@ -4482,7 +4482,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeuds.py" line="82"/>
         <source>Nodes times output file</source>
-        <translation>Fichier noeuds Musliw</translation>
+        <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_noeuds.py" line="94"/>
@@ -4492,7 +4492,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeuds.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher le temps d'attente initial/final?</translation>
+        <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
         <location filename="fichier_noeuds.py" line="120"/>
@@ -4518,10 +4518,10 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="fichier_noeuds.py" line="225"/>
         <source>
         Produce indicators aggregated by node. 
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
@@ -4545,17 +4545,17 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
            Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             numero:  id noeud
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum</translation>
     </message>
@@ -4568,10 +4568,10 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="fichier_noeuds.py" line="258"/>
         <source>
         Produce indicators aggregated by node. 
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
@@ -4597,18 +4597,18 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
 			Filtre: expression pour filtrer le fichier noeuds Musliw (ex: ncorr&lt;3)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
 
            Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             numero:  id noeud
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum</translation>
     </message>
@@ -4618,7 +4618,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeuds_custom.py" line="84"/>
         <source>Nodes times output file</source>
-        <translation>Fichier noeuds Musliw</translation>
+        <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_noeuds_custom.py" line="96"/>
@@ -4638,7 +4638,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeuds_custom.py" line="120"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher le temps d'attente initial/final</translation>
+        <translation>Retrancher le temps d&apos;attente initial/final</translation>
     </message>
     <message>
         <location filename="fichier_noeuds_custom.py" line="129"/>
@@ -4664,10 +4664,10 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="fichier_noeuds_custom.py" line="274"/>
         <source>
         Produce customized indicators from node file
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             grouping key: A set of variables separated by a &apos;;&apos; as grouping key ex: o;numero
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
@@ -4690,20 +4690,20 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
 		
         Paramètres:
             Fichier noeuds Musliw: Le fichier de résultats Musliw sur les noeuds (&lt;FILENAME&gt;_noeuds.txt)
-			variable:Le nom de la varible de l'indicateur à calculer  (temps par défaut)
-            Clé de regroupement: Une suite de variables séparées par ';'
+			variable:Le nom de la varible de l&apos;indicateur à calculer  (temps par défaut)
+            Clé de regroupement: Une suite de variables séparées par &apos;;&apos;
             Filtre: expression pour filtrer les noeuds dans le fichier noeuds.txt (ex: temps&lt;60)
-            retrancher le temps d'attente initial/final:  Si sélectionné les temps d'attente intiaux/finaux seront retranchés du temps total
+            retrancher le temps d&apos;attente initial/final:  Si sélectionné les temps d&apos;attente intiaux/finaux seront retranchés du temps total
            Fichier résultat des indicateurs par noeud: nom du fichier résultat( texte délimité avec  &quot;;&quot; comme séparateur)qui contient les attributs suivants
             numero:identifiant de numéro de noeud
             avg: valeur moyenne
             nb: nombre de lignes dans la matrice
-            min: valeur mini de l'indicateur
-            max: valeur maxi de l'indicateur
-            sdev: écart type de l'indicateur
+            min: valeur mini de l&apos;indicateur
+            max: valeur maxi de l&apos;indicateur
+            sdev: écart type de l&apos;indicateur
             o_min: noeud origine de la  valeur minimale
             o_max: noeud origine de la valeur maximale
-            volau: volume sur l'O/D</translation>
+            volau: volume sur l&apos;O/D</translation>
     </message>
 </context>
 <context>
@@ -4711,7 +4711,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeud_jour.py" line="83"/>
         <source>Nodes times output file</source>
-        <translation>Fichier noeuds Musliw</translation>
+        <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
         <location filename="fichier_noeud_jour.py" line="95"/>
@@ -4726,7 +4726,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="fichier_noeud_jour.py" line="111"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retrancher les temps d'attente initiaux/finaux</translation>
+        <translation>Retrancher les temps d&apos;attente initiaux/finaux</translation>
     </message>
     <message>
         <location filename="fichier_noeud_jour.py" line="120"/>
@@ -4752,10 +4752,10 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="fichier_noeud_jour.py" line="260"/>
         <source>
         Produce indicators aggregated by node. 
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
@@ -4780,17 +4780,17 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente initial ou final (entre le temps d'arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
            Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             numero:  id noeud
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier/dernier noeud d'intermodalité correspondant au temps minimum
-            pole_max: premier/dernier noeud d'intermodalité correspondant au temps maximum
-            departures: nombre d'horaires de départ différents (nombre d'alternatives différentes) 
-            arrivals:nombre d'horaires d'arrivée différents (nombre d'alternatives différentes)
-            sdev:valeur d'écart type
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
             o_min: origine avec la valeur minimum
             o_max:origine avec la valeur maximum</translation>
     </message>
@@ -4800,12 +4800,12 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="path_analysis.py" line="93"/>
         <source>Arcs</source>
-        <translation>Arcs</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="path_analysis.py" line="100"/>
         <source>Result paths Musliw File</source>
-        <translation>Fichier chemins Musliw</translation>
+        <translation>Fichier chemins Musliw (txt)</translation>
     </message>
     <message>
         <location filename="path_analysis.py" line="107"/>
@@ -4820,7 +4820,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="path_analysis.py" line="121"/>
         <source>Arc Type</source>
-        <translation>Type d'arc</translation>
+        <translation>Type d&apos;arc</translation>
     </message>
     <message>
         <location filename="path_analysis.py" line="128"/>
@@ -4853,17 +4853,17 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Intercepts the demand that use on the selected arcs
         The result is a layer that containes arcs from trips using these arcs
         with the selected demand
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             arcs: network layer 
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
+			result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
             ij: arc ID (combining i-node and j-node ex: m1456-m3256
             Flows: field containing flow values
             arc type: field containig arc_type
             by line: if selected the total flows are computed by lines instead of by arc
             Enconding: Encoding of the Reuslt Musliw file utf_8_sig normally
             output: layer of the slect link analysis
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+			
         </source>
         <translation>
         Intercepte la demande qui parcourt les arcs sélectionnés (arborescence)
@@ -4873,9 +4873,9 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Paramètres:
             arcs: Couche réseau
             Fichier chemins Musliw: Fichier résultat du calcul Musliw où sont stockés les plus courts chemins sur les OD calculéeschemins  (*_chemins.txt)
-            ij: identifiant d'arc(combine le noedu i et le noeud j ex: m1456-m3256
+            ij: identifiant d&apos;arc(combine le noedu i et le noeud j ex: m1456-m3256
             volumnes: champ contenant la demande totale interceptée
-            type d'arc: Champ contenant le type d'arc
+            type d&apos;arc: Champ contenant le type d&apos;arc
             par ligne:si sélectionné calcule la demande interceptée par segment de ligne et non par arc
             encondage: encodage du fichier chemins Musliw utf_8_sig normalement
             sortie: couche resultat contenant les arcs de la demande interceptée</translation>
@@ -4886,7 +4886,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="path_indicators.py" line="88"/>
         <source>Path output file</source>
-        <translation>Fichier chemins</translation>
+        <translation>Fichier chemins (txt)</translation>
     </message>
     <message>
         <location filename="path_indicators.py" line="100"/>
@@ -4896,7 +4896,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="path_indicators.py" line="102"/>
         <source>Remove initial/final waiting time?</source>
-        <translation>Retirer le temps d'attente initial/final</translation>
+        <translation>Retirer le temps d&apos;attente initial/final</translation>
     </message>
     <message>
         <location filename="path_indicators.py" line="110"/>
@@ -4922,13 +4922,13 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="path_indicators.py" line="243"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
+			variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             filter: filter expression to select a subset of OD. Available variables are:
                 &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
                 and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
@@ -4947,29 +4947,29 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
             
         </source>
-        <translation type="obsolete">       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l'on souhaite étduier la variation des temps de parcours durant une période de temps
+        <translation type="obsolete">       Calcul des indicateurs aggrégés par OD. Cette analyse est utile lorsque l&apos;on souhaite étduier la variation des temps de parcours durant une période de temps
 		
         Paramètres:
             Fichier OD: Le fichier OD résultat du calcul Musliw (&lt;NOM_FICHIER&gt;_od.txt)
 			variable: Le nom de la variable sur la quelle on souhaite calculer les indicateurs (temps par défaut)
-            retrancher le temps d'attente initial/final: Si sélectionné, le temps d'attente iitial ou final (entre le temps d'arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente iitial ou final (entre le temps d&apos;arrivée ou d départ souhaité et le temps réel est retranché du temps de parcours total)
 			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
 			filtre: expression filtre pour effectuer une sélection des OD. Les variables disponibles sont:
-                'jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','volau','nbpop','toll' as numeric 
-                and 'id','origin','destination','pole','texte' as string
+                &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
+                and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
 
 
-           Fichier d'incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
+           Fichier d&apos;incateurs par tronçons: nom du fichier résulatat (texte délimité avec &quot;;&quot; comme séparateur)qui contient les attributs suivants
             id: OD id
             avg: valeur moyenne
             nb: nombre de lignes pour cette OD traitées
             min: valeur minimum
             max: valeur maximum
-            pole_min: premier ou dernier noeud d'intermodalité correspondant à la valeur minimum
-            pole_max:premier ou dernier noeud d'intermodalité correspondant à la valeur maximum
-            departures: nombre d'heures de départ (nombre d'alternatives différentes) 
-            arrivals:number d'heures d'arrivée (nombre d'alternatives différentes) 
-            sdev: valeur d'écart type
+            pole_min: premier ou dernier noeud d&apos;intermodalité correspondant à la valeur minimum
+            pole_max:premier ou dernier noeud d&apos;intermodalité correspondant à la valeur maximum
+            departures: nombre d&apos;heures de départ (nombre d&apos;alternatives différentes) 
+            arrivals:number d&apos;heures d&apos;arrivée (nombre d&apos;alternatives différentes) 
+            sdev: valeur d&apos;écart type
             
             
         </translation>
@@ -4978,12 +4978,12 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="path_indicators.py" line="243"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
             id: OD id
             temps: total travel time
@@ -5002,17 +5002,17 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
         </source>
         <translation type="obsolete">
-        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l'on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
+        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l&apos;on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
 		
         Paramètres:
             Fichier chemins :le fichier détail des chemins produit par Musliw (&lt;FILENAME&gt;_chemins.txt)
-            Retrancher le temps d'attente initial:final: Si coché le temps d'attente sera retranché (entre l'heure réelle et l'heure d'arrivée ou de départ souhaitée)
+            Retrancher le temps d&apos;attente initial:final: Si coché le temps d&apos;attente sera retranché (entre l&apos;heure réelle et l&apos;heure d&apos;arrivée ou de départ souhaitée)
 			Arcs à horaires uniquements: Si coché seuls les arcs à horaires seront étudiés
             Nom du fichier synthèse: Nom du fichier résultat (fichier texte delimitétext avec &quot;;&quot; comme séparateur) qui contient les champs suivants
             id: OD id
             temps: temps de parcours total
             temps individuel:temps en modes individuels
-            temps_attente: temps d'attente
+            temps_attente: temps d&apos;attente
             temps_TC: temps à bord des véhicules
             longueur: longueur
             voyages: nombre de voyages
@@ -5030,12 +5030,12 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="path_indicators.py" line="235"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
+			time based links only: If checked only time based links are analysed
             path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
             id: OD id
             temps: total travel time
@@ -5053,17 +5053,17 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
             
         </source>
-        <translation>        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l'on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
+        <translation>        Calcul des ndicateurs agregés par chemin. Cette analyse est utile lorsque l&apos;on souhaite étudier sur une OD les différents modes utilisés et les durées/longueurs de rabattement ou diffusion
 		
         Paramètres:
             Fichier chemins :le fichier détail des chemins produit par Musliw (&lt;FILENAME&gt;_chemins.txt)
-            Retrancher le temps d'attente initial:final: Si coché le temps d'attente sera retranché (entre l'heure réelle et l'heure d'arrivée ou de départ souhaitée)
+            Retrancher le temps d&apos;attente initial:final: Si coché le temps d&apos;attente sera retranché (entre l&apos;heure réelle et l&apos;heure d&apos;arrivée ou de départ souhaitée)
 			Arcs à horaires uniquements: Si coché seuls les arcs à horaires seront étudiés
             Nom du fichier synthèse: Nom du fichier résultat (fichier texte delimitétext avec &quot;;&quot; comme séparateur) qui contient les champs suivants
             id: OD id
             temps: temps de parcours total
             temps individuel:temps en modes individuels
-            temps_attente: temps d'attente
+            temps_attente: temps d&apos;attente
             temps_TC: temps à bord des véhicules
             longueur: longueur
             voyages: nombre de voyages
@@ -5102,7 +5102,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="prepare_gtfs.py" line="118"/>
         <source>Extract formula</source>
-        <translation>Formule d'extraction</translation>
+        <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
         <location filename="prepare_gtfs.py" line="519"/>
@@ -5123,8 +5123,8 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Répertoire GTFS source:chemin du répertoire source GTFS
         Répertoire GTFS destination: chemin du répertoire destination GTFS
         Id réseau: id réseau pour différencier les réseaux (line ID, stop ID,...) (ex: LI et 15696 -&gt; stop_id LI15696
-        Extraire stop_id: si True l'utilisateur doit écrire une fomule pour extraire le stop_id de la chaine stop_id initiale
-        Fomule d'extraction: La formule pour extraire le stop_id: (ex: &quot;OCE:StopArea:87256315&quot;) avec [-8:] comme formule -&gt; &quot;OCE:StopArea:87256315&quot;[-8:]=&quot;87256315&quot;
+        Extraire stop_id: si True l&apos;utilisateur doit écrire une fomule pour extraire le stop_id de la chaine stop_id initiale
+        Fomule d&apos;extraction: La formule pour extraire le stop_id: (ex: &quot;OCE:StopArea:87256315&quot;) avec [-8:] comme formule -&gt; &quot;OCE:StopArea:87256315&quot;[-8:]=&quot;87256315&quot;
         </translation>
     </message>
     <message>
@@ -5229,7 +5229,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder : GTFS folder 
+            GTFs folder&#xa0;: GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
@@ -5259,7 +5259,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="reseau_ti.py" line="91"/>
         <source>Road network</source>
-        <translation>Réseau routier</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="reseau_ti.py" line="99"/>
@@ -5340,10 +5340,10 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <location filename="reseau_ti.py" line="358"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             road network: road network layer (linear objects)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>window: area of the generated network (could be a sub area from the whole network layer)
+			window: area of the generated network (could be a sub area from the whole network layer)
             direction: flow direction (&apos;0&apos; proxhibited, &apos;1&apos; one way same direction as object, &apos;2&apos; one way reverse direction of object, &apos;3&apos; both directions
             time: arc travel time field
             length: arc length field
@@ -5360,21 +5360,21 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
             
             
         </source>
-        <translation>        Généère un réseau Musliw de mode individuel (voiture, marche, vélo,...)à partir d'une couche réseau (objets linéaires)
+        <translation>        Généère un réseau Musliw de mode individuel (voiture, marche, vélo,...)à partir d&apos;une couche réseau (objets linéaires)
 		
         Paramètres:
             réseau routier: couche réseau routier( objets linéaires)
 			fenêtre: aire de génération (peut être une sous partie du réseau global)
-            sens: sens de circulation ('0' interdit, '1' sen sunique sens de la géométrie, '2'sens unique sens inverse de la géométrie, '3'double sens
-            temps: temps de parcours sur l'arc
-            longueur: longueur de l'arc
+            sens: sens de circulation (&apos;0&apos; interdit, &apos;1&apos; sen sunique sens de la géométrie, &apos;2&apos;sens unique sens inverse de la géométrie, &apos;3&apos;double sens
+            temps: temps de parcours sur l&apos;arc
+            longueur: longueur de l&apos;arc
             i-node: identifiant noeud i
             j-node: identifiant noeud j
             id période: identifiant de la période
             id palge horaire: identifiant de la plage horaire
             heure début:heure de début de la plage horaire
             heure fin: heure fin de la plage horaire
-            calendrier: calendrier de la plage horaire (ex: 'OOOOONN' tous les jours sauf samedi et dimanche
+            calendrier: calendrier de la plage horaire (ex: &apos;OOOOONN&apos; tous les jours sauf samedi et dimanche
             texte arc: libellé arc
             mode: identifiant de mode pour le calcul de plus courts chemins multimodal
             réseau Musliw: Nom du réseau Musliw généré (txt file)
@@ -5402,7 +5402,7 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
     <message>
         <location filename="routes.py" line="87"/>
         <source>Musliw travel times</source>
-        <translation>Temps de parcours Musliw</translation>
+        <translation>Temps de parcours Musliw (txt)</translation>
     </message>
     <message>
         <location filename="routes.py" line="94"/>
@@ -5424,14 +5424,14 @@ L'indicateur d'accessibilité avec concurrence spatiale et modale est dans la va
         <source>
         Display shortest paths from a selection of starting or ending arcs and a 
         a Musliw travel times files
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             Mulsiw travel times: Musliw travel times file &quot;*_temps.txt&quot;
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Output: Output layer containing shortest paths traces
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>
+			Output: Output layer containing shortest paths traces
+			
         </source>
-        <translation>       Affiche lesitinéraires à partir d'une sélection d'arcs et
-d'un fichier de temps de parcours Musliw (*_temps.txt)
+        <translation>       Affiche lesitinéraires à partir d&apos;une sélection d&apos;arcs et
+d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
 
 		        
         Paramètres:
@@ -5445,7 +5445,7 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
     <message>
         <location filename="decaler_lignes.py" line="84"/>
         <source>Network</source>
-        <translation>Réseau</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="decaler_lignes.py" line="93"/>
@@ -5484,24 +5484,24 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
         The algorithm will update an numeric attribute with a number that allows to produce flows maps with shifted lines. For example, if there is two superposed links from A to B with line 1 (100 passangers)
         and line 2 (200passengers) and you want to produce the flow maps of the total number of passengers, 
         the algorithm will update an attribute &quot;shift&quot; that will have 0 for line 1 (no shift) and 100 for line 2.
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             network: lines network 
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: link id (ij attribute or expression)
+			ij: link id (ij attribute or expression)
             line: line id
             quantitative value: the exprerssion you want to visualize in the flows map (flow variable)
             shift variable: field to be update with the shift value
             
             
         </source>
-        <translation>        MIse à jour d'un champ d'un couche de lignes (avec des tronçons superposés géographiquement mais avec des identifiants de lignes différents ) pour pouvoir produire une carte de flux avec un décalagedes tronçons. 
-        L'algorithme va mettre à jour un champ nuémrique avec un nombre qui permettra de réaliser des cartes de flux avec décalage des lignes. Par exemple, s'il existe deux tronçons superposés de A vers B avec un pour la ligne 1 (100 passagers) et l'autre pour la ligne 2 ( 200 passagers et que l'on souhaite produire une carte du nombre total de passagers, l'algorithme mettra à jour un attribut &quot;shift&quot; qui vaudra 0 pour la ligne 1 et 100 pour la ligne 2
+        <translation>        MIse à jour d&apos;un champ d&apos;un couche de lignes (avec des tronçons superposés géographiquement mais avec des identifiants de lignes différents ) pour pouvoir produire une carte de flux avec un décalagedes tronçons. 
+        L&apos;algorithme va mettre à jour un champ nuémrique avec un nombre qui permettra de réaliser des cartes de flux avec décalage des lignes. Par exemple, s&apos;il existe deux tronçons superposés de A vers B avec un pour la ligne 1 (100 passagers) et l&apos;autre pour la ligne 2 ( 200 passagers et que l&apos;on souhaite produire une carte du nombre total de passagers, l&apos;algorithme mettra à jour un attribut &quot;shift&quot; qui vaudra 0 pour la ligne 1 et 100 pour la ligne 2
 		
         Paramètres:
             réseau: Couche des lignes
-			ij: identifiant de tronçon (champ 'ij' ou expression)
+			ij: identifiant de tronçon (champ &apos;ij&apos; ou expression)
             ligne: identifiant de ligne
-            variable quantitative: L'expression que l'on souhaite visualiser dans la carte de flux
+            variable quantitative: L&apos;expression que l&apos;on souhaite visualiser dans la carte de flux
             variable décalage: Champ qui sera mis à jour avec la valeur du décalage</translation>
     </message>
     <message>
@@ -5530,7 +5530,7 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
     <message>
         <location filename="simple_matrix.py" line="108"/>
         <source>Trip end</source>
-        <translation>Point d'arrivée</translation>
+        <translation>Point d&apos;arrivée</translation>
     </message>
     <message>
         <location filename="simple_matrix.py" line="114"/>
@@ -5596,10 +5596,10 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
         <location filename="simple_matrix.py" line="266"/>
         <source>
         Generates a Musliw matrix from clicking on 2 nodes to define an origin(1st point)-destination(2nd point)
-<byte value="x9"/><byte value="x9"/>
+		
         Parameters:
             Nodes: nodes layer (corresponding to the routing arc layer )
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
+			Node id: Field that contains the node Id
             Trip start: Start point (origin)
             Trips end: End point (destination)
             Demand: number of passengers for assignment
@@ -5617,12 +5617,12 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
             Noeuds: Couches des noeuds (Devant correspondre à la couche des arcs du calcul de cheminement)
 			Id noeud: Identifiant de noeud
             Point de départ: Point de départ (origine)
-            Point d'arrivée: Point d'arrivée (destination)
-            Demaned:nombre de passagers pour l'affectation
+            Point d&apos;arrivée: Point d&apos;arrivée (destination)
+            Demaned:nombre de passagers pour l&apos;affectation
             Jour: Numéro de jour dans le calendrier (1 =  1er jour du calendrier)
             Horaire : heure de départ au plus tôt ou arrivée au plus tardl
-            Depart/Arrivée: Depart (du point de départ vers le point d'arrivée en avant recherche des successeurs) - Arrivéé (du point d'arrivée au poitn de départ à rebours recherche de prédecesseurs)
-            Mode d'écriture: Ecriture efface le fichier s'il existe/ Ajout ajoute une ligne au fichier s'il existe
+            Depart/Arrivée: Depart (du point de départ vers le point d&apos;arrivée en avant recherche des successeurs) - Arrivéé (du point d&apos;arrivée au poitn de départ à rebours recherche de prédecesseurs)
+            Mode d&apos;écriture: Ecriture efface le fichier s&apos;il existe/ Ajout ajoute une ligne au fichier s&apos;il existe
             Matrice Musliw: nom de la matrice Musliw (fichier texte avec séparateur &quot;;&quot;)
             </translation>
     </message>
@@ -5632,7 +5632,7 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
     <message>
         <location filename="spatial_aggregation.py" line="91"/>
         <source>Polygons</source>
-        <translation>Polygones</translation>
+        <translation>Polygones (Qgis)</translation>
     </message>
     <message>
         <location filename="spatial_aggregation.py" line="98"/>
@@ -5694,25 +5694,25 @@ d'un fichier de temps de parcours Musliw (*_temps.txt)
         <source>
         Perform a spatial aggregation between 2 layers in order to estimate 
         for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             polygons: the polygon layer (ex: iso-value layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>id: field containing the polygon id (ex: 30min iso-value)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>source: a polygon layer with a variable to compute (ex: municipalities layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>aggregator: aggregator (min,max, mean, sum) 
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>output: the result of aggration layer (containing the same objects as the polygons layer)
+			id: field containing the polygon id (ex: 30min iso-value)
+			source: a polygon layer with a variable to compute (ex: municipalities layer)
+			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+			aggregator: aggregator (min,max, mean, sum) 
+			output: the result of aggration layer (containing the same objects as the polygons layer)
         </source>
         <translation>        Effectue une aggrégation spatiale entre 2 couches de polygones
-pour estimer par exemple la part de la population qui est à l'intérieur d'un polygone (ex surface &lt; 30min)
+pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
 		        
         Parametères:
             polygones: nom de la couche de polygones (ex: isochrones)
-			id: champ contenant l'identifiant du polygones (ex isochrone de 30 minutes)
+			id: champ contenant l&apos;identifiant du polygones (ex isochrone de 30 minutes)
 			source: couche de polygones qui contient la variable à estimer ( ex: communes contenant la population)
 			variable: la variable à calculer de la table source (ex: la population des communes)
 			aggregateur:aggreagateur (min, max, moyenne, somme)
-			valeur absente: valeur correspondant à l'absence de données dans le raster
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
 			sortie: table résultat contenant les polygones avec la variable estimée
 
         </translation>
@@ -5785,25 +5785,25 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
         <source>
         Perform a spatial aggregation between 2 layers in order to estimate 
         for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             polygons: the polygon layer (ex: iso-value layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>id: field containing the polygon id (ex: 30min iso-value)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>source: a polygon layer with a variable to compute (ex: municipalities layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>aggregator: aggregator (min,max, mean, sum) 
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>output: the result of aggration layer (containing the same objects as the polygons layer)
+			id: field containing the polygon id (ex: 30min iso-value)
+			source: a polygon layer with a variable to compute (ex: municipalities layer)
+			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+			aggregator: aggregator (min,max, mean, sum) 
+			output: the result of aggration layer (containing the same objects as the polygons layer)
         </source>
         <translation type="obsolete">        Effectue une aggrégation spatiale entre 2 couches de polygones
-pour estimer par exemple la part de la population qui est à l'intérieur d'un polygone (ex surface &lt; 30min)
+pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
 		        
         Parametères:
             polygones: nom de la couche de polygones (ex: isochrones)
-			id: champ contenant l'identifiant du polygones (ex isochrone de 30 minutes)
+			id: champ contenant l&apos;identifiant du polygones (ex isochrone de 30 minutes)
 			source: couche de polygones qui contient la variable à estimer ( ex: communes contenant la population)
 			variable: la variable à calculer de la table source (ex: la population des communes)
 			aggregateur:aggreagateur (min, max, moyenne, somme)
-			valeur absente: valeur correspondant à l'absence de données dans le raster
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
 			sortie: table résultat contenant les polygones avec la variable estimée
 
         </translation>
@@ -5824,7 +5824,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="trafic.py" line="96"/>
         <source>Network</source>
-        <translation>Réseau</translation>
+        <translation>Arcs (Qgis)</translation>
     </message>
     <message>
         <location filename="trafic.py" line="102"/>
@@ -5865,32 +5865,32 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
         <location filename="trafic.py" line="711"/>
         <source>
         Generates variable buffer polygons from a linear layer and a field containing a width variable
-<byte value="x9"/><byte value="x9"/>        
+		        
         Parameters:
             network: input layer name (linear objects)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>width: width field
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>scale: scale factor for width in (m)
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>max_angle: maximum angle for nice cuts
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>min_distance: smi distance from arcs ends for angle estimation
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Both directions?: check if two ways arc
-<byte value="x9"/><byte value="x9"/><byte value="x9"/>Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
+			width: width field
+			scale: scale factor for width in (m)
+			max_angle: maximum angle for nice cuts
+			min_distance: smi distance from arcs ends for angle estimation
+			Both directions?: check if two ways arc
+			Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
         </source>
         <translation>
-        Génère des polygones à largeur varible à partir d'une couche d'objets linéaires et d'un champ épaisseur
+        Génère des polygones à largeur varible à partir d&apos;une couche d&apos;objets linéaires et d&apos;un champ épaisseur
 		        
         Paramètres:
-            réseau: couche réseau 'objets linéaires)
+            réseau: couche réseau &apos;objets linéaires)
 			largeur: champ largeur
-			échelle: facteur d'échelle (m)
+			échelle: facteur d&apos;échelle (m)
 			angle max: angle maximum pour les belles découpes
 			min_distance: min distance
 			deux sens?:Un seul polygone pour les deux sens (non rienté)
-			polygones à largeur variable:Couche résultatr (polygones à largeur proportionnelle à un champ l'épaisseur)</translation>
+			polygones à largeur variable:Couche résultatr (polygones à largeur proportionnelle à un champ l&apos;épaisseur)</translation>
     </message>
     <message>
         <location filename="trafic.py" line="133"/>
         <source>Snap distance(m)</source>
-        <translation>Distance d'accrochage</translation>
+        <translation>Distance d&apos;accrochage</translation>
     </message>
 </context>
 <context>
@@ -5898,7 +5898,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="21"/>
         <source>BDTOPO road layer</source>
-        <translation>Routes BDTOPO</translation>
+        <translation>Routes BDTOPO (qgis)</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="22"/>
@@ -5918,7 +5918,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="25"/>
         <source>Urban area size</source>
-        <translation>Taille de l'aire urbaine</translation>
+        <translation>Taille de l&apos;aire urbaine</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="26"/>
@@ -5938,7 +5938,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="188"/>
         <source>Warning: The layer is not editable</source>
-        <translation>Attention: la couche n'est pas éditable</translation>
+        <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="135"/>
@@ -5966,7 +5966,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="maj_vitesses_bd_egm.py" line="22"/>
         <source>EGM/ERM roads</source>
-        <translation>Routes EGM/ERM</translation>
+        <translation>Routes EGM/ERM (Qgis)</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_egm.py" line="23"/>
@@ -6001,7 +6001,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="maj_vitesses_bd_egm.py" line="160"/>
         <source>Warning: The layer is not editable</source>
-        <translation>Attention: la couche n'est pas éditable</translation>
+        <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_egm.py" line="123"/>
@@ -6042,7 +6042,7 @@ pour estimer par exemple la part de la population qui est à l'intérieur d'un p
     <message>
         <location filename="zones_objects_centroids.py" line="35"/>
         <source>Zones</source>
-        <translation>Zones</translation>
+        <translation>Zones (Qgis)</translation>
     </message>
     <message>
         <location filename="zones_objects_centroids.py" line="36"/>

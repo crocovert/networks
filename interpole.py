@@ -356,10 +356,11 @@ class Interpole(QgsProcessingAlgorithm):
                     #request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
                     request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple)
                     #req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple)
                     features=[f for f in layer.getFeatures(request)]
+                    nb=len(features)
 
                     if intraversable:
+                        req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple)
                         features_intra=[f for f in layer.getFeatures(req_intra)]
                     else:
                         features_intra=[]
@@ -380,11 +381,12 @@ class Interpole(QgsProcessingAlgorithm):
 
                         var_vitesse_diffusion=vitesse_diffusion.evaluate(formule_vitesse_diffusion)
                         speed=60/(1000*var_vitesse_diffusion)
+                        feedback.setProgress(k*100/nb)
 
                         if var_sens in ['1','2','3'] :
                             
                             geom=i.geometry()
-                            zone=geom.buffer(rayon,12).boundingBox()
+                            zone=geom.buffer(rayon,6).boundingBox()
                             deltax=int((zone.xMinimum()-ll[0])/taille_pixel_x)
                             deltay=int((zone.yMinimum()-ll[1])/taille_pixel_y)
                             dx=int(zone.width()/taille_pixel_x)

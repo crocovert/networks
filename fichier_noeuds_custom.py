@@ -155,8 +155,8 @@ class NodesFileCustom(QgsProcessingAlgorithm):
         temps_attente_terminal=self.parameterAsBool(parameters, self.TATT1, context)
         fichier_resultat=self.parameterAsFileOutput(parameters,self.FICHIER_RESULTAT,context)
 
-        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','toll']
-        champs_alpha=['id','destination','origin','numero','pole']
+        champs_num=['jour','heureo','heured','temps','tveh','tmap','tatt','tcorr','ncorr','tatt1','cout','longueur','toll','boai','alij','volau','heure','nbpop']
+        champs_alpha=['id','destination','origin','numero','pole','type','texte','ligne','service']
         fichier=io.open(fichier_temps,"r",encoding="utf_8_sig")
         res=io.open(fichier_resultat,"w",encoding='utf8')
         cols={}
@@ -166,13 +166,14 @@ class NodesFileCustom(QgsProcessingAlgorithm):
         for ch in champs_num:
             if ch in filter:
                 filter=filter.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
-            if ch in cle:
-                cle=cle.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
+            if ch in indice:
+                indice=indice.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
         for ch in champs_alpha:
             if ch in filter:
                 filter=filter.replace(ch,'str(elements[cols[\"'+ch+'\"]])')
             if ch in indice:
                 indice=indice.replace(ch,'str(elements[cols[\"'+ch+'\"]])')
+            
         if ';' in indice:
             indice=indice.replace(";","+';'+")
 
@@ -193,13 +194,21 @@ class NodesFileCustom(QgsProcessingAlgorithm):
                     print('Filter syntax error')
                     print(filter)
                     break
+                try:
+                    texte_cle=eval(indice)
+                except:
+                    print('Key error '+texte_cle)
+                    print(indice)
+                    break
+                    
                 if texte==True:
                     try:
                         elements[cols[variable]]=elements[cols[variable]].replace(',','.')
                     except:
                         print(elements,cols[variable])
+                        break
                     try:
-                        elements[cols['numero']]=eval(indice)
+                        elements[cols['numero']]=texte_cle
                     except:
                         print('Key error')
                         print(indice)
@@ -208,24 +217,34 @@ class NodesFileCustom(QgsProcessingAlgorithm):
                     if temps_attente_terminal==True and 'tatt1' in cols:
                         elements[cols[variable]]=float(elements[cols[variable]])-float(elements[cols['tatt1']])
 
-                        
-                        links[elements[cols['numero']]]=[elements[cols['numero']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['origin']],elements[cols['volau']],0,0,float(elements[cols[variable]])**2,elements[cols['origin']],elements[cols['origin']]]
+                    if elements[cols['numero']] not in links:
+                        if float(elements[cols[variable]])==0:
+                            h=float('inf')
+                        else:
+                            h=1/float(elements[cols[variable]])
+                        links[elements[cols['numero']]]=[elements[cols['numero']],float(elements[cols[variable]]),1.0,float(elements[cols[variable]]),float(elements[cols[variable]]),elements[cols['origin']],elements[cols['volau']],0,0,float(elements[cols[variable]])**2,elements[cols['origin']],elements[cols['origin']],h]
                     else:
                         links[elements[cols['numero']]][1]+=float(elements[cols[variable]])
                         links[elements[cols['numero']]][9]+=float(elements[cols[variable]])**2
                         links[elements[cols['numero']]][2]+=1
+                        if float(elements[cols[variable]])==0:
+                            h=float('inf')
+                        else:
+                            h=1/float(elements[cols[variable]])
+                        links[elements[cols['numero']]][12]+=h
+                        
                         if float(elements[cols[variable]])<float(links[elements[cols['numero']]][3]):
                             links[elements[cols['numero']]][3]=float(elements[cols[variable]])
                             links[elements[cols['numero']]][10]=elements[cols['origin']]
                         if float(elements[cols[variable]])>float(links[elements[cols['numero']]][4]):
                             links[elements[cols['numero']]][4]=float(elements[cols[variable]])
-                            links[elements[cols['numero']]][11]=elements[cols['origin']]            
-        res.write(cle+';avg;nb;min;max;sdev;o_min;o_max;volau\n')
+                            links[elements[cols['numero']]][11]=elements[cols['origin']]
+        res.write(cle+';sum;avg;nb;min;max;sdev;o_min;o_max;volau;hmean\n')
         for i in links:
                 try:
-                    res.write(str(links[i][0])+";"+unicode(links[i][1]/links[i][2])+";"+unicode(links[i][2])+";"+unicode(links[i][3])+
+                    res.write(str(links[i][0])+";"+unicode(links[i][1])+";"+unicode(links[i][1]/links[i][2])+";"+unicode(links[i][2])+";"+unicode(links[i][3])+
                             ";"+unicode(links[i][4])+";"+unicode((abs(-((links[i][1]**2)/links[i][2])+links[i][9]))**0.5)+
-                            ";"+links[i][10]+";"+links[i][11]+";"+links[i][6]+"\n")
+                            ";"+links[i][10]+";"+links[i][11]+";"+links[i][6]+';'+unicode(links[i][2]/links[i][12])+"\n")
                 except:
                     progress.setText(self.tr('ignored element'))
         res.close()

@@ -247,7 +247,7 @@ class MajLinksPole(QgsProcessingAlgorithm):
                 texte='.'
                 textu='.'
                 valid={idt : texte, idu: textu}
-                reseau.changeAttributeValues(num,valid)
+                reseau.dataProvider().changeAttributeValues({num:valid})
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)

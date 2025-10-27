@@ -248,13 +248,13 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
                 else:"""
                 valid={ida : tj, idb : ti}
-                reseau.changeAttributeValues(num,valid)
+                reseau.dataProvider().changeAttributeValues({num:valid})
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
                 valid={ida : ti, idb : ti}
-                reseau.changeAttributeValues(num,valid)
+                reseau.dataProvider().changeAttributeValues({num:valid})
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)

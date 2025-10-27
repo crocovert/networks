@@ -181,7 +181,7 @@ class UpdateSpeedBdTopo(QgsProcessingAlgorithm):
                     feedback.setProgressText(';'.join([str(i) for i in f.attributes()]))
 
                 
-                tableau.changeAttributeValues(num,valid)
+                tableau.dataProvider().changeAttributeValues({num:valid})
                 #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                 feedback.setProgress(p*100/n)
         else:

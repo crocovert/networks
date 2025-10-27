@@ -165,470 +165,472 @@ class Trafic(QgsProcessingAlgorithm):
         c = conn.cursor()
         proj=str(self.lines.crs().postgisSrid())
         t=geometry[trafic]
-        
+
         texte="select astext(st_buffer(st_geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+"),"+str(echelle*t)+"))"
         rs = c.execute(texte)
         resultat=c.fetchall()
         conn.commit()
         texte_buf= resultat[0][0]
-        texte_buf=texte_buf.replace("Polygon","MultiLineString")
-        buf=QgsGeometry.fromWkt(texte_buf)
-        #buf=buf.convertToType(QgsWkbTypes.LineGeometry,False)
-        texte="select astext(st_union(st_exteriorring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"))))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
-        buf= QgsGeometry.fromWkt(resultat[0][0])
-        #QgsMessageLog.logMessage(texte)
-        #QgsMessageLog.logMessage(buf.asWkt())
-        buf_poly=buf
-        geom=geometry.geometry()
-        buf_sav=buf
-        buf_l=buf.length()
-        l2=QgsLineString()
-        #print(geom.asWkt())
-        geom.convertToSingleType()
-        #print(geom.asWkt())
-        l2.fromWkt(geom.asWkt())
-        #print(l2.asWkt())
-        pt1=QgsGeometry(l2.startPoint())
-        pt2=QgsGeometry(l2.endPoint())
-        ###point debut
-        debut=spatial.intersects(QgsGeometry.buffer(pt1,snap_dist,3).boundingBox())
-        fe= [f for f in debut]
-
-        feats=[]
-        for f in fe:
-            ff=QgsLineString()
-            #QgsMessageLog.logMessage(lignes[f].geometry().asWkt())
-            geom=lignes[f].geometry()
+        #print(str(texte_buf))
+        if not(texte_buf==None):
+            texte_buf=texte_buf.replace("Polygon","MultiLineString")
+            buf=QgsGeometry.fromWkt(texte_buf)
+            #buf=buf.convertToType(QgsWkbTypes.LineGeometry,False)
+            texte="select astext(st_union(st_exteriorring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"))))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+            buf= QgsGeometry.fromWkt(resultat[0][0])
+            #QgsMessageLog.logMessage(texte)
+            #QgsMessageLog.logMessage(buf.asWkt())
+            buf_poly=buf
+            geom=geometry.geometry()
+            buf_sav=buf
+            buf_l=buf.length()
+            l2=QgsLineString()
+            #print(geom.asWkt())
             geom.convertToSingleType()
-            ff.fromWkt(geom.asWkt())
-            #QgsMessageLog.logMessage(ff.asWkt())
-            #print(pt1.distance(QgsGeometry(ff.startPoint())))
-            if pt1.distance(QgsGeometry(ff.startPoint()))<snap_dist:
-                if lignes[f] not in feats:
-                    feats.append(f)
-            elif pt1.distance(QgsGeometry(ff.endPoint()))<snap_dist:
-                if lignes[f] not in feats:
-                    feats.append(f)
-        #QgsMessageLog.logMessage(str(fe))
-        #QgsMessageLog.logMessage(str(feats))
+            #print(geom.asWkt())
+            l2.fromWkt(geom.asWkt())
+            #print(l2.asWkt())
+            pt1=QgsGeometry(l2.startPoint())
+            pt2=QgsGeometry(l2.endPoint())
+            ###point debut
+            debut=spatial.intersects(QgsGeometry.buffer(pt1,snap_dist,3).boundingBox())
+            fe= [f for f in debut]
 
-                
-            
-        distances={}
-        angles={}
-        for i in feats:
-            longueur=lignes[i].geometry().length()
-            if not(geometry.id()==i):
-                distances[i]=lignes[i].geometry().lineLocatePoint(pt1)
-                if distances[i]<dist_min:
-                    angles[i]=((lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi)+180)%360
-                else:
-                    angles[i]=lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180/math.pi
-            else:
-                angle1=lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi
-        angle_maxi=1e38
-        voisin=None
-        angle_voisin=None
-        angle2=None
-        if len(distances)==0:
-            angle=(angle1)%360
-            angle2=angle1
-            angle_voisin=angle2
-        for i in distances:
-            if distances[i]<dist_min:
-                angle=(angles[i])%360
-                min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
-                if min_angle<angle_maxi:
-                    angle_maxi=min_angle
-                    angle_voisin=angle
-                    voisin=i
-            else:
-                angle=angles[i]
-                min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
-                if min_angle<angle_maxi:
-                    angle_maxi=min_angle
-                    angle_voisin=angle
-                    voisin=i
+            feats=[]
+            for f in fe:
+                ff=QgsLineString()
+                #QgsMessageLog.logMessage(lignes[f].geometry().asWkt())
+                geom=lignes[f].geometry()
+                geom.convertToSingleType()
+                ff.fromWkt(geom.asWkt())
+                #QgsMessageLog.logMessage(ff.asWkt())
+                #print(pt1.distance(QgsGeometry(ff.startPoint())))
+                if pt1.distance(QgsGeometry(ff.startPoint()))<snap_dist:
+                    if lignes[f] not in feats:
+                        feats.append(f)
+                elif pt1.distance(QgsGeometry(ff.endPoint()))<snap_dist:
+                    if lignes[f] not in feats:
+                        feats.append(f)
+            #QgsMessageLog.logMessage(str(fe))
+            #QgsMessageLog.logMessage(str(feats))
 
-        if  min(abs((angle_voisin+180)%360-(angle1+180)%360),abs(angle_voisin-angle1))<angle_max:
-            if abs((angle_voisin+180)%360-(angle1+180)%360)<abs(angle_voisin-angle1):
-                angle2=(0.5*(((angle_voisin+180)%360+(angle1+180)%360))+180)%360
-            else:
-                angle2=0.5*(angle_voisin+angle1)
-        else:
-            angle2=angle1
-
-        if angle2==None:
-            angle2=(angle1)%360
-        
-        start_line=QgsGeometry.fromPolyline([QgsPoint(pt1.asPoint().x()-40*echelle*t*math.cos((180-angle2)*math.pi/180),pt1.asPoint().y()-40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt1.asPoint().x(),pt1.asPoint().y())])
-        int1=buf.intersection(start_line)
-        start_line2=QgsGeometry.fromPolyline([QgsPoint(pt1.asPoint().x()+40*echelle*t*math.cos((180-angle2)*math.pi/180),pt1.asPoint().y()+40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt1.asPoint().x(),pt1.asPoint().y())])
-        int3=buf.intersection(start_line2)
-        if int1.isMultipart():
-            points=int1.asMultiPoint()
-            dmax=1e38
-            for p in points:
-                d=pt1.distance(QgsGeometry.fromPointXY(p))
-                if d<dmax:
-                    dmax=d
-                    pmax=p
-            int1=QgsGeometry.fromPointXY(pmax)
-        if int3.isMultipart():
-            points=int3.asMultiPoint()
-            dmax=1e38
-            for p in points:
-                d=pt1.distance(QgsGeometry.fromPointXY(p))
-                if d<dmax:
-                    dmax=d
-                    pmax=p
-            int3=QgsGeometry.fromPointXY(pmax)
-
-        
-
-        ###point fin
-
-            
-        debut=spatial.intersects(QgsGeometry.buffer(pt2,snap_dist,3).boundingBox())
-        fe= [f for f in debut]
-        for f in fe:
-            ff=QgsLineString()
-            geom=lignes[f].geometry()
-            geom.convertToSingleType()
-            ff.fromWkt(geom.asWkt())
-            if pt2.distance(QgsGeometry(ff.startPoint()))<snap_dist:
-                if lignes[f] not in feats:
-                    feats.append(f)
-            elif pt2.distance(QgsGeometry(ff.endPoint()))<snap_dist:
-                if lignes[f] not in feats:
-                    feats.append(f)
-        distances={}
-        angles={}
-        for i in feats:
-            longueur=lignes[i].geometry().length()
-            if not(geometry.id()==i):
-                distances[i]=lignes[i].geometry().lineLocatePoint(pt2)
-                if distances[i]<dist_min:
-                    angles[i]=(lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi)%360
-                else:
-                    angles[i]=(((lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180)/math.pi)+180)%360
-            else:
-                 angle1=((lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180/math.pi))
-        angle_maxi=1e38
-        voisin=None
-        angle_voisin=None
-        angle2=None
-        if len(distances)==0:
-            angle=(angle1)%360
-            angle2=angle1
-            angle_voisin=angle2
-        for i in distances:
-            if distances[i]<dist_min:
-                angle=(angles[i])
-                min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
-                if min_angle<angle_maxi:
-                    angle_maxi=min_angle
-                    angle_voisin=angle
-                    voisin=i
-            else:
-                angle=(angles[i])
-                min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
-                if min_angle<angle_maxi:
-                    angle_maxi=min_angle
-                    angle_voisin=angle
-                    voisin=i
-
-        if  min(abs((angle_voisin+180)%360-(angle1+180)%360),abs(angle_voisin-angle1))<angle_max:
-            if abs((angle_voisin+180)%360-(angle1+180)%360)<abs(angle_voisin-angle1):
-                angle2=(0.5*(((angle_voisin+180)%360+(angle1+180)%360))+180)%360
-            else:
-                angle2=0.5*(angle_voisin+angle1)
-        else:
-            angle2=angle1
-        if angle2==None:
-            angle2=(angle1)%360
-
-
-        end_line=QgsGeometry.fromPolyline([QgsPoint(pt2.asPoint().x()-40*echelle*t*math.cos((180-angle2)*math.pi/180),pt2.asPoint().y()-40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt2.asPoint().x(),pt2.asPoint().y())])
-        int2=buf.intersection(end_line)
-        end_line2=QgsGeometry.fromPolyline([QgsPoint(pt2.asPoint().x()+40*echelle*t*math.cos((180-angle2)*math.pi/180),pt2.asPoint().y()+40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt2.asPoint().x(),pt2.asPoint().y())])
-        int4=buf.intersection(end_line2)
-        
-        int5=start_line.intersection(end_line)
-        int6=start_line2.intersection(end_line2)
-        m5=-1
-        m6=-1
-        
-        if int5.type()==0:
-            if int5.within(buf_poly):
-                m5=1
-        if int6.type()==0:
-            if int6.within(buf_poly):
-                m6=1
-        
-        if int2.isMultipart():
-            points=int2.asMultiPoint()
-            dmax=1e38
-            for p in points:
-                d=pt2.distance(QgsGeometry.fromPointXY(p))
-                if d<dmax:
-                    dmax=d
-                    pmax=p
-            int2=QgsGeometry.fromPointXY(pmax)
-        if int4.isMultipart():
-            points=int4.asMultiPoint()
-            dmax=1e38
-            for p in points:
-                d=pt2.distance(QgsGeometry.fromPointXY(p))
-                if d<dmax:
-                    dmax=d
-                    pmax=p
-            int4=QgsGeometry.fromPointXY(pmax)
-
-
-        #print(int1.exportToWkt(),int2.exportToWkt(),int3.exportToWkt(),int4.exportToWkt())
-        #QgsMessageLog.logMessage(buf.asWkt())
-        texte="select astext(st_union(st_snap(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),st_geomfromtext('"+int1.asWkt()+"',"+proj+"),1)))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
-        buf= resultat[0][0]
-        #QgsMessageLog.logMessage(texte)
-        #QgsMessageLog.logMessage(buf)
-        #QgsMessageLog.logMessage(proj)
-        #QgsMessageLog.logMessage(int2.asWkt())
-        texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int2.asWkt()+"',"+proj+"),1)))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
-        buf= resultat[0][0]
-        texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int3.asWkt()+"',"+proj+"),1)))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
-        buf= resultat[0][0]
-        texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int4.asWkt()+"',"+proj+"),1)))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
-        buf= QgsGeometry.fromWkt(resultat[0][0])
-
-        m1=buf.lineLocatePoint(int1)        
-        m2=buf.lineLocatePoint(int2)
-        m3=buf.lineLocatePoint(int3)        
-        m4=buf.lineLocatePoint(int4)
-
-    #creation epaisseur
-
-        buf_l=buf.length()
-        m1=m1/buf_l
-        m2=m2/buf_l
-        m3=m3/buf_l
-        m4=m4/buf_l
-
-
-        if m2<m1:
-            texte="select asText(st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+")"+','+str(m2)+','+str(m1)+"))"
-
-            rs = c.execute(texte)
-            resultat=c.fetchall()
-            conn.commit()
-            buf1= QgsGeometry.fromWkt(resultat[0][0])
-
-
-        else:
-            texte="select astext(st_union(st_snap(st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m1)+"),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1),1),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m2)+",1)))"
-            rs = c.execute(texte)
-            resultat=c.fetchall()
-            conn.commit()
-            buf1= QgsGeometry.fromWkt(resultat[0][0])
-            
-        if m3<m4:
-            texte="select asText(st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+")"+','+str(m3)+','+str(m4)+"))"
-            rs = c.execute(texte)
-            resultat=c.fetchall()
-            conn.commit()
-            buf2= QgsGeometry.fromWkt(resultat[0][0])
-
-
-        else:
-
-            texte="select astext(st_union(g)) from (select st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m4)+") as \"g\" union all select st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1) as \"g\" )"
-            rs = c.execute(texte)
-            resultat=c.fetchall()
-            conn.commit()
-            buf2= QgsGeometry.fromWkt(resultat[0][0])
-            texte="select astext(st_union(st_snap(st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m4)+"),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1),1),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1)))"
-
-            rs = c.execute(texte)
-            resultat=c.fetchall()
-            conn.commit()
-            buf2= QgsGeometry.fromWkt(resultat[0][0])
-
-        
-
-
-        
-
-
-        
-        g1=buf
-        g2=buf.shortestLine(int1)
-        g2=g2.combine(g1)
-        g3=buf.shortestLine(int2)
-        g3=g3.combine(g2)
-        g3=g3.combine(pt1.shortestLine(int1))
-        g3=g3.combine(pt2.shortestLine(int2))
-        g3=g3.combine(pt1.shortestLine(geometry.geometry()))
-        g3=g3.combine(pt2.shortestLine(geometry.geometry()))
-        g3=g3.combine(geometry.geometry())
-        buf3=buf1.asWkt()
-        buf4=buf2.asWkt()
-        if double_sens==False:
-            if m5>0:
-                texte="select astext(st_union(st_snap(geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]        
-            else:
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"'),1),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(geometry.geometry()).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(geometry.geometry()).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]    
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(geometry.geometry()).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(geometry.geometry()).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+"),1),geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-            
-            
-        else:
-
-            if m5>0:
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf4+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int3).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int3).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int4).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int4).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]    
-
-            elif m6>0:
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int6).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int6).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int6).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int6).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]        
-
-            else:
-                
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
                     
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+int3.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+int3.shortestLine(int1).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+int4.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+int4.shortestLine(int2).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf2.shortestLine(int3).asWkt()+"',"+proj+"),1),geomfromtext('"+buf2.shortestLine(int3).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]    
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf2.shortestLine(int4).asWkt()+"',"+proj+"),1),geomfromtext('"+buf2.shortestLine(int4).asWkt()+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
-                texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf4+"',"+proj+"),1),geomfromtext('"+buf4+"',"+proj+")))"
-                rs = c.execute(texte)
-                resultat=c.fetchall()
-                conn.commit()
-                buf3= resultat[0][0]
+                
+            distances={}
+            angles={}
+            for i in feats:
+                longueur=lignes[i].geometry().length()
+                if not(geometry.id()==i):
+                    distances[i]=lignes[i].geometry().lineLocatePoint(pt1)
+                    if distances[i]<dist_min:
+                        angles[i]=((lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi)+180)%360
+                    else:
+                        angles[i]=lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180/math.pi
+                else:
+                    angle1=lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi
+            angle_maxi=1e38
+            voisin=None
+            angle_voisin=None
+            angle2=None
+            if len(distances)==0:
+                angle=(angle1)%360
+                angle2=angle1
+                angle_voisin=angle2
+            for i in distances:
+                if distances[i]<dist_min:
+                    angle=(angles[i])%360
+                    min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
+                    if min_angle<angle_maxi:
+                        angle_maxi=min_angle
+                        angle_voisin=angle
+                        voisin=i
+                else:
+                    angle=angles[i]
+                    min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
+                    if min_angle<angle_maxi:
+                        angle_maxi=min_angle
+                        angle_voisin=angle
+                        voisin=i
 
-        texte="select astext(st_buildarea(st_union(g))) from  ((select geomfromtext('"+buf3+"',"+proj+") as \"g\"))"
-        rs = c.execute(texte)
-        resultat=c.fetchall()
-        conn.commit()
+            if  min(abs((angle_voisin+180)%360-(angle1+180)%360),abs(angle_voisin-angle1))<angle_max:
+                if abs((angle_voisin+180)%360-(angle1+180)%360)<abs(angle_voisin-angle1):
+                    angle2=(0.5*(((angle_voisin+180)%360+(angle1+180)%360))+180)%360
+                else:
+                    angle2=0.5*(angle_voisin+angle1)
+            else:
+                angle2=angle1
 
-        buf=QgsGeometry.fromWkt(resultat[0][0])
+            if angle2==None:
+                angle2=(angle1)%360
+            
+            start_line=QgsGeometry.fromPolyline([QgsPoint(pt1.asPoint().x()-40*echelle*t*math.cos((180-angle2)*math.pi/180),pt1.asPoint().y()-40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt1.asPoint().x(),pt1.asPoint().y())])
+            int1=buf.intersection(start_line)
+            start_line2=QgsGeometry.fromPolyline([QgsPoint(pt1.asPoint().x()+40*echelle*t*math.cos((180-angle2)*math.pi/180),pt1.asPoint().y()+40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt1.asPoint().x(),pt1.asPoint().y())])
+            int3=buf.intersection(start_line2)
+            if int1.isMultipart():
+                points=int1.asMultiPoint()
+                dmax=1e38
+                for p in points:
+                    d=pt1.distance(QgsGeometry.fromPointXY(p))
+                    if d<dmax:
+                        dmax=d
+                        pmax=p
+                int1=QgsGeometry.fromPointXY(pmax)
+            if int3.isMultipart():
+                points=int3.asMultiPoint()
+                dmax=1e38
+                for p in points:
+                    d=pt1.distance(QgsGeometry.fromPointXY(p))
+                    if d<dmax:
+                        dmax=d
+                        pmax=p
+                int3=QgsGeometry.fromPointXY(pmax)
 
-        return(buf)        
+            
+
+            ###point fin
+
+                
+            debut=spatial.intersects(QgsGeometry.buffer(pt2,snap_dist,3).boundingBox())
+            fe= [f for f in debut]
+            for f in fe:
+                ff=QgsLineString()
+                geom=lignes[f].geometry()
+                geom.convertToSingleType()
+                ff.fromWkt(geom.asWkt())
+                if pt2.distance(QgsGeometry(ff.startPoint()))<snap_dist:
+                    if lignes[f] not in feats:
+                        feats.append(f)
+                elif pt2.distance(QgsGeometry(ff.endPoint()))<snap_dist:
+                    if lignes[f] not in feats:
+                        feats.append(f)
+            distances={}
+            angles={}
+            for i in feats:
+                longueur=lignes[i].geometry().length()
+                if not(geometry.id()==i):
+                    distances[i]=lignes[i].geometry().lineLocatePoint(pt2)
+                    if distances[i]<dist_min:
+                        angles[i]=(lignes[i].geometry().interpolateAngle(min(dist_min,longueur))*180/math.pi)%360
+                    else:
+                        angles[i]=(((lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180)/math.pi)+180)%360
+                else:
+                     angle1=((lignes[i].geometry().interpolateAngle(longueur-min(dist_min,longueur))*180/math.pi))
+            angle_maxi=1e38
+            voisin=None
+            angle_voisin=None
+            angle2=None
+            if len(distances)==0:
+                angle=(angle1)%360
+                angle2=angle1
+                angle_voisin=angle2
+            for i in distances:
+                if distances[i]<dist_min:
+                    angle=(angles[i])
+                    min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
+                    if min_angle<angle_maxi:
+                        angle_maxi=min_angle
+                        angle_voisin=angle
+                        voisin=i
+                else:
+                    angle=(angles[i])
+                    min_angle=min(abs((angle+180)%360-(angle1+180)%360),abs(angle-angle1))
+                    if min_angle<angle_maxi:
+                        angle_maxi=min_angle
+                        angle_voisin=angle
+                        voisin=i
+
+            if  min(abs((angle_voisin+180)%360-(angle1+180)%360),abs(angle_voisin-angle1))<angle_max:
+                if abs((angle_voisin+180)%360-(angle1+180)%360)<abs(angle_voisin-angle1):
+                    angle2=(0.5*(((angle_voisin+180)%360+(angle1+180)%360))+180)%360
+                else:
+                    angle2=0.5*(angle_voisin+angle1)
+            else:
+                angle2=angle1
+            if angle2==None:
+                angle2=(angle1)%360
+
+
+            end_line=QgsGeometry.fromPolyline([QgsPoint(pt2.asPoint().x()-40*echelle*t*math.cos((180-angle2)*math.pi/180),pt2.asPoint().y()-40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt2.asPoint().x(),pt2.asPoint().y())])
+            int2=buf.intersection(end_line)
+            end_line2=QgsGeometry.fromPolyline([QgsPoint(pt2.asPoint().x()+40*echelle*t*math.cos((180-angle2)*math.pi/180),pt2.asPoint().y()+40*echelle*t*math.sin((180-angle2)*math.pi/180)),QgsPoint(pt2.asPoint().x(),pt2.asPoint().y())])
+            int4=buf.intersection(end_line2)
+            
+            int5=start_line.intersection(end_line)
+            int6=start_line2.intersection(end_line2)
+            m5=-1
+            m6=-1
+            
+            if int5.type()==0:
+                if int5.within(buf_poly):
+                    m5=1
+            if int6.type()==0:
+                if int6.within(buf_poly):
+                    m6=1
+            
+            if int2.isMultipart():
+                points=int2.asMultiPoint()
+                dmax=1e38
+                for p in points:
+                    d=pt2.distance(QgsGeometry.fromPointXY(p))
+                    if d<dmax:
+                        dmax=d
+                        pmax=p
+                int2=QgsGeometry.fromPointXY(pmax)
+            if int4.isMultipart():
+                points=int4.asMultiPoint()
+                dmax=1e38
+                for p in points:
+                    d=pt2.distance(QgsGeometry.fromPointXY(p))
+                    if d<dmax:
+                        dmax=d
+                        pmax=p
+                int4=QgsGeometry.fromPointXY(pmax)
+
+
+            #print(int1.exportToWkt(),int2.exportToWkt(),int3.exportToWkt(),int4.exportToWkt())
+            #QgsMessageLog.logMessage(buf.asWkt())
+            texte="select astext(st_union(st_snap(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),st_geomfromtext('"+int1.asWkt()+"',"+proj+"),1)))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+            buf= resultat[0][0]
+            #QgsMessageLog.logMessage(texte)
+            #QgsMessageLog.logMessage(buf)
+            #QgsMessageLog.logMessage(proj)
+            #QgsMessageLog.logMessage(int2.asWkt())
+            texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int2.asWkt()+"',"+proj+"),1)))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+            buf= resultat[0][0]
+            texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int3.asWkt()+"',"+proj+"),1)))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+            buf= resultat[0][0]
+            texte="select astext(st_union(st_snap(st_geomfromtext('"+buf+"',"+proj+"),st_geomfromtext('"+int4.asWkt()+"',"+proj+"),1)))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+            buf= QgsGeometry.fromWkt(resultat[0][0])
+
+            m1=buf.lineLocatePoint(int1)        
+            m2=buf.lineLocatePoint(int2)
+            m3=buf.lineLocatePoint(int3)        
+            m4=buf.lineLocatePoint(int4)
+
+        #creation epaisseur
+
+            buf_l=buf.length()
+            m1=m1/buf_l
+            m2=m2/buf_l
+            m3=m3/buf_l
+            m4=m4/buf_l
+
+
+            if m2<m1:
+                texte="select asText(st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+")"+','+str(m2)+','+str(m1)+"))"
+
+                rs = c.execute(texte)
+                resultat=c.fetchall()
+                conn.commit()
+                buf1= QgsGeometry.fromWkt(resultat[0][0])
+
+
+            else:
+                texte="select astext(st_union(st_snap(st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m1)+"),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1),1),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m2)+",1)))"
+                rs = c.execute(texte)
+                resultat=c.fetchall()
+                conn.commit()
+                buf1= QgsGeometry.fromWkt(resultat[0][0])
+                
+            if m3<m4:
+                texte="select asText(st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+")"+','+str(m3)+','+str(m4)+"))"
+                rs = c.execute(texte)
+                resultat=c.fetchall()
+                conn.commit()
+                buf2= QgsGeometry.fromWkt(resultat[0][0])
+
+
+            else:
+
+                texte="select astext(st_union(g)) from (select st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m4)+") as \"g\" union all select st_line_substring(st_geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1) as \"g\" )"
+                rs = c.execute(texte)
+                resultat=c.fetchall()
+                conn.commit()
+                buf2= QgsGeometry.fromWkt(resultat[0][0])
+                texte="select astext(st_union(st_snap(st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),0,"+str(m4)+"),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1),1),st_line_substring(geomfromtext('"+buf.asWkt()+"',"+proj+"),"+str(m3)+",1)))"
+
+                rs = c.execute(texte)
+                resultat=c.fetchall()
+                conn.commit()
+                buf2= QgsGeometry.fromWkt(resultat[0][0])
+
+            
+
+
+            
+
+
+            
+            g1=buf
+            g2=buf.shortestLine(int1)
+            g2=g2.combine(g1)
+            g3=buf.shortestLine(int2)
+            g3=g3.combine(g2)
+            g3=g3.combine(pt1.shortestLine(int1))
+            g3=g3.combine(pt2.shortestLine(int2))
+            g3=g3.combine(pt1.shortestLine(geometry.geometry()))
+            g3=g3.combine(pt2.shortestLine(geometry.geometry()))
+            g3=g3.combine(geometry.geometry())
+            buf3=buf1.asWkt()
+            buf4=buf2.asWkt()
+            if double_sens==False:
+                if m5>0:
+                    texte="select astext(st_union(st_snap(geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]        
+                else:
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"'),1),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(geometry.geometry()).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(geometry.geometry()).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]    
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(geometry.geometry()).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(geometry.geometry()).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+"),1),geomfromtext('"+geometry.geometry().asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                
+                
+            else:
+
+                if m5>0:
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf4+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int3).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int3).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int4).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int4).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int5).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int5).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]    
+
+                elif m6>0:
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int1).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int2).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt1.shortestLine(int6).asWkt()+"',"+proj+"),1),geomfromtext('"+pt1.shortestLine(int6).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+pt2.shortestLine(int6).asWkt()+"',"+proj+"),1),geomfromtext('"+pt2.shortestLine(int6).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]        
+
+                else:
+                    
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int1).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                        
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+buf1.shortestLine(int2).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+int3.shortestLine(int1).asWkt()+"',"+proj+"),1),geomfromtext('"+int3.shortestLine(int1).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+int4.shortestLine(int2).asWkt()+"',"+proj+"),1),geomfromtext('"+int4.shortestLine(int2).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf2.shortestLine(int3).asWkt()+"',"+proj+"),1),geomfromtext('"+buf2.shortestLine(int3).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]    
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf2.shortestLine(int4).asWkt()+"',"+proj+"),1),geomfromtext('"+buf2.shortestLine(int4).asWkt()+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+                    texte="select astext(st_union(st_snap(geomfromtext('"+buf3+"',"+proj+"),geomfromtext('"+buf4+"',"+proj+"),1),geomfromtext('"+buf4+"',"+proj+")))"
+                    rs = c.execute(texte)
+                    resultat=c.fetchall()
+                    conn.commit()
+                    buf3= resultat[0][0]
+
+            texte="select astext(st_buildarea(st_union(g))) from  ((select geomfromtext('"+buf3+"',"+proj+") as \"g\"))"
+            rs = c.execute(texte)
+            resultat=c.fetchall()
+            conn.commit()
+
+            buf=QgsGeometry.fromWkt(resultat[0][0])
+
+            return(buf)        
 
     def processAlgorithm(self, parameters, context, feedback):
         """

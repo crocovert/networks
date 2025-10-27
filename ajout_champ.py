@@ -238,7 +238,7 @@ class AjoutChamp(QgsProcessingAlgorithm):
                     formuleContexte.setFeature(f)
                     valeur=formule.evaluate(formuleContexte)
                     valid={id_champ: valeur}
-                    tableau.changeAttributeValues(num,valid)
+                    tableau.dataProvider().changeAttributeValues({num:valid})
                     #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                     feedback.setProgress(p*100/n)
             else:

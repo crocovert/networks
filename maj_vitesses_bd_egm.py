@@ -153,7 +153,7 @@ class UpdateSpeedEgm(QgsProcessingAlgorithm):
                 coef=pointe
                 valid={id_champ1: valeur,id_champ2: coef*valeur, id_champ3: l*60/(valeur*1000), id_champ4: l*60/(valeur*1000*coef)}
                 
-                tableau.changeAttributeValues(num,valid)
+                tableau.dataProvider().changeAttributeValues({num:valid})
                 #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                 feedback.setProgress(p*100/n)
         else:

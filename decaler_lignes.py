@@ -198,7 +198,9 @@ class ShiftLines(QgsProcessingAlgorithm):
             ijContexte.setFeature(i1)
             ij=ij_exp.evaluate(ijContexte)
             nij=ij
-            lines_data.changeAttributeValue(i1.id(), pr.fieldNameMap()[decalage],resultat[nij][id])
+            idt=lines_data.fields().indexFromName(decalage)
+            #lines_data.changeAttributeValue(i1.id(), pr.fieldNameMap()[decalage],resultat[nij][id])
+            lines_data.dataProvider().changeAttributeValues({i1.id(): {idt:resultat[nij][id]}})
         lines_data.commitChanges()
         
         

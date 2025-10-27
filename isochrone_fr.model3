@@ -395,8 +395,8 @@
         </Option>
         <Option type="List" name="TIME">
           <Option type="Map">
-            <Option type="QString" value="heure" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="10:00:00" name="static_value"/>
           </Option>
         </Option>
         <Option type="List" name="WRITE_MODE">
@@ -557,17 +557,6 @@
       <Option type="bool" value="false" name="supports_append"/>
       <Option type="bool" value="true" name="supports_non_file_outputs"/>
     </Option>
-    <Option type="Map" name="heure">
-      <Option type="QString" value="08:00:00" name="default"/>
-      <Option type="invalid" name="defaultGui"/>
-      <Option type="QString" value="heure" name="description"/>
-      <Option type="int" value="0" name="flags"/>
-      <Option type="QString" value="" name="help"/>
-      <Option name="metadata"/>
-      <Option type="bool" value="false" name="multiline"/>
-      <Option type="QString" value="heure" name="name"/>
-      <Option type="QString" value="string" name="parameter_type"/>
-    </Option>
     <Option type="Map" name="origine">
       <Option type="QString" value="0.000000,0.000000" name="default"/>
       <Option type="invalid" name="defaultGui"/>
@@ -581,27 +570,6 @@
   </Option>
   <Option name="parameterOrder"/>
   <Option type="Map" name="parameters">
-    <Option type="Map" name="heure">
-      <Option type="QString" value="" name="color"/>
-      <Option type="Map" name="comment">
-        <Option type="QString" value="" name="color"/>
-        <Option type="QString" value="" name="component_description"/>
-        <Option type="double" value="60" name="component_height"/>
-        <Option type="double" value="603" name="component_pos_x"/>
-        <Option type="double" value="15" name="component_pos_y"/>
-        <Option type="double" value="100" name="component_width"/>
-        <Option type="bool" value="true" name="outputs_collapsed"/>
-        <Option type="bool" value="true" name="parameters_collapsed"/>
-      </Option>
-      <Option type="QString" value="heure" name="component_description"/>
-      <Option type="double" value="32" name="component_height"/>
-      <Option type="double" value="409" name="component_pos_x"/>
-      <Option type="double" value="127" name="component_pos_y"/>
-      <Option type="double" value="200" name="component_width"/>
-      <Option type="QString" value="heure" name="name"/>
-      <Option type="bool" value="true" name="outputs_collapsed"/>
-      <Option type="bool" value="true" name="parameters_collapsed"/>
-    </Option>
     <Option type="Map" name="origine">
       <Option type="QString" value="" name="color"/>
       <Option type="Map" name="comment">
