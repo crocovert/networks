@@ -727,7 +727,7 @@
     </message>
     <message>
         <location filename="connect_nodes2lines.py" line="89"/>
-        <source>Nodes</source>
+        <source>Nodes(Qgis)</source>
         <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
@@ -771,6 +771,11 @@
 			noeuds: couche d&apos;objets ponctuels
             rayons: rayon de recherche (m)
         </translation>
+    </message>
+    <message>
+        <location filename="connect_nodes2lines.py" line="82"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
     </message>
 </context>
 <context>
@@ -1066,6 +1071,11 @@
             temps d&apos;attente intial/final: pour prendre en compte ou non le temps initial/final (tatt1)
             réseau résultat: nom de la couche réseau générée avec les temps mis à jour du fichier temps (ti &amp; tj)</translation>
     </message>
+    <message>
+        <location filename="create_update_links.py" line="89"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
+    </message>
 </context>
 <context>
     <name>CreerGraphe</name>
@@ -1134,6 +1144,11 @@
         <location filename="creer_graphe.py" line="126"/>
         <source>Nb of decimals</source>
         <translation>Nb de décimales</translation>
+    </message>
+    <message>
+        <location filename="creer_graphe.py" line="90"/>
+        <source>Network(qgis)</source>
+        <translation>Arcs(Qgis)</translation>
     </message>
 </context>
 <context>
@@ -2612,7 +2627,7 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="532"/>
+        <location filename="interpole.py" line="534"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -2667,12 +2682,12 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="509"/>
+        <location filename="interpole.py" line="511"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="516"/>
+        <location filename="interpole.py" line="518"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -2729,6 +2744,11 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
         <source>Reverse arcs</source>
         <translation>Inverser arcs</translation>
     </message>
+    <message>
+        <location filename="inverser.py" line="82"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
+    </message>
 </context>
 <context>
     <name>InverserSelection</name>
@@ -2763,6 +2783,11 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
             réseau : couche réseau (objets linéaires) à laquelle la sélection appartient
 			
         </translation>
+    </message>
+    <message>
+        <location filename="inverser_selection.py" line="78"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
     </message>
 </context>
 <context>
@@ -2935,6 +2960,11 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             noeud origine: noeud d&apos;origine ou de destination node (dépend du choix arrivée/départ)pour déterminer les zones de desserte
         </translation>
     </message>
+    <message>
+        <location filename="maj_links_pole.py" line="90"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
+    </message>
 </context>
 <context>
     <name>MajLinksTimes</name>
@@ -3048,6 +3078,11 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
             temps d&apos;attente initial/final :Prise en compte ou non du temps d&apos;attnete inital/final (tatt1)
         </translation>
     </message>
+    <message>
+        <location filename="maj_links_times.py" line="91"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
+    </message>
 </context>
 <context>
     <name>Majtitj</name>
@@ -3144,6 +3179,11 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <location filename="maj_titj.py" line="291"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
+    </message>
+    <message>
+        <location filename="maj_titj.py" line="89"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
     </message>
 </context>
 <context>
@@ -3791,6 +3831,11 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <location filename="mint_network.py" line="26"/>
         <source>direction</source>
         <translation>sens</translation>
+    </message>
+    <message>
+        <location filename="mint_network.py" line="24"/>
+        <source>Network(Qgis)</source>
+        <translation>Arcs(Qgis)</translation>
     </message>
 </context>
 <context>
@@ -4646,22 +4691,22 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Fichier résultat des indicateurs par noeud</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="230"/>
+        <location filename="fichier_noeuds_custom.py" line="249"/>
         <source>ignored element</source>
         <translation>élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="251"/>
+        <location filename="fichier_noeuds_custom.py" line="270"/>
         <source>indicators by node customized</source>
         <translation>Indicateurs par noeuds personnalisés</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="258"/>
+        <location filename="fichier_noeuds_custom.py" line="277"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="274"/>
+        <location filename="fichier_noeuds_custom.py" line="293"/>
         <source>
         Produce customized indicators from node file
 		
@@ -5468,17 +5513,17 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
         <translation>Variable décalage</translation>
     </message>
     <message>
-        <location filename="decaler_lignes.py" line="225"/>
+        <location filename="decaler_lignes.py" line="227"/>
         <source>Shift lines</source>
         <translation>Décaler lignes</translation>
     </message>
     <message>
-        <location filename="decaler_lignes.py" line="232"/>
+        <location filename="decaler_lignes.py" line="234"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="decaler_lignes.py" line="248"/>
+        <location filename="decaler_lignes.py" line="250"/>
         <source>
         Update a field from a line layer (with superposed geographic links but with different line ids) to produce map layer with shifted links. 
         The algorithm will update an numeric attribute with a number that allows to produce flows maps with shifted lines. For example, if there is two superposed links from A to B with line 1 (100 passangers)
@@ -5852,17 +5897,17 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>Double sens?</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="688"/>
+        <location filename="trafic.py" line="690"/>
         <source>Variable buffer polygons</source>
         <translation>Polygones à largeur variables</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="695"/>
+        <location filename="trafic.py" line="697"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="711"/>
+        <location filename="trafic.py" line="713"/>
         <source>
         Generates variable buffer polygons from a linear layer and a field containing a width variable
 		        

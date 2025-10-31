@@ -21,7 +21,7 @@ import io
 class MintNetwork(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config=None):
-        self.addParameter(QgsProcessingParameterVectorLayer('network', self.tr('Network'), types=[QgsProcessing.TypeVectorLine], defaultValue=None))
+        self.addParameter(QgsProcessingParameterVectorLayer('network', self.tr('Network(Qgis)'), types=[QgsProcessing.TypeVectorLine], defaultValue=None))
         self.addParameter(QgsProcessingParameterFileDestination('MintNetworkFile', self.tr('Mint network file'), fileFilter='*.txt', createByDefault=True, defaultValue=None))
         self.addParameter(QgsProcessingParameterExpression('direction', self.tr('direction'), parentLayerParameterName='network', defaultValue=''))
         self.addParameter(QgsProcessingParameterExpression('allow_alighting', self.tr('allow alighting'), parentLayerParameterName='network', defaultValue=''))

@@ -82,14 +82,14 @@ class ConnectNodes2Lines(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterVectorLayer(
                 self.LINES,
-                self.tr('Network'),
+                self.tr('Network(Qgis)'),
                 [QgsProcessing.TypeVectorLine]
             )
         )
         self.addParameter(
             QgsProcessingParameterVectorLayer(
                 self.NODES,
-                self.tr('Nodes'),
+                self.tr('Nodes(Qgis)'),
                 [QgsProcessing.TypeVectorPoint]
             )
         )

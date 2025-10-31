@@ -90,7 +90,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterVectorLayer(
                 self.RESEAU,
-                self.tr('Network'),
+                self.tr('Network(qgis)'),
                 [QgsProcessing.TypeVectorLine]
             )
         )

@@ -89,7 +89,7 @@ class Majtitj(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterVectorLayer(
                 self.RESEAU,
-                self.tr('Network'),
+                self.tr('Network(Qgis)'),
                 [QgsProcessing.TypeVectorLine]
             )
         )
