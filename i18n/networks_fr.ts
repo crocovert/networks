@@ -5559,8 +5559,8 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
     <name>SimpleMatrix</name>
     <message>
         <location filename="simple_matrix.py" line="87"/>
-        <source>Nodes</source>
-        <translation>Noeuds</translation>
+        <source>Nodes(Qgis)</source>
+        <translation type="unfinished">Noeuds(Qgis)</translation>
     </message>
     <message>
         <location filename="simple_matrix.py" line="95"/>

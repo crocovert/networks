@@ -1,6 +1,236 @@
 <!DOCTYPE model>
 <Option type="Map">
   <Option type="Map" name="children">
+    <Option type="Map" name="Networks:UpdateSpeedBdTopo_1">
+      <Option type="bool" value="true" name="active"/>
+      <Option name="alg_config"/>
+      <Option type="QString" value="Networks:UpdateSpeedBdTopo" name="alg_id"/>
+      <Option type="QString" value="" name="color"/>
+      <Option type="Map" name="comment">
+        <Option type="QString" value="" name="color"/>
+        <Option type="QString" value="" name="component_description"/>
+        <Option type="double" value="60" name="component_height"/>
+        <Option type="double" value="1331" name="component_pos_x"/>
+        <Option type="double" value="617" name="component_pos_y"/>
+        <Option type="double" value="100" name="component_width"/>
+        <Option type="bool" value="true" name="outputs_collapsed"/>
+        <Option type="bool" value="true" name="parameters_collapsed"/>
+      </Option>
+      <Option type="QString" value="Mise à jour des vitesses BD Topo" name="component_description"/>
+      <Option type="double" value="41" name="component_height"/>
+      <Option type="double" value="818.1105527638191" name="component_pos_x"/>
+      <Option type="double" value="519.2814070351759" name="component_pos_y"/>
+      <Option type="double" value="200" name="component_width"/>
+      <Option type="List" name="dependencies">
+        <Option type="Map">
+          <Option type="QString" value="native:joinattributesbylocation_2" name="child_id"/>
+          <Option type="QString" value="" name="conditional_branch"/>
+        </Option>
+      </Option>
+      <Option type="QString" value="Networks:UpdateSpeedBdTopo_1" name="id"/>
+      <Option name="outputs"/>
+      <Option type="bool" value="true" name="outputs_collapsed"/>
+      <Option type="bool" value="true" name="parameters_collapsed"/>
+      <Option type="Map" name="params">
+        <Option type="List" name="cat_commune">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="CATEAAV202" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="coef_pointe">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="List" name="static_value">
+              <Option type="QString" value="11"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="0.75"/>
+              <Option type="QString" value="0.50"/>
+              <Option type="QString" value="0.33"/>
+              <Option type="QString" value="0.25"/>
+              <Option type="QString" value="0.20"/>
+              <Option type="QString" value="12"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="0.85"/>
+              <Option type="QString" value="0.70"/>
+              <Option type="QString" value="0.60"/>
+              <Option type="QString" value="0.50"/>
+              <Option type="QString" value="0.45"/>
+              <Option type="QString" value="13"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="0.85"/>
+              <Option type="QString" value="0.70"/>
+              <Option type="QString" value="0.60"/>
+              <Option type="QString" value="0.50"/>
+              <Option type="QString" value="0.45"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="0.95"/>
+              <Option type="QString" value="0.90"/>
+              <Option type="QString" value="0.85"/>
+              <Option type="QString" value="0.80"/>
+              <Option type="QString" value="0.75"/>
+              <Option type="QString" value="30"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="1.00"/>
+              <Option type="QString" value="0.99"/>
+              <Option type="QString" value="0.95"/>
+              <Option type="QString" value="0.90"/>
+            </Option>
+          </Option>
+        </Option>
+        <Option type="List" name="nature">
+          <Option type="Map">
+            <Option type="QString" value="nature" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="nb_voies">
+          <Option type="Map">
+            <Option type="QString" value="number_of_lanes" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="routes_bdtopo">
+          <Option type="Map">
+            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @bdtopo_road_network )+'_filtre'+'_AU.gpkg'" name="expression"/>
+            <Option type="int" value="3" name="source"/>
+          </Option>
+        </Option>
+        <Option type="List" name="table_des_vitesses">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="List" name="static_value">
+              <Option type="QString" value="Bac ou liaison maritime"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="Bretelle"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="Bretelle"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="Bretelle"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="60"/>
+              <Option type="QString" value="50"/>
+              <Option type="QString" value="Chemin"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="Escalier"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="Rond-point"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Rond-point"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Rond-point"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="25"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Route empierrée"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="30"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Route à 1 chaussée"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="70"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Route à 1 chaussée"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="80"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Route à 1 chaussée"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="25"/>
+              <Option type="QString" value="Route à 1 chaussée"/>
+              <Option type="QString" value="3"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="25"/>
+              <Option type="QString" value="Route à 1 chaussée"/>
+              <Option type="QString" value="4"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="25"/>
+              <Option type="QString" value="Route à 2 chaussées"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="20"/>
+              <Option type="QString" value="Route à 2 chaussées"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="25"/>
+              <Option type="QString" value="Route à 2 chaussées"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="110"/>
+              <Option type="QString" value="30"/>
+              <Option type="QString" value="Route à 2 chaussées"/>
+              <Option type="QString" value="3"/>
+              <Option type="QString" value="110"/>
+              <Option type="QString" value="30"/>
+              <Option type="QString" value="Route à 2 chaussées"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="110"/>
+              <Option type="QString" value="30"/>
+              <Option type="QString" value="Sentier"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="0"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="1"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="60"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="2"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="3"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="4"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="5"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+              <Option type="QString" value="Type autoroutier"/>
+              <Option type="QString" value="6"/>
+              <Option type="QString" value="120"/>
+              <Option type="QString" value="90"/>
+            </Option>
+          </Option>
+        </Option>
+        <Option type="List" name="taille_au">
+          <Option type="Map">
+            <Option type="int" value="2" name="source"/>
+            <Option type="QString" value="TAAV2017" name="static_value"/>
+          </Option>
+        </Option>
+        <Option type="List" name="urbain">
+          <Option type="Map">
+            <Option type="QString" value="urban" name="parameter_name"/>
+            <Option type="int" value="0" name="source"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
     <Option type="Map" name="Networks:isolated_nodes_1">
       <Option type="bool" value="true" name="active"/>
       <Option name="alg_config"/>
@@ -1029,236 +1259,6 @@
         </Option>
       </Option>
     </Option>
-    <Option type="Map" name="Networks:UpdateSpeedBdTopo_1">
-      <Option type="bool" value="true" name="active"/>
-      <Option name="alg_config"/>
-      <Option type="QString" value="Networks:UpdateSpeedBdTopo" name="alg_id"/>
-      <Option type="QString" value="" name="color"/>
-      <Option type="Map" name="comment">
-        <Option type="QString" value="" name="color"/>
-        <Option type="QString" value="" name="component_description"/>
-        <Option type="double" value="60" name="component_height"/>
-        <Option type="double" value="1331" name="component_pos_x"/>
-        <Option type="double" value="617" name="component_pos_y"/>
-        <Option type="double" value="100" name="component_width"/>
-        <Option type="bool" value="true" name="outputs_collapsed"/>
-        <Option type="bool" value="true" name="parameters_collapsed"/>
-      </Option>
-      <Option type="QString" value="Mise à jour des vitesses BD Topo" name="component_description"/>
-      <Option type="double" value="41" name="component_height"/>
-      <Option type="double" value="818.1105527638191" name="component_pos_x"/>
-      <Option type="double" value="519.2814070351759" name="component_pos_y"/>
-      <Option type="double" value="200" name="component_width"/>
-      <Option type="List" name="dependencies">
-        <Option type="Map">
-          <Option type="QString" value="native:joinattributesbylocation_2" name="child_id"/>
-          <Option type="QString" value="" name="conditional_branch"/>
-        </Option>
-      </Option>
-      <Option type="QString" value="Networks:UpdateSpeedBdTopo_1" name="id"/>
-      <Option name="outputs"/>
-      <Option type="bool" value="true" name="outputs_collapsed"/>
-      <Option type="bool" value="true" name="parameters_collapsed"/>
-      <Option type="Map" name="params">
-        <Option type="List" name="cat_commune">
-          <Option type="Map">
-            <Option type="int" value="2" name="source"/>
-            <Option type="QString" value="CATEAAV202" name="static_value"/>
-          </Option>
-        </Option>
-        <Option type="List" name="coef_pointe">
-          <Option type="Map">
-            <Option type="int" value="2" name="source"/>
-            <Option type="List" name="static_value">
-              <Option type="QString" value="11"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="0.75"/>
-              <Option type="QString" value="0.50"/>
-              <Option type="QString" value="0.33"/>
-              <Option type="QString" value="0.25"/>
-              <Option type="QString" value="0.20"/>
-              <Option type="QString" value="12"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="0.85"/>
-              <Option type="QString" value="0.70"/>
-              <Option type="QString" value="0.60"/>
-              <Option type="QString" value="0.50"/>
-              <Option type="QString" value="0.45"/>
-              <Option type="QString" value="13"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="0.85"/>
-              <Option type="QString" value="0.70"/>
-              <Option type="QString" value="0.60"/>
-              <Option type="QString" value="0.50"/>
-              <Option type="QString" value="0.45"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="0.95"/>
-              <Option type="QString" value="0.90"/>
-              <Option type="QString" value="0.85"/>
-              <Option type="QString" value="0.80"/>
-              <Option type="QString" value="0.75"/>
-              <Option type="QString" value="30"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="1.00"/>
-              <Option type="QString" value="0.99"/>
-              <Option type="QString" value="0.95"/>
-              <Option type="QString" value="0.90"/>
-            </Option>
-          </Option>
-        </Option>
-        <Option type="List" name="nature">
-          <Option type="Map">
-            <Option type="QString" value="nature" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
-          </Option>
-        </Option>
-        <Option type="List" name="nb_voies">
-          <Option type="Map">
-            <Option type="QString" value="number_of_lanes" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
-          </Option>
-        </Option>
-        <Option type="List" name="routes_bdtopo">
-          <Option type="Map">
-            <Option type="QString" value=" @output_folder +'/'+ base_file_name( @bdtopo_road_network )+'_filtre'+'_AU.gpkg'" name="expression"/>
-            <Option type="int" value="3" name="source"/>
-          </Option>
-        </Option>
-        <Option type="List" name="table_des_vitesses">
-          <Option type="Map">
-            <Option type="int" value="2" name="source"/>
-            <Option type="List" name="static_value">
-              <Option type="QString" value="Bac ou liaison maritime"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="Bretelle"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="50"/>
-              <Option type="QString" value="50"/>
-              <Option type="QString" value="Bretelle"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="50"/>
-              <Option type="QString" value="50"/>
-              <Option type="QString" value="Bretelle"/>
-              <Option type="QString" value="2"/>
-              <Option type="QString" value="60"/>
-              <Option type="QString" value="50"/>
-              <Option type="QString" value="Chemin"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="Escalier"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="Rond-point"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Rond-point"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Rond-point"/>
-              <Option type="QString" value="2"/>
-              <Option type="QString" value="25"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Route empierrée"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="30"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Route à 1 chaussée"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="70"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Route à 1 chaussée"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="80"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Route à 1 chaussée"/>
-              <Option type="QString" value="2"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="25"/>
-              <Option type="QString" value="Route à 1 chaussée"/>
-              <Option type="QString" value="3"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="25"/>
-              <Option type="QString" value="Route à 1 chaussée"/>
-              <Option type="QString" value="4"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="25"/>
-              <Option type="QString" value="Route à 2 chaussées"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="20"/>
-              <Option type="QString" value="Route à 2 chaussées"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="25"/>
-              <Option type="QString" value="Route à 2 chaussées"/>
-              <Option type="QString" value="2"/>
-              <Option type="QString" value="110"/>
-              <Option type="QString" value="30"/>
-              <Option type="QString" value="Route à 2 chaussées"/>
-              <Option type="QString" value="3"/>
-              <Option type="QString" value="110"/>
-              <Option type="QString" value="30"/>
-              <Option type="QString" value="Route à 2 chaussées"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="110"/>
-              <Option type="QString" value="30"/>
-              <Option type="QString" value="Sentier"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="0"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="1"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="60"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="2"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="3"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="4"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="5"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-              <Option type="QString" value="Type autoroutier"/>
-              <Option type="QString" value="6"/>
-              <Option type="QString" value="120"/>
-              <Option type="QString" value="90"/>
-            </Option>
-          </Option>
-        </Option>
-        <Option type="List" name="taille_au">
-          <Option type="Map">
-            <Option type="int" value="2" name="source"/>
-            <Option type="QString" value="TAAV2017" name="static_value"/>
-          </Option>
-        </Option>
-        <Option type="List" name="urbain">
-          <Option type="Map">
-            <Option type="QString" value="urban" name="parameter_name"/>
-            <Option type="int" value="0" name="source"/>
-          </Option>
-        </Option>
-      </Option>
-    </Option>
   </Option>
   <Option type="Map" name="designerParameterValues">
     <Option type="QString" value="C:/Users/patrick.palmier/Desktop/Calcul_distances/Dep59/BDT_3-4_GPKG_LAMB93_D059-ED2025-03-15.gpkg|layername=batiment_rnb_lien_bdtopo" name="bati"/>
@@ -1348,7 +1348,7 @@
       <Option type="QString" value="file" name="parameter_type"/>
     </Option>
     <Option type="Map" name="road_network_filter">
-      <Option type="QString" value="&quot;Nature&quot; in ('1','2') and $length>0" name="default"/>
+      <Option type="QString" value="&quot;importance&quot; in ('1','2') and $length>0" name="default"/>
       <Option type="invalid" name="defaultGui"/>
       <Option type="QString" value="Road network filter" name="description"/>
       <Option type="int" value="0" name="expression_type"/>
@@ -1357,7 +1357,7 @@
       <Option name="metadata"/>
       <Option type="QString" value="road_network_filter" name="name"/>
       <Option type="QString" value="expression" name="parameter_type"/>
-      <Option type="QString" value="rseau_routier_bdtopo" name="parent_layer"/>
+      <Option type="QString" value="" name="parent_layer"/>
     </Option>
     <Option type="Map" name="urban">
       <Option type="bool" value="false" name="allow_multiple"/>
@@ -1388,17 +1388,14 @@
     </Option>
   </Option>
   <Option type="StringList" name="parameterOrder">
-    <Option type="QString" value="dcoupage_en_zones_fines"/>
-    <Option type="QString" value="id_zone_fine"/>
-    <Option type="QString" value="bati"/>
-    <Option type="QString" value="rseau_routier_bdtopo"/>
+    <Option type="QString" value="bdtopo_road_network"/>
     <Option type="QString" value="nature"/>
-    <Option type="QString" value="nombre_de_voies"/>
-    <Option type="QString" value="urbain"/>
-    <Option type="QString" value="sens_de_circulation"/>
-    <Option type="QString" value="zonage_en_aires_urbaines"/>
-    <Option type="QString" value="noeuds_rseau_externe"/>
-    <Option type="QString" value="rpertoire_sortie"/>
+    <Option type="QString" value="direction"/>
+    <Option type="QString" value="number_of_lanes"/>
+    <Option type="QString" value="urban"/>
+    <Option type="QString" value="road_network_filter"/>
+    <Option type="QString" value="urban_area_zoning"/>
+    <Option type="QString" value="output_folder"/>
   </Option>
   <Option type="Map" name="parameters">
     <Option type="Map" name="bdtopo_road_network">

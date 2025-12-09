@@ -67,13 +67,13 @@
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
         Parameters:
-            layer&#xa0;: a vector layer
-            field&#xa0;: name of the field to update or name of the new field
-            type&#xa0;: field data type (if new field)
-            size&#xa0;: field size (if new field)
-            precision&#xa0;: field precision (if new field and real type)
+            layer : a vector layer
+            field : name of the field to update or name of the new field
+            type : field data type (if new field)
+            size : field size (if new field)
+            precision : field precision (if new field and real type)
             filter: expression determining which rows will be updated
-            formula&#xa0;: expression that will be written in the field( for filtered rows only)
+            formula : expression that will be written in the field( for filtered rows only)
             
         </source>
         <translation type="unfinished"></translation>
@@ -146,10 +146,10 @@
         <source>
         Generates a arcs layer for individual transport mode similarly to arcs layers from GTFS Import
         in order to concatenate every netwrok element for multimodal routing visualization
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             road network: road network layer (linear objects)
-			i-node: i_node id field
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>i-node: i_node id field
             j-node: j-node id field
             Node id concatenator: a character or a string to build ij field by concatenating i-node and j-node field 
             output layer: name of teh result output layer
@@ -212,7 +212,7 @@
         Generate a layer of linear objects corresponding to connections between points closest within a layer (e.g. PT stops)
         
         Parameters:
-            nodes&#xa0;: nodes layer
+            nodes : nodes layer
 			node_id: node id
 			radius: search radius(m)
 			mode: mode at node
@@ -290,7 +290,7 @@
         . Assignment results file on links &quot;_aff.txt&quot;
         . Detailed strategies file (optional)
         Parameters:
-            Mint network&#xa0;: Mint network
+            Mint network : Mint network
             Mint matrix: Mint matrix
             Mint parameters: Mint parameters
             Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
@@ -382,7 +382,7 @@
         . cumulative times on nodes &quot;_noeuds.txt&quot;
         
         Parameters:
-            network&#xa0;: Musliw network
+            network : Musliw network
             matrix: Musliw matrix
             parameters: Musliw parameters
             penalties: Musliw penalties and transfers file
@@ -431,7 +431,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements folder&#xa0;: Musliw networks elements folder
+            network elements folder : Musliw networks elements folder
 			global network: name of the global network file (txt)
             column names on first row?: Must be checked if column names are on first row
         </source>
@@ -467,7 +467,7 @@
 		timetable based network elements, indivudal modes elements and connector elements in order to generate a global multimodal network as input for Musliw tool
         
         Parameters:
-            network elements files&#xa0;: Musliw networks elements files
+            network elements files : Musliw networks elements files
 			global network: name of the global network file (txt)
             column names on first row?: Must be checked if column names are on first row
         </source>
@@ -519,7 +519,7 @@
         The lines layer is in editable mode in order to be alble to cancel the connections.
         
         Parameters:
-            lines&#xa0;: lines layer (linear objects)
+            lines : lines layer (linear objects)
 			nodes: points layer
             radius: search radius (m)
         </source>
@@ -619,7 +619,7 @@
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
         Parameters:
-            stops&#xa0;: stops layer
+            stops : stops layer
 			stop_id: stop id
 			nodes: nodes layer
 			node_id: node id
@@ -712,17 +712,17 @@
         <location filename="contours.py" line="740"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
-		        
+<byte value="x9"/><byte value="x9"/>        
         Parameters:
             raster: input raster layer name
-			band: band to compute
-			min: minimum isovalue area to generate
-			max: maximum isovalue area to generate
-			interval: step between each isovalue
-			no_value: value corresponding to the raster no_value
-			polygons: True= genarates polygons: False generates Polylines
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>band: band to compute
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>min: minimum isovalue area to generate
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>max: maximum isovalue area to generate
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>interval: step between each isovalue
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>no_value: value corresponding to the raster no_value
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>polygons: True= genarates polygons: False generates Polylines
             individual values: if checked generate a polygon for each individual raster value (no interpolation)
-			result: name of the resulted isovalue polygons layer
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>result: name of the resulted isovalue polygons layer
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -775,7 +775,7 @@
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates a the network layer with i-node and j-node travel times from travel time file included
 		        
         Parameters:
-            layer&#xa0;: network layer (linear objects)
+            layer : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window that defines the updated links  (only those inside the window)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
@@ -828,10 +828,10 @@
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
         Parameters:
-            network&#xa0;: Network layer (linear objects)
-			prefix: prefix for node ids (ex: &apos;MAP&apos; and n° 12563 =&gt; MAP12563)
+            network : Network layer (linear objects)
+			prefix: prefix for node ids (ex: 'MAP' and n° 12563 =&gt; MAP12563)
             node_id: the format of the node_id string: number series or geographic string (uniqueid which is consistent when you add several adjacent layers)
-			direction: flow direction (&apos;0&apos; prohibited, &apos;1&apos; one way objet direction, &apos;2&apos;, one way inverse object direction, &apos;3&apos; both directions
+			direction: flow direction ('0' prohibited, '1' one way objet direction, '2', one way inverse object direction, '3' both directions
 			nodes_file: nodes layer (arcs ends)
         </source>
         <translation type="unfinished"></translation>
@@ -959,12 +959,12 @@
         <location filename="fichier_aff.py" line="295"/>
         <source>
         Generate a linear objects layer with the links used in assignment (with a volume of passengers&gt;0) in particular to produce flows maps.
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             network: the network links layer 
-			ij: an expression do describe the link id (&quot;id&quot; attribute or expression)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: an expression do describe the link id (&quot;id&quot; attribute or expression)
             line (optonal): the line id. If line id is filled the layer will have as many superposed links as they have identical links but with a different transit line id (You should used &quot;shift lines&apos; alg to view flows maps in this case
-			link type: the type of link
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>link type: the type of link
             aff ouput file: Choose a network corresponding &lt;FILENAME&gt;_aff.txt output file
             enconding: text encoding
             flows layer: name of the flows layer generated
@@ -1021,13 +1021,13 @@
         <location filename="fichier_od.py" line="285"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             OD ouput file: the Musliw origin destination output file (&lt;FILENAME&gt;_od.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
             filter: filter expression to select a subset of OD. Available variables are:
                 &apos;jour&apos;,&apos;heureo&apos;,&apos;heured&apos;,&apos;temps&apos;,&apos;tveh&apos;,&apos;tmap&apos;,&apos;tatt&apos;,&apos;tcorr&apos;,&apos;ncorr&apos;,&apos;tatt1&apos;,&apos;cout&apos;,&apos;longueur&apos;,&apos;volau&apos;,&apos;nbpop&apos;,&apos;toll&apos; as numeric 
                 and &apos;id&apos;,&apos;origin&apos;,&apos;destination&apos;,&apos;pole&apos;,&apos;texte&apos; as string
@@ -1095,14 +1095,14 @@
         <location filename="fichier_temps.py" line="278"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1168,14 +1168,14 @@
         <location filename="fichier_temps_jour.py" line="278"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1236,14 +1236,14 @@
         <location filename="fichier_temps_multi.py" line="276"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             link times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_temps.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
             ij: link id
             avg: average value 
@@ -1337,20 +1337,20 @@
         - ..._zones.txt (gravity indicator by zone), accessibility area
         
         </source>
-        <translation>L&apos;algorithme effectue un calcul d&apos;accessibilité gravitaire basé sur une fonction de résistance induisant un epondération:
+        <translation>L'algorithme effectue un calcul d'accessibilité gravitaire basé sur une fonction de résistance induisant un epondération:
 ( 1 pour un temps de parcours de 0, 0.5 pour un temps de parcours de T minutes et ,0 pour un temps de parcours infini)
 - Fichier Noeuds Musliw: chemin du fichier noleuds _noeuds.txt au format Musliw (la sortie doit être activée au prélable dans les paramètres)
 - Aménité: Champ aménité (en général volau)
 - T0: La valeur de T0 pour lequel la pondération de la fonction de résistance vaut 0.5
-- Données socioéconomiques: Table qui contient les données d&apos;émission (zones ou grille qui contient les populations par exemple)Zone 
+- Données socioéconomiques: Table qui contient les données d'émission (zones ou grille qui contient les populations par exemple)Zone 
 - Zone ID: Identifiant de zone
-- Population: Champ de population (nb d&apos;habitants par exemple)
+- Population: Champ de population (nb d'habitants par exemple)
 - Nombre de périodes: Nombre de période de calcul pour une même OD
 -Sortie: nom générique du fichier de sortie (txt)
 
-L&apos;algorithme produit deux fichiers de résultats:
+L'algorithme produit deux fichiers de résultats:
 - ..._equip.txt: (indicateur gravitaire par équiepement, zone de chalandise
-- ..._zones.txt (indicateur gravitaire par zone), zone d&apos;accessibilité</translation>
+- ..._zones.txt (indicateur gravitaire par zone), zone d'accessibilité</translation>
     </message>
 </context>
 <context>
@@ -1447,7 +1447,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder&#xa0;: GTFS folder path
+            GTFS_folder : GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -1545,7 +1545,7 @@ L&apos;algorithme produit deux fichiers de résultats:
 		Computes the transport offer for the specified time period  and calendar (number of stops)
         
         Parameters:
-            GTFS_folder&#xa0;: GTFS folder path
+            GTFS_folder : GTFS folder path
 			calendar start: calendar date of the first day of the period (dd/mm/YYYY)
 			calendar_end: calendar date of the last day of the period (dd/mm/YYYY)
 			start_time: start time of the period (hh:mm:ss)
@@ -1862,7 +1862,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         
         
         Parameters:
-            network&#xa0;: network layer (linear objects)
+            network : network layer (linear objects)
 			reverted network: name of the reverted network layer
             add_to_network: if True adds the reverted network to the initial one
         </source>
@@ -1895,7 +1895,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         
         
         Parameters:
-            network&#xa0;: network layer (linear objects) where the selected objects belong
+            network : network layer (linear objects) where the selected objects belong
 			
         </source>
         <translation type="unfinished"></translation>
@@ -1949,10 +1949,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         Create a layer of connected nodes from a nodes layer (ex: generated by the build graph algorithm) and a Musliw network. The algorithm build the different graphs corresponding to the Musliw network 
         and create a node layer corresponding to the graph having the largest number of nodes. The interest of this algorithm is to analyse the connections of graph and 
         to prevent a Musliw computation based on an isolated node
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Nodes: nodes layer (ex: generated by the build graph algorithm )
-			Node id: Field that contains the node Id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
             Musliw Network: A Musliw network with corresponding node id corresponding to the nodes layer id
             Network Id: Number of the network graph to select for conencted nodes (networks are sorted by the number of connected nodes. 0 (default value)  is the largest
             Connected nodes: Name of the output nodes layer generated from the graph with the largest number of nodes
@@ -2022,10 +2022,10 @@ L&apos;algorithme produit deux fichiers de résultats:
     <message>
         <location filename="maj_links_pole.py" line="300"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where intermodaly node and service area node are saved
 		        
         Parameters:
-            network&#xa0;: network layer (linear objects)
+            network : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window for fields update (only links in the window will be updates)
             intermodality node; initial/ final node of intermodality (depends on arrival/departure choice)
@@ -2089,10 +2089,10 @@ L&apos;algorithme produit deux fichiers de résultats:
     <message>
         <location filename="maj_links_times.py" line="308"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer&#xa0;: network layer (linear objects)
+            layer : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
             extent: window to select the subset of links (only those inside the window will be updated)
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
@@ -2178,12 +2178,12 @@ L&apos;algorithme produit deux fichiers de résultats:
     <message>
         <location filename="maj_titj.py" line="314"/>
         <source>
-        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
+        Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don't exist) in the network layer fields where i-node and j-node travel times are saved
 		        
         Parameters:
-            layer&#xa0;: network layer (linear objects)
+            layer : network layer (linear objects)
 			travel times file: travel times text file ..._temps.txt generated by Musliw
-            musliw time: Musliw travel time field where travel time is saved (&apos;temps&apos; in general)
+            musliw time: Musliw travel time field where travel time is saved ('temps' in general)
             arc time: arc travel time
             departure/arrival: departure if &quot;d&quot; in Musliw matrix, arrival if &quot;a&quot;
             i_node time: travel time at i-node field
@@ -2290,12 +2290,12 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Generates a Musliw matrix from two point layers and a period of time (from start time to end time with a step in minutes)
         the script generates a rectangular matrix (NxM od). The first layer (N records) corresponds to origins and the second layer (M records) to destinations
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Origins: origin nodes  (corresponding to nodes layer or the graph )
-			Origins node id: Field that contains the node Id of the origin nodes
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origins node id: Field that contains the node Id of the origin nodes
             Destinations: destination nodes  (corresponding to nodes layer or the graph )
-			Destinations node id: Field that contains the node Id of the origin nodes
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Destinations node id: Field that contains the node Id of the origin nodes
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -2394,10 +2394,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Generates a Musliw matrix from a point layer and a period of time (from start time to end time with a step in minutes)
         the script generates a full square matrix (NxN od) or a diagonal matrix (N od with same origin and same destination)
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-			Node id: Field that contains the node Id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
             Start time: Beginning of the time period
@@ -2499,10 +2499,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Generates a Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-			Origin: Field that contains the node Id of the origin
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origin: Field that contains the node Id of the origin
             Destination: Field that contains the node Id of the destination
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
@@ -2604,10 +2604,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Generates a detailed Musliw matrix from a table layer and a period of time (from start time to end time with a step in minutes)
         
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Nodes: nodes layer (corresponding to nodes layer or the graph )
-			Origin: Field that contains the node Id of the origin
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Origin: Field that contains the node Id of the origin
             Destination: Field that contains the node Id of the destination
             Demand: number of passengers for assignment
             Day: number of the day in the calendar (1 first day of the calendar)
@@ -2759,7 +2759,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Write a Mint parameters file required for a Mint assignment
         Parameters:
-            Waiting weight&#xa0;: waiting time weight
+            Waiting weight : waiting time weight
             Boarding time: boarding time
             Boarding weight; boarding weight
             Walking weight: auxiliary transit weight
@@ -3011,7 +3011,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         Produce a parameter file (to be selected in musliw computation):
         
         Parameters:
-            In vehicle weight&#xa0;: weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
+            In vehicle weight : weight factor for travel time in vehicle (time baseds mode e.g bus, tram, train, metro, airplane, ferry,...)
             Waiting weight: weight factor for waiting time
             Individual mode weight : weight factor for individual modes travel times (e.g car, walking, cycling, ...)
             Boarding weight: weight factor for boarding time
@@ -3301,10 +3301,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="fichier_noeuds.py" line="258"/>
         <source>
         Produce indicators aggregated by node. 
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
@@ -3378,10 +3378,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="fichier_noeuds_custom.py" line="293"/>
         <source>
         Produce customized indicators from node file
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             grouping key: A set of variables separated by a &apos;;&apos; as grouping key ex: o;numero
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
@@ -3448,10 +3448,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="fichier_noeud_jour.py" line="260"/>
         <source>
         Produce indicators aggregated by node. 
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
-			variable: The name of the variable for indicator computation (temps (time) by default)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
@@ -3532,17 +3532,17 @@ L&apos;algorithme produit deux fichiers de résultats:
         Intercepts the demand that use on the selected arcs
         The result is a layer that containes arcs from trips using these arcs
         with the selected demand
-		        
+<byte value="x9"/><byte value="x9"/>        
         Parameters:
             arcs: network layer 
-			result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>result paths Musliw file: Result file from Musliw computation containing detailed shortest paths (*_chemins.txt)
             ij: arc ID (combining i-node and j-node ex: m1456-m3256
             Flows: field containing flow values
             arc type: field containig arc_type
             by line: if selected the total flows are computed by lines instead of by arc
             Enconding: Encoding of the Reuslt Musliw file utf_8_sig normally
             output: layer of the slect link analysis
-			
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3583,12 +3583,12 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="path_indicators.py" line="235"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             path ouput file: the Musliw detailed path output file (&lt;FILENAME&gt;_od.txt)
             remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
-			time based links only: If checked only time based links are analysed
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>time based links only: If checked only time based links are analysed
             path indicator file: name of the result file (delimited text with &quot;;&quot; as separator) which contains the following attributes 
             id: OD id
             temps: total travel time
@@ -3757,7 +3757,7 @@ L&apos;algorithme produit deux fichiers de résultats:
         Generates a Musliw timetable network from GTFS data (using prepare_GTFS script before is recommended)
 		        
         Parameters:
-            GTFs folder&#xa0;: GTFS folder 
+            GTFs folder : GTFS folder 
 			calendar start: date of the first day of the period
             caldendar_end: dat of the last day of the periode
             musliw_timetable_network: name of the generated Musliw network file
@@ -3866,10 +3866,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="reseau_ti.py" line="358"/>
         <source>
         Generates a Musliw network for individual mode (car, walking, cycling,...) from a netowrk layer
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             road network: road network layer (linear objects)
-			window: area of the generated network (could be a sub area from the whole network layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>window: area of the generated network (could be a sub area from the whole network layer)
             direction: flow direction (&apos;0&apos; proxhibited, &apos;1&apos; one way same direction as object, &apos;2&apos; one way reverse direction of object, &apos;3&apos; both directions
             time: arc travel time field
             length: arc length field
@@ -3921,11 +3921,11 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Display shortest paths from a selection of starting or ending arcs and a 
         a Musliw travel times files
-		        
+<byte value="x9"/><byte value="x9"/>        
         Parameters:
             Mulsiw travel times: Musliw travel times file &quot;*_temps.txt&quot;
-			Output: Output layer containing shortest paths traces
-			
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Output: Output layer containing shortest paths traces
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3974,10 +3974,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         The algorithm will update an numeric attribute with a number that allows to produce flows maps with shifted lines. For example, if there is two superposed links from A to B with line 1 (100 passangers)
         and line 2 (200passengers) and you want to produce the flow maps of the total number of passengers, 
         the algorithm will update an attribute &quot;shift&quot; that will have 0 for line 1 (no shift) and 100 for line 2.
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             network: lines network 
-			ij: link id (ij attribute or expression)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>ij: link id (ij attribute or expression)
             line: line id
             quantitative value: the exprerssion you want to visualize in the flows map (flow variable)
             shift variable: field to be update with the shift value
@@ -3996,7 +3996,7 @@ L&apos;algorithme produit deux fichiers de résultats:
     <name>SimpleMatrix</name>
     <message>
         <location filename="simple_matrix.py" line="87"/>
-        <source>Nodes</source>
+        <source>Nodes(Qgis)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4078,10 +4078,10 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="simple_matrix.py" line="266"/>
         <source>
         Generates a Musliw matrix from clicking on 2 nodes to define an origin(1st point)-destination(2nd point)
-		
+<byte value="x9"/><byte value="x9"/>
         Parameters:
             Nodes: nodes layer (corresponding to the routing arc layer )
-			Node id: Field that contains the node Id
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Node id: Field that contains the node Id
             Trip start: Start point (origin)
             Trips end: End point (destination)
             Demand: number of passengers for assignment
@@ -4158,14 +4158,14 @@ L&apos;algorithme produit deux fichiers de résultats:
         <source>
         Perform a spatial aggregation between 2 layers in order to estimate 
         for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
-		        
+<byte value="x9"/><byte value="x9"/>        
         Parameters:
             polygons: the polygon layer (ex: iso-value layer)
-			id: field containing the polygon id (ex: 30min iso-value)
-			source: a polygon layer with a variable to compute (ex: municipalities layer)
-			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
-			aggregator: aggregator (min,max, mean, sum) 
-			output: the result of aggration layer (containing the same objects as the polygons layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>id: field containing the polygon id (ex: 30min iso-value)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>source: a polygon layer with a variable to compute (ex: municipalities layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>aggregator: aggregator (min,max, mean, sum) 
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>output: the result of aggration layer (containing the same objects as the polygons layer)
         </source>
         <translation type="unfinished"></translation>
     </message>
@@ -4221,15 +4221,15 @@ L&apos;algorithme produit deux fichiers de résultats:
         <location filename="trafic.py" line="713"/>
         <source>
         Generates variable buffer polygons from a linear layer and a field containing a width variable
-		        
+<byte value="x9"/><byte value="x9"/>        
         Parameters:
             network: input layer name (linear objects)
-			width: width field
-			scale: scale factor for width in (m)
-			max_angle: maximum angle for nice cuts
-			min_distance: smi distance from arcs ends for angle estimation
-			Both directions?: check if two ways arc
-			Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>width: width field
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>scale: scale factor for width in (m)
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>max_angle: maximum angle for nice cuts
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>min_distance: smi distance from arcs ends for angle estimation
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Both directions?: check if two ways arc
+<byte value="x9"/><byte value="x9"/><byte value="x9"/>Variable buffer polygons: Result layer (polygons proportionnal with proportionnal width)
         </source>
         <translation type="unfinished"></translation>
     </message>

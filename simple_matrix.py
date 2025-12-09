@@ -87,7 +87,7 @@ class SimpleMatrix(QgsProcessingAlgorithm):
         self.addParameter(
             QgsProcessingParameterFeatureSource(
                 self.NODES,
-                self.tr('Nodes'),
+                self.tr('Nodes(Qgis)'),
                 [QgsProcessing.TypeVectorPoint]
             )
         )
