@@ -64,6 +64,7 @@ class NetworksPlugin(object):
         rep=QgsApplication.qgisSettingsDirPath()
         if rep is not None:
             rep=rep+'/processing/models/'
+            rep_r=rep+'/processing/rscripts/'
             os.chdir(rep+'/../../python/plugins/networks')
             test_langue=False
             for i in os.listdir():
@@ -73,9 +74,20 @@ class NetworksPlugin(object):
                 if test_langue==True:
                     if i.endswith('_{0}.model3'.format(locale)):
                         shutil.copy(i,rep)
+                    if i.endswith('_{0}.rsx'.format(locale)):
+                        try:
+                            shutil.copy(i,rep_r)
+                        except:
+                            a=1
                 else:
                     if i.endswith('_en.model3'.format(locale)):
                         shutil.copy(i,rep)
+                    if i.endswith('_{0}.rsx'.format(locale)):
+                        try:
+                            shutil.copy(i,rep_r)
+                        except:
+                            a=2
+                        
                     
         self.provider=NetworksProvider()
         QgsApplication.processingRegistry().addProvider(self.provider)

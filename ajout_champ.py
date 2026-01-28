@@ -34,22 +34,23 @@ from qgis.PyQt.QtCore import QCoreApplication,QVariant
 from qgis.core import *
 from qgis.utils import *
 from qgis.core import (QgsProcessing,
-                       QgsFeatureSink,
-                       QgsProcessingAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFeatureSink,
-                       QgsProcessingParameterNumber,
-                       QgsProcessingParameterEnum,
-                       QgsProcessingParameterBoolean,
-                       QgsProcessingParameterString,
-                       QgsProcessingParameterExtent,
-                       QgsProcessingParameterField,
-                       QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination,
-                       QgsProcessingParameterVectorLayer,
-                       QgsVectorDataProvider,
-                       QgsVectorLayer,
-                       QgsFields)
+                        QgsProject,
+                        QgsFeatureSink,
+                        QgsProcessingAlgorithm,
+                        QgsProcessingParameterFeatureSource,
+                        QgsProcessingParameterFeatureSink,
+                        QgsProcessingParameterNumber,
+                        QgsProcessingParameterEnum,
+                        QgsProcessingParameterBoolean,
+                        QgsProcessingParameterString,
+                        QgsProcessingParameterExtent,
+                        QgsProcessingParameterField,
+                        QgsProcessingParameterExpression,
+                        QgsProcessingParameterFileDestination,
+                        QgsProcessingParameterVectorLayer,
+                        QgsVectorDataProvider,
+                        QgsVectorLayer,
+                        QgsFields)
 import codecs
 import gc
 
@@ -232,13 +233,21 @@ class AjoutChamp(QgsProcessingAlgorithm):
             tableau.startEditing()
             tableau.beginEditCommand(self.tr("updating field"))
             
+
+            # Bloquer tous les rafraîchissements
+
+
+            tableau.blockSignals(True)
+            
+            
             if tableau.dataProvider().capabilities() & QgsVectorDataProvider.ChangeAttributeValues:
                 for p,f in enumerate(features):
                     num=f.id()
                     formuleContexte.setFeature(f)
                     valeur=formule.evaluate(formuleContexte)
                     valid={id_champ: valeur}
-                    tableau.dataProvider().changeAttributeValues({num:valid})
+                    #tableau.dataProvider().changeAttributeValues({num:valid})
+                    tableau.changeAttributeValues(num,valid)
                     #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                     feedback.setProgress(p*100/n)
             else:
@@ -247,6 +256,10 @@ class AjoutChamp(QgsProcessingAlgorithm):
 
             tableau.endEditCommand()
             tableau.commitChanges()
+            
+            tableau.blockSignals(False)
+
+
         gc.collect()
         return {self.INPUT:self.INPUT}
 

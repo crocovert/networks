@@ -93,6 +93,8 @@ from .remove_layer import RemoveLayer
 from .zones_objects_centroids import Zones_objects_centroids
 from .maj_vitesses_bd_topo import UpdateSpeedBdTopo
 from .maj_vitesses_bd_egm import UpdateSpeedEgm
+from .anamorphose import GeographicAnamorphosis
+from .anamorphose_point import PointAnamorphosis
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -245,6 +247,8 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(Zones_objects_centroids())
         self.addAlgorithm(UpdateSpeedBdTopo())
         self.addAlgorithm(UpdateSpeedEgm())
+        self.addAlgorithm(GeographicAnamorphosis())
+        self.addAlgorithm(PointAnamorphosis())
         
     def id(self):
         """

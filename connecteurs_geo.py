@@ -85,6 +85,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
     MAX_NB='MAX_NB'
     LONG_0='LONG_0'
     FIELD_SIZE='FIELD_SIZE'
+    SYM='SYM'
 
     def initAlgorithm(self, config):
         """
@@ -190,6 +191,15 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
             )
         )
 
+        self.addParameter(
+            QgsProcessingParameterBoolean(
+                self.SYM,
+                self.tr('Balanced'),
+                defaultValue=False
+
+                
+            )
+        )
 
         self.addParameter(
             QgsProcessingParameterFeatureSink(
@@ -227,6 +237,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         table_noeuds=self.parameterAsVectorLayer(parameters, self.NOEUDS, context)
         #size=self.parameterAsInt(parameters,self.FIELD_SIZE,context)
         l0=self.parameterAsBool(parameters,self.LONG_0,context)
+        sym=self.parameterAsBool(parameters,self.SYM,context)
 
         # Compute the number of steps to display within the progress bar and
         # get features from source
@@ -241,6 +252,7 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
         
         
         index=QgsSpatialIndex(noeuds.getFeatures())
+        index2=QgsSpatialIndex(arrets.getFeatures())
         champs=QgsFields()
         champs.append(QgsField('i',QVariant.String))
         champs.append(QgsField('j',QVariant.String))
@@ -261,44 +273,50 @@ class ConnecteursGeo(QgsProcessingAlgorithm):
                 for k,nearest in enumerate(near):
                     if k<nb_max:
                         f=noeuds.getFeatures(request=QgsFeatureRequest(nearest))
+                        test_sym=1
                         for j, g in enumerate(f):
-                            if j==0:
-                                l=n.geometry().distance(g.geometry())*dist_unit
-                                id_node=str(g.attribute(node_id))
-                                id_stop=str(n.attribute(stop_id))
-                                id_ij=id_stop+'-'+id_node
-                                id_ji=id_node+'-'+id_stop
-                                if l<rayon:
-                                    nbc+=1
-                                    gline=QgsGeometry.fromPolylineXY([QgsPointXY(n.geometry().centroid().asPoint()),QgsPointXY(g.geometry().centroid().asPoint())])
-                                    hline=QgsGeometry.fromPolylineXY([QgsPointXY(g.geometry().centroid().asPoint()),QgsPointXY(n.geometry().centroid().asPoint())])
+                            if sym==True:
+                                retour=index2.nearestNeighbor(g.geometry().centroid().asPoint(),nb_max)
+                                if n.id() not in retour:
+                                    test_sym=0
+                            if test_sym==1:
+                                if j==0:
+                                    l=n.geometry().distance(g.geometry())*dist_unit
+                                    id_node=str(g.attribute(node_id))
+                                    id_stop=str(n.attribute(stop_id))
+                                    id_ij=id_stop+'-'+id_node
+                                    id_ji=id_node+'-'+id_stop
+                                    if l<rayon:
+                                        nbc+=1
+                                        gline=QgsGeometry.fromPolylineXY([QgsPointXY(n.geometry().centroid().asPoint()),QgsPointXY(g.geometry().centroid().asPoint())])
+                                        hline=QgsGeometry.fromPolylineXY([QgsPointXY(g.geometry().centroid().asPoint()),QgsPointXY(n.geometry().centroid().asPoint())])
 
-                                    fline=QgsFeature()
-                                    fline.setGeometry(gline)
-                                    if l0==True:
-                                        ll=0
-                                    else:
-                                        ll=gline.length()*dist_unit
-                                    moda=unicode(mode_i)+unicode(mode_j)
-                                    if vitesse<=0:
-                                        fline.setAttributes([id_stop,id_node,id_ij, ll/1000,0.0,moda])
-                                    else:
-                                        fline.setAttributes([id_stop,id_node,id_ij, ll/1000,ll*60/(vitesse*1000),moda])
-                                    fline2=QgsFeature()
-                                    fline2.setGeometry(hline)
-                                    modb=unicode(mode_j)+unicode(mode_i)
-                                    if vitesse<=0:
-                                        fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,0,modb])
-                                    else:
-                                        fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,ll*60/(vitesse*1000),modb])
-                                    table_connecteurs.addFeature(fline)
-                                    table_connecteurs.addFeature(fline2)
-                                    if vitesse>0:
-                                        sortie.write(id_node+';'+id_stop+';'+str((60/vitesse)*(ll/1000.0))+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+modb+';'+modb+'\n')
-                                        sortie.write(id_stop+';'+id_node+';'+str((60/vitesse)*(ll/1000.0))+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+moda+';'+moda+'\n')
-                                    else:
-                                        sortie.write(id_node+';'+id_stop+';'+str(0.0)+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+modb +';'+modb+'\n')
-                                        sortie.write(id_stop+';'+id_node+';'+str(0.0)+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+moda+';'+moda+'\n')
+                                        fline=QgsFeature()
+                                        fline.setGeometry(gline)
+                                        if l0==True:
+                                            ll=0
+                                        else:
+                                            ll=gline.length()*dist_unit
+                                        moda=unicode(mode_i)+unicode(mode_j)
+                                        if vitesse<=0:
+                                            fline.setAttributes([id_stop,id_node,id_ij, ll/1000,0.0,moda])
+                                        else:
+                                            fline.setAttributes([id_stop,id_node,id_ij, ll/1000,ll*60/(vitesse*1000),moda])
+                                        fline2=QgsFeature()
+                                        fline2.setGeometry(hline)
+                                        modb=unicode(mode_j)+unicode(mode_i)
+                                        if vitesse<=0:
+                                            fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,0,modb])
+                                        else:
+                                            fline2.setAttributes([id_node,id_stop,id_ji, ll/1000,ll*60/(vitesse*1000),modb])
+                                        table_connecteurs.addFeature(fline)
+                                        table_connecteurs.addFeature(fline2)
+                                        if vitesse>0:
+                                            sortie.write(id_node+';'+id_stop+';'+str((60/vitesse)*(ll/1000.0))+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+modb+';'+modb+'\n')
+                                            sortie.write(id_stop+';'+id_node+';'+str((60/vitesse)*(ll/1000.0))+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+moda+';'+moda+'\n')
+                                        else:
+                                            sortie.write(id_node+';'+id_stop+';'+str(0.0)+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+modb +';'+modb+'\n')
+                                            sortie.write(id_stop+';'+id_node+';'+str(0.0)+';'+str(ll/1000.0)+';-1;-1;-1;-1;-1;'+moda+';'+moda+'\n')
         feedback.setProgressText(unicode(nbc)+"/"+unicode(nb)+self.tr(" connected nodes"))
         sortie.close()
         return {'output': dest_id}

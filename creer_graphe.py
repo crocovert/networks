@@ -251,6 +251,7 @@ class CreerGraphe(QgsProcessingAlgorithm):
         del table_noeuds
         #outs.close()
         lines=layer.getFeatures()
+        layer.blockSignals(True)
         layer.startEditing()
         layer.beginEditCommand(QCoreApplication.translate("Building graph","Building graph"))
         feedback.setProgressText(QCoreApplication.translate("Updating arcs","Updating arcs"))
@@ -288,12 +289,13 @@ class CreerGraphe(QgsProcessingAlgorithm):
 
                 id=ligne.id()
                 valid={ida : unicode(noeuds[na][0]), idb: unicode(noeuds[nb][0]), idij: unicode(noeuds[na][0]+"-"+noeuds[nb][0])}
-                layer.dataProvider().changeAttributeValues({id: valid})
+                layer.changeAttributeValues(id, valid)
                 #layer.changeAttributeValue(id,ida, unicode(noeuds[na][0]))
                 #layer.changeAttributeValue(id,idb, unicode(noeuds[nb][0]))
                 #layer.changeAttributeValue(id,idij, unicode(noeuds[na][0]+"-"+noeuds[nb][0]))
         layer.endEditCommand()
         layer.commitChanges()
+        layer.blockSignals(False)
         gc.collect()
         return {self.NOEUDS: dest_id}
 

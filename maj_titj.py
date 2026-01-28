@@ -185,6 +185,7 @@ class Majtitj(QgsProcessingAlgorithm):
         for f in champs:
             noms_champs.append(f.name())
         #ajout si necessaire champ ti tj
+        reseau.blockSignals(True)
         reseau.startEditing()
         reseau.beginEditCommand(self.tr("updating ti tj"))
         if  champ_ti not in noms_champs:
@@ -261,7 +262,7 @@ class Majtitj(QgsProcessingAlgorithm):
             else:
                 ti=NULL
                 valid={ida : ti, idb : ti}
-                reseau.dataProvider().changeAttributeValues({num:valid})
+                reseau.changeAttributeValues(num,valid)
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
@@ -269,6 +270,7 @@ class Majtitj(QgsProcessingAlgorithm):
         feedback.setProgress((k+1)*100/n)            
         reseau.endEditCommand()
         reseau.commitChanges()
+        reseau.blockSignals(False)
         feedback.setProgress(100)     
         return {self.RESEAU: reseau.sourceName()}
 

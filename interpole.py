@@ -483,7 +483,7 @@ class Interpole(QgsProcessingAlgorithm):
                     fichier2_dict=open(sortie[0]+"_dist.dic",'w')
                     fichier_prj.write(layer.crs().toWkt())
                     fichier2_prj.write(layer.crs().toWkt())
-                    fichier2_dict.write(json.dumps(dict(map(reversed, poles.items()))))
+                    fichier2_dict.write(json.dumps({k:v for k, v in map(reversed, poles.items())}))
                     fichier_prj.close()
                     fichier2_prj.close()
                     fichier2_dict.close()

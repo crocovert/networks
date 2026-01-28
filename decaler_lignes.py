@@ -151,7 +151,7 @@ class ShiftLines(QgsProcessingAlgorithm):
         for f in champs:
             noms_champs.append(f.name())
         
-        
+        lines_data.blockSignals(True)
         lines_data.startEditing()
         lines_data.beginEditCommand(self.tr("add field ")+decalage)
         if decalage not in noms_champs:
@@ -200,9 +200,9 @@ class ShiftLines(QgsProcessingAlgorithm):
             nij=ij
             idt=lines_data.fields().indexFromName(decalage)
             #lines_data.changeAttributeValue(i1.id(), pr.fieldNameMap()[decalage],resultat[nij][id])
-            lines_data.dataProvider().changeAttributeValues({i1.id(): {idt:resultat[nij][id]}})
+            lines_data.changeAttributeValues(i1.id(), {idt:resultat[nij][id]})
         lines_data.commitChanges()
-        
+        lines_data.blockSignals(False)
         
         
 

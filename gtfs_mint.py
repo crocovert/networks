@@ -75,8 +75,18 @@ class Google_Trip:
         self.route_id=""
         self.service_id=""
         self.trip_id=""
+        self.shape_id=""
     def __repr__(self):
         return(unicode({'route_id': self.route_id,'service_id':self.service_id,'trip_id':self.trip_id}))
+
+class Google_Shape:
+    def __init__(self):
+        self.shape_id=""
+        self.x=""
+        self.y=""
+        self.seq=""
+    def __repr__(self):
+        return(unicode({'shape_id': self.shape_id,'shape_pt_lat':self.x,'shape_pt_lon':self.y,'shape_pt_sequence':self.seq}))
 
 
 class Google_Calendar:
@@ -280,6 +290,54 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
         fichier_routes.close()
         return google_routes
+        
+    def lit_google_shapes(self,nom_shapes,encodage):
+        google_shapes = {}
+        if os.path.exists(nom_shapes):
+            fichier_shapes = io.open(nom_shapes,encoding=encodage)
+            for i,ligne in enumerate(fichier_shapes):
+                if i==0:
+                    header = ligne[:-1].split(',')
+                    headers = {}
+            
+                    for j,ii in enumerate(header):
+                        headers[ii.strip('"')] = j
+
+        
+                else:
+                    h = []
+                    head = ligne.strip('\n').strip('\r')
+                    elements=re.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)",head)
+
+
+                    google_shape = Google_Shape()
+                    google_shape.shape_id = elements[headers["shape_id"]]
+                    if "shape_pt_lon" in headers:
+                        google_shape.x = float(elements[headers["shape_pt_lon"]])
+                    else:
+                        google_shape.x=0
+                    if "shape_pt_lat" in headers:
+                        google_shape.y = float(elements[headers["shape_pt_lat"]])
+                    else:
+                        google_shape.y=0
+                    if "shape_pt_sequence" in headers:
+                        google_shape.seq = float(elements[headers["shape_pt_sequence"]])
+                    else:
+                        google_shape.seq=0
+                    if google_shape.shape_id not in google_shapes:
+                        google_shapes[google_shape.shape_id]=[]
+                    google_shapes[google_shape.shape_id].append((QgsPointXY(google_shape.x,google_shape.y), google_shape.seq))
+
+            fichier_shapes.close()
+            google_shapes2={}
+            for i in google_shapes:
+                j=sorted(google_shapes[i],key=lambda x:x[1])
+                if i not in google_shapes2:
+                    google_shapes2[i]=[]
+                google_shapes2[i].append(QgsGeometry.fromPolylineXY([m[0] for m in j]))
+        else:
+            google_shapes2=[]
+        return google_shapes2
 
 
     def lit_google_trips(self,nom_trips,encodage):
@@ -306,6 +364,8 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
 
                 google_trip = Google_Trip();
+                if "shape_id" in headers:
+                    google_trip.shape_id=elements[headers["shape_id"]].strip()
                 google_trip.route_id = elements[headers["route_id"]].strip()
                 google_trip.service_id = elements[headers["service_id"]].strip()
                 google_trip.trip_id = elements[headers["trip_id"]].strip();
@@ -506,7 +566,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         return chainages;
 
 
-    def cree_musliw(self, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, feedback,heure_debut, heure_fin,iti,t_links ,proj, noeuds, liens,date_debut,date_fin):
+    def cree_musliw(self, google_routes,  google_trips, google_calendars, google_stop_times,  google_chainages, google_stops, google_shapes, feedback,heure_debut, heure_fin,iti,t_links ,proj, noeuds, liens,traces, date_debut,date_fin):
         
       
         
@@ -528,6 +588,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
 
                 if mission.route_id in google_routes:
                     elements = google_stop_times[mission.trip_id]
+                    trace_id=google_trips[mission.trip_id].shape_id
                     n = len(elements)
                     j+=1
                     textel = ""
@@ -582,6 +643,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                                 arcs[ij]['geom']=QgsGeometry.fromPolylineXY([pt1,pt2])
                                 arcs[ij]['longueur']=arcs[ij]['geom'].length()
                                 arcs[ij]['mode']=google_routes[mission.route_id].nom
+                                arcs[ij]['shape_id']=trace_id
                             arcs[ij]['temps']+=elements[k + 1][1].heure_arr-elements[k][1].heure_arr
                             arcs[ij]['nb']+=1.0
                             
@@ -648,21 +710,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                             except:
                                 nodes[elements[k+1][1].num_arret]['arr_sun']+=0
                         
-            t_noeuds=QgsFields()
-            t_noeuds.append(QgsField("i",QVariant.String))
-            t_noeuds.append(QgsField("name",QVariant.String))
-            t_noeuds.append(QgsField("dep_monfri",QVariant.Double))
-            t_noeuds.append(QgsField("arr_monfri",QVariant.Double))
-            t_noeuds.append(QgsField("dep_sat",QVariant.Double))
-            t_noeuds.append(QgsField("arr_sat",QVariant.Double))
-            t_noeuds.append(QgsField("dep_sun",QVariant.Double))
-            t_noeuds.append(QgsField("arr_sun",QVariant.Double))
-            
-            t_arcs=QgsFields()
-            t_arcs.append(QgsField("i",QVariant.String))
-            t_arcs.append(QgsField("j",QVariant.String))
-            t_arcs.append(QgsField("ij",QVariant.String))
-            t_arcs.append(QgsField("longueur",QVariant.Double))
+
                             
             for s in arcs:
                 segment=QgsFeature(t_links)
@@ -671,6 +719,7 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                 segment['j']=s[1]
                 segment['line']=s[2]
                 segment['mode']=arcs[s]['mode']
+                segment['shape_id']=arcs[s]['shape_id']
                 segment['temps']=arcs[s]['temps']/arcs[s]['nb']
                 segment['longueur']=arcs[s]['longueur']/1000
                 segment['nb_monfri']=arcs[s]['nb_monfri']
@@ -686,6 +735,28 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
                     segment['hdw_sun']=(hd.secsTo(hf)/60)/segment['nb_sun']
                 if (segment['nb_monfri']+segment['nb_sun']+segment['nb_sun'])>0:
                     iti.addFeature(segment)
+
+
+
+        t_noeuds=QgsFields()
+        t_noeuds.append(QgsField("i",QVariant.String))
+        t_noeuds.append(QgsField("name",QVariant.String))
+        t_noeuds.append(QgsField("dep_monfri",QVariant.Double))
+        t_noeuds.append(QgsField("arr_monfri",QVariant.Double))
+        t_noeuds.append(QgsField("dep_sat",QVariant.Double))
+        t_noeuds.append(QgsField("arr_sat",QVariant.Double))
+        t_noeuds.append(QgsField("dep_sun",QVariant.Double))
+        t_noeuds.append(QgsField("arr_sun",QVariant.Double))
+        
+        t_arcs=QgsFields()
+        t_arcs.append(QgsField("i",QVariant.String))
+        t_arcs.append(QgsField("j",QVariant.String))
+        t_arcs.append(QgsField("ij",QVariant.String))
+        t_arcs.append(QgsField("longueur",QVariant.Double))
+        
+        t_shapes=QgsFields()
+        t_shapes.append(QgsField("shape_id",QVariant.String))
+            
         for n in nodes:
             noeud=QgsFeature(t_noeuds)
             noeud.setGeometry(nodes[n]['geom'])
@@ -707,6 +778,16 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
             link['ij']=l[0]+'-'+l[1]
             link['longueur']=links[l]['geom'].length()/1000
             liens.addFeature(link)
+            
+        
+        for s in google_shapes:
+            shape=QgsFeature(t_shapes)
+            shape["shape_id"]=s
+            google_shapes[s][0].transform(xtr)
+            shape.setGeometry(google_shapes[s][0])
+            traces.addFeature(shape)
+            
+            
 
 
     def processAlgorithm(self, parameters, context, feedback):
@@ -758,7 +839,12 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         t_links.append(QgsField("nb_monfri",QVariant.Double))
         t_links.append(QgsField("nb_sat",QVariant.Double))
         t_links.append(QgsField("nb_sun",QVariant.Double))
+        t_links.append(QgsField("shape_id",QVariant.String))
+        
 
+        
+        t_shapes=QgsFields()
+        t_shapes.append(QgsField("shape_id",QVariant.String))
         
         src=QgsCoordinateReferenceSystem("EPSG:4326")
         dest=QgsCoordinateReferenceSystem(proj)
@@ -771,8 +857,10 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         chemin=os.path.split(lines)
         fich_noeuds=chemin[0]+'/'+os.path.splitext(chemin[1])[0]+'_stops.gpkg'
         fich_arcs=chemin[0]+'/'+os.path.splitext(chemin[1])[0]+'_links.gpkg'
+        fich_shapes=chemin[0]+'/'+os.path.splitext(chemin[1])[0]+'_shapes.gpkg'
         noeuds=QgsVectorFileWriter.create(fich_noeuds,t_noeuds,QgsWkbTypes.Point,dest,transform_context,save_options)
         links=QgsVectorFileWriter.create(fich_arcs,t_arcs,QgsWkbTypes.MultiLineString,dest,transform_context,save_options)
+        shapes=QgsVectorFileWriter.create(fich_shapes,t_shapes,QgsWkbTypes.MultiLineString,dest,transform_context,save_options)
             
 
         
@@ -796,11 +884,13 @@ class ImportGTFSv2(QgsProcessingAlgorithm):
         feedback.setProgressText(self.tr(u"Reading stop_times"))
         google_stop_times = self.lit_google_stop_times( "stop_times.txt",encodage)
         feedback.setProgressText(self.tr(u"Generating lines"))
+        google_shapes=self.lit_google_shapes( "shapes.txt",encodage)
+        feedback.setProgressText(self.tr(u"Generating shapes"))
         google_chainages=self.cree_chainages(google_routes, google_trips, google_calendars, google_stop_times,feedback)
         feedback.setProgressText(self.tr(u'Generation Musliw file'))
-        self.cree_musliw( google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,feedback,heure_debut,heure_fin,iti,t_links,proj,noeuds, links, date_debut, date_fin)
+        self.cree_musliw( google_routes, google_trips, google_calendars, google_stop_times, google_chainages, google_stops,google_shapes, feedback,heure_debut,heure_fin,iti,t_links,proj,noeuds, links,shapes, date_debut, date_fin)
         gc.collect()
-        return {'lines' :lines,'nodes': fich_noeuds,'links': fich_arcs}
+        return {'lines' :lines,'nodes': fich_noeuds,'links': fich_arcs, 'shapes': fich_shapes}
 
 
     def name(self):

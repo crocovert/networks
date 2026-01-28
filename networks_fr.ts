@@ -27,47 +27,47 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="99"/>
+        <location filename="ajout_champ.py" line="100"/>
         <source>Field</source>
         <translation>Champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="109"/>
+        <location filename="ajout_champ.py" line="110"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="117"/>
+        <location filename="ajout_champ.py" line="118"/>
         <source>Size</source>
         <translation>Taille</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="128"/>
+        <location filename="ajout_champ.py" line="129"/>
         <source>Precision</source>
         <translation>Précision</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="140"/>
+        <location filename="ajout_champ.py" line="141"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="154"/>
+        <location filename="ajout_champ.py" line="155"/>
         <source>Formula</source>
         <translation>Formule</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="231"/>
+        <location filename="ajout_champ.py" line="232"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="233"/>
+        <location filename="ajout_champ.py" line="234"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="300"/>
+        <location filename="ajout_champ.py" line="313"/>
         <source>
         Add or update a field in a Qgis layer from an expression formula on a set of rows
         
@@ -95,22 +95,22 @@
         </translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="90"/>
+        <location filename="ajout_champ.py" line="91"/>
         <source>Layer</source>
         <translation>Couche (qgis)</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="269"/>
+        <location filename="ajout_champ.py" line="282"/>
         <source>Update field</source>
         <translation>Mise à jour champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="276"/>
+        <location filename="ajout_champ.py" line="289"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="245"/>
+        <location filename="ajout_champ.py" line="254"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
@@ -304,7 +304,7 @@
 <context>
     <name>Building graph</name>
     <message>
-        <location filename="creer_graphe.py" line="255"/>
+        <location filename="creer_graphe.py" line="256"/>
         <source>Building graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -781,87 +781,87 @@
 <context>
     <name>ConnecteursGeo</name>
     <message>
-        <location filename="connecteurs_geo.py" line="95"/>
+        <location filename="connecteurs_geo.py" line="96"/>
         <source>Stops</source>
         <translation>Arrêts (Qgis)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="102"/>
+        <location filename="connecteurs_geo.py" line="103"/>
         <source>Stop_id</source>
         <translation>Stop_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="110"/>
+        <location filename="connecteurs_geo.py" line="111"/>
         <source>i-text</source>
         <translation>Texte noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="117"/>
+        <location filename="connecteurs_geo.py" line="118"/>
         <source>i-mode</source>
         <translation>mode noeud i</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="124"/>
+        <location filename="connecteurs_geo.py" line="125"/>
         <source>Nodes</source>
         <translation>Noeuds (Qgis)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="131"/>
+        <location filename="connecteurs_geo.py" line="132"/>
         <source>node_id</source>
         <translation>node_id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="139"/>
+        <location filename="connecteurs_geo.py" line="140"/>
         <source>j-text</source>
         <translation>Texte noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="146"/>
+        <location filename="connecteurs_geo.py" line="147"/>
         <source>j-mode</source>
         <translation>Mode noeud j</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="153"/>
+        <location filename="connecteurs_geo.py" line="154"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="163"/>
+        <location filename="connecteurs_geo.py" line="164"/>
         <source>Speed</source>
         <translation>Vitesse</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="173"/>
+        <location filename="connecteurs_geo.py" line="174"/>
         <source>Maximum number</source>
         <translation>Nombre max</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="194"/>
+        <location filename="connecteurs_geo.py" line="204"/>
         <source>Connectors file</source>
         <translation>Fichier des connecteurs (Qgis)</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="248"/>
+        <location filename="connecteurs_geo.py" line="260"/>
         <source>length</source>
         <translation>longueur</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="249"/>
+        <location filename="connecteurs_geo.py" line="261"/>
         <source>time</source>
         <translation>temps</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="250"/>
+        <location filename="connecteurs_geo.py" line="262"/>
         <source>mode</source>
         <translation>mode</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="302"/>
+        <location filename="connecteurs_geo.py" line="320"/>
         <source> connected nodes</source>
         <translation>noeuds connectés</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="342"/>
+        <location filename="connecteurs_geo.py" line="360"/>
         <source>
         Generate a layer of linear objects corresponding to connections between two ponts layers (e.g. PT stops and roads nodes)
         
@@ -899,12 +899,12 @@
         </translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="322"/>
+        <location filename="connecteurs_geo.py" line="340"/>
         <source>Build connectors</source>
         <translation>Créer connecteurs</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="329"/>
+        <location filename="connecteurs_geo.py" line="347"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -914,9 +914,14 @@
         <translation type="obsolete">Taille du champ Id</translation>
     </message>
     <message>
-        <location filename="connecteurs_geo.py" line="183"/>
+        <location filename="connecteurs_geo.py" line="184"/>
         <source>Null length connectors</source>
         <translation>Connecteurs de longueur nulle</translation>
+    </message>
+    <message>
+        <location filename="connecteurs_geo.py" line="194"/>
+        <source>Balanced</source>
+        <translation>Equilibré</translation>
     </message>
 </context>
 <context>
@@ -1080,7 +1085,7 @@
 <context>
     <name>CreerGraphe</name>
     <message>
-        <location filename="creer_graphe.py" line="323"/>
+        <location filename="creer_graphe.py" line="325"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -1100,7 +1105,7 @@
         <translation>Table des noeuds</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="316"/>
+        <location filename="creer_graphe.py" line="318"/>
         <source>Build graph</source>
         <translation>Créer graphe</translation>
     </message>
@@ -1110,7 +1115,7 @@
         <translation>Node id</translation>
     </message>
     <message>
-        <location filename="creer_graphe.py" line="339"/>
+        <location filename="creer_graphe.py" line="341"/>
         <source>
         Build a graph from a linear layer (create a node layer, i and j fields filled with node id at start and end node) taking into account the direction of flows
         
@@ -1192,7 +1197,7 @@
 <context>
     <name>Erreur</name>
     <message>
-        <location filename="creer_graphe.py" line="287"/>
+        <location filename="creer_graphe.py" line="288"/>
         <source>Erreur</source>
         <translation>Error</translation>
     </message>
@@ -1895,6 +1900,67 @@
     </message>
 </context>
 <context>
+    <name>GeographicAnamorphosis</name>
+    <message>
+        <location filename="anamorphose.py" line="37"/>
+        <source>Raster layer</source>
+        <translation>Couche raster</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="38"/>
+        <source>Scale</source>
+        <translation>Echelle</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="39"/>
+        <source>Anamorphosis</source>
+        <translation>Anamorphose</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="114"/>
+        <source>anamorphosis</source>
+        <translation>anamorphose</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="120"/>
+        <source>Geographic anamorphosis</source>
+        <translation>Anamorphose géographique</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="123"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="134"/>
+        <source>
+        Generates a geographic anamorphosis of a vector layer
+        Clone a vector layer shifting coordinates based on raster value 
+        The center of the anamorphois if the center of the vector layer extent
+        
+        
+        Parameters:
+            Vector layer: Vector layer that will be cloned and anamorphosed
+            Raster layer: The raster layer where to pick values to move vertices coordinates 
+            Scale: Scale factor for vertices coordinates changes
+            Anamorphosis: name of the anamorphosis layer (output)</source>
+        <translation>        Elabore une anamorphose géographique à partir d&apos;un couche vecteur et d&apos;un raster
+        Duplique la couche vecteur en modifiant les coordonnées en fonction des valeurs du raster
+        Le centre de l&apos;anamorphose est le centre de la couche vecteur
+        
+        Parametères:
+            Couche Vecteur: la couche vecteur quis era dupliquée et sur laquelle sera réalisée l&apos;anamorphose
+            Couche Raster: la couche Raster sur laquelle l&apos;agorithme va récupérer les valeurs pour décaler les coordonnées
+            Echelle: facteur d&apos;échelle pour la modification des coordonnées (rayon)
+            Anamorphose: nom de la couche résultat de l&apos;anamorphose</translation>
+    </message>
+    <message>
+        <location filename="anamorphose.py" line="36"/>
+        <source>Vector layer</source>
+        <translation>Couche vectorielle</translation>
+    </message>
+</context>
+<context>
     <name>GravityIndicators</name>
     <message>
         <location filename="gravityindicator.py" line="37"/>
@@ -2141,77 +2207,77 @@ L&apos;algorithme produit deux fichiers de résultats:
 <context>
     <name>ImportGTFSv2</name>
     <message>
-        <location filename="gtfs_mint.py" line="149"/>
+        <location filename="gtfs_mint.py" line="159"/>
         <source>GTFS folder</source>
         <translation>Répertoire GTFS</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="156"/>
+        <location filename="gtfs_mint.py" line="166"/>
         <source>Calendar start</source>
         <translation>Début calendrier</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="163"/>
+        <location filename="gtfs_mint.py" line="173"/>
         <source>Calendar end</source>
         <translation>Fin calendrier</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="184"/>
+        <location filename="gtfs_mint.py" line="194"/>
         <source>output crs</source>
         <translation>Projection</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="204"/>
+        <location filename="gtfs_mint.py" line="214"/>
         <source>Mint network layer</source>
         <translation>Couche réseau Mint (qgis)</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="786"/>
+        <location filename="gtfs_mint.py" line="874"/>
         <source>Reading stops</source>
         <translation>Lecture des stops</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="788"/>
+        <location filename="gtfs_mint.py" line="876"/>
         <source>Reading routes</source>
         <translation>Lecture des routes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="790"/>
+        <location filename="gtfs_mint.py" line="878"/>
         <source>Reading trips</source>
         <translation>Lecture des trips</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="792"/>
+        <location filename="gtfs_mint.py" line="880"/>
         <source>Reading calendars_dates</source>
         <translation>Lecture des calendar_dates</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="794"/>
+        <location filename="gtfs_mint.py" line="882"/>
         <source>Reading calendars</source>
         <translation>Lecture des calendars</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="796"/>
+        <location filename="gtfs_mint.py" line="884"/>
         <source>Reading stop_times</source>
         <translation>Lecture des stop_times</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="798"/>
+        <location filename="gtfs_mint.py" line="886"/>
         <source>Generating lines</source>
         <translation>Génération des lignes</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="800"/>
+        <location filename="gtfs_mint.py" line="890"/>
         <source>Generation Musliw file</source>
         <translation>Génération du fichier Musliw</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="821"/>
+        <location filename="gtfs_mint.py" line="911"/>
         <source>Import_GTFS_v2</source>
         <translation>Import_GTFS_v2</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="828"/>
+        <location filename="gtfs_mint.py" line="918"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2236,7 +2302,7 @@ L&apos;algorithme produit deux fichiers de résultats:
             Réseau Musliw à horaires: Nom du réseau Musliw à horaires (txt)</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="845"/>
+        <location filename="gtfs_mint.py" line="935"/>
         <source>
         Scan a GTFS folder and generates the layer of stops, and the layer of simplified arcs and lines
 		Computes the transport offer for the specified time period  and calendar (number of stops)
@@ -2263,19 +2329,24 @@ L&apos;algorithme produit deux fichiers de résultats:
 			Mint network layer : nom de la couche de lignes. Les noms des couches arrêts et liens seront identiques mais avec _stops et _links à la fin.</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="170"/>
+        <location filename="gtfs_mint.py" line="180"/>
         <source>Time period start</source>
         <translation>heure de début</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="177"/>
+        <location filename="gtfs_mint.py" line="187"/>
         <source>Time period end</source>
         <translation>Heure de fin</translation>
     </message>
     <message>
-        <location filename="gtfs_mint.py" line="192"/>
+        <location filename="gtfs_mint.py" line="202"/>
         <source>Encoding</source>
         <translation>Encodage</translation>
+    </message>
+    <message>
+        <location filename="gtfs_mint.py" line="888"/>
+        <source>Generating shapes</source>
+        <translation>Génénration des tracés</translation>
     </message>
 </context>
 <context>
@@ -2884,7 +2955,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksPole</name>
     <message>
-        <location filename="maj_links_pole.py" line="284"/>
+        <location filename="maj_links_pole.py" line="286"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -2924,22 +2995,22 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Noeud origine</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="179"/>
+        <location filename="maj_links_pole.py" line="180"/>
         <source>updating pole</source>
         <translation>mise à jour du pôle</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="226"/>
+        <location filename="maj_links_pole.py" line="227"/>
         <source>updating pole...</source>
         <translation>mise à jour du pôle...</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="277"/>
+        <location filename="maj_links_pole.py" line="279"/>
         <source>Update links pole</source>
         <translation>Mise à jour du pôle des arcs</translation>
     </message>
     <message>
-        <location filename="maj_links_pole.py" line="300"/>
+        <location filename="maj_links_pole.py" line="302"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where intermodaly node and service area node are saved
 		        
@@ -2969,7 +3040,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>MajLinksTimes</name>
     <message>
-        <location filename="maj_links_times.py" line="292"/>
+        <location filename="maj_links_times.py" line="294"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -3019,7 +3090,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="285"/>
+        <location filename="maj_links_times.py" line="287"/>
         <source>Update links times</source>
         <translation>Mise à jour des temps des arcs</translation>
     </message>
@@ -3054,7 +3125,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="maj_links_times.py" line="308"/>
+        <location filename="maj_links_times.py" line="310"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -3087,7 +3158,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
 <context>
     <name>Majtitj</name>
     <message>
-        <location filename="maj_titj.py" line="298"/>
+        <location filename="maj_titj.py" line="300"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -3137,17 +3208,17 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         <translation>temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="189"/>
+        <location filename="maj_titj.py" line="190"/>
         <source>updating ti tj</source>
         <translation>Mise à jour ti et tj</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="238"/>
+        <location filename="maj_titj.py" line="239"/>
         <source>updating ti and tj...</source>
         <translation>Mise à jour ti et tj...</translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="314"/>
+        <location filename="maj_titj.py" line="316"/>
         <source>
         Read the travel times file &quot;.._temps.txt&quot; computed by Musliw and creates (if they don&apos;t exist) in the network layer fields where i-node and j-node travel times are saved
 		        
@@ -3176,7 +3247,7 @@ L&apos;intérêt de cet algorithme est d&apos;analyser les connections de graphe
         </translation>
     </message>
     <message>
-        <location filename="maj_titj.py" line="291"/>
+        <location filename="maj_titj.py" line="293"/>
         <source>Update ti tj</source>
         <translation>Mise à jour ti tj</translation>
     </message>
@@ -4517,7 +4588,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="267"/>
+        <location filename="networks_provider.py" line="271"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>
@@ -5123,6 +5194,68 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     </message>
 </context>
 <context>
+    <name>PointAnamorphosis</name>
+    <message>
+        <location filename="anamorphose_point.py" line="41"/>
+        <source>Center</source>
+        <translation>Centre</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="43"/>
+        <source>Variable</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="84"/>
+        <source>point_anamorphosis</source>
+        <translation>anamorphose_ponctuelle</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="142"/>
+        <source>Point anamorphosis</source>
+        <translation>Anamorphose ponctuelle</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="145"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="156"/>
+        <source>
+        Generates an anamorphosis from a layer of points
+        Clone a vector layer shifting coordinates based on field values
+        The user has to click on the canvas to determine the centre of the anamorphosis
+        
+        
+        Parameters:
+            Centre: Click on the canvas to set the center
+            Vector layer: vector layer (points)
+            Variable: Field (numeric) of the anamorphosis. Could be an expression
+            anamorphosis: name of the anamorphosis layer (output)</source>
+        <translation>        Génère une anamorphose à partir d&apos;une couche de points
+        Duplique une couche de points et modifie les coordonnées à partir de données attributs de la table
+        L&apos;utilisateur doit sélectiooner sur le canevas le centre de l&apos;anamorphose (point le plus po
+        
+        
+        Paramètres:
+            Centre: Cliquer sur le canevas pour définir le centre de l&apos;anamorphose
+            Couche vecteur: couche vecteur (points)
+            Variable: Champ (numérique) de l&apos;anamorphose. Peut-être une expression
+            anamorphose: nom de la couche résultat de l&apos;anamorphose</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="42"/>
+        <source>Vector layer</source>
+        <translation>Couche vectorielle</translation>
+    </message>
+    <message>
+        <location filename="anamorphose_point.py" line="136"/>
+        <source>anamorphose_point</source>
+        <translation>anamorphose_point</translation>
+    </message>
+</context>
+<context>
     <name>PrepareGTFS</name>
     <message>
         <location filename="prepare_gtfs.py" line="88"/>
@@ -5560,7 +5693,7 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
     <message>
         <location filename="simple_matrix.py" line="87"/>
         <source>Nodes(Qgis)</source>
-        <translation type="unfinished">Noeuds(Qgis)</translation>
+        <translation>Noeuds(Qgis)</translation>
     </message>
     <message>
         <location filename="simple_matrix.py" line="95"/>
@@ -5981,7 +6114,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>Coefficient heure de pointe</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="188"/>
+        <location filename="maj_vitesses_bd_topo.py" line="189"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
@@ -5996,12 +6129,12 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="146"/>
+        <location filename="maj_vitesses_bd_topo.py" line="147"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="206"/>
+        <location filename="maj_vitesses_bd_topo.py" line="208"/>
         <source>Update IGN BDTOPO car speeds</source>
         <translation>Mise à jour des vitesses auto BD TOPO</translation>
     </message>
@@ -6044,7 +6177,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation type="obsolete">routes_EGM/ERM</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="160"/>
+        <location filename="maj_vitesses_bd_egm.py" line="168"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
@@ -6064,12 +6197,12 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="174"/>
+        <location filename="maj_vitesses_bd_egm.py" line="186"/>
         <source>Update EGM/ERM car speed</source>
         <translation>Mise à jour des vitesses auto EGM/ERM</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="185"/>
+        <location filename="maj_vitesses_bd_egm.py" line="197"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -6077,7 +6210,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
 <context>
     <name>Updating arcs</name>
     <message>
-        <location filename="creer_graphe.py" line="256"/>
+        <location filename="creer_graphe.py" line="257"/>
         <source>Updating arcs</source>
         <translation>Mise à jour des arcs...</translation>
     </message>

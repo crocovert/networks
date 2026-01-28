@@ -142,6 +142,7 @@ class UpdateSpeedBdTopo(QgsProcessingAlgorithm):
         #feedback.setProgressText(str(nb))
         n=tableau2.featureCount()
         feedback.setProgressText(self.tr("updating field..."))
+        tableau.blockSignals(True)
         tableau.startEditing()
         tableau.beginEditCommand(self.tr("updating field"))
         
@@ -181,7 +182,7 @@ class UpdateSpeedBdTopo(QgsProcessingAlgorithm):
                     feedback.setProgressText(';'.join([str(i) for i in f.attributes()]))
 
                 
-                tableau.dataProvider().changeAttributeValues({num:valid})
+                tableau.changeAttributeValues(num,valid)
                 #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                 feedback.setProgress(p*100/n)
         else:
@@ -190,6 +191,7 @@ class UpdateSpeedBdTopo(QgsProcessingAlgorithm):
 
         tableau.endEditCommand()
         tableau.commitChanges()
+        tableau.blockSignals(False)
         gc.collect()
         return {'routes_bdtopo':couche}
 

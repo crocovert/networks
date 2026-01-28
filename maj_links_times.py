@@ -232,6 +232,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         idb=reseau.fields().indexFromName(champ_tj)
         valid={}
         
+        reseau.blockSignals(True)
         reseau.startEditing()
         for k,f in enumerate(reseau.getFeatures(request)):
             feedback.setProgress((k+1)*100/n)
@@ -248,13 +249,13 @@ class MajLinksTimes(QgsProcessingAlgorithm):
                     #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti-temps)
                 else:"""
                 valid={ida : tj, idb : ti}
-                reseau.dataProvider().changeAttributeValues({num:valid})
+                reseau.changeAttributeValues(num,valid)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti-temps)
             else:
                 ti=NULL
                 valid={ida : ti, idb : ti}
-                reseau.dataProvider().changeAttributeValues({num:valid})
+                reseau.changeAttributeValues(num,valid)
                 
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_ti],ti)
                 #reseau.changeAttributeValue(num, reseau.dataProvider().fieldNameMap()[champ_tj],ti)
@@ -262,6 +263,7 @@ class MajLinksTimes(QgsProcessingAlgorithm):
         feedback.setProgress((k+1)*100/n)            
         reseau.endEditCommand()
         reseau.commitChanges()
+        reseau.blockSignals(False)
 
         feedback.setProgress(100)     
         return {self.RESEAU: reseau.sourceName()}

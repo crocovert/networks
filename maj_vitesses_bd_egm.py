@@ -5,7 +5,7 @@ Group :
 With QGIS : 34003
 """
 
-from qgis.core import QgsProcessing, QgsDataProvider, QgsVectorDataProvider,QgsField
+from qgis.core import QgsProcessing, QgsDataProvider, QgsVectorDataProvider,QgsField, QgsProject
 from qgis.core import QgsProcessingAlgorithm
 from qgis.core import Qgis
 from qgis.core import QgsProcessingMultiStepFeedback
@@ -134,6 +134,13 @@ class UpdateSpeedEgm(QgsProcessingAlgorithm):
         tableau.beginEditCommand(self.tr("updating field"))
         
         if tableau.dataProvider().capabilities() & QgsVectorDataProvider.ChangeAttributeValues:
+
+
+            # Bloquer tous les rafraîchissements
+
+            tableau.blockSignals(True)
+            
+            
             for p,f in enumerate(couche.getFeatures()):
                 num=f.id()
                 hps='Non'
@@ -153,7 +160,8 @@ class UpdateSpeedEgm(QgsProcessingAlgorithm):
                 coef=pointe
                 valid={id_champ1: valeur,id_champ2: coef*valeur, id_champ3: l*60/(valeur*1000), id_champ4: l*60/(valeur*1000*coef)}
                 
-                tableau.dataProvider().changeAttributeValues({num:valid})
+                tableau.changeAttributeValues(num,valid)
+                #tableau.dataProvider().changeAttributeValues({num:valid})
                 #a2=tableau2.dataProvider().changeAttributeValues({num:valid})
                 feedback.setProgress(p*100/n)
         else:
@@ -162,6 +170,10 @@ class UpdateSpeedEgm(QgsProcessingAlgorithm):
 
         tableau.endEditCommand()
         tableau.commitChanges()
+        
+        tableau.blockSignals(False)
+
+
         gc.collect()
         return {'routes_egm':couche}
 
