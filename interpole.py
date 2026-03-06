@@ -56,6 +56,7 @@ import codecs
 import numpy
 import math
 import json
+import math
 
 
 class Interpole(QgsProcessingAlgorithm):
@@ -267,6 +268,13 @@ class Interpole(QgsProcessingAlgorithm):
 
         else:
             raise TypeError("La géométrie n'est pas une LineString ou MultiLineString.")
+
+
+            
+    def distance_point_rectangle(self,x, y, xmin, ymin, xmax, ymax):
+        dx = max(xmin - x, 0, x - xmax)
+        dy = max(ymin - y, 0, y - ymax)
+        return math.sqrt(dx*dx + dy*dy)
         
 
     def processAlgorithm(self, parameters, context, feedback):
@@ -386,82 +394,90 @@ class Interpole(QgsProcessingAlgorithm):
                         if var_sens in ['1','2','3'] :
                             
                             geom=i.geometry()
-                            zone=geom.buffer(rayon,6).boundingBox()
-                            deltax=int((zone.xMinimum()-ll[0])/taille_pixel_x)
-                            deltay=int((zone.yMinimum()-ll[1])/taille_pixel_y)
-                            dx=int(zone.width()/taille_pixel_x)
-                            dy=int(zone.height()/taille_pixel_y)
-                            l1=geom.length()
-                            # Créer une nouvelle géométrie en 2D à partir des coordonnées XY
                             geom=self.to_2d(geom)
                             if geom.wkbType()==QgsWkbTypes.MultiLineString:
                                 geom_l=geom.asMultiPolyline()
                             else:
                                 geom_l=geom.asPolyline()
+                            zone=geom.buffer(rayon,6).boundingBox()
+                            zone2=geom.boundingBox()
+                            deltax=int((zone.xMinimum()-ll[0])/taille_pixel_x)
+                            deltay=int((zone.yMinimum()-ll[1])/taille_pixel_y)
+                            dx=int(zone.width()/taille_pixel_x)
+                            dy=int(zone.height()/taille_pixel_y)
+
+                            x_prim=int(zone2.xMinimum())
+                            y_prim=int(zone2.yMinimum())
+                            x_sec=int(zone2.xMaximum())
+                            y_sec=int(zone2.yMaximum())
+
+                            l1=geom.length()
+                            # Créer une nouvelle géométrie en 2D à partir des coordonnées XY
                             
                             for p in range(dx):
                                 d2x=deltax+p
                                 for q in range(dy):
                                     d2y=deltay+q
                                     if 0<=d2x<nb_pixels_x and 0<=d2y<nb_pixels_y :
-                                        pt1=QgsGeometry.fromPointXY(QgsPointXY(ll[0]+(d2x+0.5)*taille_pixel_x,ll[1]+(d2y+0.5)*taille_pixel_y))
-                                        res=geom.closestSegmentWithContext(pt1.asPoint())
-                                        d=round(res[0],decimales)
-                                        if d<=grille_distance[d2x,d2y] and d<rayon*rayon:
-                                            if d>0 and l1>0:
-                                                pt2=res[1]
-                                                #feedback.setProgressText(geom.asWkt())
-                                                if geom.wkbType()==QgsWkbTypes.MultiLineString:
-                                                    num_poly=-1
-                                                    npts=0
-                                                    for k,id_poly in enumerate(geom_l):
-                                                        if res[2]<npts+len(id_poly):
-                                                            infos_poly=(k,res[2])
-                                                        else:
-                                                            npts+=len(id_poly)
-                                                    #feedback.setProgressText(str(infos_poly[0])+"-"+str(infos_poly[1])+"-"+str(npts))
-                                                    geoma=geom_l[infos_poly[0]][:(infos_poly[1]-npts)]+[pt2]
-                                                else:
-                                                    geoma=geom_l[:res[2]]+[pt2]
-                                                #geoma=QgsGeometry(geom)
-                                                #geoma.insertVertex(pt2[0],pt2[1],res[2])
-                                                l2=QgsGeometry.fromPolylineXY(geoma).length()
-                                                if res[2]==0:
-                                                    pt3=geom.vertexAt(res[2])
-                                                    pt4=geom.vertexAt(res[2]+1)
-                                                else:
-                                                    try:
-                                                        pt3=geom.vertexAt(res[2]-1)
-                                                        pt4=geom.vertexAt(res[2])
-                                                    except:
-                                                        print(res,geom_l)
-                                                        pt3=geom_l[res[2]-1]
-                                                        pt4=geom_l[res[2]]
-                                                p1=pt1.asPoint()
-                                                test_sens=(pt4.x()-pt3.x())*(p1.y()-pt2.y())-(p1.x()-pt2.x())*(pt4.y()-pt3.y())
-                                                if var_sens in ['1','3'] and not tj==None:
-                                                    if (var_diffusion in ['1','3'] and test_sens<=0) or (var_diffusion in ['2','3'] and test_sens>=0):
-                                                       
-                                                        
-                                                        if not tj==None:
+                                        if self.distance_point_rectangle(ll[0]+taille_pixel_x*d2x, ll[1]+taille_pixel_y*d2y, x_prim-0.5*taille_pixel_x, y_prim-0.5*taille_pixel_y, x_sec+0.5*taille_pixel_x, y_sec+0.5*taille_pixel_y)<grille_distance[d2x,d2y] :
+                                            pt1=QgsGeometry.fromPointXY(QgsPointXY(ll[0]+(d2x+0.5)*taille_pixel_x,ll[1]+(d2y+0.5)*taille_pixel_y))
+                                            res=geom.closestSegmentWithContext(pt1.asPoint())
+                                            d=round(res[0],decimales)
+                                            if d<=grille_distance[d2x,d2y] and d<rayon*rayon:
+                                                if d>0 and l1>0:
+                                                    pt2=res[1]
+                                                    #feedback.setProgressText(geom.asWkt())
+                                                    if geom.wkbType()==QgsWkbTypes.MultiLineString:
+                                                        num_poly=-1
+                                                        npts=0
+                                                        for k,id_poly in enumerate(geom_l):
+                                                            if res[2]<npts+len(id_poly):
+                                                                infos_poly=(k,res[2])
+                                                            else:
+                                                                npts+=len(id_poly)
+                                                        #feedback.setProgressText(str(infos_poly[0])+"-"+str(infos_poly[1])+"-"+str(npts))
+                                                        geoma=geom_l[infos_poly[0]][:(infos_poly[1]-npts)]+[pt2]
+                                                    else:
+                                                        geoma=geom_l[:res[2]]+[pt2]
+                                                    #geoma=QgsGeometry(geom)
+                                                    #geoma.insertVertex(pt2[0],pt2[1],res[2])
+                                                    l2=QgsGeometry.fromPolylineXY(geoma).length()
+                                                    if res[2]==0:
+                                                        pt3=geom.vertexAt(res[2])
+                                                        pt4=geom.vertexAt(res[2]+1)
+                                                    else:
+                                                        try:
+                                                            pt3=geom.vertexAt(res[2]-1)
+                                                            pt4=geom.vertexAt(res[2])
+                                                        except:
+                                                            print(res,geom_l)
+                                                            pt3=geom_l[res[2]-1]
+                                                            pt4=geom_l[res[2]]
+                                                    p1=pt1.asPoint()
+                                                    test_sens=(pt4.x()-pt3.x())*(p1.y()-pt2.y())-(p1.x()-pt2.x())*(pt4.y()-pt3.y())
+                                                    if var_sens in ['1','3'] and not tj==None:
+                                                        if (var_diffusion in ['1','3'] and test_sens<=0) or (var_diffusion in ['2','3'] and test_sens>=0):
+                                                           
                                                             
-                                                            if not ti==None:
-                                                                t=tj*(l2/l1)+ti*(1-(l2/l1))+math.sqrt(d)*speed/dist_unit
-                                                                l3=QgsGeometry.fromPolylineXY([pt1.asPoint(),QgsPointXY(pt2)])
-                                                        result_test=False
-                                                        if l3!=None:
-                                                            if len(features_intra)>0:
-                                                                for intra in features_intra:
-                                                                    if intra.geometry().intersects(l3):
-                                                                        result_test=True
-                                                                        break
-                                                        if result_test==False:
-                                                            if (t<grille[d2x,d2y] and d==grille_distance[d2x,d2y]) or d<grille_distance[d2x,d2y]:
-                                                                grille_distance[d2x,d2y] =d
-                                                                grille[d2x,d2y] =t
-                                                                if var_ind not in poles:
-                                                                    poles[var_ind]=len(poles)+1
-                                                                grille_ind[d2x,d2y]=poles[var_ind]
+                                                            if not tj==None:
+                                                                
+                                                                if not ti==None:
+                                                                    t=tj*(l2/l1)+ti*(1-(l2/l1))+math.sqrt(d)*speed/dist_unit
+                                                                    l3=QgsGeometry.fromPolylineXY([pt1.asPoint(),QgsPointXY(pt2)])
+                                                            result_test=False
+                                                            if l3!=None:
+                                                                if len(features_intra)>0:
+                                                                    for intra in features_intra:
+                                                                        if intra.geometry().intersects(l3):
+                                                                            result_test=True
+                                                                            break
+                                                            if result_test==False:
+                                                                if (t<grille[d2x,d2y] and d==grille_distance[d2x,d2y]) or d<grille_distance[d2x,d2y]:
+                                                                    grille_distance[d2x,d2y] =d
+                                                                    grille[d2x,d2y] =t
+                                                                    if var_ind not in poles:
+                                                                        poles[var_ind]=len(poles)+1
+                                                                    grille_ind[d2x,d2y]=poles[var_ind]
                     sortie=os.path.splitext(resultat)
                     fichier_grille=open(sortie[0]+sortie[1],'w')
                     fichier_grille.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))

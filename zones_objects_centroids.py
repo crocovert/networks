@@ -90,7 +90,7 @@ class Zones_objects_centroids(QgsProcessingAlgorithm):
                 out_point = QgsPointXY(pt_x/pt_s, pt_y/pt_s)
             else:
                 # Utiliser le centroïde si aucun point
-                out_point = poly_geom.centroid().asPoint()
+                out_point = poly_geom.poleOfInaccessibility(1.0)[0].asPoint()
             
             # Ajouter le point à la couche de sortie
             out_feature.setGeometry(QgsGeometry.fromPointXY(out_point))
