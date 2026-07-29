@@ -27,42 +27,42 @@
 <context>
     <name>AjoutChamp</name>
     <message>
-        <location filename="ajout_champ.py" line="100"/>
+        <location filename="ajout_champ.py" line="81"/>
         <source>Field</source>
         <translation>Champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="110"/>
+        <location filename="ajout_champ.py" line="90"/>
         <source>Type</source>
         <translation>Type</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="118"/>
+        <location filename="ajout_champ.py" line="98"/>
         <source>Size</source>
         <translation>Taille</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="129"/>
+        <location filename="ajout_champ.py" line="108"/>
         <source>Precision</source>
         <translation>Précision</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="141"/>
+        <location filename="ajout_champ.py" line="119"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="155"/>
+        <location filename="ajout_champ.py" line="128"/>
         <source>Formula</source>
         <translation>Formule</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="232"/>
+        <location filename="ajout_champ.py" line="194"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="234"/>
+        <location filename="ajout_champ.py" line="196"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
@@ -81,7 +81,7 @@
             formula&#xa0;: expression that will be written in the field( for filtered rows only)
             
         </source>
-        <translation>        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
+        <translation type="obsolete">        Ajoute ou met à jour un champ dans une couhe Qgis à partir d&apos;une expression sur une sélection d&apos;enregistrements
         
         Paramètres:
             couche : une couche vectorielle
@@ -95,24 +95,40 @@
         </translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="91"/>
+        <location filename="ajout_champ.py" line="74"/>
         <source>Layer</source>
         <translation>Couche (qgis)</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="282"/>
+        <location filename="ajout_champ.py" line="225"/>
         <source>Update field</source>
         <translation>Mise à jour champ</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="289"/>
+        <location filename="ajout_champ.py" line="228"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="ajout_champ.py" line="254"/>
+        <location filename="ajout_champ.py" line="210"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
+    </message>
+    <message>
+        <location filename="ajout_champ.py" line="244"/>
+        <source>
+        Add or update a field in a Qgis layer from an expression formula on a set of rows
+        
+        Parameters:
+            layer : a vector layer
+            field : name of the field to update or name of the new field
+            type : field data type (if new field)
+            size : field size (if new field)
+            precision : field precision (if new field and real type)
+            filter: expression determining which rows will be updated
+            formula : expression that will be written in the field( for filtered rows only)
+        </source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -312,52 +328,52 @@
 <context>
     <name>CalculMint</name>
     <message>
-        <location filename="calcul_mint.py" line="91"/>
+        <location filename="calcul_mint.py" line="52"/>
         <source>Mint network</source>
         <translation>Réseau Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="97"/>
+        <location filename="calcul_mint.py" line="55"/>
         <source>Mint matrix</source>
         <translation>Matrice Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="103"/>
+        <location filename="calcul_mint.py" line="58"/>
         <source>Mint parameters</source>
         <translation>Paramètres Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="110"/>
+        <location filename="calcul_mint.py" line="61"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="119"/>
+        <location filename="calcul_mint.py" line="68"/>
         <source>Accept to download Mint binary from Github</source>
         <translation>Accepter de télécharger l&apos;exécutable Mint de Github</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="147"/>
+        <location filename="calcul_mint.py" line="92"/>
         <source>Downloading Mint_console binary</source>
-        <translation type="obsolete">Téléchargement de Mint_Console</translation>
+        <translation>Téléchargement de Mint_Console</translation>
     </message>
     <message>
         <location filename="calcul_mint.py" line="159"/>
         <source>Mint_console downloaded succesfully</source>
-        <translation>Mint_console téléchargé avec succès</translation>
+        <translation type="obsolete">Mint_console téléchargé avec succès</translation>
     </message>
     <message>
         <location filename="calcul_mint.py" line="176"/>
         <source>Multimodal calculations... That could take some time</source>
-        <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
+        <translation type="obsolete">Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="199"/>
+        <location filename="calcul_mint.py" line="127"/>
         <source>Mint computation</source>
         <translation>Calcul Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="206"/>
+        <location filename="calcul_mint.py" line="130"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -378,7 +394,7 @@
             Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
             output : Mint results file (without extension)
         </source>
-        <translation>        Effectuer une affectation multimodale sur un réseau défini par des fréquences (Mint)
+        <translation type="obsolete">        Effectuer une affectation multimodale sur un réseau défini par des fréquences (Mint)
         Peut télécharger le programme  Mint_console.exe pour une affectation basée sur des fréquences (si sélectioné)
          Produit les fichiers en sortie (ficheirs texte séparés par des &quot;;&quot; (si sélectionnées dans les paramètres):
         .Fichier résultats origine-destinations  &quot;_od.txt&quot;
@@ -395,53 +411,77 @@
     <message>
         <location filename="calcul_mint.py" line="157"/>
         <source>Downloading Mint_console binaries</source>
-        <translation>Téléchargement des exécutables Mint</translation>
+        <translation type="obsolete">Téléchargement des exécutables Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="127"/>
+        <location filename="calcul_mint.py" line="75"/>
         <source>Force waiting the end of calculations</source>
         <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="97"/>
+        <source>Mint_console downloaded successfully</source>
+        <translation>Mint.exe téléchargé avec succès</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="109"/>
+        <source>Unsupported platform</source>
+        <translation>Plateforme non supportée</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="112"/>
+        <source>Mint calculations... This may take some time</source>
+        <translation>Calculs Mint... Cela peut prendre plusieurs minutes</translation>
+    </message>
+    <message>
+        <location filename="calcul_mint.py" line="139"/>
+        <source>
+        Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
+        Can download the Mint_console.exe binary...
+        </source>
+        <translation>        Calcule un affectation multimodale basé sur les fréquences avec l&apos;algorithme Mint
+        Peut télécharger le programme Mint_console.exe </translation>
     </message>
 </context>
 <context>
     <name>CalculMusliw</name>
     <message>
-        <location filename="calcul_musliw.py" line="91"/>
+        <location filename="calcul_musliw.py" line="58"/>
         <source>Musliw network</source>
         <translation>Réseau Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="97"/>
+        <location filename="calcul_musliw.py" line="61"/>
         <source>Musliw matrix</source>
         <translation>Matrice Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="103"/>
+        <location filename="calcul_musliw.py" line="64"/>
         <source>Musliw parameters</source>
         <translation>Paramètres Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="109"/>
+        <location filename="calcul_musliw.py" line="67"/>
         <source>Musliw penalties</source>
         <translation>Pénalités Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="116"/>
+        <location filename="calcul_musliw.py" line="74"/>
         <source>Output</source>
         <translation>Sortie (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="182"/>
+        <location filename="calcul_musliw.py" line="126"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="210"/>
+        <location filename="calcul_musliw.py" line="145"/>
         <source>Musliw computation</source>
         <translation>Calcul Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="217"/>
+        <location filename="calcul_musliw.py" line="148"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -486,22 +526,22 @@
         </translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="125"/>
+        <location filename="calcul_musliw.py" line="81"/>
         <source>Accept to download Musliw binary from Github</source>
         <translation>Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="163"/>
+        <location filename="calcul_musliw.py" line="106"/>
         <source>Downloading Muslic binary</source>
         <translation>Téléchargement de Musliw</translation>
     </message>
     <message>
         <location filename="calcul_musliw.py" line="165"/>
         <source>Muslic downloaded succesfully</source>
-        <translation>Téléchargement de Musliw terminé</translation>
+        <translation type="obsolete">Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="233"/>
+        <location filename="calcul_musliw.py" line="239"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
 		Can download the Muslic.exe binary for multimodal routing and accessibility computation (if checked)
@@ -523,7 +563,7 @@
 			output : Mulsiw results file (without extension)
             Accept to download Muslic binary: If checked, the algorithm will download Muslic.exe on the github repository
         </source>
-        <translation>        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
+        <translation type="obsolete">        Effectue un calcul d&apos;itinéraires et d&apos;accessibilité multimodale
 		Génère des fichiers résultat (format texte séparateur &quot;;&quot;  (si sélectionné dans les paramtères):
         .Fichier origine destination  &quot;_od.txt&quot; (résultats par origine destination
         .Temps d&apos;accès par arcs &quot;_temps.txt&quot; (utiles pour les cartes isochrones)
@@ -542,9 +582,33 @@
 			sortie : Fichier de resultats Musliw (sans extension)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="133"/>
+        <location filename="calcul_musliw.py" line="88"/>
         <source>Force waiting the end of calculations</source>
         <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="169"/>
+        <source>Muslix downloaded succesfully</source>
+        <translation type="obsolete">Téléchargement de Muslix terminé</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="111"/>
+        <source>Muslic downloaded successfully</source>
+        <translation>Muslic téléchargé avec succès</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="123"/>
+        <source>Unsupported platform</source>
+        <translation>Plateforme non supportée</translation>
+    </message>
+    <message>
+        <location filename="calcul_musliw.py" line="157"/>
+        <source>
+        Perform a calculation of multimodal accessibility and routing
+        Can download the Muslic.exe binary...
+        </source>
+        <translation>        Effectue un calcul d&apos;accessibilité multimodale avec Muslic
+        Peut téléchargéer le programme Muslic.exe</translation>
     </message>
 </context>
 <context>
@@ -927,57 +991,57 @@
 <context>
     <name>Contours</name>
     <message>
-        <location filename="contours.py" line="97"/>
+        <location filename="contours.py" line="73"/>
         <source>Raster</source>
         <translation>Raster (Qgis)</translation>
     </message>
     <message>
-        <location filename="contours.py" line="103"/>
+        <location filename="contours.py" line="74"/>
         <source>Band</source>
         <translation>Bande</translation>
     </message>
     <message>
-        <location filename="contours.py" line="111"/>
+        <location filename="contours.py" line="75"/>
         <source>Min</source>
         <translation>Min</translation>
     </message>
     <message>
-        <location filename="contours.py" line="119"/>
+        <location filename="contours.py" line="76"/>
         <source>Max</source>
         <translation>Max</translation>
     </message>
     <message>
-        <location filename="contours.py" line="127"/>
+        <location filename="contours.py" line="77"/>
         <source>Interval</source>
         <translation>Intervalle</translation>
     </message>
     <message>
-        <location filename="contours.py" line="135"/>
+        <location filename="contours.py" line="78"/>
         <source>No Value</source>
         <translation>Valeur absente</translation>
     </message>
     <message>
-        <location filename="contours.py" line="143"/>
+        <location filename="contours.py" line="79"/>
         <source>Polygons</source>
         <translation>Polygones</translation>
     </message>
     <message>
-        <location filename="contours.py" line="349"/>
+        <location filename="contours.py" line="242"/>
         <source>Isovalue polygons</source>
         <translation>Contours iso-valeurs</translation>
     </message>
     <message>
-        <location filename="contours.py" line="236"/>
+        <location filename="contours.py" line="143"/>
         <source>Grid interpolation...</source>
         <translation>Interpolation de la grille...</translation>
     </message>
     <message>
-        <location filename="contours.py" line="288"/>
+        <location filename="contours.py" line="189"/>
         <source>Generating isovalue polygons...</source>
         <translation>Génération des polygones iso-valeurs...</translation>
     </message>
     <message>
-        <location filename="contours.py" line="740"/>
+        <location filename="contours.py" line="633"/>
         <source>
         Generates isovalue polygons from a rester layer (ex: in order to genarate isochrones areas)
 		        
@@ -1007,12 +1071,12 @@
         </translation>
     </message>
     <message>
-        <location filename="contours.py" line="356"/>
+        <location filename="contours.py" line="249"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="contours.py" line="150"/>
+        <location filename="contours.py" line="80"/>
         <source>Individual Values</source>
         <translation>Valeurs individuelles</translation>
     </message>
@@ -1290,37 +1354,37 @@
 <context>
     <name>FichierOD</name>
     <message>
-        <location filename="fichier_od.py" line="89"/>
+        <location filename="fichier_od.py" line="90"/>
         <source>OD output file</source>
         <translation>Fichier OD (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="101"/>
+        <location filename="fichier_od.py" line="102"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="117"/>
+        <location filename="fichier_od.py" line="118"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="125"/>
+        <location filename="fichier_od.py" line="126"/>
         <source>Time based links only?</source>
         <translation>Tronçons à horaires seulement?</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="135"/>
+        <location filename="fichier_od.py" line="136"/>
         <source>OD indicator file</source>
         <translation>Fichier indicateurs des liens</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="262"/>
+        <location filename="fichier_od.py" line="265"/>
         <source>indicators by OD</source>
         <translation>indicateurs par OD</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="269"/>
+        <location filename="fichier_od.py" line="272"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1443,12 +1507,12 @@
         </translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="109"/>
+        <location filename="fichier_od.py" line="110"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_od.py" line="285"/>
+        <location filename="fichier_od.py" line="288"/>
         <source>
         Produce indicators aggregated by OD. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -1507,27 +1571,27 @@
 <context>
     <name>FichierTemps</name>
     <message>
-        <location filename="fichier_temps.py" line="84"/>
+        <location filename="fichier_temps.py" line="85"/>
         <source>Link times output file</source>
         <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="96"/>
+        <location filename="fichier_temps.py" line="97"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="112"/>
+        <location filename="fichier_temps.py" line="113"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="120"/>
+        <location filename="fichier_temps.py" line="121"/>
         <source>Time based links only?</source>
         <translation>Tronçons horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="128"/>
+        <location filename="fichier_temps.py" line="129"/>
         <source>Link indicators file</source>
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
@@ -1537,12 +1601,12 @@
         <translation type="obsolete">élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="255"/>
+        <location filename="fichier_temps.py" line="259"/>
         <source>indicators by link</source>
         <translation>indicateurs par tronçon</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="262"/>
+        <location filename="fichier_temps.py" line="266"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1598,12 +1662,12 @@
         </translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="104"/>
+        <location filename="fichier_temps.py" line="105"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_temps.py" line="278"/>
+        <location filename="fichier_temps.py" line="282"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -1659,37 +1723,37 @@
 <context>
     <name>FichierTempsJour</name>
     <message>
-        <location filename="fichier_temps_jour.py" line="84"/>
+        <location filename="fichier_temps_jour.py" line="85"/>
         <source>Link times output file</source>
         <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="96"/>
+        <location filename="fichier_temps_jour.py" line="97"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="111"/>
+        <location filename="fichier_temps_jour.py" line="112"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="119"/>
+        <location filename="fichier_temps_jour.py" line="120"/>
         <source>Time based links only?</source>
         <translation>Tronçons horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="127"/>
+        <location filename="fichier_temps_jour.py" line="128"/>
         <source>Link indicators file</source>
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="255"/>
+        <location filename="fichier_temps_jour.py" line="259"/>
         <source>indicators by link and day</source>
         <translation>indicateurs par tronçon et jour</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="262"/>
+        <location filename="fichier_temps_jour.py" line="266"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1744,12 +1808,12 @@
         </translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="104"/>
+        <location filename="fichier_temps_jour.py" line="105"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_temps_jour.py" line="278"/>
+        <location filename="fichier_temps_jour.py" line="282"/>
         <source>
         Produce indicators aggregated by link and day. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -1805,37 +1869,37 @@
 <context>
     <name>FichierTempsMulti</name>
     <message>
-        <location filename="fichier_temps_multi.py" line="84"/>
+        <location filename="fichier_temps_multi.py" line="85"/>
         <source>Link times output file</source>
         <translation>Fichier temps Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="98"/>
+        <location filename="fichier_temps_multi.py" line="99"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="106"/>
+        <location filename="fichier_temps_multi.py" line="107"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="114"/>
+        <location filename="fichier_temps_multi.py" line="115"/>
         <source>Time based links only?</source>
         <translation>Tronçons à horaires uniquement?</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="122"/>
+        <location filename="fichier_temps_multi.py" line="123"/>
         <source>Link indicators file</source>
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="253"/>
+        <location filename="fichier_temps_multi.py" line="257"/>
         <source>indicators by link multiple points</source>
         <translation>Indicateurs par tronçons carte multi-points</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="260"/>
+        <location filename="fichier_temps_multi.py" line="264"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1849,6 +1913,57 @@
 			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
             remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+			time based links only: If checked only time based links are analysed
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            ij: link id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            
+            
+        </source>
+        <translation type="obsolete">       Produit des indicateurs aggrégés par tronçon. Cette anlyse est utile lorsque l&apos;on souhaite étudier la variabilité des temps de parcours durant une période de temps
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_temps.txt)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+			tronçons à horaires seulement: Si sélectionné seuls les tronçons à horaires seront analysés
+           Fichier résultat des indicateurs par tronçon: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            Filtre:  expression pour filtrer le fichier temps Musliw (ex: ncorr&lt;3) 
+            ij:  id tronçon
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum
+            
+            
+        </translation>
+    </message>
+    <message>
+        <location filename="fichier_temps_multi.py" line="280"/>
+        <source>
+        Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
+		
+        Parameters:
+            link times ouput file: the Musliw link times output file (&lt;FILENAME&gt;_temps.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
@@ -1958,6 +2073,118 @@
         <location filename="anamorphose.py" line="36"/>
         <source>Vector layer</source>
         <translation>Couche vectorielle</translation>
+    </message>
+</context>
+<context>
+    <name>GravityAnamorphosis</name>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="117"/>
+        <source>Gravity anamorphosis</source>
+        <translation>Anamorphose gravitaire</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="120"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="126"/>
+        <source>Generate a anamorphosis by iteratively moving each vertex
+            along the radius from other polygons centroid weighted by distance
+            The weighting uses √(D_target / D_mean) so that the final areas are proportional to the chosen attribute value.
+            
+            Parameters:
+            • Source layer — polygons to be deformed
+            • Value field — numeric field to represent
+            • Output file — path to a .gpkg
+            • Max iterations — 20 is often sufficient
+            • Convergence threshold — maximum acceptable displacement (in layer units)
+            • Damping factor — damping 0 &lt; d ≤ 1 (0.4 recommended))
+            • Resistance parameter - Calibrate the weighting (higher value give more inlfuence of further polygons)
+            • Power parameter — Power of the weighting function</source>
+        <translation>Génère une anamorphose en déplacement itérativement chaque noeud
+            le long d&apos;un mrayon par rapport au centre des autres polygons pondéré par la distance
+            la pondération √(Densité_cible / Densité_moyenne)de sorte que les aires finales soient proportionnelles à la densité &apos;attribut choisi.
+            
+            Paramètres:
+            • Couche source — polygones à déformer
+            • Valeur — Champ nuémrique représentant la valeur à représenter
+            • Fichier résultat — chemin du .gpkg résultat
+            • Max iterations — 100 par défaut
+            • Seuil de convergence — déplacement maximum acceptable (en unités de carte)
+            • Facteur d&apos;amortissement — Amorissement 0 &lt; d ≤ 1 (0.4 recommandé))
+            • Paramètre de résistance - Calibre la pondéation (de plus grandes valeurs donnent plus d&apos;influence aux polygones lointaines)
+            • paramètre exposant — L&apos;exposant de la fonction de résistance</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="146"/>
+        <source>Source layer</source>
+        <translation>Données source</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="154"/>
+        <source>Value field</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="163"/>
+        <source>Output File</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="171"/>
+        <source>Max number of iterations</source>
+        <translation>Nombre maximum d&apos;itérations</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="182"/>
+        <source>Convergence threshold (layer units)</source>
+        <translation>Facteur d&apos;amortissement</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="192"/>
+        <source>Damping factor (0 &lt; d ≤ 1)</source>
+        <translation>Facteur d&apos;amortissement (0 &lt; d ≤ 1)</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="203"/>
+        <source>Resistance parameter</source>
+        <translation>Paramètre de résistance</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="212"/>
+        <source>Power parameter</source>
+        <translation>Exposant de résistance</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="221"/>
+        <source>Output layer</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="241"/>
+        <source>Invalid layer source</source>
+        <translation>Données source invalides</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="246"/>
+        <source>The layer is empty</source>
+        <translation>Cette couche est vide</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="269"/>
+        <source>the sum of the areas is null - check layer source.</source>
+        <translation>La somme des surfaces est null - Vérifier les données source</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="373"/>
+        <source>Increase the parameter value</source>
+        <translation>Augmenter la valeur du paramètre</translation>
+    </message>
+    <message>
+        <location filename="gravity_anamorphosis.py" line="439"/>
+        <source>Errors writing GPKG : {error_msg}</source>
+        <translation>Erreurs lors de l&apos;écriture du GeoPackage</translation>
     </message>
 </context>
 <context>
@@ -2618,87 +2845,87 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
 <context>
     <name>Interpole</name>
     <message>
-        <location filename="interpole.py" line="105"/>
+        <location filename="interpole.py" line="106"/>
         <source>Network</source>
         <translation>Arcs (Qgis)</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="112"/>
+        <location filename="interpole.py" line="113"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="120"/>
+        <location filename="interpole.py" line="121"/>
         <source>i-cost</source>
         <translation>Temps i</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="128"/>
+        <location filename="interpole.py" line="129"/>
         <source>j-cost</source>
         <translation>Temps j</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="137"/>
+        <location filename="interpole.py" line="138"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="146"/>
+        <location filename="interpole.py" line="147"/>
         <source>Spread</source>
         <translation>Diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="155"/>
+        <location filename="interpole.py" line="156"/>
         <source>Impassibility</source>
         <translation>Impasse</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="163"/>
+        <location filename="interpole.py" line="164"/>
         <source>Pixels nb x</source>
         <translation>Nb pixels x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="171"/>
+        <location filename="interpole.py" line="172"/>
         <source>Pixels nb y</source>
         <translation>Nb pixels y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="179"/>
+        <location filename="interpole.py" line="180"/>
         <source>Pixel size x</source>
         <translation>Taille pixel x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="187"/>
+        <location filename="interpole.py" line="188"/>
         <source>Pixel size y</source>
         <translation>Taille pixel y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="195"/>
+        <location filename="interpole.py" line="196"/>
         <source>Decimals</source>
         <translation>Décimales</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="203"/>
+        <location filename="interpole.py" line="204"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="211"/>
+        <location filename="interpole.py" line="212"/>
         <source>Spread speed</source>
         <translation>Vitesse de diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="219"/>
+        <location filename="interpole.py" line="220"/>
         <source>Impassable?</source>
         <translation>Intraversables?</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="235"/>
+        <location filename="interpole.py" line="236"/>
         <source>Raster file</source>
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="534"/>
+        <location filename="interpole.py" line="550"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -2753,17 +2980,17 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="511"/>
+        <location filename="interpole.py" line="527"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="518"/>
+        <location filename="interpole.py" line="534"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="226"/>
+        <location filename="interpole.py" line="227"/>
         <source>Individual values</source>
         <translation>Valeurs individuelles</translation>
     </message>
@@ -4098,137 +4325,137 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>MusliwParam</name>
     <message>
-        <location filename="param_musliw.py" line="107"/>
+        <location filename="param_musliw.py" line="106"/>
         <source>In vehicle weight</source>
         <translation>Pondération temps à bord du véhicule</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="115"/>
+        <location filename="param_musliw.py" line="114"/>
         <source>Waiting weight</source>
         <translation>Pondération temps attente</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="122"/>
+        <location filename="param_musliw.py" line="121"/>
         <source>Individual modes weight</source>
         <translation>Pondération temps mode individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="130"/>
+        <location filename="param_musliw.py" line="129"/>
         <source>Boarding weight</source>
         <translation>Pondération correspondance</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="137"/>
+        <location filename="param_musliw.py" line="136"/>
         <source>Individual mode speed factor</source>
         <translation>Facteurd&apos;échelle temps individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="144"/>
+        <location filename="param_musliw.py" line="143"/>
         <source>Minimum transfer delay</source>
         <translation>Temps de correspondance mini</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="151"/>
+        <location filename="param_musliw.py" line="150"/>
         <source>Maximum transfer delay</source>
         <translation>Temps de correspondance maxi</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="158"/>
+        <location filename="param_musliw.py" line="157"/>
         <source>Extra day duration</source>
         <translation>Nombre de jours supplémentaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="167"/>
+        <location filename="param_musliw.py" line="166"/>
         <source>Max. individual time budget</source>
         <translation>Temps individuel maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="176"/>
+        <location filename="param_musliw.py" line="175"/>
         <source>Maximum generalized time</source>
         <translation>Temps généralisé maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="185"/>
+        <location filename="param_musliw.py" line="184"/>
         <source>Toll weight</source>
         <translation>Pondération péage</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="192"/>
+        <location filename="param_musliw.py" line="191"/>
         <source>Output filter</source>
         <translation>Filtre sortie</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="199"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Output links times?</source>
         <translation>Temps détaillés?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="199"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>No output</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="199"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Without timetable links</source>
         <translation>Sans les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="199"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>With timetable links</source>
         <translation>Avec les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="207"/>
+        <location filename="param_musliw.py" line="206"/>
         <source>Prohibited U-turns?</source>
         <translation>Demi-tours interdits?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="214"/>
+        <location filename="param_musliw.py" line="213"/>
         <source>Output paths?</source>
         <translation>Sortie chemins?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="222"/>
+        <location filename="param_musliw.py" line="221"/>
         <source>Output services?</source>
         <translation>Sortie services?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="229"/>
+        <location filename="param_musliw.py" line="228"/>
         <source>Output transfers?</source>
         <translation>Sortie correspondances?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="236"/>
+        <location filename="param_musliw.py" line="235"/>
         <source>Output node times?</source>
         <translation>Sortie noeud?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="251"/>
+        <location filename="param_musliw.py" line="250"/>
         <source>Algorithm scale?</source>
         <translation>Echelle de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="260"/>
+        <location filename="param_musliw.py" line="259"/>
         <source>Algorithm exponent?</source>
         <translation>Exposant de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="269"/>
+        <location filename="param_musliw.py" line="268"/>
         <source>nb classes?</source>
         <translation>Nombrede classes</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="278"/>
+        <location filename="param_musliw.py" line="277"/>
         <source>Parameters file</source>
         <translation>Fichier paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="379"/>
+        <location filename="param_musliw.py" line="378"/>
         <source>Musliw parameters</source>
         <translation>Paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="386"/>
+        <location filename="param_musliw.py" line="385"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -4300,8 +4527,8 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
     </message>
     <message>
         <location filename="param_musliw.py" line="356"/>
-        <source>Downloading Muslic binary</source>
-        <translation type="obsolete">Téléchargement de Musliw</translation>
+        <source>;output isolated links</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="param_musliw.py" line="358"/>
@@ -4309,7 +4536,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation type="obsolete">Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="402"/>
+        <location filename="param_musliw.py" line="401"/>
         <source>
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
         Produce a parameter file (to be selected in musliw computation):
@@ -4369,147 +4596,142 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             </translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="331"/>
+        <location filename="param_musliw.py" line="330"/>
         <source>;algorithm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="332"/>
+        <location filename="param_musliw.py" line="331"/>
         <source>;prohibited U-turns</source>
         <translation>;demi-tours interdits</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="333"/>
+        <location filename="param_musliw.py" line="332"/>
         <source>;max buckets</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="334"/>
+        <location filename="param_musliw.py" line="333"/>
         <source>;number of days</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="335"/>
+        <location filename="param_musliw.py" line="334"/>
         <source>;matrix file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="336"/>
+        <location filename="param_musliw.py" line="335"/>
         <source>;turns and transfers files</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="337"/>
+        <location filename="param_musliw.py" line="336"/>
         <source>;network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="338"/>
+        <location filename="param_musliw.py" line="337"/>
         <source>;generic output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="339"/>
+        <location filename="param_musliw.py" line="338"/>
         <source>;algorithm parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="340"/>
+        <location filename="param_musliw.py" line="339"/>
         <source>;algorithm power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="341"/>
+        <location filename="param_musliw.py" line="340"/>
         <source>;output paths</source>
         <translation type="unfinished">;sortie chemins</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="342"/>
+        <location filename="param_musliw.py" line="341"/>
         <source>;output services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="343"/>
+        <location filename="param_musliw.py" line="342"/>
         <source>;output travel times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="344"/>
+        <location filename="param_musliw.py" line="343"/>
         <source>;output turns and transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="345"/>
+        <location filename="param_musliw.py" line="344"/>
         <source>;boarding weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="346"/>
+        <location filename="param_musliw.py" line="345"/>
         <source>;individual mode weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="347"/>
+        <location filename="param_musliw.py" line="346"/>
         <source>;individual travel time factor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="348"/>
+        <location filename="param_musliw.py" line="347"/>
         <source>;in-vehicle time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="349"/>
+        <location filename="param_musliw.py" line="348"/>
         <source>;wait time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="350"/>
+        <location filename="param_musliw.py" line="349"/>
         <source>;min transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="351"/>
+        <location filename="param_musliw.py" line="350"/>
         <source>;max transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="352"/>
+        <location filename="param_musliw.py" line="351"/>
         <source>;max individual travel time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="353"/>
+        <location filename="param_musliw.py" line="352"/>
         <source>;toll weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="354"/>
+        <location filename="param_musliw.py" line="353"/>
         <source>;output types filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="355"/>
+        <location filename="param_musliw.py" line="354"/>
         <source>;max travel cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="356"/>
+        <location filename="param_musliw.py" line="355"/>
         <source>;output nodes</source>
         <translation type="unfinished">;sortie noeuds</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="357"/>
-        <source>;output isolated links</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="param_musliw.py" line="199"/>
+        <location filename="param_musliw.py" line="198"/>
         <source>Compact mode</source>
         <translation>mode compact</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="243"/>
+        <location filename="param_musliw.py" line="242"/>
         <source>Output stops?</source>
         <translation>Sortie arrêts de montée/descente?</translation>
     </message>
@@ -4517,47 +4739,47 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>Musliw_update</name>
     <message>
-        <location filename="musliw_network_update.py" line="25"/>
+        <location filename="musliw_network_update.py" line="29"/>
         <source>Musliw network file</source>
         <translation>Fichier réseau Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="26"/>
+        <location filename="musliw_network_update.py" line="38"/>
         <source>Network field</source>
         <translation>Champ réseau</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="27"/>
+        <location filename="musliw_network_update.py" line="59"/>
         <source>Network selection</source>
         <translation>Sélection du réseau</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="28"/>
+        <location filename="musliw_network_update.py" line="67"/>
         <source>Selection filter?</source>
         <translation>Filtrer la sélection?</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="29"/>
+        <location filename="musliw_network_update.py" line="75"/>
         <source>Expression</source>
         <translation>Expression</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="30"/>
+        <location filename="musliw_network_update.py" line="83"/>
         <source>Updated network file</source>
         <translation>Réseau Musliw mis à jour</translation>
     </message>
     <message>
         <location filename="musliw_network_update.py" line="72"/>
         <source>Syntax error</source>
-        <translation>Erreur de syntaxe</translation>
+        <translation type="obsolete">Erreur de syntaxe</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="88"/>
+        <location filename="musliw_network_update.py" line="236"/>
         <source>Musliw network update</source>
         <translation>Mise à jour d&apos;un Réseau Musliw</translation>
     </message>
     <message>
-        <location filename="musliw_network_update.py" line="91"/>
+        <location filename="musliw_network_update.py" line="240"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
@@ -4574,7 +4796,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         Expression: the update expression (formula)
         Update network file: the output network file
         </source>
-        <translation>        Le script permet de mettre à jour un fichier de réseau au format Musliw avec une expression et de lui appliquer simultanément un filtre
+        <translation type="obsolete">        Le script permet de mettre à jour un fichier de réseau au format Musliw avec une expression et de lui appliquer simultanément un filtre
         
         Paramètres:
         Fichier réseau Musliw: le fichier réseau au format Musliw à mettre à jour
@@ -4584,11 +4806,41 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         Expression: L&apos;expression de mise à jour (formule)
         Réseau Musliw mise à jour: Le réseau au format Musliw mis à jour</translation>
     </message>
+    <message>
+        <location filename="musliw_network_update.py" line="187"/>
+        <source>Selection expression error: </source>
+        <translation>Erreur de syntaxe dans l&apos;expression de sélection du réseau</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="207"/>
+        <source>Update expression error: </source>
+        <translation>Erreur de syntaxe dans l&apos;expression de mise à jour du réseau</translation>
+    </message>
+    <message>
+        <location filename="musliw_network_update.py" line="256"/>
+        <source>
+            Update a Musliw network file using QGIS expressions.
+
+            Network selection:
+            QGIS expression used to select records.
+
+            Expression:
+            QGIS expression used to calculate the new value.
+            </source>
+        <translation>            met à jour un réseau Musliw en utilisant les expression Qgis
+
+            Sélection du réseau:
+            expression QGIS utilisée pour sélectionner les éléments à mettre à jour.
+
+            Expression:
+            Expression Qgis utilisée pour mettre à jour les éléments sélectionnés
+            </translation>
+    </message>
 </context>
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="271"/>
+        <location filename="networks_provider.py" line="279"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>
@@ -4596,37 +4848,37 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NodesFile</name>
     <message>
-        <location filename="fichier_noeuds.py" line="82"/>
+        <location filename="fichier_noeuds.py" line="83"/>
         <source>Nodes times output file</source>
         <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="94"/>
+        <location filename="fichier_noeuds.py" line="95"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="111"/>
+        <location filename="fichier_noeuds.py" line="112"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final?</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="120"/>
+        <location filename="fichier_noeuds.py" line="121"/>
         <source>Nodes indicators file</source>
         <translation>Fichier résultat des indicateurs par noeud</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="214"/>
+        <location filename="fichier_noeuds.py" line="218"/>
         <source>ignored element</source>
         <translation>élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="235"/>
+        <location filename="fichier_noeuds.py" line="239"/>
         <source>indicators by node</source>
         <translation>indicateurs par noeud</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="242"/>
+        <location filename="fichier_noeuds.py" line="246"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -4676,12 +4928,12 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             o_max:origine avec la valeur maximum</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="103"/>
+        <location filename="fichier_noeuds.py" line="104"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds.py" line="258"/>
+        <location filename="fichier_noeuds.py" line="262"/>
         <source>
         Produce indicators aggregated by node. 
 		
@@ -4732,47 +4984,47 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NodesFileCustom</name>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="84"/>
+        <location filename="fichier_noeuds_custom.py" line="66"/>
         <source>Nodes times output file</source>
         <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="96"/>
+        <location filename="fichier_noeuds_custom.py" line="75"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="104"/>
+        <location filename="fichier_noeuds_custom.py" line="83"/>
         <source>Grouping key</source>
         <translation>Clé de regroupement</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="112"/>
+        <location filename="fichier_noeuds_custom.py" line="91"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="120"/>
+        <location filename="fichier_noeuds_custom.py" line="99"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher le temps d&apos;attente initial/final</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="129"/>
+        <location filename="fichier_noeuds_custom.py" line="107"/>
         <source>Nodes indicators file</source>
         <translation>Fichier résultat des indicateurs par noeud</translation>
     </message>
     <message>
         <location filename="fichier_noeuds_custom.py" line="249"/>
         <source>ignored element</source>
-        <translation>élément ignoré</translation>
+        <translation type="obsolete">élément ignoré</translation>
     </message>
     <message>
         <location filename="fichier_noeuds_custom.py" line="270"/>
         <source>indicators by node customized</source>
-        <translation>Indicateurs par noeuds personnalisés</translation>
+        <translation type="obsolete">Indicateurs par noeuds personnalisés</translation>
     </message>
     <message>
-        <location filename="fichier_noeuds_custom.py" line="277"/>
+        <location filename="fichier_noeuds_custom.py" line="276"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -4801,7 +5053,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             
             
         </source>
-        <translation>
+        <translation type="obsolete">
         Produit des indicateurs personnalisés à partir du fichier de résultat sur les noeuds (_noeuds.txt)
 		
         Paramètres:
@@ -4821,46 +5073,100 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             o_max: noeud origine de la valeur maximale
             volau: volume sur l&apos;O/D</translation>
     </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="262"/>
+        <source>ignored element due to division by zero</source>
+        <translation>élément ignoré car division par zéro</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="273"/>
+        <source>Customized indicators from node file</source>
+        <translation>Indicateurs personnalisés pour le fichier noeuds</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeuds_custom.py" line="285"/>
+        <source>
+        Produce customized indicators from node file
+		
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            grouping key: A set of variables separated by a &apos;;&apos; as grouping key ex: o;numero
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+            volau: volume od of the o/d
+        </source>
+        <translation>        Produit des indicateurs aggrégés par noeud. 
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+			Filtre: expression pour filtrer le fichier noeuds Musliw (ex: ncorr&lt;3)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+
+           Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            numero:  id noeud
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum</translation>
+    </message>
 </context>
 <context>
     <name>NodesFileDay</name>
     <message>
-        <location filename="fichier_noeud_jour.py" line="83"/>
+        <location filename="fichier_noeud_jour.py" line="66"/>
         <source>Nodes times output file</source>
         <translation>Fichier noeuds Musliw (txt)</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="95"/>
+        <location filename="fichier_noeud_jour.py" line="75"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="103"/>
+        <location filename="fichier_noeud_jour.py" line="83"/>
         <source>Filter</source>
         <translation>Filtre</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="111"/>
+        <location filename="fichier_noeud_jour.py" line="91"/>
         <source>Remove initial/final waiting time?</source>
         <translation>Retrancher les temps d&apos;attente initiaux/finaux</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="120"/>
+        <location filename="fichier_noeud_jour.py" line="99"/>
         <source>Nodes indicators file</source>
         <translation>Fichier résultat des indicateurs par noeud</translation>
     </message>
     <message>
         <location filename="fichier_noeud_jour.py" line="216"/>
         <source>ignored element</source>
-        <translation>élément ignoré</translation>
+        <translation type="obsolete">élément ignoré</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="237"/>
+        <location filename="fichier_noeud_jour.py" line="219"/>
         <source>indicators by node and day</source>
         <translation>Indicateurs par noeud et jour</translation>
     </message>
     <message>
-        <location filename="fichier_noeud_jour.py" line="244"/>
+        <location filename="fichier_noeud_jour.py" line="222"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -4891,12 +5197,63 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             
             
         </source>
-        <translation>        Produit des indicateurs aggrégés par noeud et jour. 
+        <translation type="obsolete">        Produit des indicateurs aggrégés par noeud et jour. 
 		
         Paramètres:
             Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
 			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
             retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+           Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
+            numero:  id noeud
+            avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
+            min: valeur minimum
+            max: valeur maximum
+            pole_min: premier/dernier noeud d&apos;intermodalité correspondant au temps minimum
+            pole_max: premier/dernier noeud d&apos;intermodalité correspondant au temps maximum
+            departures: nombre d&apos;horaires de départ différents (nombre d&apos;alternatives différentes) 
+            arrivals:nombre d&apos;horaires d&apos;arrivée différents (nombre d&apos;alternatives différentes)
+            sdev:valeur d&apos;écart type
+            o_min: origine avec la valeur minimum
+            o_max:origine avec la valeur maximum</translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="208"/>
+        <source>ignored element due to division by zero</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="fichier_noeud_jour.py" line="231"/>
+        <source>
+        Produce indicators aggregated by node. 
+		
+        Parameters:
+            nodes times ouput file: the Musliw link times  output file (&lt;FILENAME&gt;_noeuds.txt)
+			variable: The name of the variable for indicator computation (temps (time) by default)
+            filter: expression to filter nodes times outfile (ex: ncorr&lt;3 )
+            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            and the real one is substracted from the total travel time
+            link indicators file: name of the result file (delimited text with &quot;;&quot; as separator) which containes the following attributes 
+            numero: node id
+            avg: average value 
+            nb: number of od rows in the matrix file 
+            min: minimum value indicator
+            max: maximum value indicator
+            pole_min: first node of intermodality corresponding to the minimum value 
+            pole_max: first node of intermodality corresponding to the maximum value 
+            departures: number of different departures (number of different alternatives) 
+            arrivals:number of different arrivals (number of different alternatives) 
+            sdev: standard deviation value
+            o_min: origin with minimum value
+            o_max: origin with maximum value
+        </source>
+        <translation>        Produit des indicateurs aggrégés par noeud. 
+		
+        Paramètres:
+            Fichier temps Musliw: Le fichier temps Musliw (&lt;FICHIER&gt;_noeuds.txt)
+			variable: Le nom de la variable pour le calcul des indicateurs  (temps par défaut)
+			Filtre: expression pour filtrer le fichier noeuds Musliw (ex: ncorr&lt;3)
+            retrancher le temps d&apos;attente initial/final: Si sélectionné, le temps d&apos;attente initial ou final (entre le temps d&apos;arrivée ou de départ souhaité et le réel est soustrait au temps de parcouts total)
+
            Fichier résultat des indicateurs par noeud: nom du fichier réusltat ( texte délimité avec &quot;;&quot; comme séparateur) qui contient les attributs suivants
             numero:  id noeud
             avg: valeur moyennenombre de lignes dans la matrice traitées pour cette OD
@@ -5206,7 +5563,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="anamorphose_point.py" line="84"/>
+        <location filename="anamorphose_point.py" line="44"/>
         <source>point_anamorphosis</source>
         <translation>anamorphose_ponctuelle</translation>
     </message>
@@ -5258,32 +5615,32 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>PrepareGTFS</name>
     <message>
-        <location filename="prepare_gtfs.py" line="88"/>
+        <location filename="prepare_gtfs.py" line="111"/>
         <source>GTFS source folder </source>
         <translation>Répertoire GTFS source</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="96"/>
+        <location filename="prepare_gtfs.py" line="119"/>
         <source>GTFS output folder</source>
         <translation>Répertoire GTFS destination</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="104"/>
+        <location filename="prepare_gtfs.py" line="127"/>
         <source>Network Id</source>
         <translation>Id réseau</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="111"/>
+        <location filename="prepare_gtfs.py" line="134"/>
         <source>Extract stop_id?</source>
         <translation>Extraire stop_id?</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="118"/>
+        <location filename="prepare_gtfs.py" line="141"/>
         <source>Extract formula</source>
         <translation>Formule d&apos;extraction</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="519"/>
+        <location filename="prepare_gtfs.py" line="526"/>
         <source>
         Scan a GTFS Folder and generates a well-formated GTFS consistent with Musliw in particular for lines 
         
@@ -5306,17 +5663,17 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         </translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="496"/>
+        <location filename="prepare_gtfs.py" line="503"/>
         <source>Prepare GTFS</source>
         <translation>Préparer GTFS</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="503"/>
+        <location filename="prepare_gtfs.py" line="510"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
     <message>
-        <location filename="prepare_gtfs.py" line="125"/>
+        <location filename="prepare_gtfs.py" line="148"/>
         <source>Encoding</source>
         <translation>Encodage</translation>
     </message>
@@ -5808,57 +6165,57 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
 <context>
     <name>SpatialAggregation</name>
     <message>
-        <location filename="spatial_aggregation.py" line="91"/>
+        <location filename="spatial_aggregation.py" line="92"/>
         <source>Polygons</source>
         <translation>Polygones (Qgis)</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="98"/>
+        <location filename="spatial_aggregation.py" line="99"/>
         <source>Id</source>
         <translation>Id</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="105"/>
+        <location filename="spatial_aggregation.py" line="106"/>
         <source>Source</source>
         <translation>Source</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="112"/>
+        <location filename="spatial_aggregation.py" line="113"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="119"/>
+        <location filename="spatial_aggregation.py" line="120"/>
         <source>Aggregator</source>
         <translation>Agrégateur</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="119"/>
+        <location filename="spatial_aggregation.py" line="120"/>
         <source>mean</source>
         <translation>moyenne</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="119"/>
+        <location filename="spatial_aggregation.py" line="120"/>
         <source>sum</source>
         <translation>somme</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="119"/>
+        <location filename="spatial_aggregation.py" line="120"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="119"/>
+        <location filename="spatial_aggregation.py" line="120"/>
         <source>max</source>
         <translation>max</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="127"/>
+        <location filename="spatial_aggregation.py" line="128"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="218"/>
+        <location filename="spatial_aggregation.py" line="262"/>
         <source>Spatial aggregation</source>
         <translation>Agrégation spatiale</translation>
     </message>
@@ -5868,7 +6225,7 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
         <translation type="obsolete">Réseau</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="240"/>
+        <location filename="spatial_aggregation.py" line="284"/>
         <source>
         Perform a spatial aggregation between 2 layers in order to estimate 
         for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
@@ -5896,7 +6253,7 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         </translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="225"/>
+        <location filename="spatial_aggregation.py" line="269"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -5998,6 +6355,104 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
     </message>
 </context>
 <context>
+    <name>ThematicAnamorphosis</name>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="116"/>
+        <source>Thematic anamorphosis</source>
+        <translation>Anamorphose thématique</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="119"/>
+        <source>Analysis</source>
+        <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="125"/>
+        <source>Generate a cartogram by iteratively moving each vertex
+            along the radius that connects it to the global centroid of the layer.
+            The weighting uses √(D_target / D_mean) so that the final areas are proportional to the chosen attribute value.
+            
+            Parameters:
+            • Source layer — polygons to be deformed
+            • Value field — numeric field to represent
+            • Output file — path to a .gpkg
+            • Max iterations — 20 is often sufficient
+            • Convergence threshold — maximum acceptable displacement (in layer units)
+            • Damping factor — damping 0 &lt; d ≤ 1 (0.4 recommended)</source>
+        <translation>génère une anamorphose en déplacement de manière itérative chaque sommet
+            le long d&apos;un rayon qui le connecte au centroïde global de la couche.
+            La pondératon utilise  √(D_target / D_mean) de telle sorte que les surfaces finales soient proportionnelles à l&apos;attribut choisi.
+            
+            Paramètres:
+            • Couche de polygones — polygones à déforme
+            • Variable — variable numérique à représenter
+            • Couche résultat — Chemin du .gpkg
+            • Nb d&apos;itérations max — 20 est souvent suffisant
+            • Seuil de convergence — maximum acceptable de déplacement (en unité de carte)
+            • Facteur d&apos;amortissement — Amortissement 0 &lt; d ≤ 1 (0.4 recommandé)</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="142"/>
+        <source>Source layer</source>
+        <translation>Données source</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="150"/>
+        <source>Value field</source>
+        <translation>Variable</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="159"/>
+        <source>Output File</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="167"/>
+        <source>Max number of iterations</source>
+        <translation>Nombre maximum d&apos;itérations</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="178"/>
+        <source>Convergence threshold (layer units)</source>
+        <translation>Facteur d&apos;amortissement</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="188"/>
+        <source>Damping factor (0 &lt; d ≤ 1)</source>
+        <translation>Facteur d&apos;amortissement (0 &lt; d ≤ 1)</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="210"/>
+        <source>Output layer</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="248"/>
+        <source>Invalid layer source</source>
+        <translation>Données source invalides</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="253"/>
+        <source>The layer is empty</source>
+        <translation>Cette couche est vide</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="274"/>
+        <source>the sum of the areas is null - check layer source.</source>
+        <translation>La somme des surfaces est null - Vérifier les données source</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="455"/>
+        <source>Errors writing GPKG : {error_msg}</source>
+        <translation>Erreurs lors de l&apos;écriture du GeoPackage</translation>
+    </message>
+    <message>
+        <location filename="thematic_anamorphosis.py" line="199"/>
+        <source>Tiles size</source>
+        <translation>Taille dse tuiles</translation>
+    </message>
+</context>
+<context>
     <name>Trafic</name>
     <message>
         <location filename="trafic.py" line="96"/>
@@ -6030,17 +6485,17 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>Double sens?</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="690"/>
+        <location filename="trafic.py" line="714"/>
         <source>Variable buffer polygons</source>
         <translation>Polygones à largeur variables</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="697"/>
+        <location filename="trafic.py" line="721"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="trafic.py" line="713"/>
+        <location filename="trafic.py" line="737"/>
         <source>
         Generates variable buffer polygons from a linear layer and a field containing a width variable
 		        
@@ -6072,102 +6527,175 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
     </message>
 </context>
 <context>
+    <name>TransferCsvField</name>
+    <message>
+        <location filename="transfer_field.py" line="34"/>
+        <source>Transfer CSV field by index</source>
+        <translation>Transfert dans un champ CSV par index</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="37"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="44"/>
+        <source>Qgis layer</source>
+        <translation>Couche Qgis</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="45"/>
+        <source>&quot;i&quot; field (QGIS)</source>
+        <translation>champ &apos;i&apos; (Qgis)</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="46"/>
+        <source>&quot;j&quot; field(QGIS)</source>
+        <translation>Champ &apos;j&apos; (Qgis)</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="47"/>
+        <source>field to copy</source>
+        <translation>Champ à transférer</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="49"/>
+        <source>CSV source file</source>
+        <translation>Fichier CSV source</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="50"/>
+        <source>col &quot;i&quot; index (CSV)</source>
+        <translation>index colonne &apos;i&apos; (CSV°</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="51"/>
+        <source>col &quot;j&quot; index (CSV)</source>
+        <translation>index colonne &apos;j&apos; (CSV)</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="52"/>
+        <source>target col (CSV)</source>
+        <translation>Colonne cible (CSV)</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="54"/>
+        <source>CSV output file</source>
+        <translation>Fichier CSV en sortie</translation>
+    </message>
+    <message>
+        <location filename="transfer_field.py" line="106"/>
+        <source>Processing error : {str(e)}</source>
+        <translation>Erreur de traitement!</translation>
+    </message>
+</context>
+<context>
     <name>UpdateSpeedBdTopo</name>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="21"/>
+        <location filename="maj_vitesses_bd_topo.py" line="22"/>
         <source>BDTOPO road layer</source>
         <translation>Routes BDTOPO (qgis)</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="22"/>
+        <location filename="maj_vitesses_bd_topo.py" line="23"/>
         <source>Nature</source>
         <translation>Nature</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="23"/>
+        <location filename="maj_vitesses_bd_topo.py" line="24"/>
         <source>Number of lanes</source>
         <translation>Nombre de voies</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="24"/>
+        <location filename="maj_vitesses_bd_topo.py" line="25"/>
         <source>Urban</source>
         <translation>Urbain</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="25"/>
-        <source>Urban area size</source>
-        <translation>Taille de l&apos;aire urbaine</translation>
-    </message>
-    <message>
         <location filename="maj_vitesses_bd_topo.py" line="26"/>
         <source>Municipality category</source>
-        <translation>Catégorie de commune</translation>
+        <translation type="obsolete">Catégorie de commune</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="27"/>
+        <location filename="maj_vitesses_bd_topo.py" line="29"/>
         <source>Car speed table</source>
         <translation>Tables des vitesses auto</translation>
     </message>
     <message>
         <location filename="maj_vitesses_bd_topo.py" line="37"/>
         <source>Peak hour factor</source>
-        <translation>Coefficient heure de pointe</translation>
+        <translation type="obsolete">Coefficient heure de pointe</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="189"/>
+        <location filename="maj_vitesses_bd_topo.py" line="232"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="135"/>
+        <location filename="maj_vitesses_bd_topo.py" line="168"/>
         <source>update car speed peak hour and off-peak hour</source>
         <translation>Mise à jour des vitesses heure de pointe et heure creuse</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="144"/>
+        <location filename="maj_vitesses_bd_topo.py" line="177"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="147"/>
+        <location filename="maj_vitesses_bd_topo.py" line="179"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_topo.py" line="208"/>
+        <location filename="maj_vitesses_bd_topo.py" line="251"/>
         <source>Update IGN BDTOPO car speeds</source>
         <translation>Mise à jour des vitesses auto BD TOPO</translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="26"/>
+        <source>AAV volume</source>
+        <translation>AAV nvaleur</translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="27"/>
+        <source>AAV Category</source>
+        <translation>AAV catégorie</translation>
+    </message>
+    <message>
+        <location filename="maj_vitesses_bd_topo.py" line="60"/>
+        <source>AAV traffic peak reduction factor</source>
+        <translation>AAV coefficient d&apos;heure de pointe</translation>
     </message>
 </context>
 <context>
     <name>UpdateSpeedEgm</name>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="22"/>
+        <location filename="maj_vitesses_bd_egm.py" line="23"/>
         <source>EGM/ERM roads</source>
         <translation>Routes EGM/ERM (Qgis)</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="23"/>
+        <location filename="maj_vitesses_bd_egm.py" line="24"/>
         <source>RTT</source>
         <translation>RTT</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="24"/>
+        <location filename="maj_vitesses_bd_egm.py" line="25"/>
         <source>COR</source>
         <translation>COR</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="25"/>
+        <location filename="maj_vitesses_bd_egm.py" line="26"/>
         <source>MED</source>
         <translation>MED</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="26"/>
+        <location filename="maj_vitesses_bd_egm.py" line="27"/>
         <source>Peak hour factor</source>
         <translation>Coefficient heure de pointe</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="27"/>
+        <location filename="maj_vitesses_bd_egm.py" line="28"/>
         <source>Car speed table</source>
         <translation>Tables des vitesses auto</translation>
     </message>
@@ -6177,32 +6705,32 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation type="obsolete">routes_EGM/ERM</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="168"/>
+        <location filename="maj_vitesses_bd_egm.py" line="173"/>
         <source>Warning: The layer is not editable</source>
         <translation>Attention: la couche n&apos;est pas éditable</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="123"/>
+        <location filename="maj_vitesses_bd_egm.py" line="128"/>
         <source>update car speed peak hour and off-peak hour</source>
         <translation>Mise à jour des vitesses heure de pointe et heure creuse</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="132"/>
+        <location filename="maj_vitesses_bd_egm.py" line="137"/>
         <source>updating field...</source>
         <translation>mise à jour du champ...</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="134"/>
+        <location filename="maj_vitesses_bd_egm.py" line="139"/>
         <source>updating field</source>
         <translation>mise à jour du champ</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="186"/>
+        <location filename="maj_vitesses_bd_egm.py" line="191"/>
         <source>Update EGM/ERM car speed</source>
         <translation>Mise à jour des vitesses auto EGM/ERM</translation>
     </message>
     <message>
-        <location filename="maj_vitesses_bd_egm.py" line="197"/>
+        <location filename="maj_vitesses_bd_egm.py" line="202"/>
         <source>Network</source>
         <translation>Réseau</translation>
     </message>
