@@ -2007,6 +2007,134 @@
     </message>
 </context>
 <context>
+    <name>FilterCsvAlgorithm</name>
+    <message>
+        <location filename="result_filter.py" line="46"/>
+        <source>Filter and sort CSV file</source>
+        <translation>Filtrer et trier un fichier CSV</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="51"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="57"/>
+        <source>Filter and sort a CSV with aQGIS expression.</source>
+        <translation>Filtre et tri à partir d&apos;une expression QGis</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="68"/>
+        <source>CSV/TXT File</source>
+        <translation>Fichier CSV/TXT</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="77"/>
+        <source>Filter</source>
+        <translation>Filtre</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="85"/>
+        <source>Sort</source>
+        <translation>Tri</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="93"/>
+        <source>Increasing order</source>
+        <translation>Tric croissant</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="101"/>
+        <source>Output File</source>
+        <translation>Couche résultat</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="235"/>
+        <source>Unable to read header.</source>
+        <translation>Unpossible de lire l&apos;entête</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="239"/>
+        <source>Read fields : </source>
+        <translation>Lecture des champs :</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="247"/>
+        <source>Warning: Duplicate fields.</source>
+        <translation>Attention: champs dupliqués</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="298"/>
+        <source>Sort syntax error : </source>
+        <translation>Erreur de syntaxe de tri :</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="303"/>
+        <source>Filter : </source>
+        <translation>Filtre :</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="308"/>
+        <source>Sort : </source>
+        <translation>Tri :</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="361"/>
+        <source>Read error at line :</source>
+        <translation>Erreur de lecture à la ligne </translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>Line</source>
+        <translation>Ligne</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="417"/>
+        <source>Filter evaluation error </source>
+        <translation>Erreur d&apos;évaluation de filtre</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="439"/>
+        <source>Sort evaluation error: </source>
+        <translation>Erreur d&apos;évaluation du tri</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="542"/>
+        <source>selected line(s).</source>
+        <translation>lignes sélectionnées</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>fields found, </source>
+        <translation>champs trouvés,</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>expected. </source>
+        <translation>attendu.</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="417"/>
+        <source>at line </source>
+        <translation>à la ligne</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="439"/>
+        <source>at line</source>
+        <translation>à la ligne</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="213"/>
+        <source>The file is empty.</source>
+        <translation>le fichier est vide</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="546"/>
+        <source>Generated file :</source>
+        <translation>Fichier généré :</translation>
+    </message>
+</context>
+<context>
     <name>Generating nodes</name>
     <message>
         <location filename="creer_graphe.py" line="238"/>
@@ -4840,7 +4968,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="279"/>
+        <location filename="networks_provider.py" line="281"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>

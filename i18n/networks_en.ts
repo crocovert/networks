@@ -1250,6 +1250,134 @@
     </message>
 </context>
 <context>
+    <name>FilterCsvAlgorithm</name>
+    <message>
+        <location filename="result_filter.py" line="46"/>
+        <source>Filter and sort CSV file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="51"/>
+        <source>Utilities</source>
+        <translation type="unfinished">Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="57"/>
+        <source>Filter and sort a CSV with aQGIS expression.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="68"/>
+        <source>CSV/TXT File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="77"/>
+        <source>Filter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="85"/>
+        <source>Sort</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="93"/>
+        <source>Increasing order</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="101"/>
+        <source>Output File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="235"/>
+        <source>Unable to read header.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="239"/>
+        <source>Read fields : </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="247"/>
+        <source>Warning: Duplicate fields.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="298"/>
+        <source>Sort syntax error : </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="303"/>
+        <source>Filter : </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="308"/>
+        <source>Sort : </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="361"/>
+        <source>Read error at line :</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>Line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="417"/>
+        <source>Filter evaluation error </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="439"/>
+        <source>Sort evaluation error: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="542"/>
+        <source>selected line(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>fields found, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="372"/>
+        <source>expected. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="417"/>
+        <source>at line </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="439"/>
+        <source>at line</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="213"/>
+        <source>The file is empty.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="546"/>
+        <source>Generated file :</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Generating nodes</name>
     <message>
         <location filename="creer_graphe.py" line="238"/>
@@ -3397,7 +3525,7 @@ L'algorithme produit deux fichiers de résultats:
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="279"/>
+        <location filename="networks_provider.py" line="281"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>

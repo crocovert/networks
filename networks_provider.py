@@ -95,6 +95,11 @@ from .maj_vitesses_bd_topo import UpdateSpeedBdTopo
 from .maj_vitesses_bd_egm import UpdateSpeedEgm
 from .anamorphose import GeographicAnamorphosis
 from .anamorphose_point import PointAnamorphosis
+from .thematic_anamorphosis import ThematicAnamorphosis
+from .transfer_field import TransferCsvField
+from .gravity_anamorphosis import GravityAnamorphosis
+from .result_filter import FilterCsvAlgorithm
+
 
 from qgis.PyQt.QtGui import QIcon
 import os
@@ -249,6 +254,11 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(UpdateSpeedEgm())
         self.addAlgorithm(GeographicAnamorphosis())
         self.addAlgorithm(PointAnamorphosis())
+        self.addAlgorithm(ThematicAnamorphosis())
+        self.addAlgorithm(TransferCsvField())
+        self.addAlgorithm(GravityAnamorphosis())
+        self.addAlgorithm(FilterCsvAlgorithm())
+
         
     def id(self):
         """
