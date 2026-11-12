@@ -6904,4 +6904,84 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <translation>Réseau</translation>
     </message>
 </context>
+<context>
+    <name>ChooseMusliwDirectory</name>
+    <message>
+        <location filename="directory_list.py" line="106"/>
+        <source>Choose a musliw directory</source>
+        <translation>Choisir un répertoire musliw</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="109"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="119"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="121"/>
+        <source>Directory name</source>
+        <translation>Nom du répertoire</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="122"/>
+        <source>Full path</source>
+        <translation>Chemin complet</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="128"/>
+        <source>@{variable} is empty or does not point to a directory: &apos;{path}&apos;</source>
+        <translation>@{variable} est vide ou ne pointe pas vers un répertoire : &apos;{path}&apos;</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="137"/>
+        <source>&apos;{name}&apos; is not a subdirectory of {root}</source>
+        <translation>&apos;{name}&apos; n&apos;est pas un sous-répertoire de {root}</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="141"/>
+        <source>Chosen directory: {path}</source>
+        <translation>Répertoire choisi : {path}</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirDefinitionWidget</name>
+    <message>
+        <location filename="directory_list_gui.py" line="54"/>
+        <source>Drop-down list of the subdirectories of @musliw_path.</source>
+        <translation>Liste déroulante des sous-répertoires de @musliw_path.</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirParameter</name>
+    <message>
+        <location filename="directory_list.py" line="60"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirParameterType</name>
+    <message>
+        <location filename="directory_list.py" line="80"/>
+        <source>Subdirectory of @musliw_path, chosen from a drop-down list.</source>
+        <translation>Sous-répertoire de @musliw_path, choisi dans une liste déroulante.</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="83"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirWidgetWrapper</name>
+    <message>
+        <location filename="directory_list_gui.py" line="29"/>
+        <source>@musliw_path is empty or does not point to a directory</source>
+        <translation>@musliw_path est vide ou ne pointe vers aucun répertoire</translation>
+    </message>
+</context>
 </TS>

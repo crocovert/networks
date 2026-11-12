@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import subprocess
-import os,sys,stat
+import os
+import sys
+import stat
 import processing
 import gc
 
@@ -30,92 +32,39 @@ __author__ = 'Patrick Palmier'
 __date__ = '2018-02-26'
 __copyright__ = '(C) 2018 by Patrick Palmier'
 
-# This will get replaced with a git SHA1 when you do a git archive
-
 __revision__ = '$Format:%H$'
 
-from qgis.PyQt.QtCore import QCoreApplication,QVariant
-from qgis.core import *
-from qgis.utils import *
-from qgis.core import (QgsProcessing,
-                       QgsFeatureSink,
-                       QgsProcessingAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFeatureSink,
-                       QgsProcessingParameterNumber,
-                       QgsProcessingParameterEnum,
-                       QgsProcessingParameterBoolean,
-                       QgsProcessingParameterString,
-                       QgsProcessingParameterExtent,
-                       QgsProcessingParameterField,
-                       QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination,
-                       QgsProcessingParameterVectorLayer,
-                       QgsProcessingParameterFileDestination,
-                       QgsProcessingParameterFile)
-import codecs
+from qgis.PyQt.QtCore import QCoreApplication
+from qgis.core import QgsProcessingAlgorithm, QgsProcessingParameterFile, \
+                     QgsProcessingParameterFileDestination, QgsProcessingParameterBoolean
+
 
 class CalculMint(QgsProcessingAlgorithm):
-    """
-    This is an example algorithm that takes a vector layer and
-    creates a new identical one.
 
-    It is meant to be used as an example of how to create your own
-    algorithms and explain methods and variables used to do it. An
-    algorithm like this will be available in all elements, and there
-    is not need for additional work.
-
-    All Processing algorithms should extend the QgsProcessingAlgorithm
-    class.
-    """
-
-    # Constants used to refer to parameters and outputs. They will be
-    # used when calling the algorithm from another algorithm, or when
-    # calling from the QGIS console.
-    
     RESEAU = 'RESEAU'
-    MATRICE='MATRICE'
-    PARAMETRES='PARAMETRES'
-    PENALITES='PENALTIES'
-    SORTIE='SORTIE'
-    DOWNLOAD='DOWNLOAD'
-    WAIT='WAIT'
-    
-    
-    def initAlgorithm(self, config):
-        """
-        Here we define the inputs and output of the algorithm, along
-        with some other properties.
-        """
-        
-        self.addParameter(
-            QgsProcessingParameterFile(
-                self.RESEAU,
-                self.tr('Mint network')
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterFile(
-                self.MATRICE,
-                self.tr('Mint matrix')
-            )
-        )
-        self.addParameter(
-            QgsProcessingParameterFile(
-                self.PARAMETRES,
-                self.tr('Mint parameters')
-            )
-        )
+    MATRICE = 'MATRICE'
+    PARAMETRES = 'PARAMETRES'
+    SORTIE = 'SORTIE'
+    DOWNLOAD = 'DOWNLOAD'
+    WAIT = 'WAIT'
 
+    def initAlgorithm(self, config):
+        self.addParameter(
+            QgsProcessingParameterFile(self.RESEAU, self.tr('Mint network'))
+        )
+        self.addParameter(
+            QgsProcessingParameterFile(self.MATRICE, self.tr('Mint matrix'))
+        )
+        self.addParameter(
+            QgsProcessingParameterFile(self.PARAMETRES, self.tr('Mint parameters'))
+        )
         self.addParameter(
             QgsProcessingParameterFileDestination(
                 self.SORTIE,
                 self.tr('Output'),
                 "*.txt"
-                
             )
         )
-        
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.DOWNLOAD,
@@ -123,7 +72,6 @@ class CalculMint(QgsProcessingAlgorithm):
                 False
             )
         )
-        
         self.addParameter(
             QgsProcessingParameterBoolean(
                 self.WAIT,
@@ -132,87 +80,63 @@ class CalculMint(QgsProcessingAlgorithm):
             )
         )
 
-        # usually takes the form of a newly created vector layer when the
-        # algorithm is run in QGIS).
-
-        
-
     def processAlgorithm(self, parameters, context, feedback):
-        """
-        Here is where the processing itself takes place.
-        """
-
-        # Retrieve the feature source and sink. The 'dest_id' variable is used
-        # to uniquely identify the feature sink, and must be included in the
-        # dictionary returned by the processAlgorithm function.
-        #couche = self.parameterAsSource(parameters, self.INPUT, context)
         reseau = self.parameterAsFile(parameters, self.RESEAU, context)
         matrice = self.parameterAsFile(parameters, self.MATRICE, context)
         parametres = self.parameterAsFile(parameters, self.PARAMETRES, context)
-        sortie=os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
-        download=self.parameterAsBool(parameters,self.DOWNLOAD,context)
-        wait=self.parameterAsBool(parameters,self.WAIT,context)
-        
-        if download==True:
-            feedback.setProgressText(self.tr("Downloading Mint_console binaries"))
-            processing.run("native:filedownloader", {'URL':'https://github.com/crocovert/Mintc/raw/main/bin/x64/Release/Mintc.exe','OUTPUT':os.path.dirname(__file__)+"/Mint_console.exe"})
-            feedback.setProgressText(self.tr("Mint_console downloaded succesfully"))
-        
-        
+        sortie = os.path.splitext(self.parameterAsFileOutput(parameters, self.SORTIE, context))[0]
+        download = self.parameterAsBool(parameters, self.DOWNLOAD, context)
+        wait = self.parameterAsBool(parameters, self.WAIT, context)
+
+        if download:
+            feedback.setProgressText(self.tr("Downloading Mint_console binary"))
+            if sys.platform.startswith('win'):
+                processing.run("native:filedownloader", {
+                    'URL': 'https://github.com/crocovert/Mint_paralell/raw/refs/heads/main/Publish/Mint.exe',
+                    'OUTPUT': os.path.join(os.path.dirname(__file__), "Mint_console.exe")
+                })
+                feedback.setProgressText(self.tr("Mint_console downloaded successfully"))
+            elif sys.platform.startswith('linux'):    
+                processing.run("native:filedownloader", {
+                    'URL': 'https://github.com/crocovert/Mint_paralell/raw/refs/heads/main/Publish/Mint',
+                    'OUTPUT': os.path.join(os.path.dirname(__file__), "Mint")
+                })
+                feedback.setProgressText(self.tr("Mint_console downloaded successfully"))
+
         if sys.platform.startswith('win'):
-            prog=os.path.dirname(__file__)+"/Mint_console.exe"
-            cmd=[prog,reseau,matrice,sortie,parametres]
-
+            prog = os.path.join(os.path.dirname(__file__), "Mint_console.exe")
+            cmd = [prog, reseau, matrice, sortie, parametres]
         elif sys.platform.startswith('linux'):
-            prog=os.path.join(os.path.dirname(__file__),"Mint_console.exe")
-            st = os.stat(prog)
-            os.chmod(prog, st.st_mode | stat.S_IEXEC)
-            cmd=["mono",prog,reseau,matrice,sortie,parametres]
+            prog = os.path.join(os.path.dirname(__file__), "Mint")
+            if os.path.exists(prog):
+                st = os.stat(prog)
+                os.chmod(prog, st.st_mode | stat.S_IEXEC)
+            cmd = [prog, reseau, matrice, sortie, parametres]
+        else:
+            feedback.reportError(self.tr("Unsupported platform"), fatalError=True)
+            return {}
 
+        feedback.setProgressText(self.tr("Mint calculations... This may take some time"))
 
-      
-        CREATE_NO_WINDOW = 0x08000000
-        DETACHED_PROCESS = 0x00000008
-        feedback.setProgressText(self.tr("Multimodal calculations... That could take some time"))
-        musliw_test=subprocess.Popen(cmd)
-        if wait==True:
+        # B603: Command is built from controlled user parameters via QGIS
+        musliw_test = subprocess.Popen(cmd)  #nosec B603
+
+        if wait:
             musliw_test.wait()
+
         gc.collect()
         return {'SORTIE': sortie}
 
-
     def name(self):
-        """
-        Returns the algorithm name, used for identifying the algorithm. This
-        string should be fixed for the algorithm, and must not be localised.
-        The name should be unique within each provider. Names should contain
-        lowercase alphanumeric characters only and no spaces or other
-        formatting characters.
-        """
         return 'mint_calculation'
 
     def displayName(self):
-        """
-        Returns the translated algorithm name, which should be used for any
-        user-visible display of the algorithm name.
-        """
         return self.tr('Mint computation')
 
     def group(self):
-        """
-        Returns the name of the group this algorithm belongs to. This string
-        should be localised.
-        """
         return self.tr('Computations')
 
     def groupId(self):
-        """
-        Returns the unique ID of the group this algorithm belongs to. This
-        string should be fixed for the algorithm, and must not be localised.
-        The group id should be unique within each provider. Group id should
-        contain lowercase alphanumeric characters only and no spaces or other
-        formatting characters.
-        """
         return 'Computations'
 
     def tr(self, string):
@@ -221,18 +145,7 @@ class CalculMint(QgsProcessingAlgorithm):
     def shortHelpString(self):
         return self.tr("""
         Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
-        Can download the Mint_console.exe binary for frequency based assignment computation (if checked)
-        Produce output files (semi-column separated files (if selected in parameters):
-        . Origin destination results file "_od.txt"
-        . Cumulative times on arcs "_times.txt" (usefull for isochron maps)
-        . Assignment results file on links "_aff.txt"
-        . Detailed strategies file (optional)
-        Parameters:
-            Mint network : Mint network
-            Mint matrix: Mint matrix
-            Mint parameters: Mint parameters
-            Accept to download Mint binary: If checked, the algorithm will download Mint_console.exe from the github repository
-            output : Mint results file (without extension)
+        Can download the Mint_console.exe binary...
         """)
 
     def createInstance(self):

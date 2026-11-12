@@ -30,33 +30,194 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 
 __revision__ = '$Format:%H$'
 
-from qgis.PyQt.QtCore import QCoreApplication,QVariant
-from qgis.core import *
-from qgis.utils import *
-from qgis.core import (QgsProcessing,
-                       QgsFeatureSink,
-                       QgsProcessingAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFeatureSink,
-                       QgsProcessingParameterNumber,
-                       QgsProcessingParameterBoolean,
-                       QgsProcessingParameterString,
-                       QgsProcessingParameterExtent,
-                       QgsProcessingParameterField,
-                       QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination,
-                       QgsSpatialIndex,
-                       QgsGeometry,
-                       QgsFeature,
-                       QgsCoordinateTransform,
-                       QgsCoordinateReferenceSystem,
-                       QgsUnitTypes
-                       )
-import codecs
-import numpy
-import math
+
 import json
-import math
+import os
+
+import numpy
+
+from qgis.PyQt.QtCore import QCoreApplication
+from qgis.core import (NULL,
+                       QgsCoordinateReferenceSystem,
+                       QgsCoordinateTransform,
+                       QgsExpression,
+                       QgsFeatureRequest,
+                       QgsGeometry,
+                       QgsMapLayer,
+                       QgsPointXY,
+                       QgsProcessing,
+                       QgsProcessingAlgorithm,
+                       QgsProcessingException,
+                       QgsProcessingParameterBoolean,
+                       QgsProcessingParameterExpression,
+                       QgsProcessingParameterExtent,
+                       QgsProcessingParameterNumber,
+                       QgsProcessingParameterRasterDestination,
+                       QgsProcessingParameterVectorLayer,
+                       QgsProject,
+                       QgsSimplifyMethod,
+                       QgsSpatialIndex,
+                       QgsUnitTypes)
+
+
+# ---------------------------------------------------------------------------
+# Noyau numérique (numpy pur, indépendant de QGIS : testable séparément)
+# ---------------------------------------------------------------------------
+
+def construire_segments(parties):
+    """
+    parties : liste de tableaux (n, 2) = sommets de chaque partie de la ligne.
+    Retourne un dict de tableaux numpy décrivant tous les segments (toutes
+    parties confondues), ou None s'il n'y a aucun segment.
+    'cum' = longueur cumulée (dans la partie) au début de chaque segment.
+    """
+    ax, ay, vx, vy, cum = [], [], [], [], []
+    for pts in parties:
+        pts = numpy.asarray(pts, dtype=float)
+        if len(pts) < 2:
+            continue
+        d = numpy.diff(pts, axis=0)
+        lg = numpy.hypot(d[:, 0], d[:, 1])
+        cum.append(numpy.concatenate(([0.0], numpy.cumsum(lg)[:-1])))
+        ax.append(pts[:-1, 0])
+        ay.append(pts[:-1, 1])
+        vx.append(d[:, 0])
+        vy.append(d[:, 1])
+    if not ax:
+        return None
+    ax = numpy.concatenate(ax)
+    ay = numpy.concatenate(ay)
+    vx = numpy.concatenate(vx)
+    vy = numpy.concatenate(vy)
+    cum = numpy.concatenate(cum)
+    l2 = vx * vx + vy * vy
+    inv_l2 = numpy.zeros_like(l2)
+    numpy.divide(1.0, l2, out=inv_l2, where=l2 > 0)
+    lg = numpy.sqrt(l2)
+    return {'ax': ax, 'ay': ay, 'vx': vx, 'vy': vy, 'inv_l2': inv_l2,
+            'lg': lg, 'cum': cum, 'l_tot': float(lg.sum())}
+
+
+def plus_proche_segment(cx, cy, seg, max_cellules=2000000):
+    """
+    Pour chaque point (cx[i], cy[i]) : segment le plus proche (le premier en cas
+    d'égalité, comme closestSegmentWithContext), distance² et position.
+    Retourne (d2, k, u, rx, ry) avec u le paramètre sur le segment dans [0, 1] et
+    (rx, ry) le vecteur "projection -> point".
+    Le calcul est découpé en blocs pour borner la mémoire (points x segments).
+    """
+    n = cx.size
+    s = seg['ax'].size
+    ax, ay, vx, vy, inv = seg['ax'], seg['ay'], seg['vx'], seg['vy'], seg['inv_l2']
+    d2 = numpy.empty(n)
+    kk = numpy.empty(n, dtype=numpy.intp)
+    uu = numpy.empty(n)
+    rx = numpy.empty(n)
+    ry = numpy.empty(n)
+    pas = max(1, max_cellules // s)
+    for i in range(0, n, pas):
+        sl = slice(i, min(i + pas, n))
+        dxm = cx[sl, None] - ax[None, :]
+        dym = cy[sl, None] - ay[None, :]
+        u = (dxm * vx + dym * vy) * inv
+        numpy.clip(u, 0.0, 1.0, out=u)
+        ex = dxm - u * vx
+        ey = dym - u * vy
+        dd = ex * ex + ey * ey
+        k = dd.argmin(axis=1)
+        r = numpy.arange(k.size)
+        d2[sl] = dd[r, k]
+        kk[sl] = k
+        uu[sl] = u[r, k]
+        rx[sl] = ex[r, k]
+        ry[sl] = ey[r, k]
+    return d2, kk, uu, rx, ry
+
+
+def candidats_entite(parties, ti, tj, speed, dist_unit, diffusion,
+                     ll, psx, psy, grille, grille_distance, rayon, decimales):
+    """
+    Calcule, pour une entité linéaire, les pixels dont la valeur doit être mise à
+    jour (hors test d'intraversabilité, fait par l'appelant).
+    Retourne None ou (gx, gy, d, t, cx, cy, qx, qy) :
+    indices globaux du pixel, distance² arrondie, valeur interpolée, centre du
+    pixel et point le plus proche sur la ligne.
+    """
+    seg = construire_segments(parties)
+    if seg is None or seg['l_tot'] <= 0:
+        return None
+    nb_x, nb_y = grille.shape
+    r2 = rayon * rayon
+    l1 = seg['l_tot']
+
+    tous = numpy.concatenate([numpy.asarray(p, dtype=float) for p in parties if len(p)])
+    xmin, ymin = tous.min(axis=0)
+    xmax, ymax = tous.max(axis=0)
+
+    # fenêtre de pixels (même formule que l'original, bornée à la grille)
+    deltax = int((xmin - rayon - ll[0]) / psx)
+    deltay = int((ymin - rayon - ll[1]) / psy)
+    dx = int((xmax - xmin + 2 * rayon) / psx)
+    dy = int((ymax - ymin + 2 * rayon) / psy)
+    x0, x1 = max(deltax, 0), min(deltax + dx, nb_x)
+    y0, y1 = max(deltay, 0), min(deltay + dy, nb_y)
+    if x0 >= x1 or y0 >= y1:
+        return None
+
+    cxs = ll[0] + (numpy.arange(x0, x1) + 0.5) * psx
+    cys = ll[1] + (numpy.arange(y0, y1) + 0.5) * psy
+    gd = grille_distance[x0:x1, y0:y1]
+
+    # pré-filtre : distance² à l'emprise de la ligne (borne inférieure de d)
+    rdx = numpy.maximum(numpy.maximum(xmin - cxs, cxs - xmax), 0.0)
+    rdy = numpy.maximum(numpy.maximum(ymin - cys, cys - ymax), 0.0)
+    rd2 = rdx[:, None] ** 2 + rdy[None, :] ** 2
+    tol = 10.0 ** (-decimales) + 1e-9
+    pre = (rd2 < r2 + tol) & (rd2 <= gd + tol)
+    ii, jj = numpy.nonzero(pre)
+    if ii.size == 0:
+        return None
+
+    cx = cxs[ii]
+    cy = cys[jj]
+    d2, k, u, rx, ry = plus_proche_segment(cx, cy, seg)
+    d = numpy.round(d2, decimales)
+
+    gdp = gd[ii, jj]
+    ok = (d > 0) & (d < r2) & (d <= gdp)
+    # côté de la ligne où se trouve le pixel (produit vectoriel)
+    side = seg['vx'][k] * ry - rx * seg['vy'][k]
+    autorise_neg = diffusion in ('1', '3')
+    autorise_pos = diffusion in ('2', '3')
+    ok &= (autorise_neg & (side <= 0)) | (autorise_pos & (side >= 0))
+    s = numpy.nonzero(ok)[0]
+    if s.size == 0:
+        return None
+
+    ii, jj, cx, cy, d, k, u, rx, ry = (a[s] for a in (ii, jj, cx, cy, d, k, u, rx, ry))
+    l2 = seg['cum'][k] + u * seg['lg'][k]          # abscisse curviligne du point projeté
+    t = tj * (l2 / l1) + ti * (1 - l2 / l1) + numpy.sqrt(d) * speed / dist_unit
+
+    gg = grille[x0:x1, y0:y1][ii, jj]
+    gdp = gd[ii, jj]
+    amelio = (d < gdp) | ((d == gdp) & (t < gg))
+    if not amelio.any():
+        return None
+    return (x0 + ii[amelio], y0 + jj[amelio], d[amelio], t[amelio],
+            cx[amelio], cy[amelio], (cx - rx)[amelio], (cy - ry)[amelio])
+
+
+def est_nul(valeur):
+    return valeur is None or valeur == NULL
+
+
+def ecrire_grille(chemin, entete, tableau):
+    """Écrit une grille ASCII (en-tête + lignes), sans relire valeur par valeur."""
+    with open(chemin, 'w') as f:
+        f.write(entete)
+        f.write("\n".join(" ".join(map(str, ligne)) for ligne in tableau.tolist()))
+        f.write("\n")
+
 
 
 class Interpole(QgsProcessingAlgorithm):
@@ -240,271 +401,169 @@ class Interpole(QgsProcessingAlgorithm):
                 
                 
             )
-        )            
+        )
 
-        # We add a feature sink in which to store our processed features (this
-        # usually takes the form of a newly created vector layer when the
-        # algorithm is run in QGIS).
-    
-    
-    def to_2d(self, geom):
-        """
-        Convertit une LineString ou MultiLineString (2D ou Z) en géométrie 2D
-        compatible avec asPolyline() / asMultiPolyline().
-        """
-        g = geom.constGet()
-
-        if isinstance(g, QgsLineString):
-            pts_2d = [QgsPointXY(pt.x(), pt.y()) for pt in g]
-            return QgsGeometry.fromPolylineXY(pts_2d)
-
-        elif isinstance(g, QgsMultiLineString):
-            parts_2d = []
-            for i in range(g.numGeometries()):
-                ls = g.geometryN(i)
-                pts_2d = [QgsPointXY(pt.x(), pt.y()) for pt in ls]
-                parts_2d.append(pts_2d)
-            return QgsGeometry.fromMultiPolylineXY(parts_2d)
-
-        else:
-            raise TypeError("La géométrie n'est pas une LineString ou MultiLineString.")
-
-
-            
-    def distance_point_rectangle(self,x, y, xmin, ymin, xmax, ymax):
-        dx = max(xmin - x, 0, x - xmax)
-        dy = max(ymin - y, 0, y - ymax)
-        return math.sqrt(dx*dx + dy*dy)
-        
 
     def processAlgorithm(self, parameters, context, feedback):
         """
         Here is where the processing itself takes place.
         """
-
-        # Retrieve the feature source and sink. The 'dest_id' variable is used
-        # to uniquely identify the feature sink, and must be included in the
-        # dictionary returned by the processAlgorithm function.
         reseau = self.parameterAsVectorLayer(parameters, self.RESEAU, context)
-        fenetre_source=self.parameterAsExtent(parameters,self.FENETRE,context)
-        cout_i=QgsExpression(self.parameterAsExpression(parameters,self.COUT_I,context))
-        cout_j=QgsExpression(self.parameterAsExpression(parameters,self.COUT_J,context))
-        sens=QgsExpression(self.parameterAsExpression(parameters,self.SENS,context))
-        diffusion=QgsExpression(self.parameterAsExpression(parameters,self.DIFFUSION,context))
-        traversabilite=QgsExpression(self.parameterAsExpression(parameters,self.TRAVERSABILITE,context))
-        nb_pixels_x=self.parameterAsInt(parameters,self.NB_PIXELS_X,context)
-        nb_pixels_y=self.parameterAsInt(parameters,self.NB_PIXELS_Y,context)
-        taille_pixel_x=self.parameterAsDouble(parameters,self.TAILLE_PIXEL_X,context)
-        taille_pixel_y=self.parameterAsDouble(parameters,self.TAILLE_PIXEL_Y,context)
-        decimales=self.parameterAsInt(parameters,self.DECIMALES,context)
-        rayon=self.parameterAsDouble(parameters,self.RAYON,context)
-        vitesse_diffusion=QgsExpression(self.parameterAsExpression(parameters,self.VITESSE_DIFFUSION,context))
+        fenetre_source = self.parameterAsExtent(parameters, self.FENETRE, context)
+        cout_i = QgsExpression(self.parameterAsExpression(parameters, self.COUT_I, context))
+        cout_j = QgsExpression(self.parameterAsExpression(parameters, self.COUT_J, context))
+        sens = QgsExpression(self.parameterAsExpression(parameters, self.SENS, context))
+        diffusion = QgsExpression(self.parameterAsExpression(parameters, self.DIFFUSION, context))
+        traversabilite = QgsExpression(self.parameterAsExpression(parameters, self.TRAVERSABILITE, context))
+        nb_pixels_x = self.parameterAsInt(parameters, self.NB_PIXELS_X, context)
+        nb_pixels_y = self.parameterAsInt(parameters, self.NB_PIXELS_Y, context)
+        taille_pixel_x = self.parameterAsDouble(parameters, self.TAILLE_PIXEL_X, context)
+        taille_pixel_y = self.parameterAsDouble(parameters, self.TAILLE_PIXEL_Y, context)
+        decimales = self.parameterAsInt(parameters, self.DECIMALES, context)
+        rayon = self.parameterAsDouble(parameters, self.RAYON, context)
+        vitesse_diffusion = QgsExpression(self.parameterAsExpression(parameters, self.VITESSE_DIFFUSION, context))
         intraversable = self.parameterAsBool(parameters, self.INTRAVERSABLE, context)
-        valeurs_individuelles=QgsExpression(self.parameterAsExpression(parameters,self.IND_VALUES,context))
-        
-        
-        
+        valeurs_individuelles = QgsExpression(self.parameterAsExpression(parameters, self.IND_VALUES, context))
+        resultat = self.parameterAsOutputLayer(parameters, self.RESULTAT, context)
 
-        resultat = self.parameterAsOutputLayer(parameters, self.RESULTAT,context)       # Compute the number of steps to display within the progress bar and
-        
-        src=QgsProject.instance().crs()
-        dest=QgsCoordinateReferenceSystem(reseau.crs())
-        xtr=QgsCoordinateTransform(src,dest,QgsProject.instance())
-        fenetre=xtr.transformBoundingBox(fenetre_source)
-        
-        
-        poles={}
-        formule_cout_i=self.createExpressionContext(parameters,context)
-        cout_i.prepare(formule_cout_i)
-        formule_cout_j=self.createExpressionContext(parameters,context)
-        cout_j.prepare(formule_cout_j)
-        formule_sens=self.createExpressionContext(parameters,context)
-        sens.prepare(formule_sens)
-        formule_diffusion=self.createExpressionContext(parameters,context)
-        diffusion.prepare(formule_diffusion)
-        formule_traversabilite=self.createExpressionContext(parameters,context)
-        traversabilite.prepare(formule_traversabilite)
-        formule_vitesse_diffusion=self.createExpressionContext(parameters,context)
-        vitesse_diffusion.prepare(formule_vitesse_diffusion)
-        formule_valeurs_individuelles=self.createExpressionContext(parameters,context)
-        valeurs_individuelles.prepare(formule_valeurs_individuelles)
-        
-        crsSrc = QgsCoordinateReferenceSystem('EPSG:'+str(reseau.crs().postgisSrid()))
-        dist_unit=QgsUnitTypes.fromUnitToUnitFactor(crsSrc.mapUnits(),QgsUnitTypes.DistanceMeters)
-        rayon=rayon/dist_unit
-        
-        grille=numpy.array([[-9999.0]*nb_pixels_y]*nb_pixels_x)
-        grille_distance=numpy.array([[1e38]*nb_pixels_y]*nb_pixels_x)
-        grille_ind=numpy.array([['0']*nb_pixels_y]*nb_pixels_x,dtype='<U25')
-        rep=os.path.dirname(resultat)
-        a=fenetre.asWktCoordinates().split(',')
-        fenetre2=fenetre#QgsRectangle(float(a[0]),float(a[2]),float(a[1]),float(a[3]))
-        p1=a[0].split()
-        p2=a[1].split()
-        ll=(float(p1[0]),float(p1[1]))
-        hauteur=float(p2[1])-float(p1[1])
-        largeur=float(p2[0])-float(p1[0])
-        if not(taille_pixel_x<=0):
-            nb_pixels_x=int(largeur/taille_pixel_x)
+        if reseau is None or reseau.type() != QgsMapLayer.VectorLayer or reseau.geometryType() != 1:
+            raise QgsProcessingException(self.tr('The network layer must be a line layer'))
+
+        src = QgsProject.instance().crs()
+        dest = QgsCoordinateReferenceSystem(reseau.crs())
+        xtr = QgsCoordinateTransform(src, dest, QgsProject.instance())
+        fenetre = xtr.transformBoundingBox(fenetre_source)
+
+        # Un seul contexte d'expressions partagé (un seul setFeature par entité)
+        ctx = self.createExpressionContext(parameters, context)
+        ctx.setFields(reseau.fields())
+        for expr in (cout_i, cout_j, sens, diffusion, vitesse_diffusion, valeurs_individuelles):
+            expr.prepare(ctx)
+
+        crsSrc = QgsCoordinateReferenceSystem('EPSG:' + str(reseau.crs().postgisSrid()))
+        dist_unit = QgsUnitTypes.fromUnitToUnitFactor(crsSrc.mapUnits(), QgsUnitTypes.DistanceMeters)
+        rayon = rayon / dist_unit
+
+        ll = (fenetre.xMinimum(), fenetre.yMinimum())
+        hauteur = fenetre.height()
+        largeur = fenetre.width()
+        if not (taille_pixel_x <= 0):
+            nb_pixels_x = int(largeur / taille_pixel_x)
         else:
-            taille_pixel_x=float(largeur/nb_pixels_x)
-        if not(taille_pixel_y<=0):
-            nb_pixels_y=int(hauteur/taille_pixel_y)
+            taille_pixel_x = float(largeur / nb_pixels_x)
+        if not (taille_pixel_y <= 0):
+            nb_pixels_y = int(hauteur / taille_pixel_y)
         else:
-            taille_pixel_y=float(hauteur/nb_pixels_y)
-        layer=reseau
-        if layer.type()==QgsMapLayer.VectorLayer:
-            if not layer==None:
-                if layer.geometryType()==1:
-                    simple=QgsSimplifyMethod()
-                    simple.setMethodType(QgsSimplifyMethod.PreserveTopology)
-                    simple.setTolerance(min(taille_pixel_x,taille_pixel_y)/2)
-                    texte=diffusion.dump()+' in (\'1\',\'2\',\'3\') and ('+cout_j.dump()+' IS NOT NULL and '+sens.dump()+' in (\'1\',\'3\')) '
-                    
-                    #request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    request=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(texte).setSimplifyMethod(simple)
-                    #req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple).setFlags(QgsFeatureRequest.ExactIntersect)
-                    features=[f for f in layer.getFeatures(request)]
-                    nb=len(features)
+            taille_pixel_y = float(hauteur / nb_pixels_y)
+        if nb_pixels_x <= 0 or nb_pixels_y <= 0:
+            raise QgsProcessingException(self.tr('The window is smaller than one pixel'))
 
-                    if intraversable:
-                        req_intra=(QgsFeatureRequest().setFilterRect(fenetre2)).setFilterExpression(traversabilite.dump()+' in (\'1\',\'2\',\'3\')').setSimplifyMethod(simple)
-                        features_intra=[f for f in layer.getFeatures(req_intra)]
-                    else:
-                        features_intra=[]
-                    for k,i in enumerate(features):
-                        formule_sens.setFeature(i)
-                        formule_cout_i.setFeature(i)
-                        formule_cout_j.setFeature(i)
-                        formule_vitesse_diffusion.setFeature(i)
-                        formule_diffusion.setFeature(i)
-                        formule_traversabilite.setFeature(i)
-                        formule_valeurs_individuelles.setFeature(i)
-                        var_diffusion=diffusion.evaluate(formule_diffusion)
-                        var_sens=sens.evaluate(formule_sens)
-                        var_traversabilite=traversabilite.evaluate(formule_traversabilite)
-                        ti=cout_i.evaluate(formule_cout_i)
-                        tj=cout_j.evaluate(formule_cout_j)
-                        var_ind=valeurs_individuelles.evaluate(formule_valeurs_individuelles)
+        # Les grilles sont allouées APRÈS le calcul définitif de nb_pixels_x / nb_pixels_y
+        grille = numpy.full((nb_pixels_x, nb_pixels_y), -9999.0)
+        grille_distance = numpy.full((nb_pixels_x, nb_pixels_y), 1e38)
+        grille_ind = numpy.zeros((nb_pixels_x, nb_pixels_y), dtype=numpy.int32)
+        poles = {}
 
-                        var_vitesse_diffusion=vitesse_diffusion.evaluate(formule_vitesse_diffusion)
-                        speed=60/(1000*var_vitesse_diffusion)
-                        feedback.setProgress(k*100/nb)
+        simple = QgsSimplifyMethod()
+        simple.setMethodType(QgsSimplifyMethod.PreserveTopology)
+        simple.setTolerance(min(taille_pixel_x, taille_pixel_y) / 2)
+        texte = (diffusion.dump() + " in ('1','2','3') and (" + cout_j.dump()
+                 + ' IS NOT NULL and ' + sens.dump() + " in ('1','3')) ")
+        request = QgsFeatureRequest().setFilterRect(fenetre).setFilterExpression(texte).setSimplifyMethod(simple)
+        features = list(reseau.getFeatures(request))
+        nb = len(features)
 
-                        if var_sens in ['1','2','3'] :
-                            
-                            geom=i.geometry()
-                            geom=self.to_2d(geom)
-                            if geom.wkbType()==QgsWkbTypes.MultiLineString:
-                                geom_l=geom.asMultiPolyline()
-                            else:
-                                geom_l=geom.asPolyline()
-                            zone=geom.buffer(rayon,6).boundingBox()
-                            zone2=geom.boundingBox()
-                            deltax=int((zone.xMinimum()-ll[0])/taille_pixel_x)
-                            deltay=int((zone.yMinimum()-ll[1])/taille_pixel_y)
-                            dx=int(zone.width()/taille_pixel_x)
-                            dy=int(zone.height()/taille_pixel_y)
+        # Éléments intraversables : index spatial + moteurs GEOS "préparés" (cache)
+        index_intra = None
+        geoms_intra = {}
+        moteurs_intra = {}
+        if intraversable:
+            req_intra = (QgsFeatureRequest().setFilterRect(fenetre)
+                         .setFilterExpression(traversabilite.dump() + " in ('1','2','3')")
+                         .setSimplifyMethod(simple))
+            index_intra = QgsSpatialIndex()
+            for fi in reseau.getFeatures(req_intra):
+                gi = fi.geometry()
+                if gi.isNull() or gi.isEmpty():
+                    continue
+                index_intra.addFeature(fi)
+                geoms_intra[fi.id()] = gi    # référence conservée : le moteur pointe dessus
 
-                            x_prim=int(zone2.xMinimum())
-                            y_prim=int(zone2.yMinimum())
-                            x_sec=int(zone2.xMaximum())
-                            y_sec=int(zone2.yMaximum())
+        def bloque(x1, y1, x2, y2):
+            """True si le segment pixel -> ligne coupe un élément intraversable."""
+            l3 = QgsGeometry.fromPolylineXY([QgsPointXY(x1, y1), QgsPointXY(x2, y2)])
+            for fid in index_intra.intersects(l3.boundingBox()):
+                moteur = moteurs_intra.get(fid)
+                if moteur is None:
+                    moteur = QgsGeometry.createGeometryEngine(geoms_intra[fid].constGet())
+                    moteur.prepareGeometry()
+                    moteurs_intra[fid] = moteur
+                if moteur.intersects(l3.constGet()):
+                    return True
+            return False
 
-                            l1=geom.length()
-                            # Créer une nouvelle géométrie en 2D à partir des coordonnées XY
-                            
-                            for p in range(dx):
-                                d2x=deltax+p
-                                for q in range(dy):
-                                    d2y=deltay+q
-                                    if 0<=d2x<nb_pixels_x and 0<=d2y<nb_pixels_y :
-                                        if self.distance_point_rectangle(ll[0]+taille_pixel_x*d2x, ll[1]+taille_pixel_y*d2y, x_prim-0.5*taille_pixel_x, y_prim-0.5*taille_pixel_y, x_sec+0.5*taille_pixel_x, y_sec+0.5*taille_pixel_y)<grille_distance[d2x,d2y] :
-                                            pt1=QgsGeometry.fromPointXY(QgsPointXY(ll[0]+(d2x+0.5)*taille_pixel_x,ll[1]+(d2y+0.5)*taille_pixel_y))
-                                            res=geom.closestSegmentWithContext(pt1.asPoint())
-                                            d=round(res[0],decimales)
-                                            if d<=grille_distance[d2x,d2y] and d<rayon*rayon:
-                                                if d>0 and l1>0:
-                                                    pt2=res[1]
-                                                    #feedback.setProgressText(geom.asWkt())
-                                                    if geom.wkbType()==QgsWkbTypes.MultiLineString:
-                                                        num_poly=-1
-                                                        npts=0
-                                                        for k,id_poly in enumerate(geom_l):
-                                                            if res[2]<npts+len(id_poly):
-                                                                infos_poly=(k,res[2])
-                                                            else:
-                                                                npts+=len(id_poly)
-                                                        #feedback.setProgressText(str(infos_poly[0])+"-"+str(infos_poly[1])+"-"+str(npts))
-                                                        geoma=geom_l[infos_poly[0]][:(infos_poly[1]-npts)]+[pt2]
-                                                    else:
-                                                        geoma=geom_l[:res[2]]+[pt2]
-                                                    #geoma=QgsGeometry(geom)
-                                                    #geoma.insertVertex(pt2[0],pt2[1],res[2])
-                                                    l2=QgsGeometry.fromPolylineXY(geoma).length()
-                                                    if res[2]==0:
-                                                        pt3=geom.vertexAt(res[2])
-                                                        pt4=geom.vertexAt(res[2]+1)
-                                                    else:
-                                                        try:
-                                                            pt3=geom.vertexAt(res[2]-1)
-                                                            pt4=geom.vertexAt(res[2])
-                                                        except:
-                                                            print(res,geom_l)
-                                                            pt3=geom_l[res[2]-1]
-                                                            pt4=geom_l[res[2]]
-                                                    p1=pt1.asPoint()
-                                                    test_sens=(pt4.x()-pt3.x())*(p1.y()-pt2.y())-(p1.x()-pt2.x())*(pt4.y()-pt3.y())
-                                                    if var_sens in ['1','3'] and not tj==None:
-                                                        if (var_diffusion in ['1','3'] and test_sens<=0) or (var_diffusion in ['2','3'] and test_sens>=0):
-                                                           
-                                                            
-                                                            if not tj==None:
-                                                                
-                                                                if not ti==None:
-                                                                    t=tj*(l2/l1)+ti*(1-(l2/l1))+math.sqrt(d)*speed/dist_unit
-                                                                    l3=QgsGeometry.fromPolylineXY([pt1.asPoint(),QgsPointXY(pt2)])
-                                                            result_test=False
-                                                            if l3!=None:
-                                                                if len(features_intra)>0:
-                                                                    for intra in features_intra:
-                                                                        if intra.geometry().intersects(l3):
-                                                                            result_test=True
-                                                                            break
-                                                            if result_test==False:
-                                                                if (t<grille[d2x,d2y] and d==grille_distance[d2x,d2y]) or d<grille_distance[d2x,d2y]:
-                                                                    grille_distance[d2x,d2y] =d
-                                                                    grille[d2x,d2y] =t
-                                                                    if var_ind not in poles:
-                                                                        poles[var_ind]=len(poles)+1
-                                                                    grille_ind[d2x,d2y]=poles[var_ind]
-                    sortie=os.path.splitext(resultat)
-                    fichier_grille=open(sortie[0]+sortie[1],'w')
-                    fichier_grille.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))
-                    fichier_grille2=open(sortie[0]+"_dist"+sortie[1],'w')
-                    fichier_grille2.write("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n".format(nb_pixels_x,nb_pixels_y,ll[0],ll[1],taille_pixel_x,taille_pixel_y))
-                    g1=numpy.rot90(grille,1)
-                    #g1=numpy.flipud(g1)
-                    g2=numpy.rot90(grille_ind,1)
-                    #g2=numpy.flipud(g2)
-                    for i in g1:
-                        fichier_grille.write(" ".join([str(ii) for ii in i])+"\n")
-                    fichier_grille.close()
-                    for i in g2:
-                        fichier_grille2.write(" ".join([str(ii) for ii in i])+"\n")
-                    fichier_grille2.close()
+        pas_progression = max(1, nb // 200)
+        for k, f in enumerate(features):
+            if feedback.isCanceled():
+                return {}
+            if k % pas_progression == 0:
+                feedback.setProgress(k * 100 / nb)
 
-                    fichier_prj=open(sortie[0]+".prj",'w')
-                    fichier2_prj=open(sortie[0]+"_dist.prj",'w')
-                    fichier2_dict=open(sortie[0]+"_dist.dic",'w')
-                    fichier_prj.write(layer.crs().toWkt())
-                    fichier2_prj.write(layer.crs().toWkt())
-                    fichier2_dict.write(json.dumps({k:v for k, v in map(reversed, poles.items())}))
-                    fichier_prj.close()
-                    fichier2_prj.close()
-                    fichier2_dict.close()
-                    nom_sortie=os.path.basename(sortie[0])
-                    rlayer=QgsRasterLayer(resultat,nom_sortie)
+            ctx.setFeature(f)
+            if sens.evaluate(ctx) not in ('1', '3'):
+                continue
+            ti = cout_i.evaluate(ctx)
+            tj = cout_j.evaluate(ctx)
+            if est_nul(ti) or est_nul(tj):
+                continue
+            var_diffusion = diffusion.evaluate(ctx)
+            var_ind = valeurs_individuelles.evaluate(ctx)
+            speed = 60 / (1000 * vitesse_diffusion.evaluate(ctx))
+
+            geom = f.geometry()
+            if geom.isNull() or geom.isEmpty():
+                continue
+            if geom.isMultipart():
+                parties_xy = geom.asMultiPolyline()
+            else:
+                parties_xy = [geom.asPolyline()]
+            parties = [numpy.array([(p.x(), p.y()) for p in part]) for part in parties_xy if len(part) > 1]
+            if not parties:
+                continue
+
+            res = candidats_entite(parties, ti, tj, speed, dist_unit, var_diffusion,
+                                   ll, taille_pixel_x, taille_pixel_y,
+                                   grille, grille_distance, rayon, decimales)
+            if res is None:
+                continue
+            gx, gy, d, t, cx, cy, qx, qy = res
+
+            if index_intra is not None and geoms_intra:
+                garde = numpy.array([not bloque(cx[n], cy[n], qx[n], qy[n]) for n in range(gx.size)],
+                                    dtype=bool)
+                if not garde.any():
+                    continue
+                gx, gy, d, t = gx[garde], gy[garde], d[garde], t[garde]
+
+            if var_ind not in poles:
+                poles[var_ind] = len(poles) + 1
+            grille_distance[gx, gy] = d
+            grille[gx, gy] = t
+            grille_ind[gx, gy] = poles[var_ind]
+
+        sortie = os.path.splitext(resultat)
+        entete = ("NCOLS {0:d}\nNROWS {1:d}\nXLLCORNER {2}\nYLLCORNER {3}\nDX {4}\nDY {5}\nNODATA_VALUE -9999\n"
+                  .format(nb_pixels_x, nb_pixels_y, ll[0], ll[1], taille_pixel_x, taille_pixel_y))
+        ecrire_grille(sortie[0] + sortie[1], entete, numpy.rot90(grille, 1))
+        ecrire_grille(sortie[0] + "_dist" + sortie[1], entete, numpy.rot90(grille_ind, 1))
+
+        wkt = reseau.crs().toWkt()
+        with open(sortie[0] + ".prj", 'w') as fichier_prj:
+            fichier_prj.write(wkt)
+        with open(sortie[0] + "_dist.prj", 'w') as fichier2_prj:
+            fichier2_prj.write(wkt)
+        with open(sortie[0] + "_dist.dic", 'w') as fichier2_dict:
+            fichier2_dict.write(json.dumps({v: k for k, v in poles.items()}))
 
         return {self.RESULTAT: resultat}
 

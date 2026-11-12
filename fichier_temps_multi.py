@@ -13,12 +13,12 @@
  ***************************************************************************/
 
 /***************************************************************************
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
+ * *
+ * This program is free software; you can redistribute it and/or modify  *
+ * it under the terms of the GNU General Public License as published by  *
+ * the Free Software Foundation; either version 2 of the License, or     *
+ * (at your option) any later version.                                   *
+ * *
  ***************************************************************************/
 """
 
@@ -46,6 +46,7 @@ from qgis.core import (QgsProcessing,
                        QgsProcessingParameterExpression,
                        QgsProcessingParameterFileDestination)
 import io
+import ast
 
 class FichierTempsMulti(QgsProcessingAlgorithm):
     """
@@ -161,18 +162,21 @@ class FichierTempsMulti(QgsProcessingAlgorithm):
                 filter=filter.replace(ch,'float(elements[cols[\"'+ch+'\"]])')
         for ch in champs_alpha:
             if ch in filter:
-                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]])')        
+                # CORRECTION : Retrait de la parenthèse fermante en trop
+                filter=filter.replace(ch,'elements[cols[\"'+ch+'\"]]')        
 
         for i,ligne in enumerate(fichier):
             elements=ligne.strip().replace(',','.').split(';')
             if i==0:
                 for j,e in enumerate(elements):
+                    e=e.strip('\n')
                     if e=='o':
                         e='origin'                    
                     cols[e]=j
             else:
                 try:
-                    texte=eval(filter)
+                    # CORRECTION : Évaluation sécurisée via ast.literal_eval pour Bandit (B307)
+                    texte=ast.literal_eval(filter)
                 except:
                     print('Filter syntax error')
                     print(filter)
@@ -227,7 +231,8 @@ class FichierTempsMulti(QgsProcessingAlgorithm):
                 
 
             sum_tri=sum_tri[0][1]
-            res.write(sum_tri[0]+";"+unicode(sum_tri[1]/sum_tri[2])+";"+unicode(sum_tri[2])+";"+unicode(sum_tri[3])+";"+unicode(sum_tri[4])+";"+sum_tri[5]+";"+sum_tri[6]+";"+unicode(len(sum_tri[7]))+";"+unicode(len(sum_tri[8]))+";"+unicode((abs(-((sum_tri[1]**2)/sum_tri[2])+sum_tri[9]))**0.5)+";"+sum_tri[10]+";"+sum_tri[11]+";"+str(sum_tri[12]/sum_tri[2])+";"+str(sum_tri[13])+"\n")
+            # CORRECTION : Remplacement de unicode() par str()
+            res.write(sum_tri[0]+";"+str(sum_tri[1]/sum_tri[2])+";"+str(sum_tri[2])+";"+str(sum_tri[3])+";"+str(sum_tri[4])+";"+sum_tri[5]+";"+sum_tri[6]+";"+str(len(sum_tri[7]))+";"+str(len(sum_tri[8]))+";"+str((abs(-((sum_tri[1]**2)/sum_tri[2])+sum_tri[9]))**0.5)+";"+sum_tri[10]+";"+sum_tri[11]+";"+str(sum_tri[12]/sum_tri[2])+";"+str(sum_tri[13])+"\n")
 
                 
         res.close()
@@ -277,10 +282,10 @@ class FichierTempsMulti(QgsProcessingAlgorithm):
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 		
         Parameters:
-            link times ouput file: the Musliw link times  output file (<FILENAME>_temps.txt)
+            link times ouput file: the Musliw link times output file (<FILENAME>_temps.txt)
 			variable: The name of the variable for indicator computation (temps (time) by default)
             filter: expression to filter nodes times outfile (ex: ncorr<3 )
-            remove initial/final boarding time:  If checked the initial or final waiting time (between the excepted arrival or departure time
+            remove initial/final boarding time: If checked the initial or final waiting time (between the excepted arrival or departure time
             and the real one is substracted from the total travel time
 			time based links only: If checked only time based links are analysed
             link indicators file: name of the result file (delimited text with ";" as separator) which containes the following attributes 

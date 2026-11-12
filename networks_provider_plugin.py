@@ -96,8 +96,5 @@ class NetworksPlugin(object):
         self.initProcessing()
 
     def unload(self):
-        try:
-            QgsApplication.processingRegistry().removeProvider(self.provider)
-        except (RuntimeError, AttributeError):
-            pass
-            
+        QgsApplication.processingRegistry().removeProvider(self.provider)
+

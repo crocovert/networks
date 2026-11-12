@@ -30,69 +30,48 @@ __copyright__ = '(C) 2018 by Patrick Palmier'
 
 __revision__ = '$Format:%H$'
 
-from osgeo import gdal
-import numpy
-import math
-import sqlite3 as db
-from qgis.core import QgsVectorLayer, QgsProject
-from qgis.PyQt.QtCore import QCoreApplication,QVariant
-from qgis.core import *
-from qgis.utils import *
-from qgis.core import (QgsProcessing,
+from qgis.PyQt.QtCore import QCoreApplication, QMetaType
+from qgis.core import (Qgis,
+                       QgsCoordinateTransform,
+                       QgsFeature,
                        QgsFeatureSink,
+                       QgsField,
+                       QgsFields,
+                       QgsProcessing,
                        QgsProcessingAlgorithm,
-                       QgsProcessingParameterBand,
-                       QgsProcessingParameterFeatureSource,
+                       QgsProcessingException,
+                       QgsProcessingParameterEnum,
                        QgsProcessingParameterFeatureSink,
-                       QgsProcessingParameterNumber,
-                       QgsProcessingParameterBoolean,
-                       QgsProcessingParameterString,
-                       QgsProcessingParameterExtent,
+                       QgsProcessingParameterFeatureSource,
                        QgsProcessingParameterField,
-                       QgsProcessingParameterExpression,
-                       QgsProcessingParameterFileDestination,
-                       QgsSpatialIndex,
-                       QgsGeometry,
-                       QgsFeature
-                       )
-import codecs
+                       QgsSpatialIndex)
+
 
 class SpatialAggregation(QgsProcessingAlgorithm):
     """
-    This is an example algorithm that takes a vector layer and
-    creates a new identical one.
+    Aggregates a variable of a polygon layer (SOURCE) over the polygons
+    of another layer (ISOPOLYGONS).
 
-    It is meant to be used as an example of how to create your own
-    algorithms and explain methods and variables used to do it. An
-    algorithm like this will be available in all elements, and there
-    is not need for additional work.
-
-    All Processing algorithms should extend the QgsProcessingAlgorithm
-    class.
+    The computation is done with the PyQGIS API (spatial index + geometry
+    operations): no SQL, no virtual layer, no dependence on layer names in
+    the current project.
     """
 
-    # Constants used to refer to parameters and outputs. They will be
-    # used when calling the algorithm from another algorithm, or when
-    # calling from the QGIS console.
+    ISOPOLYGONS = 'ISOPOLYGONS'
+    ID = 'ID'
+    SOURCE = 'SOURCE'
+    VAR = 'VAR'
+    AGG = 'AGG'
+    RESULT = 'RESULT'
 
-    ISOPOLYGONS='ISOPOLYGONS'
-    ID='ID'
-    SOURCE='SOURCE'
-    VAR='VAR'
-    AGG='AGG'
-    RESULT='RESULT'
-    
-    def initAlgorithm(self, config):
-        """
-        Here we define the inputs and output of the algorithm, along
-        with some other properties.
-        """
+    MEAN, SUM, MIN, MAX = range(4)
 
+    def initAlgorithm(self, config=None):
         self.addParameter(
-            QgsProcessingParameterVectorLayer(
+            QgsProcessingParameterFeatureSource(
                 self.ISOPOLYGONS,
                 self.tr('Polygons'),
-                [QgsProcessing.TypeVectorPolygon]
+                [Qgis.ProcessingSourceType.VectorPolygon]
             )
         )
         self.addParameter(
@@ -103,10 +82,10 @@ class SpatialAggregation(QgsProcessingAlgorithm):
             )
         )
         self.addParameter(
-            QgsProcessingParameterVectorLayer(
+            QgsProcessingParameterFeatureSource(
                 self.SOURCE,
                 self.tr('Source'),
-                [QgsProcessing.TypeVectorPolygon]
+                [Qgis.ProcessingSourceType.VectorPolygon]
             )
         )
         self.addParameter(
@@ -120,134 +99,131 @@ class SpatialAggregation(QgsProcessingAlgorithm):
             QgsProcessingParameterEnum(
                 self.AGG,
                 self.tr('Aggregator'),
-                [self.tr("mean"),self.tr("sum"),self.tr("min"),self.tr("max")],
-                defaultValue=1
+                [self.tr('mean'), self.tr('sum'), self.tr('min'), self.tr('max')],
+                defaultValue=self.SUM
             )
         )
         self.addParameter(
             QgsProcessingParameterFeatureSink(
                 self.RESULT,
-                self.tr('Output'),
-              
+                self.tr('Output')
             )
-        )            
-
-        # We add a feature sink in which to store our processed features (this
-        # usually takes the form of a newly created vector layer when the
-        # algorithm is run in QGIS).
-        
+        )
 
     def processAlgorithm(self, parameters, context, feedback):
-        """
-        Here is where the processing itself takes place.
-        """
+        iso = self.parameterAsSource(parameters, self.ISOPOLYGONS, context)
+        if iso is None:
+            raise QgsProcessingException(
+                self.invalidSourceError(parameters, self.ISOPOLYGONS))
+        src = self.parameterAsSource(parameters, self.SOURCE, context)
+        if src is None:
+            raise QgsProcessingException(
+                self.invalidSourceError(parameters, self.SOURCE))
 
-        # Retrieve the feature source and sink. The 'dest_id' variable is used
-        # to uniquely identify the feature sink, and must be included in the
-        # dictionary returned by the processAlgorithm function.
-        iso = self.parameterAsVectorLayer(parameters, self.ISOPOLYGONS, context)
-        iso_id=self.parameterAsFields(parameters,self.ID,context)[0]
-        insee=self.parameterAsVectorLayer(parameters,self.SOURCE,context)
-        variable=self.parameterAsFields(parameters,self.VAR,context)[0]
-        agg=self.parameterAsInt(parameters,self.AGG,context)
-        # get features from source
+        iso_id = self.parameterAsString(parameters, self.ID, context)
+        variable = self.parameterAsString(parameters, self.VAR, context)
+        agg = self.parameterAsEnum(parameters, self.AGG, context)
 
+        # Output fields: the id keeps its original type, the variable is a double
+        fields = QgsFields()
+        fields.append(iso.fields().field(iso_id))
+        fields.append(QgsField(variable, QMetaType.Type.Double))
 
-        conn = db.connect(":memory:")
-        conn.enable_load_extension(True)
-        conn.execute("select load_extension('mod_spatialite')")      
+        (sink, dest_id) = self.parameterAsSink(
+            parameters, self.RESULT, context,
+            fields, iso.wkbType(), iso.sourceCrs())
+        if sink is None:
+            raise QgsProcessingException(
+                self.invalidSinkError(parameters, self.RESULT))
 
+        # Index of the source polygons, reprojected into the CRS of the polygons layer
+        to_iso_crs = QgsCoordinateTransform(
+            src.sourceCrs(), iso.sourceCrs(), context.transformContext())
+        index = QgsSpatialIndex()
+        src_data = {}
+        for f in src.getFeatures():
+            if feedback.isCanceled():
+                return {}
+            geom = f.geometry()
+            if geom.isNull() or geom.isEmpty():
+                continue
+            try:
+                value = float(f[variable])
+            except (TypeError, ValueError):
+                # NULL or non numeric value: ignored
+                continue
+            geom.transform(to_iso_crs)
+            src_data[f.id()] = (geom, value)
+            index.addFeature(f.id(), geom.boundingBox())
 
-        #vlayer = QgsVectorLayer( "?query=SELECT * FROM road WHERE type = 'Expressway'", "vlayer", "virtual" )
-        #QgsProject.instance().addMapLayer(vlayer)
-            
-            
-        #feedback.setProgressText(iso.fields().field(iso_id).typeName())
-        if agg==0:
-            vlayer=QgsVectorLayer('?query=select '+'casttomultipolygon(a.Geometry) as geom,a.'+iso_id+' as id,sum(b.'+variable+'*st_area(st_intersection(a.Geometry,b.Geometry))/st_area(b.Geometry))/sum(st_area(st_intersection(a.Geometry,b.Geometry))/st_area(b.Geometry)) as '+variable+' from "'+iso.name()+'" a,"'+insee.name()+'" b where intersects(a.Geometry,b.Geometry) group by a.Geometry,a.'+ iso_id,'spatial_agg','virtual')
-        elif agg==1:
-            vlayer=QgsVectorLayer('?query=select '+'casttomultipolygon(a.Geometry) as geom,a.'+iso_id+' as id,sum(b.'+variable+'*st_area(st_intersection(a.Geometry,b.Geometry))/st_area(b.Geometry)) as '+variable+' from "'+iso.name()+'" a,"'+insee.name()+'" b where intersects(a.Geometry,b.Geometry) group by a.Geometry,a.'+ iso_id,'spatial_agg','virtual')
-        elif agg==2:
-            vlayer=QgsVectorLayer('?query=select '+'casttomultipolygon(a.Geometry) as geom,a.'+iso_id+' as id,min(b.'+variable+') as '+variable+' from "'+iso.name()+'" a,"'+insee.name()+'" b where intersects(a.Geometry,b.Geometry) group by a.Geometry,a.'+ iso_id,'spatial_agg','virtual')
-        elif agg==3:
-            vlayer=QgsVectorLayer('?query=select '+'casttomultipolygon(a.Geometry) as geom,a.'+iso_id+' as id,max(b.'+variable+') as '+variable+' from "'+iso.name()+'" a,"'+insee.name()+'" b where intersects(a.Geometry,b.Geometry) group by a.Geometry,a.'+ iso_id,'spatial_agg','virtual')
+        total = 100.0 / iso.featureCount() if iso.featureCount() else 0
+        for current, a in enumerate(iso.getFeatures()):
+            if feedback.isCanceled():
+                break
+            geom_a = a.geometry()
+            if geom_a.isNull() or geom_a.isEmpty():
+                continue
 
-        conn.commit()
-        champs2=QgsFields()
-        if iso.fields().field(iso_id).typeName()=="String":
-            champs2.append(QgsField(iso_id,QVariant.String))
-        else:
-            champs2.append(QgsField(iso_id,QVariant.Double))
-        champs2.append(QgsField(variable,QVariant.Double))
-        (resultat,dest_id) = self.parameterAsSink(parameters, self.RESULT,context,champs2, QgsWkbTypes.Polygon, iso.crs())
-        #QgsProject.instance().addMapLayer(vlayer)
-        for r in vlayer.getFeatures():
-            f1=QgsFeature()
-            geom=r.geometry()
-            f1.setGeometry(geom)
-            f1.setAttributes([r[0],r[1]])
-            #feedback.setProgressText(str(r[0])+' '+str(r[1]))
-            resultat.addFeature(f1)
-        conn.close()
-        del resultat
+            num = 0.0
+            den = 0.0
+            values = []
+            for fid in index.intersects(geom_a.boundingBox()):
+                geom_b, value = src_data[fid]
+                if not geom_a.intersects(geom_b):
+                    continue
+                values.append(value)
+                area_b = geom_b.area()
+                if area_b > 0:
+                    ratio = geom_a.intersection(geom_b).area() / area_b
+                    num += value * ratio
+                    den += ratio
 
-        del conn
+            if not values:
+                continue  # same behaviour as the former SQL query
 
+            if agg == self.MEAN:
+                if den == 0:
+                    continue
+                result = num / den
+            elif agg == self.SUM:
+                result = num
+            elif agg == self.MIN:
+                result = min(values)
+            else:
+                result = max(values)
 
+            out = QgsFeature(fields)
+            out.setGeometry(geom_a)
+            out.setAttributes([a[iso_id], result])
+            sink.addFeature(out, QgsFeatureSink.Flag.FastInsert)
+            feedback.setProgress(int(current * total))
 
-
-        return {self.RESULT:dest_id}
-
-
+        return {self.RESULT: dest_id}
 
     def name(self):
-        """
-        Returns the algorithm name, used for identifying the algorithm. This
-        string should be fixed for the algorithm, and must not be localised.
-        The name should be unique within each provider. Names should contain
-        lowercase alphanumeric characters only and no spaces or other
-        formatting characters.
-        """
         return 'spatialaggregation'
 
     def displayName(self):
-        """
-        Returns the translated algorithm name, which should be used for any
-        user-visible display of the algorithm name.
-        """
         return self.tr('Spatial aggregation')
 
     def group(self):
-        """
-        Returns the name of the group this algorithm belongs to. This string
-        should be localised.
-        """
         return self.tr('Analysis')
 
     def groupId(self):
-        """
-        Returns the unique ID of the group this algorithm belongs to. This
-        string should be fixed for the algorithm, and must not be localised.
-        The group id should be unique within each provider. Group id should
-        contain lowercase alphanumeric characters only and no spaces or other
-        formatting characters.
-        """
         return 'Analysis'
-
-    
 
     def shortHelpString(self):
         return self.tr("""
-        Perform a spatial aggregation between 2 layers in order to estimate 
+        Perform a spatial aggregation between 2 layers in order to estimate
         for example the proportion of population which belongs to a polygon (ex: area <30min)
-		        
+
         Parameters:
             polygons: the polygon layer (ex: iso-value layer)
-			id: field containing the polygon id (ex: 30min iso-value)
-			source: a polygon layer with a variable to compute (ex: municipalities layer)
-			variable: the variable to compute from the source layer (ex: population from mumicipalities layer)
-			aggregator: aggregator (min,max, mean, sum) 
-			output: the result of aggration layer (containing the same objects as the polygons layer)
+            id: field containing the polygon id (ex: 30min iso-value)
+            source: a polygon layer with a variable to compute (ex: municipalities layer)
+            variable: the variable to compute from the source layer (ex: population from municipalities layer)
+            aggregator: aggregator (min, max, mean, sum)
+            output: the result of aggregation layer (containing the same objects as the polygons layer)
         """)
 
     def tr(self, string):

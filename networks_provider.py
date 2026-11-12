@@ -35,6 +35,10 @@ from qgis.core import QgsProcessingProvider,QgsApplication, QgsExpression
 from qgis.utils import qgsfunction
 from processing.core.Processing import Processing
 from processing.core.ProcessingConfig import ProcessingConfig, Setting
+
+from .directory_list import ChooseMusliwDirectory, register_core, unregister_core
+from .directory_list_gui import register_gui, unregister_gui
+
 from .reseau_ti import ReseauTi
 from .ajout_champ import AjoutChamp
 from .concat_reseaux import ConcatFolder
@@ -99,6 +103,7 @@ from .thematic_anamorphosis import ThematicAnamorphosis
 from .transfer_field import TransferCsvField
 from .gravity_anamorphosis import GravityAnamorphosis
 from .result_filter import FilterCsvAlgorithm
+from .clean_fields_gpkg import CleanFieldsForGpkg
 
 
 from qgis.PyQt.QtGui import QIcon
@@ -159,7 +164,10 @@ class NetworksProvider(QgsProcessingProvider):
                         MintNetwork(),
                         ImportGTFSv2(),
                         Intensite_nodale(),
-                        Musliw_update()]
+                        Musliw_update(),
+                        CleanFieldsForGpkg(),
+                        register_core(),
+                        register_gui()]
         
         self.plugin_dir = os.path.dirname(__file__)
         # initialize locale
@@ -258,6 +266,8 @@ class NetworksProvider(QgsProcessingProvider):
         self.addAlgorithm(TransferCsvField())
         self.addAlgorithm(GravityAnamorphosis())
         self.addAlgorithm(FilterCsvAlgorithm())
+        self.addAlgorithm(CleanFieldsForGpkg())
+        self.addAlgorithm(ChooseMusliwDirectory())
 
         
     def id(self):
