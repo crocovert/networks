@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import subprocess
 import io
 
 
@@ -96,6 +95,8 @@ class MusliwParam(QgsProcessingAlgorithm):
     MAX_CLASSES='MAX_CLASSES'
     SORTIE='SORTIE'
     OUTPUT_STOPS='OUTPUT_STOPS'
+    EARLY='EARLY'
+    LATE='LATE'
 
 
     def initAlgorithm(self, config):
@@ -284,6 +285,26 @@ class MusliwParam(QgsProcessingAlgorithm):
             )
         )
         
+        p_early=QgsProcessingParameterNumber(
+            self.EARLY,
+            self.tr('Early Departure/Arrival weight?'),
+            type=QgsProcessingParameterNumber.Double,
+            defaultValue=-1
+            )
+        
+        p_early.setFlags(p_early.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(p_early)
+
+        p_late=QgsProcessingParameterNumber(
+            self.LATE,
+            self.tr('late Departure/Arrival weight?'),
+            type=QgsProcessingParameterNumber.Double,
+            defaultValue=-1
+            )
+        
+        p_late.setFlags(p_late.flags() | QgsProcessingParameterDefinition.FlagAdvanced)
+        self.addParameter(p_late)
+        
 
 
         # usually takes the form of a newly created vector layer when the
@@ -322,6 +343,8 @@ class MusliwParam(QgsProcessingAlgorithm):
         tmap_max=self.parameterAsDouble(parameters, self.TMAP_MAX, context)
         cout_max=self.parameterAsDouble(parameters, self.COUT_MAX, context)
         nb_classes=self.parameterAsInt(parameters, self.MAX_CLASSES, context)
+        avance=self.parameterAsDouble(parameters, self.EARLY, context)
+        retard=self.parameterAsDouble(parameters, self.LATE, context)
         sortie=self.parameterAsFileOutput(parameters, self.SORTIE, context)
 
         if sortie_stops==True:
@@ -355,6 +378,10 @@ class MusliwParam(QgsProcessingAlgorithm):
         fich_param.write(unicode(cout_max)+self.tr(";max travel cost")+"\n")
         fich_param.write(unicode(sortie_noeuds).title()+self.tr(";output nodes")+"\n")
         fich_param.write("False"+self.tr(";output isolated links")+"\n")
+        if retard>0 or late>0:
+            fich_param.write(unicode(avance)+self.tr(";early departure/arrival weight")+"\n")
+            fich_param.write(unicode(retard)+self.tr(";late departure/arrival weight")+"\n")
+            
         fich_param.close()
         
 

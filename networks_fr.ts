@@ -368,12 +368,12 @@
         <translation type="obsolete">Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="127"/>
+        <location filename="calcul_mint.py" line="134"/>
         <source>Mint computation</source>
         <translation>Calcul Mint</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="130"/>
+        <location filename="calcul_mint.py" line="137"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -419,22 +419,22 @@
         <translation>Forcer l&apos;attente de la fin du calcul avant de continuer</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="97"/>
+        <location filename="calcul_mint.py" line="104"/>
         <source>Mint_console downloaded successfully</source>
         <translation>Mint.exe téléchargé avec succès</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="109"/>
+        <location filename="calcul_mint.py" line="116"/>
         <source>Unsupported platform</source>
         <translation>Plateforme non supportée</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="112"/>
+        <location filename="calcul_mint.py" line="119"/>
         <source>Mint calculations... This may take some time</source>
         <translation>Calculs Mint... Cela peut prendre plusieurs minutes</translation>
     </message>
     <message>
-        <location filename="calcul_mint.py" line="139"/>
+        <location filename="calcul_mint.py" line="146"/>
         <source>
         Perform a calculation of multimodal assignment with a frequency based algorithm (Mint)
         Can download the Mint_console.exe binary...
@@ -471,17 +471,17 @@
         <translation>Sortie (txt)</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="126"/>
+        <location filename="calcul_musliw.py" line="134"/>
         <source>Multimodal calculations... That could take some time</source>
         <translation>Calcul d&apos;accessibilité multimodale...Cela peut prendre un certains temps</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="145"/>
+        <location filename="calcul_musliw.py" line="153"/>
         <source>Musliw computation</source>
         <translation>Calcul Musliw</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="148"/>
+        <location filename="calcul_musliw.py" line="156"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -531,7 +531,7 @@
         <translation>Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="106"/>
+        <location filename="calcul_musliw.py" line="114"/>
         <source>Downloading Muslic binary</source>
         <translation>Téléchargement de Musliw</translation>
     </message>
@@ -592,23 +592,66 @@
         <translation type="obsolete">Téléchargement de Muslix terminé</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="111"/>
+        <location filename="calcul_musliw.py" line="119"/>
         <source>Muslic downloaded successfully</source>
         <translation>Muslic téléchargé avec succès</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="123"/>
+        <location filename="calcul_musliw.py" line="131"/>
         <source>Unsupported platform</source>
         <translation>Plateforme non supportée</translation>
     </message>
     <message>
-        <location filename="calcul_musliw.py" line="157"/>
+        <location filename="calcul_musliw.py" line="165"/>
         <source>
         Perform a calculation of multimodal accessibility and routing
         Can download the Muslic.exe binary...
         </source>
         <translation>        Effectue un calcul d&apos;accessibilité multimodale avec Muslic
         Peut téléchargéer le programme Muslic.exe</translation>
+    </message>
+</context>
+<context>
+    <name>ChooseMusliwDirectory</name>
+    <message>
+        <location filename="directory_list.py" line="106"/>
+        <source>Choose a musliw directory</source>
+        <translation>Choisir un répertoire musliw</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="109"/>
+        <source>Utilities</source>
+        <translation>Utilitaires</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="118"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="121"/>
+        <source>Directory name</source>
+        <translation>Nom du répertoire</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="122"/>
+        <source>Full path</source>
+        <translation>Chemin complet</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="127"/>
+        <source>@{variable} is empty or does not point to a directory: &apos;{path}&apos;</source>
+        <translation>@{variable} est vide ou ne pointe pas vers un répertoire : &apos;{path}&apos;</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="136"/>
+        <source>&apos;{name}&apos; is not a subdirectory of {root}</source>
+        <translation>&apos;{name}&apos; n&apos;est pas un sous-répertoire de {root}</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="141"/>
+        <source>Chosen directory: {path}</source>
+        <translation>Répertoire choisi : {path}</translation>
     </message>
 </context>
 <context>
@@ -1894,12 +1937,12 @@
         <translation>Fichier résultat des indicateurs par tronçons</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="257"/>
+        <location filename="fichier_temps_multi.py" line="258"/>
         <source>indicators by link multiple points</source>
         <translation>Indicateurs par tronçons carte multi-points</translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="264"/>
+        <location filename="fichier_temps_multi.py" line="265"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
@@ -1955,7 +1998,7 @@
         </translation>
     </message>
     <message>
-        <location filename="fichier_temps_multi.py" line="280"/>
+        <location filename="fichier_temps_multi.py" line="281"/>
         <source>
         Produce indicators aggregated by link. This analysis is usefull when you want to study the variation of travel times during a time period
 		
@@ -2049,89 +2092,134 @@
         <translation>Couche résultat</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="235"/>
+        <location filename="result_filter.py" line="239"/>
         <source>Unable to read header.</source>
         <translation>Unpossible de lire l&apos;entête</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="239"/>
+        <location filename="result_filter.py" line="243"/>
         <source>Read fields : </source>
         <translation>Lecture des champs :</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="247"/>
+        <location filename="result_filter.py" line="251"/>
         <source>Warning: Duplicate fields.</source>
         <translation>Attention: champs dupliqués</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="298"/>
+        <location filename="result_filter.py" line="302"/>
         <source>Sort syntax error : </source>
         <translation>Erreur de syntaxe de tri :</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="303"/>
+        <location filename="result_filter.py" line="307"/>
         <source>Filter : </source>
         <translation>Filtre :</translation>
     </message>
     <message>
-        <location filename="result_filter.py" line="308"/>
+        <location filename="result_filter.py" line="312"/>
         <source>Sort : </source>
         <translation>Tri :</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="361"/>
         <source>Read error at line :</source>
-        <translation>Erreur de lecture à la ligne </translation>
+        <translation type="obsolete">Erreur de lecture à la ligne </translation>
     </message>
     <message>
         <location filename="result_filter.py" line="372"/>
         <source>Line</source>
-        <translation>Ligne</translation>
+        <translation type="obsolete">Ligne</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="417"/>
         <source>Filter evaluation error </source>
-        <translation>Erreur d&apos;évaluation de filtre</translation>
+        <translation type="obsolete">Erreur d&apos;évaluation de filtre</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="439"/>
         <source>Sort evaluation error: </source>
-        <translation>Erreur d&apos;évaluation du tri</translation>
+        <translation type="obsolete">Erreur d&apos;évaluation du tri</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="542"/>
         <source>selected line(s).</source>
-        <translation>lignes sélectionnées</translation>
+        <translation type="obsolete">lignes sélectionnées</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="372"/>
         <source>fields found, </source>
-        <translation>champs trouvés,</translation>
+        <translation type="obsolete">champs trouvés,</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="372"/>
         <source>expected. </source>
-        <translation>attendu.</translation>
+        <translation type="obsolete">attendu.</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="417"/>
         <source>at line </source>
-        <translation>à la ligne</translation>
+        <translation type="obsolete">à la ligne</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="439"/>
         <source>at line</source>
-        <translation>à la ligne</translation>
+        <translation type="obsolete">à la ligne</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="213"/>
         <source>The file is empty.</source>
-        <translation>le fichier est vide</translation>
+        <translation type="obsolete">le fichier est vide</translation>
     </message>
     <message>
         <location filename="result_filter.py" line="546"/>
         <source>Generated file :</source>
-        <translation>Fichier généré :</translation>
+        <translation type="obsolete">Fichier généré :</translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="365"/>
+        <source>Erreur de lecture à la ligne </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="376"/>
+        <source>Ligne</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="376"/>
+        <source>colonnes trouvées, </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="376"/>
+        <source>attendues. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="421"/>
+        <source>Erreur d’évaluation du filtre </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="443"/>
+        <source>à la ligne</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="443"/>
+        <source>Erreur d’évaluation du tri </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="546"/>
+        <source>ligne(s) sélectionnée(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="result_filter.py" line="550"/>
+        <source>Fichier créé</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2973,87 +3061,87 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
 <context>
     <name>Interpole</name>
     <message>
-        <location filename="interpole.py" line="106"/>
+        <location filename="interpole.py" line="267"/>
         <source>Network</source>
         <translation>Arcs (Qgis)</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="113"/>
+        <location filename="interpole.py" line="274"/>
         <source>Window</source>
         <translation>Fenêtre</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="121"/>
+        <location filename="interpole.py" line="282"/>
         <source>i-cost</source>
         <translation>Temps i</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="129"/>
+        <location filename="interpole.py" line="290"/>
         <source>j-cost</source>
         <translation>Temps j</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="138"/>
+        <location filename="interpole.py" line="299"/>
         <source>Direction</source>
         <translation>Sens</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="147"/>
+        <location filename="interpole.py" line="308"/>
         <source>Spread</source>
         <translation>Diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="156"/>
+        <location filename="interpole.py" line="317"/>
         <source>Impassibility</source>
         <translation>Impasse</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="164"/>
+        <location filename="interpole.py" line="325"/>
         <source>Pixels nb x</source>
         <translation>Nb pixels x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="172"/>
+        <location filename="interpole.py" line="333"/>
         <source>Pixels nb y</source>
         <translation>Nb pixels y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="180"/>
+        <location filename="interpole.py" line="341"/>
         <source>Pixel size x</source>
         <translation>Taille pixel x</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="188"/>
+        <location filename="interpole.py" line="349"/>
         <source>Pixel size y</source>
         <translation>Taille pixel y</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="196"/>
+        <location filename="interpole.py" line="357"/>
         <source>Decimals</source>
         <translation>Décimales</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="204"/>
+        <location filename="interpole.py" line="365"/>
         <source>Radius(m)</source>
         <translation>Rayon(m)</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="212"/>
+        <location filename="interpole.py" line="373"/>
         <source>Spread speed</source>
         <translation>Vitesse de diffusion</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="220"/>
+        <location filename="interpole.py" line="381"/>
         <source>Impassable?</source>
         <translation>Intraversables?</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="236"/>
+        <location filename="interpole.py" line="397"/>
         <source>Raster file</source>
         <translation>Fichier Raster</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="550"/>
+        <location filename="interpole.py" line="609"/>
         <source>
         Implements a linear based interpolation in order to build a raster
         representing iso-values from a linear objects file
@@ -3108,19 +3196,29 @@ Le script génère également deux fichier détaillés &lt;couche_résultat&gt;_
             </translation>
     </message>
     <message>
-        <location filename="interpole.py" line="527"/>
+        <location filename="interpole.py" line="586"/>
         <source>Linear interpolation</source>
         <translation>Interpolation linéaire</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="534"/>
+        <location filename="interpole.py" line="593"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
     </message>
     <message>
-        <location filename="interpole.py" line="227"/>
+        <location filename="interpole.py" line="388"/>
         <source>Individual values</source>
         <translation>Valeurs individuelles</translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="430"/>
+        <source>The network layer must be a line layer</source>
+        <translation>La couche réseau doit être une couche d&apos;objets linéaires</translation>
+    </message>
+    <message>
+        <location filename="interpole.py" line="459"/>
+        <source>The window is smaller than one pixel</source>
+        <translation>La taille de la fenêtre est plus petite que 1 pixel</translation>
     </message>
 </context>
 <context>
@@ -4453,137 +4551,137 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>MusliwParam</name>
     <message>
-        <location filename="param_musliw.py" line="106"/>
+        <location filename="param_musliw.py" line="108"/>
         <source>In vehicle weight</source>
         <translation>Pondération temps à bord du véhicule</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="114"/>
+        <location filename="param_musliw.py" line="116"/>
         <source>Waiting weight</source>
         <translation>Pondération temps attente</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="121"/>
+        <location filename="param_musliw.py" line="123"/>
         <source>Individual modes weight</source>
         <translation>Pondération temps mode individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="129"/>
+        <location filename="param_musliw.py" line="131"/>
         <source>Boarding weight</source>
         <translation>Pondération correspondance</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="136"/>
+        <location filename="param_musliw.py" line="138"/>
         <source>Individual mode speed factor</source>
         <translation>Facteurd&apos;échelle temps individuel</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="143"/>
+        <location filename="param_musliw.py" line="145"/>
         <source>Minimum transfer delay</source>
         <translation>Temps de correspondance mini</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="150"/>
+        <location filename="param_musliw.py" line="152"/>
         <source>Maximum transfer delay</source>
         <translation>Temps de correspondance maxi</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="157"/>
+        <location filename="param_musliw.py" line="159"/>
         <source>Extra day duration</source>
         <translation>Nombre de jours supplémentaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="166"/>
+        <location filename="param_musliw.py" line="168"/>
         <source>Max. individual time budget</source>
         <translation>Temps individuel maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="175"/>
+        <location filename="param_musliw.py" line="177"/>
         <source>Maximum generalized time</source>
         <translation>Temps généralisé maximum</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="184"/>
+        <location filename="param_musliw.py" line="186"/>
         <source>Toll weight</source>
         <translation>Pondération péage</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="191"/>
+        <location filename="param_musliw.py" line="193"/>
         <source>Output filter</source>
         <translation>Filtre sortie</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="200"/>
         <source>Output links times?</source>
         <translation>Temps détaillés?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="200"/>
         <source>No output</source>
         <translation>Aucun</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="200"/>
         <source>Without timetable links</source>
         <translation>Sans les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="200"/>
         <source>With timetable links</source>
         <translation>Avec les arcs à horaires</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="206"/>
+        <location filename="param_musliw.py" line="208"/>
         <source>Prohibited U-turns?</source>
         <translation>Demi-tours interdits?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="213"/>
+        <location filename="param_musliw.py" line="215"/>
         <source>Output paths?</source>
         <translation>Sortie chemins?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="221"/>
+        <location filename="param_musliw.py" line="223"/>
         <source>Output services?</source>
         <translation>Sortie services?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="228"/>
+        <location filename="param_musliw.py" line="230"/>
         <source>Output transfers?</source>
         <translation>Sortie correspondances?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="235"/>
+        <location filename="param_musliw.py" line="237"/>
         <source>Output node times?</source>
         <translation>Sortie noeud?</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="250"/>
+        <location filename="param_musliw.py" line="252"/>
         <source>Algorithm scale?</source>
         <translation>Echelle de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="259"/>
+        <location filename="param_musliw.py" line="261"/>
         <source>Algorithm exponent?</source>
         <translation>Exposant de l&apos;algorithme</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="268"/>
+        <location filename="param_musliw.py" line="270"/>
         <source>nb classes?</source>
         <translation>Nombrede classes</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="277"/>
+        <location filename="param_musliw.py" line="279"/>
         <source>Parameters file</source>
         <translation>Fichier paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="378"/>
+        <location filename="param_musliw.py" line="406"/>
         <source>Musliw parameters</source>
         <translation>Paramètres Musliw</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="385"/>
+        <location filename="param_musliw.py" line="413"/>
         <source>Computations</source>
         <translation>Calculs</translation>
     </message>
@@ -4654,7 +4752,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation type="obsolete">Accepter de télécharger l&apos;exécutable Musliw de Github</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="356"/>
+        <location filename="param_musliw.py" line="380"/>
         <source>;output isolated links</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4664,7 +4762,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
         <translation type="obsolete">Téléchargement de Musliw terminé</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="401"/>
+        <location filename="param_musliw.py" line="429"/>
         <source>
         Create a set of parameters usefull for multimodal routing or acceesibility computation with Musliw
         Produce a parameter file (to be selected in musliw computation):
@@ -4724,144 +4822,201 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
             </translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="330"/>
+        <location filename="param_musliw.py" line="354"/>
         <source>;algorithm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="331"/>
+        <location filename="param_musliw.py" line="355"/>
         <source>;prohibited U-turns</source>
         <translation>;demi-tours interdits</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="332"/>
+        <location filename="param_musliw.py" line="356"/>
         <source>;max buckets</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="333"/>
+        <location filename="param_musliw.py" line="357"/>
         <source>;number of days</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="334"/>
+        <location filename="param_musliw.py" line="358"/>
         <source>;matrix file</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="335"/>
+        <location filename="param_musliw.py" line="359"/>
         <source>;turns and transfers files</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="336"/>
+        <location filename="param_musliw.py" line="360"/>
         <source>;network file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="337"/>
+        <location filename="param_musliw.py" line="361"/>
         <source>;generic output file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="338"/>
+        <location filename="param_musliw.py" line="362"/>
         <source>;algorithm parameter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="339"/>
+        <location filename="param_musliw.py" line="363"/>
         <source>;algorithm power</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="340"/>
+        <location filename="param_musliw.py" line="364"/>
         <source>;output paths</source>
         <translation type="unfinished">;sortie chemins</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="341"/>
+        <location filename="param_musliw.py" line="365"/>
         <source>;output services</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="342"/>
+        <location filename="param_musliw.py" line="366"/>
         <source>;output travel times</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="343"/>
+        <location filename="param_musliw.py" line="367"/>
         <source>;output turns and transfers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="344"/>
+        <location filename="param_musliw.py" line="368"/>
         <source>;boarding weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="345"/>
+        <location filename="param_musliw.py" line="369"/>
         <source>;individual mode weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="346"/>
+        <location filename="param_musliw.py" line="370"/>
         <source>;individual travel time factor</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="347"/>
+        <location filename="param_musliw.py" line="371"/>
         <source>;in-vehicle time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="348"/>
+        <location filename="param_musliw.py" line="372"/>
         <source>;wait time weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="349"/>
+        <location filename="param_musliw.py" line="373"/>
         <source>;min transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="350"/>
+        <location filename="param_musliw.py" line="374"/>
         <source>;max transfer time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="351"/>
+        <location filename="param_musliw.py" line="375"/>
         <source>;max individual travel time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="352"/>
+        <location filename="param_musliw.py" line="376"/>
         <source>;toll weight</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="353"/>
+        <location filename="param_musliw.py" line="377"/>
         <source>;output types filter</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="354"/>
+        <location filename="param_musliw.py" line="378"/>
         <source>;max travel cost</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="355"/>
+        <location filename="param_musliw.py" line="379"/>
         <source>;output nodes</source>
         <translation type="unfinished">;sortie noeuds</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="198"/>
+        <location filename="param_musliw.py" line="200"/>
         <source>Compact mode</source>
         <translation>mode compact</translation>
     </message>
     <message>
-        <location filename="param_musliw.py" line="242"/>
+        <location filename="param_musliw.py" line="244"/>
         <source>Output stops?</source>
         <translation>Sortie arrêts de montée/descente?</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="288"/>
+        <source>Early Departure/Arrival weight?</source>
+        <translation>Pois départ/arrivée en avance</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="298"/>
+        <source>late Departure/Arrival weight?</source>
+        <translation>Poids départ/arrivée en retard</translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="382"/>
+        <source>;early departure/arrival weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="param_musliw.py" line="383"/>
+        <source>;late departure/arrival weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirDefinitionWidget</name>
+    <message>
+        <location filename="directory_list_gui.py" line="54"/>
+        <source>Drop-down list of the subdirectories of @musliw_path.</source>
+        <translation>Liste déroulante des sous-répertoires de @musliw_path.</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirParameter</name>
+    <message>
+        <location filename="directory_list.py" line="60"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirParameterType</name>
+    <message>
+        <location filename="directory_list.py" line="80"/>
+        <source>Subdirectory of @musliw_path, chosen from a drop-down list.</source>
+        <translation>Sous-répertoire de @musliw_path, choisi dans une liste déroulante.</translation>
+    </message>
+    <message>
+        <location filename="directory_list.py" line="83"/>
+        <source>Musliw subdirectory</source>
+        <translation>Sous-répertoire musliw</translation>
+    </message>
+</context>
+<context>
+    <name>MusliwSubdirWidgetWrapper</name>
+    <message>
+        <location filename="directory_list_gui.py" line="28"/>
+        <source>@musliw_path is empty or does not point to a directory</source>
+        <translation>@musliw_path est vide ou ne pointe vers aucun répertoire</translation>
     </message>
 </context>
 <context>
@@ -4968,7 +5123,7 @@ L&apos;indicateur d&apos;accessibilité avec concurrence spatiale et modale est 
 <context>
     <name>NetworksProvider</name>
     <message>
-        <location filename="networks_provider.py" line="281"/>
+        <location filename="networks_provider.py" line="291"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>
@@ -6293,57 +6448,57 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
 <context>
     <name>SpatialAggregation</name>
     <message>
-        <location filename="spatial_aggregation.py" line="92"/>
+        <location filename="spatial_aggregation.py" line="70"/>
         <source>Polygons</source>
         <translation>Polygones (Qgis)</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="99"/>
+        <location filename="spatial_aggregation.py" line="77"/>
         <source>Id</source>
         <translation>Id</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="106"/>
+        <location filename="spatial_aggregation.py" line="84"/>
         <source>Source</source>
         <translation>Source</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="113"/>
+        <location filename="spatial_aggregation.py" line="91"/>
         <source>Variable</source>
         <translation>Variable</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="120"/>
+        <location filename="spatial_aggregation.py" line="98"/>
         <source>Aggregator</source>
         <translation>Agrégateur</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="120"/>
+        <location filename="spatial_aggregation.py" line="98"/>
         <source>mean</source>
         <translation>moyenne</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="120"/>
+        <location filename="spatial_aggregation.py" line="98"/>
         <source>sum</source>
         <translation>somme</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="120"/>
+        <location filename="spatial_aggregation.py" line="98"/>
         <source>min</source>
         <translation>min</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="120"/>
+        <location filename="spatial_aggregation.py" line="98"/>
         <source>max</source>
         <translation>max</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="128"/>
+        <location filename="spatial_aggregation.py" line="106"/>
         <source>Output</source>
         <translation>Sortie</translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="262"/>
+        <location filename="spatial_aggregation.py" line="207"/>
         <source>Spatial aggregation</source>
         <translation>Agrégation spatiale</translation>
     </message>
@@ -6366,7 +6521,7 @@ d&apos;un fichier de temps de parcours Musliw (*_temps.txt)
 			aggregator: aggregator (min,max, mean, sum) 
 			output: the result of aggration layer (containing the same objects as the polygons layer)
         </source>
-        <translation>        Effectue une aggrégation spatiale entre 2 couches de polygones
+        <translation type="obsolete">        Effectue une aggrégation spatiale entre 2 couches de polygones
 pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
 		        
         Parametères:
@@ -6381,9 +6536,37 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         </translation>
     </message>
     <message>
-        <location filename="spatial_aggregation.py" line="269"/>
+        <location filename="spatial_aggregation.py" line="210"/>
         <source>Analysis</source>
         <translation>Analyses</translation>
+    </message>
+    <message>
+        <location filename="spatial_aggregation.py" line="216"/>
+        <source>
+        Perform a spatial aggregation between 2 layers in order to estimate
+        for example the proportion of population which belongs to a polygon (ex: area &lt;30min)
+
+        Parameters:
+            polygons: the polygon layer (ex: iso-value layer)
+            id: field containing the polygon id (ex: 30min iso-value)
+            source: a polygon layer with a variable to compute (ex: municipalities layer)
+            variable: the variable to compute from the source layer (ex: population from municipalities layer)
+            aggregator: aggregator (min, max, mean, sum)
+            output: the result of aggregation layer (containing the same objects as the polygons layer)
+        </source>
+        <translation>        Effectue une aggrégation spatiale entre 2 couches de polygones
+pour estimer par exemple la part de la population qui est à l&apos;intérieur d&apos;un polygone (ex surface &lt; 30min)
+		        
+        Parametères:
+            polygones: nom de la couche de polygones (ex: isochrones)
+			id: champ contenant l&apos;identifiant du polygones (ex isochrone de 30 minutes)
+			source: couche de polygones qui contient la variable à estimer ( ex: communes contenant la population)
+			variable: la variable à calculer de la table source (ex: la population des communes)
+			aggregateur:aggreagateur (min, max, moyenne, somme)
+			valeur absente: valeur correspondant à l&apos;absence de données dans le raster
+			sortie: table résultat contenant les polygones avec la variable estimée
+
+        </translation>
     </message>
 </context>
 <context>
@@ -6902,86 +7085,6 @@ pour estimer par exemple la part de la population qui est à l&apos;intérieur d
         <location filename="zones_objects_centroids.py" line="119"/>
         <source>Network</source>
         <translation>Réseau</translation>
-    </message>
-</context>
-<context>
-    <name>ChooseMusliwDirectory</name>
-    <message>
-        <location filename="directory_list.py" line="106"/>
-        <source>Choose a musliw directory</source>
-        <translation>Choisir un répertoire musliw</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="109"/>
-        <source>Utilities</source>
-        <translation>Utilitaires</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="119"/>
-        <source>Musliw subdirectory</source>
-        <translation>Sous-répertoire musliw</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="121"/>
-        <source>Directory name</source>
-        <translation>Nom du répertoire</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="122"/>
-        <source>Full path</source>
-        <translation>Chemin complet</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="128"/>
-        <source>@{variable} is empty or does not point to a directory: &apos;{path}&apos;</source>
-        <translation>@{variable} est vide ou ne pointe pas vers un répertoire : &apos;{path}&apos;</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="137"/>
-        <source>&apos;{name}&apos; is not a subdirectory of {root}</source>
-        <translation>&apos;{name}&apos; n&apos;est pas un sous-répertoire de {root}</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="141"/>
-        <source>Chosen directory: {path}</source>
-        <translation>Répertoire choisi : {path}</translation>
-    </message>
-</context>
-<context>
-    <name>MusliwSubdirDefinitionWidget</name>
-    <message>
-        <location filename="directory_list_gui.py" line="54"/>
-        <source>Drop-down list of the subdirectories of @musliw_path.</source>
-        <translation>Liste déroulante des sous-répertoires de @musliw_path.</translation>
-    </message>
-</context>
-<context>
-    <name>MusliwSubdirParameter</name>
-    <message>
-        <location filename="directory_list.py" line="60"/>
-        <source>Musliw subdirectory</source>
-        <translation>Sous-répertoire musliw</translation>
-    </message>
-</context>
-<context>
-    <name>MusliwSubdirParameterType</name>
-    <message>
-        <location filename="directory_list.py" line="80"/>
-        <source>Subdirectory of @musliw_path, chosen from a drop-down list.</source>
-        <translation>Sous-répertoire de @musliw_path, choisi dans une liste déroulante.</translation>
-    </message>
-    <message>
-        <location filename="directory_list.py" line="83"/>
-        <source>Musliw subdirectory</source>
-        <translation>Sous-répertoire musliw</translation>
-    </message>
-</context>
-<context>
-    <name>MusliwSubdirWidgetWrapper</name>
-    <message>
-        <location filename="directory_list_gui.py" line="29"/>
-        <source>@musliw_path is empty or does not point to a directory</source>
-        <translation>@musliw_path est vide ou ne pointe vers aucun répertoire</translation>
     </message>
 </context>
 </TS>
